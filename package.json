@@ -1,0 +1,24 @@
+{
+  "name": "gemo",
+  "version": "1.0.0",
+  "description": "mosaic genome data visualization",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production",
+    "watch": "webpack --mode=development --watch"
+  },
+  "author": "Marilyne Summo",
+  "license": "ISC",
+  "dependencies": {
+    "ideogram": "^1.16.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
