@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>VCP</title>
+    <link href="src/css/chrompaint.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div id="logo">[Insérez ici un logo qui tue]</div>
+    <div id="titre">[Et là un titre accrocheur]</div>
+</header>
+
+<div id="menu">
+
+    <div  class="dropdown">
+        <button id="sub1" class="dropbtn" style="background-color: rgb(241, 250, 238);">Données</button>
+    </div>
+
+
+
+    <div class="dropdown">
+        <button id="sub2" class="dropbtn">Configuration</button>
+    </div>
+</div>
+
+<div id="box1">
+    <div id="drop-area">
+        <form class="my-form">
+            <p>Séléctionner votre fichier à l'aide du bouton ci-dessous ou en le déposant directement dans cette zone</p>
+            <input type="file" id="dataFile" accept=".csv, .tab, .tsv">
+            <label class="button" for="dataFile">Séléctionner un fichier</label>
+        </form>
+    </div>
+</div>
+
+<div id="box2">
+    <div>
+        <p>Fichier de couleur <img class="help" src="assets/001-info.svg" alt="help"></p>
+        <input id="colorFile" type="file" accept=".csv, .tab, .tsv, .conf">
+    </div>
+
+    <img class="arrow" src="assets/right-arrow.svg">
+
+    <div>
+        <p>Fichier de longueur des chromosomes <img class="help" src="assets/001-info.svg" alt="help" alt="help"></p>
+        <input id="lenFile" type="file" accept=".csv, .tab, .tsv">
+    </div>
+
+    <img class="arrow" src="assets/right-arrow.svg" alt="arrow">
+
+    <div>
+        <p>Haplotype <img class="help" src="assets/001-info.svg" alt="arrow"></p>
+        <input id="haplotype" type="number" value="2" step="1" min="2">
+    </div>
+
+    <img class="arrow" src="assets/right-arrow.svg" alt="arrow">
+
+    <div>
+        <button id="submit" class="button">Générer</button>
+    </div>
+
+
+</div>
+
+
+
+
+<div id="box3">
+    <div id="graph"></div>
+    <div id="selector">
+        <div id="floorContainer">
+        </div>
+    </div>
+</div>
+<div id="box4">
+</div>
+
+
+<footer>
+    <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a></div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://d3js.org/d3.v5.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ideogram@1.20.0/dist/js/ideogram.min.js"></script>
+<script type="module" src="src/chrompaint/main.js"></script>
+
+</body>
+</html>
