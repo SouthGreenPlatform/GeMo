@@ -1,35 +1,41 @@
 <!DOCTYPE html> 
 <html>
 <head> 
-  <title>GEMO</title>
-  <meta charset="utf-8">
+<title>GEMO</title>
+<meta charset="utf-8">
 
-  <!--Bootstrap 4.4-->
+<!--Bootstrap 4.4-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  
+
 <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/sandstone/bootstrap.min.css" rel="stylesheet" integrity="sha384-ABdnjefqVzESm+f9z9hcqx2cvwvDNjfrwfW5Le9138qHCMGlNmWawyn/tt4jR4ba" crossorigin="anonymous">  
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.1.1/d3.min.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/ideogram@1.16.0/dist/js/ideogram.min.js"></script>
- 
-   <!--Tooltipster-->
-   <link rel="stylesheet" type="text/css" href="src/tooltipster/dist/css/tooltipster.bundle.min.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.1.1/d3.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/ideogram@1.16.0/dist/js/ideogram.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/ideogram@1.20.0/dist/js/ideogram.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/ideogram@1.29.0/dist/js/ideogram.min.js"></script>
+
+<!--Tooltipster-->
+<link rel="stylesheet" type="text/css" href="src/tooltipster/dist/css/tooltipster.bundle.min.css" />
 <script type="text/javascript" src="src/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
 
- 
- <script src="src/main.js"></script>
- <script type="text/javascript" src="src/html2canvas.js"></script>
- <script type="text/javascript" src="src/canvas2image.js"></script>
-
- <script src="https://d3js.org/d3-axis.v1.min.js"></script>
-
-
- 
- <link rel="stylesheet" type="text/css" href="src/css/gemo.css">
- 
+<!--gemo-->
+<script src="src/main.js" defer></script>
+<link rel="stylesheet" type="text/css" href="src/css/gemo.css">
 <link rel="shortcut icon" href="/gemo/public/img/favicon.ico">
+
+<!--chrompaint-->
+<script type="module" src="src/chrompaint/main.js" defer></script>
+<link href="src/css/chrompaint.css" rel="stylesheet">
+
+<!--libs-->
+<script type="text/javascript" src="src/html2canvas.js"></script>
+<script type="text/javascript" src="src/canvas2image.js"></script>
+
+<!--d3-->
+<script src="https://d3js.org/d3-axis.v1.min.js"></script>
+
 
 
 </head>
@@ -102,25 +108,25 @@ echo "<script> load_ideogram()</script>";
 
 <!--SIDEBAR-->
 <div id="wrapper">
-		<div id="sidebar-wrapper">
-			<aside id="sidebar">
-				<ul id="sidemenu" class="sidebar-nav">
+	<div id="sidebar-wrapper">
+		<aside id="sidebar">
+			<ul id="sidemenu" class="sidebar-nav">
 					
-		  <!--HOME-->
-		  <li>
+		<!--ACCESSION-->
+		<li id="accession">
 			<a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-1">
-							<span class="sidebar-icon"><i class="fa fa-dashboard"></i></span>
-							<span class="sidebar-title">Data</span>
-			  <b class="caret"></b>
-						</a>
+				<span class="sidebar-icon"><i class="fa fa-dashboard"></i></span>
+				<span class="sidebar-title">Data</span>
+			<b class="caret"></b>
+			</a>
 			
 			<ul id="submenu-1" class="panel-collapse collapse panel-switch" role="menu">
-			  
-			  <!-- select accessions-->
-			  <li>
+		
+			<!-- select accessions-->
+			<li>
 				<div class="form-group">
-				  <label for="selectAccession">Accession</label>
-				  <select onchange="load_accession(this.value);" class="form-control-sm" id="selectAccession">
+				<label for="selectAccession">Accession</label>
+				<select onchange="load_accession(this.value);" class="form-control-sm" id="selectAccession">
 					<option value=""></option>
 					<option value="Visuchromp">Visuchromp</option>
 					<option value="Banksii620">Banksii620</option>
@@ -147,113 +153,181 @@ echo "<script> load_ideogram()</script>";
 					<option value="Selangor">Selangor</option>
 					<option value="SF215">SF215</option>
 					<option value="THA018">THA018</option>
-				  </select>
-				  
-				  <!--Accessions data-->
-				  
-				  <textarea id="editorAnnot" rows="5" class="form-control" placeholder="Insert values here" ></textarea>
-				  
-				  <!--Load accession file-->
-				  
-				  <!--<label for="fileInputD" class="control-label">Load custom data</label>-->
-				  <input class="btn" onchange="load_file2(this.value)" type="file" id="fileInputD">
-				  
-				  <!--Chromosomes data-->
-				  <label for="editorChr" class="col-lg-2 control-label">Chromosomes</label>
-				  <textarea id="editorChr" rows="5" class="form-control" placeholder="Insert values here"></textarea>
-				  
-				  <!--Load chromosome file-->
-				  <!--<label for="fileInputC" class="control-label">Load custom data</label>-->
-				  <input class="btn" onchange="load_file(this.value)" type="file" id="fileInputC">
-          
-				  <label for="selectAccession">Ploïdie</label>
-				  <select name="select" id="selectorploidy" class="form-control-sm" onchange="loadingon()">
+				</select>
+				
+				<!--Accessions data-->
+				
+				<textarea id="editorAnnot" rows="5" class="form-control" placeholder="Insert values here" ></textarea>
+				
+				<!--Load accession file-->
+				
+				<!--<label for="fileInputD" class="control-label">Load custom data</label>-->
+				<input class="btn" onchange="load_file2(this.value)" type="file" id="fileInputD">
+		
+				<!--Chromosomes data-->
+				<label for="editorChr" class="col-lg-2 control-label">Chromosomes</label>
+				<textarea id="editorChr" rows="5" class="form-control" placeholder="Insert values here"></textarea>
+				
+				<!--Load chromosome file-->
+				<!--<label for="fileInputC" class="control-label">Load custom data</label>-->
+				<input class="btn" onchange="load_file(this.value)" type="file" id="fileInputC">
+        
+				<label for="selectAccession">Ploïdie</label>
+				<select name="select" id="selectorploidy" class="form-control-sm" onchange="loadingon()">
 					<option value="2" selected>2</option> 
 					<option value="3">3</option>
 					<option value="4">4</option>
-				  </select>
-				  <br />
-				  
-				  <!--Letters show / hide-->
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="SwitchLetters" checked onchange="displaytext()">
-            <label class="custom-control-label" for="SwitchLetters">Show letters</label>
-          </div>
-				  <br />
-				  
-				  <!--Clear-->
-				  <button class="btn btn-warning" onclick="location.reload(true);" id="clear">Clear</button>
-				  
-				  <!-- Update -->
-				  <button class="btn btn-primary" onclick="update();" id="reload">Update image</button>
-
-				  <!--Download image-->
-				  <a id="download" style="display: none;" class="btn btn-warning">Download as PNG</a>
-				  <script>
-				  $('#download').click(function(){ 
-					html2canvas(document.getElementById("page-content-wrapper")).then(function(canvas) {
-					  Canvas2Image.saveAsPNG(canvas);
-					});
-				  });
-				  </script>
-				  
+				</select>
+				<br />
+				
+				<!--Letters show / hide-->
+				<div class="custom-control custom-switch">
+					<input type="checkbox" class="custom-control-input" id="SwitchLetters" checked onchange="displaytext()">
+					<label class="custom-control-label" for="SwitchLetters">Show letters</label>
 				</div>
-			  </li>
-						</ul>
+				<br />
+				
+				<!--Clear-->
+				<button class="btn btn-warning" onclick="location.reload(true);" id="clear">Clear</button>
+				
+				<!-- Update -->
+				<button class="btn btn-primary" onclick="update();" id="reload">Update image</button>
+
+				<!--Download image-->
+				<a id="download" style="display: none;" class="btn btn-warning">Download as PNG</a>
+				<script>
+				$('#download').click(function(){ 
+					html2canvas(document.getElementById("page-content-wrapper")).then(function(canvas) {
+					Canvas2Image.saveAsPNG(canvas);
+					});
+				});
+				</script>
+				
+				</div>
+			</li>
+		</ul>
 			
 			
-					</li>
-		  
-		  <!--CHROMOSOMES-->
-		  <li>
-						<a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">
-							<span class="sidebar-icon"><i class="fa fa-users"></i></span>
-							<span class="sidebar-title">Chromosomes</span>
-							<b class="caret"></b>
-						</a>
-						<ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
-
-							<li id="potatosalad">
-
-						  </li>
-			</ul>
-					</li>
-		  
-		  <!--Accessions-->
-					<li>
-						<a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-3">
-							<span class="sidebar-icon"><i class="fa fa-newspaper-o"></i></span>
-							<span class="sidebar-title">Accessions</span>
-							<b class="caret"></b>
-						</a>
-						
-					</li>
-		  
-		  <!--DATA-->
-					<li>
-						<a href="#">
-							<span class="sidebar-icon"><i class="fa fa-database"></i></span>
-							<span class="sidebar-title">Data</span>
-						</a>
-					</li>
-		  
-		  <!--CONSOLE-->
-					<li>
-						<a href="#">
-							<span class="sidebar-icon"><i class="fa fa-terminal"></i></span>
-							<span class="sidebar-title">Console</span>
-						</a>
-					</li>
-				</ul>
-			</aside>            
-		</div>
-	<!-- fin de la sidebar -->
+		</li>
 	
-		<main id="page-content-wrapper" role="main" class="ideo_container">
-	  <!-- The ideogram goes here. -->
-		</main>
-	</div> 
-	<div class="tooltip_templates" id="tooltip_content">
+		<!--CHROMOSOME PAINTING-->
+		<li id="chrompaint_button">
+			<a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">
+				<span class="sidebar-icon"><i class="fa fa-users"></i></span>
+				<span class="sidebar-title">Chromosome Painting</span>
+				<b class="caret"></b>
+			</a>
+		</li>
+		<ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
+			<li>
+			<div id=chrompaint_menu>
+				<div>
+					<form class="my-form">
+						<p>Séléctionner votre fichier à l'aide du bouton ci-dessous ou en le déposant directement dans cette zone</p>
+						<input type="file" id="dataFile" accept=".csv, .tab, .tsv">
+						<label class="button" for="dataFile">Séléctionner un fichier</label>
+					</form>
+				</div>
+				<div>
+					<p>Fichier de couleur <img class="help" src="assets/001-info.svg" alt="help"></p>
+					<input id="colorFile" type="file" accept=".csv, .tab, .tsv, .conf">
+				</div>
+				<div>
+					<p>Fichier de longueur des chromosomes <img class="help" src="assets/001-info.svg" alt="help" alt="help"></p>
+					<input id="lenFile" type="file" accept=".csv, .tab, .tsv">
+				</div>
+				<div>
+					<p>Haplotype <img class="help" src="assets/001-info.svg" alt="arrow"></p>
+					<input id="haplotype" type="number" value="2" step="1" min="2">
+				</div>
+				<div>
+					<button id="submit" class="button">Générer</button>
+				</div>
+			</div>
+			</li>
+		</ul>
+	</ul>
+	</aside>            
+</div>
+<!-- fin de la sidebar -->
+	
+		<div id="page-content-wrapper" role="main" class="ideo_container">
+<!-- The ideogram goes here. -->
+		</div>
+
+<div id="chrompaint" style="display: none">
+	chrompaint
+	
+<!-- <div id="menu">
+
+<div  class="dropdown">
+	<button id="sub1" class="dropbtn" style="background-color: rgb(241, 250, 238);">Données</button>
+</div>
+
+
+
+<div class="dropdown">
+	<button id="sub2" class="dropbtn">Configuration</button>
+</div>
+</div> -->
+
+<!-- <div id="box1">
+<div id="drop-area">
+	<form class="my-form">
+		<p>Séléctionner votre fichier à l'aide du bouton ci-dessous ou en le déposant directement dans cette zone</p>
+		<input type="file" id="dataFile" accept=".csv, .tab, .tsv">
+		<label class="button" for="dataFile">Séléctionner un fichier</label>
+	</form>
+</div>
+</div> -->
+
+<!-- <div id="box2">
+<div>
+	<p>Fichier de couleur <img class="help" src="assets/001-info.svg" alt="help"></p>
+	<input id="colorFile" type="file" accept=".csv, .tab, .tsv, .conf">
+</div>
+
+<img class="arrow" src="assets/right-arrow.svg">
+
+<div>
+	<p>Fichier de longueur des chromosomes <img class="help" src="assets/001-info.svg" alt="help" alt="help"></p>
+	<input id="lenFile" type="file" accept=".csv, .tab, .tsv">
+</div>
+
+<img class="arrow" src="assets/right-arrow.svg" alt="arrow">
+
+<div>
+	<p>Haplotype <img class="help" src="assets/001-info.svg" alt="arrow"></p>
+	<input id="haplotype" type="number" value="2" step="1" min="2">
+</div>
+
+<img class="arrow" src="assets/right-arrow.svg" alt="arrow">
+
+<div>
+	<button id="submit" class="button">Générer</button>
+</div>
+
+
+</div> -->
+
+
+
+
+<div id="box3">
+<div id="graph"></div>
+<div id="selector">
+	<div id="floorContainer">
+	</div>
+</div>
+</div>
+<div id="box4">
+ideogram
+</div>
+<!-- fin chrompaint -->
+</div>
+</div> 
+	
+<div class="tooltip_templates" id="tooltip_content">
 		<span>
 			<a href="https://banana-genome-hub.southgreen.fr/jbrowse_ma2/?loc=chr01:24139214..24142797">
 				view in banana jbrowse

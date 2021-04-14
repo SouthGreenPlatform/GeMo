@@ -24,7 +24,7 @@ let mosaiqueConfig; //Version parsé pour ideogram.js de chrConfig
 
 ////////////RECUPERATION DES FICHIERS///////////////////////////////
 
-dropArea.addEventListener('drop', handleDrop, false);
+//dropArea.addEventListener('drop', handleDrop, false);
 
 dataFileInput.addEventListener('change',function(e){
     handleFiles(this.files,e.target.id);
@@ -91,7 +91,7 @@ function handleFiles(files,fileType) {
             case'data':
                 if(checkDataFile(d3.tsvParse(e.target.result))) {
                     rawData = d3.tsvParse(e.target.result);
-                    dropArea.style.animation = "valid 1s ease forwards"; //Parce que sinon ils ne vont pas comprendre que leur fichier a bien été déposé.
+                    //dropArea.style.animation = "valid 1s ease forwards"; //Parce que sinon ils ne vont pas comprendre que leur fichier a bien été déposé.
                 }
                 break;
             case'color':
@@ -109,7 +109,7 @@ function handleFiles(files,fileType) {
     };
     reader.onerror = function () {
         alert("Echec de chargement du fichier");
-        dropArea.style.backgroundImage = "invalid 1s ease forwards";
+        //dropArea.style.backgroundImage = "invalid 1s ease forwards";
     }
 }
 ///////////////////////CREATION DU GRAPHIQUE//////////////////////////////////////
@@ -597,12 +597,12 @@ function ideogramConfig(mosaique){
     console.log(ploidyDesc);
     console.log(ancestors);
 
-    let config = {
+    let configChrompaint = {
         rotatable:false,
         orientation: 'horizontal',
         organism: 'banana',
         ploidy: haplotype,
-        dataDir: "./config/",
+        dataDir: "http://dev.visusnp.southgreen.fr/gemo/config/",
         container: "#box4",
         rangeSet: dataSet,
         chrMargin: 0,
@@ -612,9 +612,10 @@ function ideogramConfig(mosaique){
         ploidyDesc:ploidyDesc,
     };
 
+    console.log(configChrompaint);
 
-    new Ideogram(config);
-
+    const ideogramChrompaint = new Ideogram(configChrompaint);
+    
 
 }
 

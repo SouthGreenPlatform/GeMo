@@ -276,6 +276,7 @@
   margin-top: 20px;
 }
 
+
 #sidebar-wrapper .sidebar-nav li ul.panel-collapse {
     list-style: none;
     -moz-padding-start: 0;
@@ -286,6 +287,14 @@
     padding-top: 10px;
     line-height: 20px !important;
 }
+
+
+#chrompaint_menu{
+  list-style: none;x
+  padding-top: 10px;
+  line-height: 20px !important;
+}
+
 
 #sidebar-wrapper .sidebar-nav li ul.panel-collapse li i {
     margin-right: 10px;
@@ -333,9 +342,6 @@
     background: #262721 !important; /*#245682 !important;*/
     color: #fff !important;
 }
-
-
-
 
 .form-group {
     margin-bottom: 1rem;
@@ -388,4 +394,8 @@ textarea.form-control {
   background : #005B59 !important;
   border-color: black;
   width: 200px;
+}
+
+#chrompaint_menu{
+  line-height: 20px;
 }

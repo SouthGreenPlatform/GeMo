@@ -4,7 +4,7 @@ let ploidyA ="";
 //////////
 
 let lgtChro =[]; //longueur des chromosomes
-let chrBands = [];
+//let chrBands = [];
 let config;
 let annotTable=[]; // annot file splited by line
 
@@ -522,7 +522,29 @@ function echelle(){
        .call(x_axis);
 }
 
+///////////////////////////////////////////////
+// CHROMPAINT
+///////////////////////////////////////////////
 
+/////////////////////////////
+///// BOUTON ACCESSION /////
+/////////////////////////////
+document.getElementById("accession").addEventListener("click", function(e) {
+	//affiche la page
+	$('#chrompaint').hide();
+	$('#page-content-wrapper').show();
+	
+});
+
+/////////////////////////////
+///// BOUTON CHROMPAINT /////
+/////////////////////////////
+document.getElementById("chrompaint_button").addEventListener("click", function(e) {
+	//affiche la page
+	$('#chrompaint').show();
+	$('#page-content-wrapper').hide();
+	
+});
 
 
 
