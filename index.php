@@ -329,7 +329,7 @@ ideogram
 	
 <div class="tooltip_templates" id="tooltip_content">
 		<span>
-			<a href="https://banana-genome-hub.southgreen.fr/jbrowse_ma2/?loc=chr01:24139214..24142797">
+			<a href="https://banana-genome-hub.southgreen.fr/content/m-acuminata-dh-pahang-version-2/?loc=chr01:24139214..24142797">
 				view in banana jbrowse
 			</a>
 		</span>

@@ -291,7 +291,7 @@ function addTooltip(){
 			//const regexp = /(chr\d+)/.exec(clippath);
 
 			//set the url to the retrieved chromosome
-			let url = 'Go to Banana Jbrowse\<br/\>\<a href=\"https://banana-genome-hub.southgreen.fr/jbrowse_ma2/?loc=chr'+chr+':'+start+'..'+stop+'\"\>Chr'+chr+' '+start+'..'+stop+'\<\/a\>'
+			let url = 'Go to Banana Jbrowse\<br/\>\<a href=\"https://banana-genome-hub.southgreen.fr/content/m-acuminata-dh-pahang-version-2/?loc=chr'+chr+':'+start+'..'+stop+'\"\>Chr'+chr+' '+start+'..'+stop+'\<\/a\>'
 			let g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 			g.setAttributeNS(null, 'class', 'bloc-annot');
 
