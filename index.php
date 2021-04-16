@@ -21,7 +21,7 @@
 <script type="text/javascript" src="src/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
 
 <!--gemo-->
-<script src="src/main.js" defer></script>
+<script type="module" src="src/main.js" defer></script>
 <link rel="stylesheet" type="text/css" href="src/css/gemo.css">
 <link rel="shortcut icon" href="/gemo/public/img/favicon.ico">
 
@@ -126,7 +126,7 @@ echo "<script> load_ideogram()</script>";
 			<li>
 				<div class="form-group">
 				<label for="selectAccession">Accession</label>
-				<select onchange="load_accession(this.value);" class="form-control-sm" id="selectAccession">
+				<select class="form-control-sm" id="selectAccession">
 					<option value=""></option>
 					<option value="Visuchromp">Visuchromp</option>
 					<option value="Banksii620">Banksii620</option>

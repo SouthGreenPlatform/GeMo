@@ -8,8 +8,6 @@ let lgtChro =[]; //longueur des chromosomes
 let config;
 let annotTable=[]; // annot file splited by line
 
-
-
 function initConfig(){
 	console.log("init config");
 	config = { 
@@ -54,9 +52,15 @@ function initConfig(){
 }
 
 
+
+
 ////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////
+$('#selectAccession').change( function(){
+	load_accession(this.value);
+});
+
 async function load_accession(acc){
 	console.log("load accession");
 	clear();
@@ -126,12 +130,12 @@ async function load_accession(acc){
 ////////////////////////////////////////////////////////////////
 function chromosomeParser(data){
 	console.log("parse chromosome");
-	chrBands=[];
+	let chrBands=[];
 	
 	//split le fichier par ligne de chromosome
 	const split = data.split("\n");
 	let localsplit  = "";
-	/////////////////////////////////////////////var localchr="";
+	let localchr="";
 	//nombre de chromosomes
 	config.ploidysize = split.length;
 	
@@ -184,7 +188,7 @@ function annotationParser(data){
 		}
 		//console.log(ploidy);
 		
-		chromosome = {
+		let chromosome = {
 			chr: colonne[0],
 			ploidy: ploidy,
 			start: colonne[2],
