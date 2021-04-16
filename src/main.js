@@ -1,4 +1,5 @@
-
+import { initConfig } from "./config.js";
+import { chromosomeParser } from "./dataParser.js";
 ////////////
 let ploidyA ="";
 //////////
@@ -7,51 +8,6 @@ let lgtChro =[]; //longueur des chromosomes
 //let chrBands = [];
 let config;
 let annotTable=[]; // annot file splited by line
-
-function initConfig(){
-	console.log("init config");
-	config = { 
-		organism: "banana",
-		//repertoire vers les données de chromosome bands
-		dataDir: 'http://dev.visusnp.southgreen.fr/gemo/data/',
-		
-		container: '.ideo_container',
-		
-		orientation: "horizontal",
-		rotatable: false,
-		//ploidy: 2, 
-		ploidysize: 11,
-		
-		annotationsLayout: 'overlay',
-		annotations: [{
-		name: 'test',
-		chr: '1',
-		start: 3000,
-		stop: 10000,
-		color: '#00000000' //couleur transparente pour les annots
-	  }],
-		anotcolor: ["#CBCBCB", "#FF0000","#0066FF","#088A08","#F7FF00","#F7FF00","FFA200","9100FF","000000","#F08080"],
-	
-		chrMargin: 0,
-		chrHeight: 600,
-		chrWidth: 10,
-		
-		ancestors: {
-			"A": "#dea673",
-			"B": "#7396be",
-			"C": "#272727",
-			"D": "#437343",
-			"E": "#737373",
-			"F": "#487646",
-			"H": "#D3H4A2"
-		},
-		ploidyDesc: [],
-		rangeSet: []
-	};
-	return config;
-}
-
-
 
 
 ////////////////////////////////////////////////////////////////
@@ -119,39 +75,6 @@ async function load_accession(acc){
 	//draw
 	//loadingon();
 	
-}
-
-
-
-
-
-////////////////////////////////////////////////////////////////
-//parsing du formulaire chromosome
-////////////////////////////////////////////////////////////////
-function chromosomeParser(data){
-	console.log("parse chromosome");
-	let chrBands=[];
-	
-	//split le fichier par ligne de chromosome
-	const split = data.split("\n");
-	let localsplit  = "";
-	let localchr="";
-	//nombre de chromosomes
-	config.ploidysize = split.length;
-	
-	//pour chaque chromosome
-	for (let i = 0; i < split.length; i++) {
-		localsplit = split[i].split(" ");
-    	//LocalSplit[0] = chromosome choisi, localsplit[1] = longeur du chromosome
-    	localchr = localsplit[0]+" p 1 0 "+(localsplit[1]/2)+" 0 "+(localsplit[1]/2);
-		lgtChro.push(localsplit[1]);
-    	chrBands.push(localchr);
-    	localchr = localsplit[0]+" p 1 0 "+(localsplit[1]/2)+" "+(localsplit[1]/2)+" "+localsplit[1];
-    	chrBands.push(localchr);
-		ploidyA = localsplit[2];
-		
-		config.ploidyDesc.push(ploidyA);
-    }
 }
 
 ////////////////////////////////////////////////////////////////
@@ -233,8 +156,12 @@ function load_ideogram(){
 	config.ploidyDesc = [];
 	//colorchange();
 	updateploidy($('#selectorploidy').val());
+	
 	//parse les valeurs d'entrée
-	chromosomeParser(chrdata);
+	let chrDataParsed = chromosomeParser(chrdata);
+	config.ploidyDesc = chrDataParsed[0];
+	config.ploidysize = chrDataParsed[1];
+	
 	annotationParser(annotdata);
 	
 	
