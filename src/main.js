@@ -39,7 +39,7 @@ async function load_accession(acc){
 
 	//load le fichier chromosome dans le formulaire
 	if(acc==="GrandeNaine"){
-		updateploidy(3);
+		config.ploidy = 3;
 		$('#selectorploidy').val('3');
 
 		config.dataDir = 'http://dev.visusnp.southgreen.fr/gemo/data/';
@@ -49,7 +49,7 @@ async function load_accession(acc){
 		
 		
 	}else if(acc==="Visuchromp"){
-		updateploidy(2);
+		config.ploidy = 2;
 		$('#selectorploidy').val('2');
 
 		config.dataDir = 'http://dev.visusnp.southgreen.fr/gemo/data/visuchromp/';
@@ -58,7 +58,7 @@ async function load_accession(acc){
 		await $("#editorChr").val(responseText);
 	}
 	else{
-		updateploidy(2);
+		config.ploidy = 2;
 		$('#selectorploidy').val('2');
 		config.dataDir = 'http://dev.visusnp.southgreen.fr/gemo/data/';
 		response = await fetch('http://dev.visusnp.southgreen.fr/gemo/data/chromosomes/banana_chr.txt');
@@ -77,13 +77,6 @@ async function load_accession(acc){
 	
 }
 
-
-function updateploidy(value){
-	console.log("update ploïdie");
-	config.ploidy = Number(value);
-	//load_ideogram();
-}
-
 function loadingon(){
 	console.log("loading on");
 	document.getElementById("loader").style.display = "block";
@@ -100,23 +93,24 @@ function loadingoff(){
 ////////////////////////////////////////////////////////////////
 function load_ideogram(){
 	//clear();
+	//values in chromosome form
 	console.log("load ideogram");
-
-	//parse les données chromosomes
+	//console.log(config);
 	const chrdata = $("#editorChr").val();
+	//values in data form
+	const annotdata = $("#editorAnnot").val();
+	config.ploidyDesc = [];
+	//colorchange();
+	config.ploidy = Number($('#selectorploidy').val());
+	//parse les données chromosomes
 	let chrDataParsed = chromosomeParser(chrdata);
 	config.ploidyDesc = chrDataParsed[0];
 	config.ploidysize = chrDataParsed[1];
-
+	
 	//parse les données blocs
-	const annotdata = $("#editorAnnot").val();
 	let annotDataParsed = annotationParser(annotdata, config.ploidy);
 	config.rangeSet = annotDataParsed[0];
 	annotTable = annotDataParsed[1];
-
-	config.ploidyDesc = [];
-
-	updateploidy($('#selectorploidy').val());
 	
 	//Crée le graph
 	if(chrdata != ""){
