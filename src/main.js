@@ -1,5 +1,5 @@
 import { initConfig } from "./config.js";
-import { chromosomeParser } from "./dataParser.js";
+import { chromosomeParser, annotationParser } from "./dataParser.js";
 ////////////
 let ploidyA ="";
 //////////
@@ -77,53 +77,6 @@ async function load_accession(acc){
 	
 }
 
-////////////////////////////////////////////////////////////////
-//parsing du formulaire data avec les annotations
-////////////////////////////////////////////////////////////////
-function annotationParser(data){
-	console.log("parse annot");
-	annotTable = data.split("\n");
-	//console.log(annotTable);
-	let colonne  = "";
-	//var data = "";
-	//let localannot="";
-	let ploidy=[];
-	let count =0;
-
-	config.rangeSet = [];
-	
-	//pour chaque ligne d'annot
-	for (let i = 0; i < annotTable.length; i++) {
-		ploidy = [];
-		colonne = annotTable[i].split(" ");
-		count++;
-		
-		//Boucle qui sert a définir la position de l'annotation
-		for(let n = 0; n< config.ploidy; n++){
-			//console.log(n + " " + parseInt(colonne[1]));
-			if(n == parseInt(colonne[1])){
-				//console.log("egal");
-				ploidy.push(1);
-			}else {
-				ploidy.push(0);
-				//console.log("pas egal");
-			}	
-		}
-		//console.log(ploidy);
-		
-		let chromosome = {
-			chr: colonne[0],
-			ploidy: ploidy,
-			start: colonne[2],
-			stop: colonne[3],
-			color: colonne[4]
-			//color: config.anotcolor[localsplit[4]]
-		};
-		config.rangeSet.push(chromosome);
-	//console.log(config.rangeSet);
-	}
-	//console.log(ligne.length+" "+ count);
-}
 
 function updateploidy(value){
 	console.log("update ploïdie");
@@ -147,23 +100,23 @@ function loadingoff(){
 ////////////////////////////////////////////////////////////////
 function load_ideogram(){
 	//clear();
-	//values in chromosome form
 	console.log("load ideogram");
-	//console.log(config);
+
+	//parse les données chromosomes
 	const chrdata = $("#editorChr").val();
-	//values in data form
-	const annotdata = $("#editorAnnot").val();
-	config.ploidyDesc = [];
-	//colorchange();
-	updateploidy($('#selectorploidy').val());
-	
-	//parse les valeurs d'entrée
 	let chrDataParsed = chromosomeParser(chrdata);
 	config.ploidyDesc = chrDataParsed[0];
 	config.ploidysize = chrDataParsed[1];
-	
-	annotationParser(annotdata);
-	
+
+	//parse les données blocs
+	const annotdata = $("#editorAnnot").val();
+	let annotDataParsed = annotationParser(annotdata, config.ploidy);
+	config.rangeSet = annotDataParsed[0];
+	annotTable = annotDataParsed[1];
+
+	config.ploidyDesc = [];
+
+	updateploidy($('#selectorploidy').val());
 	
 	//Crée le graph
 	if(chrdata != ""){
