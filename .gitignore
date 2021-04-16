@@ -6,7 +6,7 @@ public/build/
 node_modules/
 
 # Data directories
-data*
+#data*
 
 # Optional npm cache directory
 .npm
