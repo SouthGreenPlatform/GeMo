@@ -191,7 +191,7 @@ echo "<script> load_ideogram()</script>";
 				<button class="btn btn-warning" onclick="location.reload(true);" id="clear">Clear</button>
 				
 				<!-- Update -->
-				<button class="btn btn-primary" onclick="update();" id="reload">Update image</button>
+				<button class="btn btn-primary" id="reload">Update image</button>
 
 				<!--Download image-->
 				<a id="download" style="display: none;" class="btn btn-warning">Download as PNG</a>

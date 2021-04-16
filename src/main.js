@@ -201,7 +201,7 @@ function addTooltip(){
 ////////////////////////////////////////////////////////////////
 // Fonction qui recalcul le schéma à partir des données dans les cadres
 ////////////////////////////////////////////////////////////////
-function update(){
+document.getElementById("reload").addEventListener("click", function(e) {
 	console.log("update");
 	clear();
 	config = initConfig();
@@ -209,7 +209,8 @@ function update(){
 	load_ideogram();
 	repositione();
 	setTimeout(addTooltip, 100); //addTooltip();
-}
+	
+});
 
 ////////////////////////////////////////////////////////////////
 //
