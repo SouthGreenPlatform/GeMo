@@ -120,7 +120,7 @@ function load_ideogram(){
 	}
 	//apparition du bouton download
 	$('#download').fadeIn()
-	repositione();
+	//repositione();
 	$('#potatosalad').on('click', function(event){
     //The event won't be propagated to the document NODE and 
     // therefore events delegated to document won't be fired
@@ -207,7 +207,7 @@ document.getElementById("reload").addEventListener("click", function(e) {
 	config = initConfig();
 	loadingon();
 	load_ideogram();
-	repositione();
+	//repositione();
 	setTimeout(addTooltip, 100); //addTooltip();
 	
 });
@@ -242,12 +242,8 @@ function load_file(){
 			else{
 				$("#editorChr").text(reader.result);
 			}	
-
-			//$("#editorChr").text(reader.result);
-			//$("#fileInputC").hide();
 		};
 		reader.readAsText(file);  
-	//});   
 }
 
 function load_file2(){
@@ -285,14 +281,14 @@ function load_file2(){
 }
 
 
-function repositione(){
+/* function repositione(){
 	console.log("repositione");
 	setTimeout(function(){
 		const ideo = document.getElementById("_ideogram");
 		//var tideo = document.getElementById("targetideo");
 		//tideo.appendChild(ideo);
 	}, 50);
-}
+} */
 
 
 function clear(){
