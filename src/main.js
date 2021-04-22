@@ -1,5 +1,7 @@
 import { initConfig } from "./config.js";
 import { chromosomeParser, annotationParser } from "./dataParser.js";
+import { loadingon, loadingoff, displaytext, clear } from "./display.js";
+
 ////////////
 let ploidyA ="";
 //////////
@@ -77,16 +79,12 @@ async function load_accession(acc){
 	
 }
 
-function loadingon(){
-	console.log("loading on");
-	document.getElementById("loader").style.display = "block";
-	//setTimeout(load_ideogram,100);
-}
-function loadingoff(){
-	console.log("loading off");
-	document.getElementById("loader").style.display = "none";
-	//document.getElementById("ideo_div").style.visibility = "visible";
-}
+////////////////////////////////////////////////////////////////
+// Event show letters
+////////////////////////////////////////////////////////////////
+$('#SwitchLetters').change( function(){
+	displaytext();
+});
 
 ////////////////////////////////////////////////////////////////
 //
@@ -291,38 +289,9 @@ function load_file2(){
 } */
 
 
-function clear(){
-	console.log("clear");
 
-	const element = document.getElementById("_ideogramOuterWrap"); //_ideogram
-	if(element != null){
-		element.parentNode.removeChild(element);
-	}
-	const div = document.getElementById("ideo_div");
-	if(div != null){
-		div.parentNode.removeChild(div);
-	}
-	const sca = document.getElementById("scale");
-		if(sca != null){
-		sca.parentNode.removeChild(sca);
-	}
-	//config = initConfig();
-}
 
-//Affiche les lettres
-function displaytext(){
-	let value ="";
-	const letters = document.getElementsByClassName("chrLabel");
-	if (document.getElementById("SwitchLetters").checked){
-		value='inline';
-	}else{
-		value="none";
-	}
 
-	for (i = 0; i < letters.length; i++) { 
-		letters[i].style.display=value;
-	}
-}
 
 
 function colorchange(){
@@ -398,7 +367,7 @@ function echelle(){
 }
 
 ///////////////////////////////////////////////
-// CHROMPAINT
+// MENU
 ///////////////////////////////////////////////
 
 /////////////////////////////

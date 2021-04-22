@@ -182,7 +182,7 @@ echo "<script> load_ideogram()</script>";
 				
 				<!--Letters show / hide-->
 				<div class="custom-control custom-switch">
-					<input type="checkbox" class="custom-control-input" id="SwitchLetters" checked onchange="displaytext()">
+					<input type="checkbox" class="custom-control-input" id="SwitchLetters" checked ">
 					<label class="custom-control-label" for="SwitchLetters">Show letters</label>
 				</div>
 				<br />
