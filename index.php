@@ -125,35 +125,16 @@ echo "<script> load_ideogram()</script>";
 			<!-- select accessions-->
 			<li>
 				<div class="form-group">
-				<label for="selectAccession">Accession</label>
-				<select class="form-control-sm" id="selectAccession">
-					<option value=""></option>
-					<option value="Visuchromp">Visuchromp</option>
-					<option value="Banksii620">Banksii620</option>
-					<option value="Banksii853">Banksii853</option>
-					<option value="Borneo">Borneo</option>
-					<option value="Calcutta4">Calcutta4</option>
-					<option value="Chicame">Chicame</option>
-					<option value="Galeo">Galeo</option>
-					<option value="GrandeNaine">GrandeNaine</option>
-					<option value="GuNinChiao">GuNinChiao</option>
-					<option value="Guyod">Guyod</option>
-					<option value="KhaePhrae">KhaePhrae</option>
-					<option value="Kirun">Kirun</option>
-					<option value="LongTavoy">LongTavoy</option>
-					<option value="MaiaOa">MaiaOa</option>
-					<option value="Mala">Mala</option>
-					<option value="Manang">Manang</option>
-					<option value="Microcarpa">Microcarpa</option>
-					<option value="PaRayong">PaRayong</option>
-					<option value="PisangKlutukWulung">PisangKlutukWulung</option>
-					<option value="PisangMadu">PisangMadu</option>
-					<option value="PTBA00008">PTBA00008</option>
-					<option value="PTBA00267">PTBA00267</option>
-					<option value="Selangor">Selangor</option>
-					<option value="SF215">SF215</option>
-					<option value="THA018">THA018</option>
+
+				<label for="preloaded">Pre-loaded example</label>
+				<br/>
+				<select class="form-control-sm" id="organism">
+					<option value="Organism">Organism</option>
 				</select>
+				<select class="form-control-sm" id="sample">
+					<option value="Sample">Sample</option>
+				</select>
+				<br/><br/>
 				
 				<!--Accessions data-->
 				

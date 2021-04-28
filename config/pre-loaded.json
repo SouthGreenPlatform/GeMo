@@ -1,0 +1,133 @@
+[
+  
+	{
+    "ID": "001",
+    "Sample": "Banksii620",
+    "Organism": "Musa acuminata" },
+  
+	{
+    "ID": "002",
+    "Sample": "Banksii853",
+    "Organism": "Musa acuminata" },
+  
+	{
+    "ID": "003",
+    "Sample": "Borneo",
+    "Organism": "Musa acuminata" }
+,
+	{
+    "ID": "004",
+    "Sample": "Calcutta4",
+    "Organism": "Musa acuminata" }
+,
+	{
+    "ID": "005",
+    "Sample": "Chicame",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "006",
+    "Sample": "Galeo",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "007",
+    "Sample": "GrandeNaine",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "008",
+    "Sample": "GuNinChiao",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "009",
+    "Sample": "Guyod",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "010",
+    "Sample": "KhaePhrae",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "011",
+    "Sample": "Kirun",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "012",
+    "Sample": "LongTavoy",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "013",
+    "Sample": "MaiaOa",
+    "Organism": "Musa acuminata" }
+,
+	{
+    "ID": "014",
+    "Sample": "Mala",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "015",
+    "Sample": "Manang",
+    "Organism": "Musa acuminata" }
+,
+	{
+    "ID": "016",
+    "Sample": "Microcarpa",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "017",
+    "Sample": "Monyet",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "018",
+    "Sample": "PaRayong",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "019",
+    "Sample": "PisangKlutukWulung",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "020",
+    "Sample": "PisangMadu",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "021",
+    "Sample": "PTBA00008",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "022",
+    "Sample": "PTBA00267",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "023",
+    "Sample": "Selangor",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "024",
+    "Sample": "SF215",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "025",
+    "Sample": "THA018",
+    "Organism": "Musa acuminata"  }
+,
+	{
+    "ID": "026",
+    "Sample": "Visuchromp",
+    "Organism": "Chrompaint test"  }
+
+]

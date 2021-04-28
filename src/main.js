@@ -15,9 +15,6 @@ let annotTable=[]; // annot file splited by line
 ////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////
-$('#selectAccession').change( function(){
-	load_accession(this.value);
-});
 
 async function load_accession(acc){
 	console.log("load accession");
@@ -390,6 +387,58 @@ document.getElementById("chrompaint_button").addEventListener("click", function(
 	
 });
 
+//////////////////////////////////////////////////////
+// Populate preloaded list of organisms and samples //
+//////////////////////////////////////////////////////
+//ref https://www.encodedna.com/jquery/cascading-select-dropdown-list-using-json-data.htm
+//tab of preloaded example
+let arrData = [];
+    
+// Fill the first dropdown with data.
+$.getJSON('./config/pre-loaded.json', function (data) {
+
+	//tab of organisms
+    let organismTab = [];
+
+	//retrieve organism in each json entry
+    $.each(data, function (index, value) {
+        organismTab.push(value.Organism);
+        arrData = data;
+    });
+
+    // Remove duplicates. We want unique bird types.
+    organismTab = Array.from(new Set (organismTab));
+    // ref (https://www.encodedna.com/javascript/remove-duplicates-in-javascript-array-using-es6-set-and-from.htm)
+
+    // Fill the first dropdown with unique bird types.
+    $.each(organismTab, function (index, value) {
+        $('#organism').append('<option value="' + value + '">' + value + '</option>');
+    });
+});
+
+//fonction change select
+$('#organism').change(function () {
+    let selectedOrganism = this.options[this.selectedIndex].value;
+
+    let filterData = arrData.filter(function(value) {
+        return value.Organism === selectedOrganism;
+    });
+
+    $('#sample')
+        .empty()
+        .append('<option value=""> -- Select sample -- </option>');
+
+    $.each(filterData, function (index, value) {
+        // Now, fill the second dropdown list with bird names.
+        $('#sample').append('<option value="' + value.Sample + '">' + value.Sample + '</option>');
+    });
+});
+
+//fonction change sample
+//load ideogram
+$('#sample').change( function(){
+	load_accession(this.value);
+});
 
 
 
