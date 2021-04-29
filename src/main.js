@@ -29,7 +29,7 @@ async function load_accession(sampleJson){
 	config = initConfig();
 	//load le fichier mosaique dans le formulaire
 
-	let response = await fetch('http://dev.visusnp.southgreen.fr/gemo/data/accessions/'+FileName);
+	let response = await fetch('/gemo/data/accessions/'+FileName);
 	let responseText = await response.text();
 	await $("#editorAnnot").val(responseText);
 
@@ -39,19 +39,19 @@ async function load_accession(sampleJson){
 
 	//load le fichier chromosome dans le formulaire
 	if(FileName==="ideo_GrandeNaine.txt"){
-		config.dataDir = 'http://dev.visusnp.southgreen.fr/gemo/data/';
-		response = await fetch('http://dev.visusnp.southgreen.fr/gemo/data/chromosomes/banana_chr_triploide.txt');
+		config.dataDir = '/gemo/data/';
+		response = await fetch('/gemo/data/chromosomes/banana_chr_triploide.txt');
 		responseText = await response.text();
 		await $("#editorChr").val(responseText);
 	}else if(FileName==="ideo_Visuchromp.txt"){
-		config.dataDir = 'http://dev.visusnp.southgreen.fr/gemo/data/visuchromp/';
-		response = await fetch('http://dev.visusnp.southgreen.fr/gemo/data/chromosomes/banana_chr_visuchromp.txt');
+		config.dataDir = '/gemo/data/visuchromp/';
+		response = await fetch('/gemo/data/chromosomes/banana_chr_visuchromp.txt');
 		responseText = await response.text();
 		await $("#editorChr").val(responseText);
 	}
 	else{
-		config.dataDir = 'http://dev.visusnp.southgreen.fr/gemo/data/';
-		response = await fetch('http://dev.visusnp.southgreen.fr/gemo/data/chromosomes/banana_chr.txt');
+		config.dataDir = '/gemo/data/';
+		response = await fetch('/gemo/data/chromosomes/banana_chr.txt');
 		responseText = await response.text();
 		await $("#editorChr").val(responseText);
 	}
@@ -432,7 +432,6 @@ $('#sample').change( function(){
     let sampleJson = arrData.filter(function(value) {
         return value.ID === $("#sample option:selected").data('id');
     });
-	//console.log(sampleJson);
 	load_accession(sampleJson);
 });
 

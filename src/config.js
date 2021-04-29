@@ -3,7 +3,7 @@ export function initConfig(){
 	let config = { 
 		organism: "banana",
 		//repertoire vers les données de chromosome bands
-		dataDir: 'http://dev.visusnp.southgreen.fr/gemo/data/',
+		dataDir: '/gemo/data/',
 		
 		container: '.ideo_container',
 		

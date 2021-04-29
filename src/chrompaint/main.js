@@ -602,7 +602,7 @@ function ideogramConfig(mosaique){
         orientation: 'horizontal',
         organism: 'banana',
         ploidy: haplotype,
-        dataDir: "http://dev.visusnp.southgreen.fr/gemo/config/",
+        dataDir: "/gemo/config/",
         container: "#box4",
         rangeSet: dataSet,
         chrMargin: 0,
