@@ -16,8 +16,10 @@ let annotTable=[]; // annot file splited by line
 //
 ////////////////////////////////////////////////////////////////
 
-async function load_accession(FileName){
+async function load_accession(sampleJson){
 	console.log("load accession");
+	let FileName = sampleJson[0].FileName;
+	let ploidy = sampleJson[0].Ploidy;
 	clear();
 	//console.log(new Error().stack);
 	
@@ -30,36 +32,28 @@ async function load_accession(FileName){
 	let response = await fetch('http://dev.visusnp.southgreen.fr/gemo/data/accessions/'+FileName);
 	let responseText = await response.text();
 	await $("#editorAnnot").val(responseText);
-	//console.log(responseText);
+
+	//Ploidy
+	config.ploidy = ploidy;
+	$('#selectorploidy').val(ploidy);
 
 	//load le fichier chromosome dans le formulaire
 	if(FileName==="ideo_GrandeNaine.txt"){
-		config.ploidy = 3;
-		$('#selectorploidy').val('3');
-
 		config.dataDir = 'http://dev.visusnp.southgreen.fr/gemo/data/';
 		response = await fetch('http://dev.visusnp.southgreen.fr/gemo/data/chromosomes/banana_chr_triploide.txt');
 		responseText = await response.text();
 		await $("#editorChr").val(responseText);
-		
-		
 	}else if(FileName==="ideo_Visuchromp.txt"){
-		config.ploidy = 2;
-		$('#selectorploidy').val('2');
-
 		config.dataDir = 'http://dev.visusnp.southgreen.fr/gemo/data/visuchromp/';
 		response = await fetch('http://dev.visusnp.southgreen.fr/gemo/data/chromosomes/banana_chr_visuchromp.txt');
 		responseText = await response.text();
 		await $("#editorChr").val(responseText);
 	}
 	else{
-		config.ploidy = 2;
-		$('#selectorploidy').val('2');
 		config.dataDir = 'http://dev.visusnp.southgreen.fr/gemo/data/';
 		response = await fetch('http://dev.visusnp.southgreen.fr/gemo/data/chromosomes/banana_chr.txt');
 		responseText = await response.text();
 		await $("#editorChr").val(responseText);
-		
 	}
 	load_ideogram();
 
@@ -416,6 +410,7 @@ $.getJSON('./config/pre-loaded.json', function (data) {
 $('#organism').change(function () {
     let selectedOrganism = this.options[this.selectedIndex].value;
 
+	//retreive all entries for this organism
     let filterData = arrData.filter(function(value) {
         return value.Organism === selectedOrganism;
     });
@@ -426,14 +421,19 @@ $('#organism').change(function () {
 
     $.each(filterData, function (index, value) {
         // Now, fill the second dropdown list with bird names.
-        $('#sample').append('<option value="' + value.FileName + '">' + value.Sample + '</option>');
+        $('#sample').append('<option value="' + value.FileName + '" data-ploidy="' + value.Ploidy + '" data-id="' + value.ID + '">' + value.Sample + '</option>');
     });
 });
 
 //fonction change sample
 //load ideogram
 $('#sample').change( function(){
-	load_accession(this.value);
+	//retreive all entries for this ID sample
+    let sampleJson = arrData.filter(function(value) {
+        return value.ID === $("#sample option:selected").data('id');
+    });
+	//console.log(sampleJson);
+	load_accession(sampleJson);
 });
 
 

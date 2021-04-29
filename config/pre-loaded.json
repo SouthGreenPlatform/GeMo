@@ -4,150 +4,175 @@
     "ID": "001",
     "Sample": "Banksii620",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_Banksii620.txt" },
   
 	{
     "ID": "002",
     "Sample": "Banksii853",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_Banksii853.txt" },
   
 	{
     "ID": "003",
     "Sample": "Borneo",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_Borneo.txt" }
 ,
 	{
     "ID": "004",
     "Sample": "Calcutta4",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_Calcutta4.txt" }
 ,
 	{
     "ID": "005",
     "Sample": "Chicame",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_Chicame.txt"  }
 ,
 	{
     "ID": "006",
     "Sample": "Galeo",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_Galeo.txt"  }
 ,
 	{
     "ID": "007",
     "Sample": "GrandeNaine",
     "Organism": "Musa acuminata",
+    "Ploidy" : "3",
     "FileName": "ideo_GrandeNaine.txt"  }
 ,
 	{
     "ID": "008",
     "Sample": "GuNinChiao",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_GuNinChiao.txt"  }
 ,
 	{
     "ID": "009",
     "Sample": "Guyod",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_Guyod.txt"  }
 ,
 	{
     "ID": "010",
     "Sample": "KhaePhrae",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_KhaePhrae.txt"  }
 ,
 	{
     "ID": "011",
     "Sample": "Kirun",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_Kirun.txt"  }
 ,
 	{
     "ID": "012",
     "Sample": "LongTavoy",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_LongTavoy.txt"  }
 ,
 	{
     "ID": "013",
     "Sample": "MaiaOa",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_MaiaOa.txt" }
 ,
 	{
     "ID": "014",
     "Sample": "Mala",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_Mala.txt"  }
 ,
 	{
     "ID": "015",
     "Sample": "Manang",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_Manang.txt" }
 ,
 	{
     "ID": "016",
     "Sample": "Microcarpa",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_Microcarpa.txt"  }
 ,
 	{
     "ID": "017",
     "Sample": "Monyet",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_Monyet.txt"  }
 ,
 	{
     "ID": "018",
     "Sample": "PaRayong",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_PaRayong.txt"  }
 ,
 	{
     "ID": "019",
     "Sample": "PisangKlutukWulung",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_PisangKlutukWulung.txt"  }
 ,
 	{
     "ID": "020",
     "Sample": "PisangMadu",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_PisangMadu.txt"  }
 ,
 	{
     "ID": "021",
     "Sample": "PTBA00008",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_PTBA00008.txt"  }
 ,
 	{
     "ID": "022",
     "Sample": "PTBA00267",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_PTBA00267.txt"  }
 ,
 	{
     "ID": "023",
     "Sample": "Selangor",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_Selangor.txt"  }
 ,
 	{
     "ID": "024",
     "Sample": "SF215",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_SF215.txt"  }
 ,
 	{
     "ID": "025",
     "Sample": "THA018",
     "Organism": "Musa acuminata",
+    "Ploidy" : "2",
     "FileName": "ideo_THA018.txt"  }
 ,
 	{
