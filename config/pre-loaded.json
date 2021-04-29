@@ -5,6 +5,7 @@
     "Sample": "Banksii620",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_Banksii620.txt" },
   
 	{
@@ -12,6 +13,7 @@
     "Sample": "Banksii853",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_Banksii853.txt" },
   
 	{
@@ -19,6 +21,7 @@
     "Sample": "Borneo",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_Borneo.txt" }
 ,
 	{
@@ -26,6 +29,7 @@
     "Sample": "Calcutta4",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_Calcutta4.txt" }
 ,
 	{
@@ -33,6 +37,7 @@
     "Sample": "Chicame",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_Chicame.txt"  }
 ,
 	{
@@ -40,6 +45,7 @@
     "Sample": "Galeo",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_Galeo.txt"  }
 ,
 	{
@@ -47,6 +53,7 @@
     "Sample": "GrandeNaine",
     "Organism": "Musa acuminata",
     "Ploidy" : "3",
+    "ChromFile": "banana_chr_triploïde.txt",
     "FileName": "ideo_GrandeNaine.txt"  }
 ,
 	{
@@ -54,6 +61,7 @@
     "Sample": "GuNinChiao",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_GuNinChiao.txt"  }
 ,
 	{
@@ -61,6 +69,7 @@
     "Sample": "Guyod",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_Guyod.txt"  }
 ,
 	{
@@ -68,6 +77,7 @@
     "Sample": "KhaePhrae",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_KhaePhrae.txt"  }
 ,
 	{
@@ -75,6 +85,7 @@
     "Sample": "Kirun",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_Kirun.txt"  }
 ,
 	{
@@ -82,6 +93,7 @@
     "Sample": "LongTavoy",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_LongTavoy.txt"  }
 ,
 	{
@@ -89,6 +101,7 @@
     "Sample": "MaiaOa",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_MaiaOa.txt" }
 ,
 	{
@@ -96,6 +109,7 @@
     "Sample": "Mala",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_Mala.txt"  }
 ,
 	{
@@ -103,6 +117,7 @@
     "Sample": "Manang",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_Manang.txt" }
 ,
 	{
@@ -110,6 +125,7 @@
     "Sample": "Microcarpa",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_Microcarpa.txt"  }
 ,
 	{
@@ -117,6 +133,7 @@
     "Sample": "Monyet",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_Monyet.txt"  }
 ,
 	{
@@ -124,6 +141,7 @@
     "Sample": "PaRayong",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_PaRayong.txt"  }
 ,
 	{
@@ -131,6 +149,7 @@
     "Sample": "PisangKlutukWulung",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_PisangKlutukWulung.txt"  }
 ,
 	{
@@ -138,6 +157,7 @@
     "Sample": "PisangMadu",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_PisangMadu.txt"  }
 ,
 	{
@@ -145,6 +165,7 @@
     "Sample": "PTBA00008",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_PTBA00008.txt"  }
 ,
 	{
@@ -152,6 +173,7 @@
     "Sample": "PTBA00267",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_PTBA00267.txt"  }
 ,
 	{
@@ -159,6 +181,7 @@
     "Sample": "Selangor",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_Selangor.txt"  }
 ,
 	{
@@ -166,6 +189,7 @@
     "Sample": "SF215",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_SF215.txt"  }
 ,
 	{
@@ -173,12 +197,15 @@
     "Sample": "THA018",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
+    "ChromFile": "banana_chr.txt",
     "FileName": "ideo_THA018.txt"  }
 ,
 	{
     "ID": "026",
     "Sample": "Visuchromp",
     "Organism": "Chrompaint test",
+    "Ploidy" : "2",
+    "ChromFile": "banana_chr_visuchromp",
     "FileName": "ideo_Visuchromp.txt"  }
 
 ]

@@ -421,7 +421,7 @@ $('#organism').change(function () {
 
     $.each(filterData, function (index, value) {
         // Now, fill the second dropdown list with bird names.
-        $('#sample').append('<option value="' + value.FileName + '" data-ploidy="' + value.Ploidy + '" data-id="' + value.ID + '">' + value.Sample + '</option>');
+        $('#sample').append('<option value="' + value.ID + '">' + value.Sample + '</option>');
     });
 });
 
@@ -430,7 +430,7 @@ $('#organism').change(function () {
 $('#sample').change( function(){
 	//retreive all entries for this ID sample
     let sampleJson = arrData.filter(function(value) {
-        return value.ID === $("#sample option:selected").data('id');
+        return value.ID === $("#sample option:selected")[0].value;
     });
 	load_accession(sampleJson);
 });
