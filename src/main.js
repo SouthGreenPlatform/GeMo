@@ -16,7 +16,7 @@ let annotTable=[]; // annot file splited by line
 //
 ////////////////////////////////////////////////////////////////
 
-async function load_accession(acc){
+async function load_accession(FileName){
 	console.log("load accession");
 	clear();
 	//console.log(new Error().stack);
@@ -26,18 +26,14 @@ async function load_accession(acc){
 	
 	config = initConfig();
 	//load le fichier mosaique dans le formulaire
-/* 	fetch('http://dev.visusnp.southgreen.fr/gemo/data/accessions/ideo_'+acc+'.txt')
-		.then( response => response.text() )
-		  .then( responseText => $("#editorAnnot").text(responseText)); */
 
-	
-	let response = await fetch('http://dev.visusnp.southgreen.fr/gemo/data/accessions/ideo_'+acc+'.txt');
+	let response = await fetch('http://dev.visusnp.southgreen.fr/gemo/data/accessions/'+FileName);
 	let responseText = await response.text();
 	await $("#editorAnnot").val(responseText);
 	//console.log(responseText);
 
 	//load le fichier chromosome dans le formulaire
-	if(acc==="GrandeNaine"){
+	if(FileName==="ideo_GrandeNaine.txt"){
 		config.ploidy = 3;
 		$('#selectorploidy').val('3');
 
@@ -47,7 +43,7 @@ async function load_accession(acc){
 		await $("#editorChr").val(responseText);
 		
 		
-	}else if(acc==="Visuchromp"){
+	}else if(FileName==="ideo_Visuchromp.txt"){
 		config.ploidy = 2;
 		$('#selectorploidy').val('2');
 
@@ -430,7 +426,7 @@ $('#organism').change(function () {
 
     $.each(filterData, function (index, value) {
         // Now, fill the second dropdown list with bird names.
-        $('#sample').append('<option value="' + value.Sample + '">' + value.Sample + '</option>');
+        $('#sample').append('<option value="' + value.FileName + '">' + value.Sample + '</option>');
     });
 });
 
