@@ -7,7 +7,7 @@ let ploidyA ="";
 //////////
 
 let lgtChro =[]; //longueur des chromosomes
-//let chrBands = [];
+let chrBands = [];
 let config;
 let annotTable=[]; // annot file splited by line
 
@@ -20,6 +20,7 @@ async function load_accession(sampleJson){
 	console.log("load accession");
 	let FileName = sampleJson[0].FileName;
 	let ploidy = sampleJson[0].Ploidy;
+	let ChromFile = sampleJson[0].ChromFile;
 	clear();
 	//console.log(new Error().stack);
 	
@@ -37,24 +38,12 @@ async function load_accession(sampleJson){
 	config.ploidy = ploidy;
 	$('#selectorploidy').val(ploidy);
 
-	//load le fichier chromosome dans le formulaire
-	if(FileName==="ideo_GrandeNaine.txt"){
-		config.dataDir = '/gemo/data/';
-		response = await fetch('/gemo/data/chromosomes/banana_chr_triploide.txt');
-		responseText = await response.text();
-		await $("#editorChr").val(responseText);
-	}else if(FileName==="ideo_Visuchromp.txt"){
-		config.dataDir = '/gemo/data/visuchromp/';
-		response = await fetch('/gemo/data/chromosomes/banana_chr_visuchromp.txt');
-		responseText = await response.text();
-		await $("#editorChr").val(responseText);
-	}
-	else{
-		config.dataDir = '/gemo/data/';
-		response = await fetch('/gemo/data/chromosomes/banana_chr.txt');
-		responseText = await response.text();
-		await $("#editorChr").val(responseText);
-	}
+	config.dataDir = '/gemo/data/';
+	//config.dataDir = '/gemo/data/visuchromp/';
+	response = await fetch('/gemo/data/chromosomes/'+ChromFile);
+	responseText = await response.text();
+	await $("#editorChr").val(responseText);
+
 	load_ideogram();
 
 	setTimeout(addTooltip,100);
@@ -91,6 +80,7 @@ function load_ideogram(){
 	let chrDataParsed = chromosomeParser(chrdata);
 	config.ploidyDesc = chrDataParsed[0];
 	config.ploidysize = chrDataParsed[1];
+	chrBands = chrDataParsed[2];
 	
 	//parse les données blocs
 	let annotDataParsed = annotationParser(annotdata, config.ploidy);
@@ -352,6 +342,8 @@ function echelle(){
     svg.append("g")
        .call(x_axis);
 }
+
+
 
 ///////////////////////////////////////////////
 // MENU
