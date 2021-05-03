@@ -36,13 +36,17 @@ lenFileInput.addEventListener('change',function(e){
     handleFiles(this.files,e.target.id);
 });
 
-document.getElementById("haplotype").value = haplotype;
+document.getElementById("selectorploidy").value = haplotype;
 
-document.getElementById("haplotype").addEventListener('change',function(){
-    haplotype = document.getElementById("haplotype").value;
+document.getElementById("selectorploidy").addEventListener('change',function(){
+    haplotype = document.getElementById("selectorploidy").value;
 });
 
 document.getElementById("submit").addEventListener("click",function(){
+
+    //Affiche les div de chrompaint
+    $('#chrompaint').show();
+	$('#page-content-wrapper').hide();
 
     if(rawData === undefined){
         alert("Fichier de données manquant");

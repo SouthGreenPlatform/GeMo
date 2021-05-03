@@ -122,44 +122,122 @@ echo "<script> load_ideogram()</script>";
 			
 			<ul id="submenu-1" class="panel-collapse collapse panel-switch" role="menu">
 		
-			<!-- select accessions-->
+			<!-- Menu-->
 			<li>
 				<div class="form-group">
 
-				<label for="preloaded">Pre-loaded example</label>
+				<!--Pre-loaded data-->
+				<p class="menu_title">Pre-loaded example</p>
 				<br/>
-				<select class="form-control-sm" id="organism">
+				<select style="width:auto;" class="custom-select custom-select-sm" id="organism">
 					<option value="Organism">Organism</option>
 				</select>
-				<select class="form-control-sm" id="sample">
+				<select style="width:auto;" class="custom-select custom-select-sm" id="sample">
 					<option value="Sample">Sample</option>
 				</select>
 				<br/><br/>
-				
-				<!--Accessions data-->
-				
-				<textarea id="editorAnnot" rows="5" class="form-control" placeholder="Insert values here" ></textarea>
-				
-				<!--Load accession file-->
-				
-				<!--<label for="fileInputD" class="control-label">Load custom data</label>-->
-				<input class="btn" onchange="load_file2(this.value)" type="file" id="fileInputD">
-		
-				<!--Chromosomes data-->
-				<label for="editorChr" class="col-lg-2 control-label">Chromosomes</label>
-				<textarea id="editorChr" rows="5" class="form-control" placeholder="Insert values here"></textarea>
-				
-				<!--Load chromosome file-->
-				<!--<label for="fileInputC" class="control-label">Load custom data</label>-->
-				<input class="btn" onchange="load_file(this.value)" type="file" id="fileInputC">
-        
-				<label for="selectAccession">Ploïdie</label>
-				<select name="select" id="selectorploidy" class="form-control-sm" onchange="loadingon()">
+
+				<!--Custom data-->
+				<p class="menu_title">With your own data</p>
+				<br />
+
+				<!--Ploidy-->
+				<label for="selectorploidy">Global ploidy</label>
+				<select name="select" id="selectorploidy" class="custom-select-sm">
+					<option value="1">1</option>
 					<option value="2" selected>2</option> 
 					<option value="3">3</option>
 					<option value="4">4</option>
 				</select>
 				<br />
+
+				<!--type of data-->
+				<p class="menu_title">Input files</p>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="formchoice" id="radioblock" value="block" checked>
+					<label class="form-check-label" for="radioblock">
+						Block positions
+					</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="formchoice" id="radiocurve" value="curve">
+					<label class="form-check-label" for="radiocurve">
+						Normalized curves
+					</label>
+				</div>
+
+				<!--Block position form-->
+				<div id="blockform">
+
+					<!--Block position data-->
+					<textarea id="editorAnnot" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
+					<div class="custom-file" style="width:90%;">
+						<input type="file" class="custom-file-input" id="fileInputD" onchange="load_file2(this.value)">
+						<label class="custom-file-label" for="customFile">Choose file</label>
+					</div>
+
+
+					<!--Chromosomes data-->
+					<div>
+						<p class="menu_title">Chromosomes size and labels</p>
+						<textarea id="editorChr" rows="3" class="form-control" placeholder="Insert values here"></textarea>
+						<div class="custom-file" style="width:90%;">
+							<input onchange="load_file(this.value)" type="file" class="custom-file-input" id="fileInputC">
+							<label class="custom-file-label" for="customFile">Choose file</label>
+						</div>
+					</div>
+				</div>
+
+				<!--Normalized curves form-->
+				<div id="curveform" style="display: none">
+
+					<!--Normalized curves data-->
+					<div>
+						<form class="my-form">
+							<textarea id="editorCurve" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
+							<div class="custom-file" style="width:90%;">
+								<input type="file" class="custom-file-input" id="dataFile" accept=".txt, .csv, .tab, .tsv">
+								<label class="custom-file-label" for="dataFile">Choose file</label>
+							</div>
+						</form>
+					</div>
+					<!--Chrom length data-->
+					<div>
+						<form class="my-form">
+							<p class="menu_title">Chromosomes size and labels</p>
+							<select style="width:auto;" class="custom-select custom-select-sm" id="organism">
+								<option value="Chrom">Chromosomes</option>
+							</select>
+							or upload your own
+							<textarea id="editorChrom" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
+							<div class="custom-file" style="width:90%;">
+								<input type="file" class="custom-file-input" id="lenFile" accept=".txt, .csv, .tab, .tsv">
+								<label class="custom-file-label" for="lenFile">Choose file</label>
+							</div>
+						</form>
+					</div>
+
+					<!--Colors data-->
+					<div>
+						<form class="my-form">
+						<p class="menu_title">Colors (optional)</p>
+							<textarea id="editorColor" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
+							<div class="custom-file" style="width:90%;">
+								<input type="file" class="custom-file-input" id="colorFile" accept=".txt, .conf, .csv, .tab, .tsv">
+								<label class="custom-file-label" for="colorFile">Choose file</label>
+							</div>
+						</form>
+					</div>
+
+					<div>
+						<button id="submit" class="button">Générer</button>
+					</div>
+
+				</div>
+
+				
+
+				
 				
 				<!--Letters show / hide-->
 				<div class="custom-control custom-switch">
@@ -187,46 +265,7 @@ echo "<script> load_ideogram()</script>";
 				</div>
 			</li>
 		</ul>
-			
-			
 		</li>
-	
-		<!--CHROMOSOME PAINTING-->
-		<li id="chrompaint_button">
-			<a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">
-				<span class="sidebar-icon"><i class="fa fa-users"></i></span>
-				<span class="sidebar-title">Chromosome Painting</span>
-				<b class="caret"></b>
-			</a>
-		</li>
-		<ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
-			<li>
-			<div id=chrompaint_menu>
-				<div>
-					<form class="my-form">
-						<p>Séléctionner votre fichier à l'aide du bouton ci-dessous ou en le déposant directement dans cette zone</p>
-						<input type="file" id="dataFile" accept=".csv, .tab, .tsv">
-						<label class="button" for="dataFile">Séléctionner un fichier</label>
-					</form>
-				</div>
-				<div>
-					<p>Fichier de couleur <img class="help" src="assets/001-info.svg" alt="help"></p>
-					<input id="colorFile" type="file" accept=".csv, .tab, .tsv, .conf">
-				</div>
-				<div>
-					<p>Fichier de longueur des chromosomes <img class="help" src="assets/001-info.svg" alt="help" alt="help"></p>
-					<input id="lenFile" type="file" accept=".csv, .tab, .tsv">
-				</div>
-				<div>
-					<p>Haplotype <img class="help" src="assets/001-info.svg" alt="arrow"></p>
-					<input id="haplotype" type="number" value="2" step="1" min="2">
-				</div>
-				<div>
-					<button id="submit" class="button">Générer</button>
-				</div>
-			</div>
-			</li>
-		</ul>
 	</ul>
 	</aside>            
 </div>

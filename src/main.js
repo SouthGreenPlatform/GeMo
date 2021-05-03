@@ -348,25 +348,32 @@ function echelle(){
 ///////////////////////////////////////////////
 // MENU
 ///////////////////////////////////////////////
-
-/////////////////////////////
-///// BOUTON ACCESSION /////
-/////////////////////////////
-document.getElementById("accession").addEventListener("click", function(e) {
-	//affiche la page
-	$('#chrompaint').hide();
-	$('#page-content-wrapper').show();
-	
+///////////////////////////////////////
+///// Choix du form block / curve /////
+///////////////////////////////////////
+$('input[type=radio][name=formchoice]').change(function() {
+    if (this.value == 'block') {
+		$('#curveform').hide();
+		$('#blockform').show();
+    }
+    else if (this.value == 'curve') {
+        $('#curveform').show();
+		$('#blockform').hide();
+    }
 });
-
-/////////////////////////////
-///// BOUTON CHROMPAINT /////
-/////////////////////////////
-document.getElementById("chrompaint_button").addEventListener("click", function(e) {
-	//affiche la page
-	$('#chrompaint').show();
-	$('#page-content-wrapper').hide();
-	
+///////////////////////////////////////
+//Affichage du nom des fichiers input//
+///////////////////////////////////////
+$('.custom-file-input').on('change', function(){ 
+	console.log("custom file");
+	let files = $(this)[0].files; 
+	name = ''; 
+	for(var i = 0; i < files.length; i++){ 
+		name += '\"' + files[i].name + '\"' + (i != files.length-1 ? ", " : ""); 
+	} 
+	$(this)
+      .next(".custom-file-label")
+      .html(name); 
 });
 
 //////////////////////////////////////////////////////
@@ -424,6 +431,8 @@ $('#sample').change( function(){
     let sampleJson = arrData.filter(function(value) {
         return value.ID === $("#sample option:selected")[0].value;
     });
+	$('#chrompaint').hide();
+	$('#page-content-wrapper').show();
 	load_accession(sampleJson);
 });
 
