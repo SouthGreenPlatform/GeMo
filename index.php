@@ -10,7 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/sandstone/bootstrap.min.css" rel="stylesheet" integrity="sha384-ABdnjefqVzESm+f9z9hcqx2cvwvDNjfrwfW5Le9138qHCMGlNmWawyn/tt4jR4ba" crossorigin="anonymous">  
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/sandstone/bootstrap.min.css" rel="stylesheet" integrity="sha384-ABdnjefqVzESm+f9z9hcqx2cvwvDNjfrwfW5Le9138qHCMGlNmWawyn/tt4jR4ba" crossorigin="anonymous">   -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.1.1/d3.min.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/ideogram@1.16.0/dist/js/ideogram.min.js"></script> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/ideogram@1.20.0/dist/js/ideogram.min.js"></script> -->
@@ -116,7 +116,7 @@ echo "<script> load_ideogram()</script>";
 		<li id="accession">
 			<a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-1">
 				<span class="sidebar-icon"><i class="fa fa-dashboard"></i></span>
-				<span class="sidebar-title">Data</span>
+				<span class="sidebar-title">Chromosome Painting</span>
 			<b class="caret"></b>
 			</a>
 			
@@ -128,18 +128,15 @@ echo "<script> load_ideogram()</script>";
 
 				<!--Pre-loaded data-->
 				<p class="menu_title">Pre-loaded example</p>
-				<br/>
 				<select style="width:auto;" class="custom-select custom-select-sm" id="organism">
 					<option value="Organism">Organism</option>
 				</select>
 				<select style="width:auto;" class="custom-select custom-select-sm" id="sample">
 					<option value="Sample">Sample</option>
 				</select>
-				<br/><br/>
 
 				<!--Custom data-->
 				<p class="menu_title">With your own data</p>
-				<br />
 
 				<!--Ploidy-->
 				<label for="selectorploidy">Global ploidy</label>
@@ -149,20 +146,15 @@ echo "<script> load_ideogram()</script>";
 					<option value="3">3</option>
 					<option value="4">4</option>
 				</select>
-				<br />
 
 				<!--type of data-->
 				<p class="menu_title">Input files</p>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="formchoice" id="radioblock" value="block" checked>
-					<label class="form-check-label" for="radioblock">
-						Block positions
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<label class="myradiobtn btn btn-sm btn-outline-dark active">
+						<input type="radio" name="formchoice" id="radioblock" value="block" autocomplete="off" checked> Block positions
 					</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="radio" name="formchoice" id="radiocurve" value="curve">
-					<label class="form-check-label" for="radiocurve">
-						Normalized curves
+					<label class="myradiobtn btn btn-sm btn-outline-dark">
+						<input type="radio" name="formchoice" id="radiocurve" value="curve" autocomplete="off"> Normalized curves
 					</label>
 				</div>
 
@@ -175,7 +167,6 @@ echo "<script> load_ideogram()</script>";
 						<input type="file" class="custom-file-input" id="fileInputD" onchange="load_file2(this.value)">
 						<label class="custom-file-label" for="customFile">Choose file</label>
 					</div>
-
 
 					<!--Chromosomes data-->
 					<div>
