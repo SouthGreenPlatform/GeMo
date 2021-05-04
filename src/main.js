@@ -499,7 +499,7 @@ import {parsingData, parsingLen, parsingColor,randomColorGenerator,dataStuffing}
 import {order, convertStrtoRangeSet, groupByColor, ancestorsGenerator, ploidyDescGenerator} from "./chrompaint/mosaique.js";
 import {getKeyByValue, refreshFloor, curveOpacitySetup, refreshCurveOpacity, arraySetup, floorPositionsSetup, refreshfloorPositions, tracerCourbe} from "./chrompaint/graph.js";
 
-let dropArea = document.getElementById('drop-area');
+// let dropArea = document.getElementById('drop-area');
 let dataFileInput = document.getElementById('dataFile');
 let colorFileInput = document.getElementById('colorFile');
 let lenFileInput = document.getElementById('lenFile');
@@ -575,11 +575,11 @@ document.getElementById("submit").addEventListener("click",function(){
  * @param e l'event.
  */
 
-function handleDrop(e) {
+/* function handleDrop(e) {
     let dt = e.dataTransfer;
     let files = dt.files;
     handleFiles(files,e.target.id)
-}
+} */
 
 /**
  * Lis le fichier (@file) et le traité suivant sont (@fileType). le contenue du fichier et parse par d3.tsvParse, puis le résultat est placé dans une variable globale.

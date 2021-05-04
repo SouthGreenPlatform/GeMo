@@ -201,41 +201,36 @@ echo "<script> load_ideogram()</script>";
 						</form>
 					</div>
 
-					<!--Submit-->
-					<div>
-						<button id="submit" class="button">Générer</button>
+					<!--Letters show / hide-->
+					<div class="custom-control custom-switch">
+						<input type="checkbox" class="custom-control-input" id="SwitchLetters" checked ">
+						<label class="custom-control-label" for="SwitchLetters">Show Labels</label>
 					</div>
 
-				</div>
+					<!--Button-->
+					<div>
+						<button id="submit" class="btn btn-sm btn-outline-dark my-btn">Submit</button>
 
-				
+						<!--Clear-->
+						<button class="btn btn-sm btn-outline-warning" onclick="location.reload(true);" id="clear">Clear</button>
+						
+						<!-- Update -->
+						<button class="btn btn-sm btn-outline-primary" id="reload">Update image</button>
 
-				
-				
-				<!--Letters show / hide-->
-				<div class="custom-control custom-switch">
-					<input type="checkbox" class="custom-control-input" id="SwitchLetters" checked ">
-					<label class="custom-control-label" for="SwitchLetters">Show letters</label>
-				</div>
-				<br />
-				
-				<!--Clear-->
-				<button class="btn btn-warning" onclick="location.reload(true);" id="clear">Clear</button>
-				
-				<!-- Update -->
-				<button class="btn btn-primary" id="reload">Update image</button>
+						<!--Download image-->
+						<a id="download" style="display: none;" class="btn btn-sm btn-outline-warning">Download as PNG</a>
+						<script>
+						$('#download').click(function(){ 
+							html2canvas(document.getElementById("page-content-wrapper")).then(function(canvas) {
+							Canvas2Image.saveAsPNG(canvas);
+							});
+						});
+						</script>
+					</div>
 
-				<!--Download image-->
-				<a id="download" style="display: none;" class="btn btn-warning">Download as PNG</a>
-				<script>
-				$('#download').click(function(){ 
-					html2canvas(document.getElementById("page-content-wrapper")).then(function(canvas) {
-					Canvas2Image.saveAsPNG(canvas);
-					});
-				});
-				</script>
-				
-				</div>
+				</div><!-- fin formulaire -->
+			</div>
+			
 			</li>
 		</ul>
 		</li>
@@ -250,61 +245,6 @@ echo "<script> load_ideogram()</script>";
 
 <div id="chrompaint" style="display: none">
 	chrompaint
-	
-<!-- <div id="menu">
-
-<div  class="dropdown">
-	<button id="sub1" class="dropbtn" style="background-color: rgb(241, 250, 238);">Données</button>
-</div>
-
-
-
-<div class="dropdown">
-	<button id="sub2" class="dropbtn">Configuration</button>
-</div>
-</div> -->
-
-<!-- <div id="box1">
-<div id="drop-area">
-	<form class="my-form">
-		<p>Séléctionner votre fichier à l'aide du bouton ci-dessous ou en le déposant directement dans cette zone</p>
-		<input type="file" id="dataFile" accept=".csv, .tab, .tsv">
-		<label class="button" for="dataFile">Séléctionner un fichier</label>
-	</form>
-</div>
-</div> -->
-
-<!-- <div id="box2">
-<div>
-	<p>Fichier de couleur <img class="help" src="assets/001-info.svg" alt="help"></p>
-	<input id="colorFile" type="file" accept=".csv, .tab, .tsv, .conf">
-</div>
-
-<img class="arrow" src="assets/right-arrow.svg">
-
-<div>
-	<p>Fichier de longueur des chromosomes <img class="help" src="assets/001-info.svg" alt="help" alt="help"></p>
-	<input id="lenFile" type="file" accept=".csv, .tab, .tsv">
-</div>
-
-<img class="arrow" src="assets/right-arrow.svg" alt="arrow">
-
-<div>
-	<p>Haplotype <img class="help" src="assets/001-info.svg" alt="arrow"></p>
-	<input id="haplotype" type="number" value="2" step="1" min="2">
-</div>
-
-<img class="arrow" src="assets/right-arrow.svg" alt="arrow">
-
-<div>
-	<button id="submit" class="button">Générer</button>
-</div>
-
-
-</div> -->
-
-
-
 
 <div id="box3">
 <div id="graph"></div>
