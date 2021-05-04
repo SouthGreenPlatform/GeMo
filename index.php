@@ -26,7 +26,7 @@
 <link rel="shortcut icon" href="/gemo/public/img/favicon.ico">
 
 <!--chrompaint-->
-<script type="module" src="src/chrompaint/main.js" defer></script>
+<!-- <script type="module" src="src/chrompaint/main.js" defer></script> -->
 <link href="src/css/chrompaint.css" rel="stylesheet">
 
 <!--libs-->
