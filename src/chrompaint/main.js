@@ -44,27 +44,36 @@ document.getElementById("selectorploidy").addEventListener('change',function(){
 
 document.getElementById("submit").addEventListener("click",function(){
 
-    //Affiche les div de chrompaint
-    $('#chrompaint').show();
-	$('#page-content-wrapper').hide();
+    //Si on est en mode "curve"
+    var radio_form = $('#radio_form input:radio:checked').val()
+    if(radio_form === "curve"){
+        console.log("curve");
 
-    if(rawData === undefined){
-        alert("Fichier de données manquant");
-        throw "pas de données envoyé."
+        //Affiche les div de chrompaint
+        $('#chrompaint').show();
+        $('#page-content-wrapper').hide();
+
+        if(rawData === undefined){
+            alert("Fichier de données manquant");
+            throw "pas de données envoyé."
+        }
+        if(chrConfig === undefined){
+            alert("Fichier de configuration des chromosomes manquant.");
+            throw "Fichier de configuration des chromosomes manquant.";
+        }
+        else if(stuffedData === undefined) {
+            stuffedData = dataStuffing(rawData, chrConfig);
+            data = parsingData(stuffedData);
+        }
+        if (ancestorsNameColor === undefined) {
+            ancestorsNameColor = randomColorGenerator(data);
+        }
+        resetgraph();
+        graphSetup(data);
+    }else{
+        console.log("block");
     }
-    if(chrConfig === undefined){
-        alert("Fichier de configuration des chromosomes manquant.");
-        throw "Fichier de configuration des chromosomes manquant.";
-    }
-    else if(stuffedData === undefined) {
-        stuffedData = dataStuffing(rawData, chrConfig);
-        data = parsingData(stuffedData);
-    }
-    if (ancestorsNameColor === undefined) {
-        ancestorsNameColor = randomColorGenerator(data);
-    }
-    resetgraph();
-    graphSetup(data);
+    
 });
 
 /**

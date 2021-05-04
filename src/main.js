@@ -63,7 +63,7 @@ $('#SwitchLetters').change( function(){
 });
 
 ////////////////////////////////////////////////////////////////
-//
+// Load ideogram from preloaded accession
 ////////////////////////////////////////////////////////////////
 function load_ideogram(){
 	//clear();
@@ -351,7 +351,7 @@ function echelle(){
 ///////////////////////////////////////
 ///// Choix du form block / curve /////
 ///////////////////////////////////////
-$('input[type=radio][name=formchoice]').change(function() {
+/* $('input[type=radio][name=formchoice]').change(function() {
     if (this.value == 'block') {
 		$('#curveform').hide();
 		$('#blockform').show();
@@ -360,7 +360,7 @@ $('input[type=radio][name=formchoice]').change(function() {
         $('#curveform').show();
 		$('#blockform').hide();
     }
-});
+}); */
 ///////////////////////////////////////
 //Affichage du nom des fichiers input//
 ///////////////////////////////////////
@@ -438,7 +438,47 @@ $('#sample').change( function(){
 
 
 
+////////////////////////////////////////////////////////////////
+// Load ideogram from preloaded accession
+////////////////////////////////////////////////////////////////
+function load_ideogram_from_form_data(){
+	//clear();
+	//values in chromosome form
+	console.log("load_ideogram_from_form_data");
+	//console.log(config);
+	const chrdata = $("#editorChr").val();
+	//values in data form
+	const annotdata = $("#editorAnnot").val();
+	const colordata = $("#editorColor").val();
+	config.ploidyDesc = [];
+	//colorchange();
+	config.ploidy = Number($('#selectorploidy').val());
+	//parse les données chromosomes
+	let chrDataParsed = chromosomeParser(chrdata);
+	config.ploidyDesc = chrDataParsed[0];
+	config.ploidysize = chrDataParsed[1];
+	chrBands = chrDataParsed[2];
+	
+	//parse les données blocs
+	let annotDataParsed = annotationParser(annotdata, config.ploidy);
+	config.rangeSet = annotDataParsed[0];
+	annotTable = annotDataParsed[1];
+	
+	//Crée le graph
+	if(chrdata != ""){
+		//console.log(config);
+		const ideogram = new Ideogram(config);
 
+	}
+	//apparition du bouton download
+	$('#download').fadeIn()
+	//repositione();
+	$('#potatosalad').on('click', function(event){
+    //The event won't be propagated to the document NODE and 
+    // therefore events delegated to document won't be fired
+   //event.stopPropagation();
+	});
+}
 
 
 

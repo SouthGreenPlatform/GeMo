@@ -149,7 +149,7 @@ echo "<script> load_ideogram()</script>";
 
 				<!--type of data-->
 				<p class="menu_title">Input files</p>
-				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+				<div class="btn-group btn-group-toggle" id="radio_form" data-toggle="buttons">
 					<label class="myradiobtn btn btn-sm btn-outline-dark active">
 						<input type="radio" name="formchoice" id="radioblock" value="block" autocomplete="off" checked> Block positions
 					</label>
@@ -158,55 +158,15 @@ echo "<script> load_ideogram()</script>";
 					</label>
 				</div>
 
-				<!--Block position form-->
-				<div id="blockform">
 
-					<!--Block position data-->
-					<textarea id="editorAnnot" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
-					<div class="custom-file" style="width:90%;">
-						<input type="file" class="custom-file-input" id="fileInputD" onchange="load_file2(this.value)">
-						<label class="custom-file-label" for="customFile">Choose file</label>
-					</div>
 
-					<!--Chromosomes data-->
-					<div>
-						<p class="menu_title">Chromosomes size and labels</p>
-							<select style="width:auto;" class="custom-select custom-select-sm" id="organism">
-								<option value="Chrom">Chromosomes</option>
-							</select>
-							or upload your own
-						<textarea id="editorChr" rows="3" class="form-control" placeholder="Insert values here"></textarea>
-						<div class="custom-file" style="width:90%;">
-							<input onchange="load_file(this.value)" type="file" class="custom-file-input" id="fileInputC">
-							<label class="custom-file-label" for="customFile">Choose file</label>
-						</div>
-					</div>
+				<!-- form-->
+				<div id="form">
 
-					<!--Colors data-->
+					<!-- data-->
 					<div>
 						<form class="my-form">
-						<p class="menu_title">Colors (optional)</p>
-							<textarea id="editorColor" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
-							<div class="custom-file" style="width:90%;">
-								<input type="file" class="custom-file-input" id="colorFile" accept=".txt, .conf, .csv, .tab, .tsv">
-								<label class="custom-file-label" for="colorFile">Choose file</label>
-							</div>
-						</form>
-					</div>
-
-					<!--Submit-->
-					<div>
-						<button id="submit" class="button">Générer</button>
-					</div>
-				</div>
-
-				<!--Normalized curves form-->
-				<div id="curveform" style="display: none">
-
-					<!--Normalized curves data-->
-					<div>
-						<form class="my-form">
-							<textarea id="editorCurve" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
+							<textarea id="editorAnnot" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
 							<div class="custom-file" style="width:90%;">
 								<input type="file" class="custom-file-input" id="dataFile" accept=".txt, .csv, .tab, .tsv">
 								<label class="custom-file-label" for="dataFile">Choose file</label>
@@ -221,7 +181,7 @@ echo "<script> load_ideogram()</script>";
 								<option value="Chrom">Chromosomes</option>
 							</select>
 							or upload your own
-							<textarea id="editorChrom" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
+							<textarea id="editorChr" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
 							<div class="custom-file" style="width:90%;">
 								<input type="file" class="custom-file-input" id="lenFile" accept=".txt, .csv, .tab, .tsv">
 								<label class="custom-file-label" for="lenFile">Choose file</label>
