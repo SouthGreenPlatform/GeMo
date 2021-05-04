@@ -566,6 +566,11 @@ document.getElementById("submit").addEventListener("click",function(){
         graphSetup(data);
     }else{
         console.log("block");
+		config = initConfig();
+		loadingon();
+		load_ideogram();
+		//repositione();
+		setTimeout(addTooltip, 100); //addTooltip();
     }
     
 });
@@ -592,30 +597,49 @@ function handleFiles(files,fileType) {
     let fileName = fileType.replace("File",""); //1* colorFile -> color.
     let reader = new FileReader();              //initalisation d'un reader pour lire le fichier, si si, un reader, pour lire.
     let file = files[0];
+	var radio_form = $('#radio_form input:radio:checked').val()
+
     reader.readAsText(file, "UTF-8");
     reader.onload = function (e) {
-        switch(fileName){                       //2*
-            case'data':
-                if(checkDataFile(d3.tsvParse(e.target.result))) {
-                    rawData = d3.tsvParse(e.target.result);
-                    //dropArea.style.animation = "valid 1s ease forwards"; //Parce que sinon ils ne vont pas comprendre que leur fichier a bien été déposé.
+	
+		if(radio_form === "curve"){
+			console.log("curve");
+			switch(fileName){                       //2*
+				case'data':
+					if(checkDataFile(d3.tsvParse(e.target.result))) {
+						rawData = d3.tsvParse(e.target.result);
+						//dropArea.style.animation = "valid 1s ease forwards"; //Parce que sinon ils ne vont pas comprendre que leur fichier a bien été déposé.
+						$("#editorAnnot").val(e.target.result);
+					}
+					break;
+				case'color':
+					if(checkColorFile(d3.tsvParse(e.target.result))) {
+						ancestorsNameColor = parsingColor(d3.tsvParse(e.target.result));
+						$("#editorColor").val(e.target.result);
+					}
+					break;
+				case'len':
+					if(checkLenFile(d3.tsvParse(e.target.result))) {
+						chrConfig = d3.tsvParse(e.target.result);
+						mosaiqueConfig = parsingLen(chrConfig);
+						$("#editorChr").val(e.target.result);
+					}
+					break;
+			}
+		}else{
+			console.log("block");
+			switch(fileName){
+				case'data':
 					$("#editorAnnot").val(e.target.result);
-				}
-                break;
-            case'color':
-                if(checkColorFile(d3.tsvParse(e.target.result))) {
-                    ancestorsNameColor = parsingColor(d3.tsvParse(e.target.result));
+					break;
+				case'color':
 					$("#editorColor").val(e.target.result);
-				}
-                break;
-            case'len':
-                if(checkLenFile(d3.tsvParse(e.target.result))) {
-                    chrConfig = d3.tsvParse(e.target.result);
-                    mosaiqueConfig = parsingLen(chrConfig);
+					break;
+				case'len':
 					$("#editorChr").val(e.target.result);
-                }
-                break;
-        }
+					break;
+			}
+		}
     };
     reader.onerror = function () {
         alert("Echec de chargement du fichier");
