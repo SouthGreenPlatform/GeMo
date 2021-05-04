@@ -387,6 +387,8 @@ textarea
 }
 textarea.form-control {
     width: 90%;
+    font-size: 11px;
+    font-family: monospace;
 }
 
 /*Jumbotron*/

@@ -599,17 +599,20 @@ function handleFiles(files,fileType) {
                 if(checkDataFile(d3.tsvParse(e.target.result))) {
                     rawData = d3.tsvParse(e.target.result);
                     //dropArea.style.animation = "valid 1s ease forwards"; //Parce que sinon ils ne vont pas comprendre que leur fichier a bien été déposé.
-                }
+					$("#editorAnnot").val(e.target.result);
+				}
                 break;
             case'color':
                 if(checkColorFile(d3.tsvParse(e.target.result))) {
                     ancestorsNameColor = parsingColor(d3.tsvParse(e.target.result));
-                }
+					$("#editorColor").val(e.target.result);
+				}
                 break;
             case'len':
                 if(checkLenFile(d3.tsvParse(e.target.result))) {
                     chrConfig = d3.tsvParse(e.target.result);
                     mosaiqueConfig = parsingLen(chrConfig);
+					$("#editorChr").val(e.target.result);
                 }
                 break;
         }
