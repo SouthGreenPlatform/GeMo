@@ -1,7 +1,12 @@
 import { initConfig } from "./config.js";
 import { chromosomeParser, annotationParser } from "./dataParser.js";
 import { loadingon, loadingoff, displaytext, clear } from "./display.js";
-
+//chrompaint
+import {resetgraph} from "./chrompaint/import.js";
+import {checkColorFile,checkLenFile,checkDataFile} from "./chrompaint/checkFile.js";
+import {parsingData, parsingLen, parsingColor,randomColorGenerator,dataStuffing} from "./chrompaint/parse.js";
+import {order, convertStrtoRangeSet, groupByColor, ancestorsGenerator, ploidyDescGenerator} from "./chrompaint/mosaique.js";
+import {getKeyByValue, refreshFloor, curveOpacitySetup, refreshCurveOpacity, arraySetup, floorPositionsSetup, refreshfloorPositions, tracerCourbe} from "./chrompaint/graph.js";
 ////////////
 let ploidyA ="";
 //////////
@@ -10,6 +15,8 @@ let lgtChro =[]; //longueur des chromosomes
 let chrBands = [];
 let config;
 let annotTable=[]; // annot file splited by line
+let ancestorsNameColor; //Match les abréviation d'origine avec leurs noms complet ainsi qu'une couleur.
+
 
 
 ////////////////////////////////////////////////////////////////
@@ -21,6 +28,7 @@ async function load_accession(sampleJson){
 	let FileName = sampleJson[0].FileName;
 	let ploidy = sampleJson[0].Ploidy;
 	let ChromFile = sampleJson[0].ChromFile;
+    let ColorFile =sampleJson[0].ColorFile;
 	clear();
 	//console.log(new Error().stack);
 	
@@ -44,7 +52,12 @@ async function load_accession(sampleJson){
 	responseText = await response.text();
 	await $("#editorChr").val(responseText);
 
-	load_ideogram();
+    //color file
+    response = await fetch('/gemo/data/accessions/'+ColorFile);
+	responseText = await response.text();
+	await $("#editorColor").val(responseText);
+
+	load_ideogram_from_form_data();
 
 	setTimeout(addTooltip,100);
 
@@ -83,7 +96,7 @@ function load_ideogram(){
 	chrBands = chrDataParsed[2];
 	
 	//parse les données blocs
-	let annotDataParsed = annotationParser(annotdata, config.ploidy);
+	let annotDataParsed = annotationParser(annotdata, config.ploidy, ancestorsNameColor);
 	config.rangeSet = annotDataParsed[0];
 	annotTable = annotDataParsed[1];
 	
@@ -405,7 +418,7 @@ $.getJSON('./config/pre-loaded.json', function (data) {
     });
 });
 
-//fonction change select
+//fonction select organism => populate sample
 $('#organism').change(function () {
     let selectedOrganism = this.options[this.selectedIndex].value;
 
@@ -413,7 +426,6 @@ $('#organism').change(function () {
     let filterData = arrData.filter(function(value) {
         return value.Organism === selectedOrganism;
     });
-
     $('#sample')
         .empty()
         .append('<option value=""> -- Select sample -- </option>');
@@ -424,8 +436,7 @@ $('#organism').change(function () {
     });
 });
 
-//fonction change sample
-//load ideogram
+//fonction select sample => load accession
 $('#sample').change( function(){
 	//retreive all entries for this ID sample
     let sampleJson = arrData.filter(function(value) {
@@ -439,7 +450,7 @@ $('#sample').change( function(){
 
 
 ////////////////////////////////////////////////////////////////
-// Load ideogram from preloaded accession
+// Load ideogram
 ////////////////////////////////////////////////////////////////
 function load_ideogram_from_form_data(){
 	//clear();
@@ -450,6 +461,8 @@ function load_ideogram_from_form_data(){
 	//values in data form
 	const annotdata = $("#editorAnnot").val();
 	const colordata = $("#editorColor").val();
+    ancestorsNameColor = parsingColor(d3.tsvParse(colordata));
+    console.log(ancestorsNameColor);
 	config.ploidyDesc = [];
 	//colorchange();
 	config.ploidy = Number($('#selectorploidy').val());
@@ -460,7 +473,7 @@ function load_ideogram_from_form_data(){
 	chrBands = chrDataParsed[2];
 	
 	//parse les données blocs
-	let annotDataParsed = annotationParser(annotdata, config.ploidy);
+	let annotDataParsed = annotationParser(annotdata, config.ploidy, ancestorsNameColor);
 	config.rangeSet = annotDataParsed[0];
 	annotTable = annotDataParsed[1];
 	
@@ -493,11 +506,7 @@ function load_ideogram_from_form_data(){
 ////////////////////////////////////////////////////////////////////////////////
 
 
-import {resetgraph} from "./chrompaint/import.js";
-import {checkColorFile,checkLenFile,checkDataFile} from "./chrompaint/checkFile.js";
-import {parsingData, parsingLen, parsingColor,randomColorGenerator,dataStuffing} from "./chrompaint/parse.js";
-import {order, convertStrtoRangeSet, groupByColor, ancestorsGenerator, ploidyDescGenerator} from "./chrompaint/mosaique.js";
-import {getKeyByValue, refreshFloor, curveOpacitySetup, refreshCurveOpacity, arraySetup, floorPositionsSetup, refreshfloorPositions, tracerCourbe} from "./chrompaint/graph.js";
+
 
 // let dropArea = document.getElementById('drop-area');
 let dataFileInput = document.getElementById('dataFile');
@@ -511,15 +520,13 @@ let rawData; //Données brut, comme envoyé.
 let stuffedData; //Données brut, avec les lignes de bourrage. Sera pratique plus tard (généré à partir de rawData).
 let data; //Nos données parsé (généré à partir de stuffedData).
 
-let ancestorsNameColor; //Match les abréviation d'origine avec leurs noms complet ainsi qu'une couleur.
 
 let chrConfig; //J'en aurais besoins si l'haplotype est changé après que les données ai été envoyé.
 let mosaiqueConfig; //Version parsé pour ideogram.js de chrConfig
 
+////////////////////////////////////////////////////////////////////
 ////////////RECUPERATION DES FICHIERS///////////////////////////////
-
-//dropArea.addEventListener('drop', handleDrop, false);
-
+////////////////////////////////////////////////////////////////////
 dataFileInput.addEventListener('change',function(e){
     handleFiles(this.files,e.target.id);
 });
@@ -536,6 +543,9 @@ document.getElementById("selectorploidy").addEventListener('change',function(){
     haplotype = document.getElementById("selectorploidy").value;
 });
 
+///////////////////////////////////////////////////////////
+// SUBMIT FORM ////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 document.getElementById("submit").addEventListener("click",function(){
 
     //Si on est en mode "curve"
@@ -564,11 +574,17 @@ document.getElementById("submit").addEventListener("click",function(){
         }
         resetgraph();
         graphSetup(data);
-    }else{
+    
+	//En mode block
+	}else{
         console.log("block");
+		if (ancestorsNameColor === undefined) {
+            ancestorsNameColor = randomColorGenerator(data);
+        }
+		console.log(ancestorsNameColor);
 		config = initConfig();
 		loadingon();
-		load_ideogram();
+		load_ideogram_from_form_data();
 		//repositione();
 		setTimeout(addTooltip, 100); //addTooltip();
     }
@@ -633,7 +649,10 @@ function handleFiles(files,fileType) {
 					$("#editorAnnot").val(e.target.result);
 					break;
 				case'color':
-					$("#editorColor").val(e.target.result);
+					if(checkColorFile(d3.tsvParse(e.target.result))) {
+						ancestorsNameColor = parsingColor(d3.tsvParse(e.target.result));
+						$("#editorColor").val(e.target.result);
+					}
 					break;
 				case'len':
 					$("#editorChr").val(e.target.result);

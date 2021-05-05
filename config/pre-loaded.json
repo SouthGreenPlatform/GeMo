@@ -1,28 +1,30 @@
 [
-  
 	{
     "ID": "001",
     "Sample": "Banksii620",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_Banksii620.txt" },
-  
+    "FileName": "ideo_Banksii620.txt",
+    "ColorFile": "banana_color.txt"}
+,  
 	{
     "ID": "002",
     "Sample": "Banksii853",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_Banksii853.txt" },
-  
+    "FileName": "ideo_Banksii853.txt",
+    "ColorFile": "banana_color.txt"}
+,  
 	{
     "ID": "003",
     "Sample": "Borneo",
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_Borneo.txt" }
+    "FileName": "ideo_Borneo.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "004",
@@ -30,7 +32,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_Calcutta4.txt" }
+    "FileName": "ideo_Calcutta4.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "005",
@@ -38,7 +41,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_Chicame.txt"  }
+    "FileName": "ideo_Chicame.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "006",
@@ -46,7 +50,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_Galeo.txt"  }
+    "FileName": "ideo_Galeo.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "007",
@@ -54,7 +59,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "3",
     "ChromFile": "banana_chr_triploide.txt",
-    "FileName": "ideo_GrandeNaine.txt"  }
+    "FileName": "ideo_GrandeNaine.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "008",
@@ -62,7 +68,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_GuNinChiao.txt"  }
+    "FileName": "ideo_GuNinChiao.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "009",
@@ -70,7 +77,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_Guyod.txt"  }
+    "FileName": "ideo_Guyod.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "010",
@@ -78,7 +86,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_KhaePhrae.txt"  }
+    "FileName": "ideo_KhaePhrae.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "011",
@@ -86,7 +95,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_Kirun.txt"  }
+    "FileName": "ideo_Kirun.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "012",
@@ -94,7 +104,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_LongTavoy.txt"  }
+    "FileName": "ideo_LongTavoy.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "013",
@@ -102,7 +113,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_MaiaOa.txt" }
+    "FileName": "ideo_MaiaOa.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "014",
@@ -110,7 +122,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_Mala.txt"  }
+    "FileName": "ideo_Mala.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "015",
@@ -118,7 +131,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_Manang.txt" }
+    "FileName": "ideo_Manang.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "016",
@@ -126,7 +140,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_Microcarpa.txt"  }
+    "FileName": "ideo_Microcarpa.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "017",
@@ -134,7 +149,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_Monyet.txt"  }
+    "FileName": "ideo_Monyet.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "018",
@@ -142,7 +158,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_PaRayong.txt"  }
+    "FileName": "ideo_PaRayong.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "019",
@@ -150,7 +167,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_PisangKlutukWulung.txt"  }
+    "FileName": "ideo_PisangKlutukWulung.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "020",
@@ -158,7 +176,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_PisangMadu.txt"  }
+    "FileName": "ideo_PisangMadu.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "021",
@@ -166,7 +185,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_PTBA00008.txt"  }
+    "FileName": "ideo_PTBA00008.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "022",
@@ -174,7 +194,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_PTBA00267.txt"  }
+    "FileName": "ideo_PTBA00267.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "023",
@@ -182,7 +203,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_Selangor.txt"  }
+    "FileName": "ideo_Selangor.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "024",
@@ -190,7 +212,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_SF215.txt"  }
+    "FileName": "ideo_SF215.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "025",
@@ -198,7 +221,8 @@
     "Organism": "Musa acuminata",
     "Ploidy" : "2",
     "ChromFile": "banana_chr.txt",
-    "FileName": "ideo_THA018.txt"  }
+    "FileName": "ideo_THA018.txt",
+    "ColorFile": "banana_color.txt"}
 ,
 	{
     "ID": "026",
@@ -206,6 +230,7 @@
     "Organism": "Chrompaint test",
     "Ploidy" : "2",
     "ChromFile": "banana_chr_visuchromp",
-    "FileName": "ideo_Visuchromp.txt"  }
+    "FileName": "ideo_Visuchromp.txt",
+    "ColorFile": "banana_color.txt"}
 
 ]

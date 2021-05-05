@@ -27,14 +27,14 @@ export function chromosomeParser(data){
 		
 		ploidyDesc.push(ploidyA);
     }
-	return [ploidyDesc, split.length];
+	return [ploidyDesc, split.length, chrBands];
 }
 
 
 ////////////////////////////////////////////////////////////////
 //parsing du formulaire data avec les annotations
 ////////////////////////////////////////////////////////////////
-export function annotationParser(data, configPloidy){
+export function annotationParser(data, configPloidy, ancestorsNameColor){
 	console.log("parse annot");
 	let annotTable = data.split("\n");
 	//console.log(annotTable);
@@ -49,6 +49,12 @@ export function annotationParser(data, configPloidy){
 	//pour chaque ligne d'annot
 	for (let i = 0; i < annotTable.length; i++) {
 		ploidy = [];
+
+		//skip les lignes vides
+		if (annotTable[i] == ""){
+			continue;
+		}
+
 		colonne = annotTable[i].split(" ");
 		count++;
 		
@@ -63,14 +69,13 @@ export function annotationParser(data, configPloidy){
 				//console.log("pas egal");
 			}	
 		}
-		//console.log(ploidy);
 		
 		let chromosome = {
 			chr: colonne[0],
 			ploidy: ploidy,
 			start: colonne[2],
 			stop: colonne[3],
-			color: colonne[4]
+			color: ancestorsNameColor[colonne[4]][1],
 			//color: config.anotcolor[localsplit[4]]
 		};
 		
@@ -78,4 +83,78 @@ export function annotationParser(data, configPloidy){
 	
 	}
 	return [rangeSet, annotTable];
+}
+
+
+
+////////////////////////////////////////////////////////////////
+//parsing fichier chromosome TSV
+//Genère les bands pour chaque chromosome
+////////////////////////////////////////////////////////////////
+//variable
+
+function chromosomeTsvParser(data, conf){
+	//console.log("parse chromosome");
+    let chrBands=[];
+
+	//split le fichier par ligne de chromosome
+	const split = data.split("\n");
+	let columns  = "";
+
+	//nombre de chromosomes
+    conf.ploidysize = split.length-1;
+    
+    //max length
+    let max_chr_length =0;
+	for (let i = 1; i < split.length; i++) {
+        columns = split[i].split("\t");
+        bp_stop = parseInt(columns[3]);
+        if(bp_stop > max_chr_length){
+            max_chr_length = bp_stop;
+        }
+    }
+	
+	//pour chaque chromosome
+	for (let i = 1; i < split.length; i++) {
+        
+        //LocalSplit[0] = chromosome choisi, localsplit[1] = longeur du chromosome
+        //#chromosome	arm	bp_start	bp_stop
+        //1	p	0	16700000
+        //1	q	16700000	43270923
+        columns = split[i].split("\t");
+
+        chr = columns[0];
+        arm = columns[1];
+        band = '1';
+        bp_start = parseInt(columns[2]);
+        bp_stop = parseInt(columns[3]);
+        
+		//ajouter condition sur arm = p ou q
+		//si p => on ajoute une band gpos50 puis une band acen
+		//si q => on ajoute une band acen puis une band gpos50
+		if(arm == 'p'){
+			//position des bands gpos et acen sur le bras p
+			gposStar = bp_start;
+			gposStop = (bp_stop - bp_stop/10);
+			acenStart = (bp_stop - bp_stop/10);
+			acenStop = bp_stop;
+			//push les positions dans la config ideogram
+			gposBand = chr+" "+arm+" "+band+" "+gposStar+" "+gposStop+" "+gposStar+" "+gposStop+" gpos50";
+			acenBand = chr+" "+arm+" "+band+" "+acenStart+" "+acenStop+" "+acenStart+" "+acenStop+" acen";
+			chrBands.push(gposBand);
+			chrBands.push(acenBand);
+		}else{
+			//position des bands acen et gpos sur le bras q
+			acenStart = bp_start;
+			acenStop = (bp_start + bp_start/10);
+			gposStar = (bp_start + bp_start/10);
+			gposStop = bp_stop;
+			//push les positions dans la config ideogram
+			acenBand = chr+" "+arm+" "+band+" "+acenStart+" "+acenStop+" "+acenStart+" "+acenStop+" acen";
+			gposBand = chr+" "+arm+" "+band+" "+gposStar+" "+gposStop+" "+gposStar+" "+gposStop+" gpos50";
+			chrBands.push(acenBand);
+			chrBands.push(gposBand);
+		}
+	}
+	//console.log(chrBands);
 }
