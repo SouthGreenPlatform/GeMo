@@ -18,7 +18,6 @@ export function parsingColor(colorFile){
 export function randomColorGenerator(data){
 
     let colorMap = {};
-
     data.map(function(cur){
         cur.values.map(function(origine) {
             if (colorMap[origine["key"]] === undefined) {
@@ -30,6 +29,29 @@ export function randomColorGenerator(data){
 
     return colorMap;
 }
+
+
+/**
+ * génère in dictionnaire {@colorMap} comme si on avait passé un fichier de couleur en paramètre, mais avec des couleurs aléatoires et des noms complets identiques à ceux dans les données.
+ * @param data : les données du formulaire editorAnnot
+ */
+
+
+export function randomColorGenerator_block(data){
+
+    let colorMap = {};
+    let arrayData = data.split('\n');
+    arrayData.map(function(cur){
+        
+        let line = cur.split(' ');
+        if (colorMap[line[4]] === undefined) {
+            let color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+            colorMap[line[4]] = [line[4], color]
+        }
+    });
+    return colorMap;
+}
+
 
 /**
  * Crée un fichier tsv exploitable par le script ideogram (@convert_band_data.py). actuellement ideogram ne peut pas gérer de chromosome "orphelin", pour un chrx il faut un chr(x-1) à partir de chr01.

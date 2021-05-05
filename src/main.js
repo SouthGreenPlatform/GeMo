@@ -4,7 +4,7 @@ import { loadingon, loadingoff, displaytext, clear } from "./display.js";
 //chrompaint
 import {resetgraph} from "./chrompaint/import.js";
 import {checkColorFile,checkLenFile,checkDataFile} from "./chrompaint/checkFile.js";
-import {parsingData, parsingLen, parsingColor,randomColorGenerator,dataStuffing} from "./chrompaint/parse.js";
+import {parsingData, parsingLen, parsingColor,randomColorGenerator, randomColorGenerator_block,dataStuffing} from "./chrompaint/parse.js";
 import {order, convertStrtoRangeSet, groupByColor, ancestorsGenerator, ploidyDescGenerator} from "./chrompaint/mosaique.js";
 import {getKeyByValue, refreshFloor, curveOpacitySetup, refreshCurveOpacity, arraySetup, floorPositionsSetup, refreshfloorPositions, tracerCourbe} from "./chrompaint/graph.js";
 ////////////
@@ -460,9 +460,14 @@ function load_ideogram_from_form_data(){
 	const chrdata = $("#editorChr").val();
 	//values in data form
 	const annotdata = $("#editorAnnot").val();
-	const colordata = $("#editorColor").val();
-    ancestorsNameColor = parsingColor(d3.tsvParse(colordata));
-    console.log(ancestorsNameColor);
+
+    //pour les données preloaded
+    //le tableau des couleurs n'est toujours pas calculé
+    if (ancestorsNameColor === undefined){ 
+        const colordata = $("#editorColor").val();
+        ancestorsNameColor = parsingColor(d3.tsvParse(colordata));
+        console.log(ancestorsNameColor);
+    }
 	config.ploidyDesc = [];
 	//colorchange();
 	config.ploidy = Number($('#selectorploidy').val());
@@ -569,8 +574,10 @@ document.getElementById("submit").addEventListener("click",function(){
             stuffedData = dataStuffing(rawData, chrConfig);
             data = parsingData(stuffedData);
         }
+        console.log(data);
         if (ancestorsNameColor === undefined) {
             ancestorsNameColor = randomColorGenerator(data);
+            console.log(ancestorsNameColor);
         }
         resetgraph();
         graphSetup(data);
@@ -578,10 +585,11 @@ document.getElementById("submit").addEventListener("click",function(){
 	//En mode block
 	}else{
         console.log("block");
-		if (ancestorsNameColor === undefined) {
-            ancestorsNameColor = randomColorGenerator(data);
+        data = $("#editorAnnot").val();
+		if (ancestorsNameColor === undefined || $("#editorColor").val() === "" ) {
+            console.log("generating random color");
+            ancestorsNameColor = randomColorGenerator_block(data);
         }
-		console.log(ancestorsNameColor);
 		config = initConfig();
 		loadingon();
 		load_ideogram_from_form_data();
@@ -1121,7 +1129,7 @@ function mosaique(floorValue){
     strMosaique = strMosaique.replace(/^ +/gm,""); //variable à récuperer pour gemo.(sous forme de string) encodeURIComponent....
 
 
-    console.log(strMosaique);
+    //console.log(strMosaique);
 
     ideogramConfig(strMosaique);
 

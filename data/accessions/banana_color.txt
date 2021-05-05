@@ -7,3 +7,4 @@ g2	group2	#ffc000
 g1	group1	#000000
 g4	group4	#00b009
 g7	group7	#b4b4b4
+g0	group0	#000000
