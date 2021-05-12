@@ -114,6 +114,9 @@ function load_ideogram(){
 		const ideogram = new Ideogram(config);
 
 	}
+
+    $('#floating_legend').show();
+
 	//apparition du bouton download
 	$('#download').fadeIn()
 	//repositione();
@@ -497,6 +500,9 @@ function load_ideogram_from_form_data(){
 		const ideogram = new Ideogram(config);
 
 	}
+
+    $('#floating_legend').show();
+
 	//apparition du bouton download
 	$('#download').fadeIn()
 	//repositione();

@@ -271,6 +271,16 @@ echo "<script> load_ideogram()</script>";
 	</aside>            
 </div>
 <!-- fin de la sidebar -->
+
+<!-- legende flottante -->
+<div id=floating_legend>
+	<button type="button" class="btn btn-dark btn-sm" style="display: none" id="legend_button" data-toggle="collapse" data-target="#legend_div" aria-expanded="false" aria-controls="legend_div">	
+    Legend
+	</button>
+	<div class="collapse" id="legend_div" >
+	</div>
+</div>
+<!-- fin legende flottante -->
 	
 		<div id="page-content-wrapper" role="main" class="ideo_container">
 <!-- The ideogram goes here. -->

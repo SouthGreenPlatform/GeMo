@@ -421,3 +421,23 @@ textarea.form-control {
 #chrompaint_menu{
   line-height: 20px;
 }
+
+
+/* Legende */
+#legend_div {
+  margin-top: 5px;
+  border:1px dotted black;
+  /* width: 95%; */
+  background: white;
+  /* padding-left: 5px;
+  padding-right: 5px; */
+}
+#floating_legend {
+  position: fixed;
+  right: 0;
+  bottom: 2%;
+  /*top: 75%;*/
+  /*width: 8em;*/
+  z-index: 1;
+  margin-top: -2.5em;
+}

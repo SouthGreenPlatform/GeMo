@@ -45,10 +45,13 @@ export function ploidyDesc(data){
 
 	//pour chaque chromosome
 	//sauf première ligne de titre
+	//sauf lignes vides
 	for (let i = 1; i < split.length; i++) {
-		localsplit = split[i].split("\t");
-		let ploidyA = localsplit[4];
-		ploidyDesc.push(ploidyA);
+		if (split[i] !== ''){
+			localsplit = split[i].split("\t");
+			let ploidyA = localsplit[4];
+			ploidyDesc.push(ploidyA);
+		}
     }
 	return [ploidyDesc, ploidyDesc.length];
 }
