@@ -1,5 +1,5 @@
 import { initConfig } from "./config.js";
-import { chromosomeParser, annotationParser } from "./dataParser.js";
+import { chromosomeParser, annotationParser, ploidyDesc } from "./dataParser.js";
 import { loadingon, loadingoff, displaytext, clear } from "./display.js";
 //chrompaint
 import {resetgraph} from "./chrompaint/import.js";
@@ -57,8 +57,8 @@ async function load_accession(sampleJson){
 	responseText = await response.text();
 	await $("#editorColor").val(responseText);
 
-	load_ideogram_from_form_data();
-
+	//load_ideogram_from_form_data();
+    load_ideogram();
 	setTimeout(addTooltip,100);
 
 	//addTooltip();
@@ -81,11 +81,19 @@ $('#SwitchLetters').change( function(){
 function load_ideogram(){
 	//clear();
 	//values in chromosome form
-	console.log("load ideogram");
+	console.log("load_ideogram preloaded files");
 	//console.log(config);
 	const chrdata = $("#editorChr").val();
 	//values in data form
 	const annotdata = $("#editorAnnot").val();
+
+    //pour les données preloaded
+    //le tableau des couleurs n'est toujours pas calculé
+    if (ancestorsNameColor === undefined){ 
+        const colordata = $("#editorColor").val();
+        ancestorsNameColor = parsingColor(d3.tsvParse(colordata));
+        console.log(ancestorsNameColor);
+    }
 	config.ploidyDesc = [];
 	//colorchange();
 	config.ploidy = Number($('#selectorploidy').val());
@@ -380,7 +388,7 @@ function echelle(){
 $('.custom-file-input').on('change', function(){ 
 	console.log("custom file");
 	let files = $(this)[0].files; 
-	name = ''; 
+	let name = ''; 
 	for(var i = 0; i < files.length; i++){ 
 		name += '\"' + files[i].name + '\"' + (i != files.length-1 ? ", " : ""); 
 	} 
@@ -472,10 +480,11 @@ function load_ideogram_from_form_data(){
 	//colorchange();
 	config.ploidy = Number($('#selectorploidy').val());
 	//parse les données chromosomes
-	let chrDataParsed = chromosomeParser(chrdata);
-	config.ploidyDesc = chrDataParsed[0];
-	config.ploidysize = chrDataParsed[1];
-	chrBands = chrDataParsed[2];
+	let ploidyParsed = ploidyDesc(chrdata);
+	config.ploidyDesc = ploidyParsed[0];
+	config.ploidysize = ploidyParsed[1];
+    config.dataDir = "/gemo/config/";
+	//chrBands = chrDataParsed[2];
 	
 	//parse les données blocs
 	let annotDataParsed = annotationParser(annotdata, config.ploidy, ancestorsNameColor);
@@ -663,7 +672,11 @@ function handleFiles(files,fileType) {
 					}
 					break;
 				case'len':
-					$("#editorChr").val(e.target.result);
+                    if(checkLenFile(d3.tsvParse(e.target.result))) {
+                        chrConfig = d3.tsvParse(e.target.result);
+                        mosaiqueConfig = parsingLen(chrConfig);
+                        $("#editorChr").val(e.target.result);
+                    }
 					break;
 			}
 		}

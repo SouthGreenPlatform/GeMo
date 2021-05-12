@@ -30,6 +30,28 @@ export function chromosomeParser(data){
 	return [ploidyDesc, split.length, chrBands];
 }
 
+////////////////////////////////////////////////////////////////
+//parsing de la ploidy 
+// data = fichier chr nouveau format
+// chr	len	centromereInf	centromereSup	label
+////////////////////////////////////////////////////////////////
+export function ploidyDesc(data){
+	console.log("parse ploidy");
+	
+	//split le fichier par ligne de chromosome
+	const split = data.split("\n");
+	let localsplit  = "";
+	let ploidyDesc = [];
+
+	//pour chaque chromosome
+	//sauf première ligne de titre
+	for (let i = 1; i < split.length; i++) {
+		localsplit = split[i].split("\t");
+		let ploidyA = localsplit[4];
+		ploidyDesc.push(ploidyA);
+    }
+	return [ploidyDesc, ploidyDesc.length];
+}
 
 ////////////////////////////////////////////////////////////////
 //parsing du formulaire data avec les annotations

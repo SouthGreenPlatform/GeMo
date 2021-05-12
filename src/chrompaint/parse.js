@@ -1,11 +1,9 @@
 export function parsingColor(colorFile){
 
     let colorMap = {};
-
     colorFile.map(function(cur){
         colorMap[cur.group] = [cur.name,cur.hex];
     });
-
     return colorMap;
 }
 
@@ -13,8 +11,6 @@ export function parsingColor(colorFile){
  * génère in dictionnaire {@colorMap} comme si on avait passé un fichier de couleur en paramètre, mais avec des couleurs aléatoires et des noms complets identiques à ceux dans les données.
  * @param data : les données parsé. (après être passé dans parsingData())
  */
-
-
 export function randomColorGenerator(data){
 
     let colorMap = {};
@@ -35,8 +31,6 @@ export function randomColorGenerator(data){
  * génère in dictionnaire {@colorMap} comme si on avait passé un fichier de couleur en paramètre, mais avec des couleurs aléatoires et des noms complets identiques à ceux dans les données.
  * @param data : les données du formulaire editorAnnot
  */
-
-
 export function randomColorGenerator_block(data){
 
     let colorMap = {};
