@@ -16,27 +16,34 @@ Chromosome representation has been developed on the top of [ideogram](https://gi
 
 *Coming soon*
 
+### ancestral pool customization
+
+*Coming soon*
+
+
 ## Data inputs (*Coming soon*)
 
 It accepts two types of files:
 
-- Genomic blocks: 
-- Normalized curves:
+- Genomic block: 
+- Normalized curve:
 
 See the Wiki for full documentation.
 
 
 ## Tutorials
 
-In order to generate ready tu use datasets, analayses can be conducted with the following software
+In order to generate ready to use datasets, analyses can be conducted with the following software
 
 ### VCFHunter
+
+VCFHunter is a suite of [python scripts](https://github.com/SouthGreenPlatform/VcfHunter) enabling chromosome painting of indivisual based on the contribution of ancestral groups using VCF files.
 
 Please look at the [tutorial](https://github.com/SouthGreenPlatform/VcfHunter/blob/master/turorial_painting_GEMO_visualization.md)
 
 ### TraceAncestor
 
-*Coming soon*
+Please look at the [tutorial](https://github.com/SouthGreenPlatform/TraceAncestor2)  (*Coming soon*)
 
 ## Acknowledgements
 
