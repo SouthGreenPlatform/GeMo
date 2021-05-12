@@ -1,4 +1,4 @@
-# GeMo - Genome Mosaics visulaisation tool
+# GeMo - Genome Mosaics visualization tool
 
 GeMo is a WebApp to respresent **Genome Mosaics** with current focus on plants. However, GeMo is developed in a generic way it can be also applied to other organisms.
 
