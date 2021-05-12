@@ -12,11 +12,11 @@ Gemo is currently running at the [Banana Genome Hub](https://banana-tools-genome
 
 Chromosome representation has been developed on the top of [ideogram](https://github.com/eweitz/ideogram).
 
-### Polyploidy
+### Polyploidy 
 
 *Coming soon*
 
-### ancestral pool customization
+### Custom Ancestral contributor
 
 *Coming soon*
 
@@ -44,6 +44,10 @@ Please look at the [tutorial](https://github.com/SouthGreenPlatform/VcfHunter/bl
 ### TraceAncestor
 
 Please look at the [tutorial](https://github.com/SouthGreenPlatform/TraceAncestor2)  (*Coming soon*)
+
+### Citation
+
+Summo M. et al (in prep)
 
 ## Acknowledgements
 
