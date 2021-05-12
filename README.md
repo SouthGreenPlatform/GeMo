@@ -45,7 +45,7 @@ Please look at the [tutorial](https://github.com/SouthGreenPlatform/VcfHunter/bl
 
 Please look at the [tutorial](https://github.com/SouthGreenPlatform/TraceAncestor2)  (*Coming soon*)
 
-### Citation
+## Citation
 
 Summo M. et al (in prep)
 
