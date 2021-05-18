@@ -47,19 +47,21 @@ async function load_accession(sampleJson){
 	config.ploidy = ploidy;
 	$('#selectorploidy').val(ploidy);
 
-	config.dataDir = '/gemo/data/';
+	config.dataDir = '/gemo/config/';
 	//config.dataDir = '/gemo/data/visuchromp/';
 	response = await fetch('/gemo/data/chromosomes/'+ChromFile);
 	responseText = await response.text();
-	await $("#editorChr").val(responseText);
-
+	$("#editorChr").val(responseText);
+    chrConfig = d3.tsvParse(responseText);
+    mosaiqueConfig = parsingLen(chrConfig);
+    
     //color file
     response = await fetch('/gemo/data/accessions/'+ColorFile);
 	responseText = await response.text();
 	await $("#editorColor").val(responseText);
 
-	//load_ideogram_from_form_data();
-    load_ideogram();
+	load_ideogram_from_form_data();
+    //load_ideogram();
 	setTimeout(addTooltip,100);
 
 	//addTooltip();
@@ -208,7 +210,7 @@ document.getElementById("reload").addEventListener("click", function(e) {
 	clear();
 	config = initConfig();
 	loadingon();
-	load_ideogram();
+	load_ideogram_from_form_data();
 	//repositione();
 	setTimeout(addTooltip, 100); //addTooltip();
 	
