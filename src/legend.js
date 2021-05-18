@@ -1,6 +1,9 @@
 export function drawLegend(colors){
 
 	console.log(colors);
+	//empty div before
+	$('#legend_div').empty();
+
 
 	//pour chaque groupe
 	Object.keys(colors).map(function(group){
