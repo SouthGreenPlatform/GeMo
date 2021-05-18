@@ -1,4 +1,5 @@
 import { initConfig } from "./config.js";
+import { drawLegend } from "./legend.js";
 import { chromosomeParser, annotationParser, ploidyDesc } from "./dataParser.js";
 import { loadingon, loadingoff, displaytext, clear } from "./display.js";
 //chrompaint
@@ -112,10 +113,12 @@ function load_ideogram(){
 	if(chrdata != ""){
 		//console.log(config);
 		const ideogram = new Ideogram(config);
+        drawLegend(ancestorsNameColor);
 
 	}
 
     $('#floating_legend').show();
+    $('#legend_button').show();
 
 	//apparition du bouton download
 	$('#download').fadeIn()
@@ -498,10 +501,12 @@ function load_ideogram_from_form_data(){
 	if(chrdata != ""){
 		//console.log(config);
 		const ideogram = new Ideogram(config);
+        drawLegend(ancestorsNameColor);
 
 	}
 
     $('#floating_legend').show();
+    $('#legend_button').show();
 
 	//apparition du bouton download
 	$('#download').fadeIn()
