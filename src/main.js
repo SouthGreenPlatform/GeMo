@@ -205,16 +205,17 @@ function addTooltip(){
 ////////////////////////////////////////////////////////////////
 // Fonction qui recalcul le schéma à partir des données dans les cadres
 ////////////////////////////////////////////////////////////////
-document.getElementById("reload").addEventListener("click", function(e) {
+document.getElementById("reload").addEventListener("click", updateIdeo, null);
+
+function updateIdeo() {
 	console.log("update");
-	clear();
+	//clear();
 	config = initConfig();
 	loadingon();
 	load_ideogram_from_form_data();
 	//repositione();
 	setTimeout(addTooltip, 100); //addTooltip();
-	
-});
+}
 
 ////////////////////////////////////////////////////////////////
 //
@@ -504,7 +505,6 @@ function load_ideogram_from_form_data(){
 		//console.log(config);
 		const ideogram = new Ideogram(config);
         drawLegend(ancestorsNameColor);
-
 	}
 
     $('#floating_legend').show();
