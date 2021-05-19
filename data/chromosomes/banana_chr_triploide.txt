@@ -1,4 +1,4 @@
-chr	len centromereInf	centromereSup	abel
+chr	len centromereInf	centromereSup	label
 1	29070452			ABC
 2	29511734			ABC
 3	35020413			ABC
