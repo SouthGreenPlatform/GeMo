@@ -310,7 +310,7 @@
 
 
 #chrompaint_menu{
-  list-style: none;x
+  list-style: none;
   padding-top: 10px;
   line-height: 20px !important;
 }
@@ -389,6 +389,10 @@ textarea.form-control {
     width: 90%;
     font-size: 11px;
     font-family: monospace;
+}
+
+.custom-select-sm{
+  width: 45%;
 }
 
 /*Jumbotron*/

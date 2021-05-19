@@ -425,11 +425,11 @@ $.getJSON('./config/pre-loaded.json', function (data) {
         arrData = data;
     });
 
-    // Remove duplicates. We want unique bird types.
+    // Remove duplicates
     organismTab = Array.from(new Set (organismTab));
     // ref (https://www.encodedna.com/javascript/remove-duplicates-in-javascript-array-using-es6-set-and-from.htm)
 
-    // Fill the first dropdown with unique bird types.
+    // Fill the first dropdown with organism
     $.each(organismTab, function (index, value) {
         $('#organism').append('<option value="' + value + '">' + value + '</option>');
     });
@@ -445,10 +445,10 @@ $('#organism').change(function () {
     });
     $('#sample')
         .empty()
-        .append('<option value=""> -- Select sample -- </option>');
+        .append('<option value="">--Sample--</option>');
 
     $.each(filterData, function (index, value) {
-        // Now, fill the second dropdown list with bird names.
+        // Now, fill the second dropdown list with samples
         $('#sample').append('<option value="' + value.ID + '">' + value.Sample + '</option>');
     });
 });
