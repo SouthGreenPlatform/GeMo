@@ -214,7 +214,7 @@ function updateIdeo() {
 	loadingon();
 	load_ideogram_from_form_data();
 	//repositione();
-	setTimeout(addTooltip, 100); //addTooltip();
+	setTimeout(addTooltip, 200); //addTooltip();
 }
 
 ////////////////////////////////////////////////////////////////
@@ -1171,33 +1171,19 @@ function ideogramConfig(mosaique){
         chr[stuffedData[i]["chr"]] = 1;
     }
     chrNumber = Object.keys(chr).length;
-    if(chrNumber < 11){ //Il faut 11 chromosomes minimum dans la ploidyDesc, surement en rapport avec l'organisme.
+/*     if(chrNumber < 11){ //Il faut 11 chromosomes minimum dans la ploidyDesc, surement en rapport avec l'organisme.
         chrNumber = 11;
-    }
-
-    console.log(chrNumber);
+    } */
 
     let dataSet = convertStrtoRangeSet(mosaique,haplotype);
     let ploidyDesc = ploidyDescGenerator(haplotype,chrNumber);
     let ancestors = ancestorsGenerator(haplotype);
-
-    console.log(ploidyDesc);
-    console.log(ancestors);
-
-    let configChrompaint = {
-        rotatable:false,
-        orientation: 'horizontal',
-        organism: 'banana',
-        ploidy: haplotype,
-        dataDir: "/gemo/config/",
-        container: "#box4",
-        rangeSet: dataSet,
-        chrMargin: 0,
-        chrHeight: WIDTH*1.1,
-        chrWidth: HEIGHT/50,
-        ancestors:ancestors,
-        ploidyDesc:ploidyDesc,
-    };
+    let configChrompaint = initConfig();
+    configChrompaint.ploidy = haplotype;
+    configChrompaint.container = "#box4";
+    configChrompaint.rangeSet = dataSet;
+    configChrompaint.ancestors = ancestors;
+    configChrompaint.ploidyDesc = ploidyDesc;
 
     console.log(configChrompaint);
 
