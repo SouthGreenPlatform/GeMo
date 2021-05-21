@@ -718,7 +718,8 @@ function handleFiles(files,fileType) {
 }
 ///////////////////////CREATION DU GRAPHIQUE//////////////////////////////////////
 
-let selectedOrigin = "Velut";   // l'origine actuellement séléctionné dont le seuil sera modifié si modification il y a.
+//let selectedOrigin = "Velut";   // l'origine actuellement séléctionné dont le seuil sera modifié si modification il y a.
+let selectedOrigin;
 let selectedChromosome = 0;     //index du chromosome séléctionné.
 let WIDTH = 0;                  //Width de la div qui contiendras le graph, pourquoi global ? Pourquoi pas ?
 let HEIGHT = 0;
@@ -733,6 +734,10 @@ let HEIGHT = 0;
 function graphSetup(data){
 
     let ancestorsNameColorBackup = JSON.parse(JSON.stringify(ancestorsNameColor));
+    
+    //initialise en fonction de données
+    let selectedOriginKey = Object.keys(ancestorsNameColorBackup);
+    selectedOrigin = ancestorsNameColorBackup[selectedOriginKey[0]][0];
 
     //Ici on va récupérer les dimensions de notre container.
 
