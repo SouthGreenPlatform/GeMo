@@ -208,13 +208,22 @@ function addTooltip(){
 document.getElementById("reload").addEventListener("click", updateIdeo, null);
 
 function updateIdeo() {
-	console.log("update");
-	//clear();
-	config = initConfig();
-	loadingon();
-	load_ideogram_from_form_data();
-	//repositione();
-	setTimeout(addTooltip, 200); //addTooltip();
+
+    var radio_form = $('#radio_form input:radio:checked').val()
+    if(radio_form === "curve"){
+        console.log("update curve");
+        $("#submit").click();
+    }else{
+        console.log("update block");
+        //clear();
+        config = initConfig();
+        loadingon();
+        load_ideogram_from_form_data();
+        //repositione();
+        setTimeout(addTooltip, 200); //addTooltip();
+    }
+    
+	
 }
 
 ////////////////////////////////////////////////////////////////
@@ -584,22 +593,30 @@ document.getElementById("submit").addEventListener("click",function(){
         $('#chrompaint').show();
         $('#page-content-wrapper').hide();
 
+        //recup les données dans le formulaire
+        rawData = d3.tsvParse($("#editorAnnot").val());
         if(rawData === undefined){
             alert("Fichier de données manquant");
             throw "pas de données envoyé."
         }
+        chrConfig = d3.tsvParse($("#editorChr").val());
+        mosaiqueConfig = parsingLen(chrConfig);
         if(chrConfig === undefined){
             alert("Fichier de configuration des chromosomes manquant.");
             throw "Fichier de configuration des chromosomes manquant.";
         }
-        else if(stuffedData === undefined) {
-            stuffedData = dataStuffing(rawData, chrConfig);
-            data = parsingData(stuffedData);
-        }
+        
+        stuffedData = dataStuffing(rawData, chrConfig);
+        data = parsingData(stuffedData);
+        
         console.log(data);
+        
+        ancestorsNameColor = d3.tsvParse($("#editorColor").val());
         if (ancestorsNameColor === undefined) {
             ancestorsNameColor = randomColorGenerator(data);
             console.log(ancestorsNameColor);
+        }else{
+            ancestorsNameColor = parsingColor(ancestorsNameColor);
         }
         resetgraph();
         graphSetup(data);
@@ -667,7 +684,7 @@ function handleFiles(files,fileType) {
 				case'len':
 					if(checkLenFile(d3.tsvParse(e.target.result))) {
 						chrConfig = d3.tsvParse(e.target.result);
-						mosaiqueConfig = parsingLen(chrConfig);
+						//mosaiqueConfig = parsingLen(chrConfig);
 						$("#editorChr").val(e.target.result);
 					}
 					break;
