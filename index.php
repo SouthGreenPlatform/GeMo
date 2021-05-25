@@ -37,7 +37,7 @@
 <script type="text/javascript" src="src/canvas2image.js"></script>
 
 <!--d3-->
-<script src="https://d3js.org/d3-axis.v1.min.js"></script>
+<script src="https://d3js.org/d3-axis.v2.min.js"></script>
 
 
 

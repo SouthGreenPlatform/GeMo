@@ -42,6 +42,7 @@ export function ploidyDesc(data){
 	const split = data.split("\n");
 	let localsplit  = "";
 	let ploidyDesc = [];
+	let maxLength=0;
 
 	//pour chaque chromosome
 	//sauf première ligne de titre
@@ -51,9 +52,14 @@ export function ploidyDesc(data){
 			localsplit = split[i].split("\t");
 			let ploidyA = localsplit[4];
 			ploidyDesc.push(ploidyA);
+
+			//return max length
+			if (localsplit[1] > maxLength){
+				maxLength = localsplit[1];
+			}
 		}
     }
-	return [ploidyDesc, ploidyDesc.length];
+	return [ploidyDesc, ploidyDesc.length, maxLength];
 }
 
 ////////////////////////////////////////////////////////////////

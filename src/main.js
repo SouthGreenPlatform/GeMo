@@ -81,7 +81,7 @@ $('#SwitchLetters').change( function(){
 ////////////////////////////////////////////////////////////////
 // Load ideogram from preloaded accession
 ////////////////////////////////////////////////////////////////
-function load_ideogram(){
+/* function load_ideogram(){
 	//clear();
 	//values in chromosome form
 	console.log("load_ideogram preloaded files");
@@ -116,6 +116,7 @@ function load_ideogram(){
 		//console.log(config);
 		const ideogram = new Ideogram(config);
         drawLegend(ancestorsNameColor);
+        echelle();
 
 	}
 
@@ -130,7 +131,7 @@ function load_ideogram(){
     // therefore events delegated to document won't be fired
    //event.stopPropagation();
 	});
-}
+} */
 
 //Ajoute les tooltips, lien vers genome browser
 function addTooltip(){
@@ -343,43 +344,29 @@ function colorchange(){
 ///////////////////////////////////////////////////
 //Création de l'echelle du graph
 //////////////////////////////////////////////////
-function echelle(){
-	//console.log(lgtChro);
-    //var maxlgt = Math.max.apply(null,lgtChro); 
-	let maxlgt = 0;
-	for(let i = 0; i<ultimateCount; i++){
-		if(maxlgt <= ultimateWidth[i]){
-			maxlgt = ultimateWidth[i];
-		}
-	}
+function echelle(maxLength){
 
-    const width = maxlgt,
-        height = 50;
-
-    const data = lgtChro;
-    const maxlgtpb = Math.max.apply(null,lgtChro); 
-
+    const width = 600;
+    const height = 50;
     // Append SVG 
     const svg = d3.select("body")
-                .append("svg")
-		.attr("id", "scale")
-                .attr("width", width)
-                .attr("height", height)
-		.attr("transform", 'translate(60,10)');
-
+                    .selectAll("#wrapper")
+                    .append("svg")
+                    .attr("id", "scale")
+                    .attr("width", width +20)
+                    .attr("height", height)
+                    //translate pour aligner avec les chromosomes.
+                    .attr("transform", 'translate(30,0)');
     // Create scale
     const scale = d3.scaleLinear()
-                  .domain([0, d3.max(data)])
-                  .range([0, width]);
-
+                    .domain([0, maxLength]) //unit pb
+                    .range([5, width+5]);   //unit px //je laisse une petite marge de 5 pour que le zéro ne soit pas coupé
     // Add scales to axis
     const x_axis = d3.axisBottom()
-                   .scale(scale)
-		   .ticks(5);
-
+                    .scale(scale)
+                    .ticks(5);
     //Append group and insert axis
-    svg.append("g")
-       .call(x_axis);
+    svg.append("g").call(x_axis);
 }
 
 
@@ -503,6 +490,8 @@ function load_ideogram_from_form_data(){
 	config.ploidysize = ploidyParsed[1];
     config.dataDir = "/gemo/config/";
 	//chrBands = chrDataParsed[2];
+
+    let maxLength = ploidyParsed[2];
 	
 	//parse les données blocs
 	let annotDataParsed = annotationParser(annotdata, config.ploidy, ancestorsNameColor);
@@ -514,6 +503,7 @@ function load_ideogram_from_form_data(){
 		//console.log(config);
 		const ideogram = new Ideogram(config);
         drawLegend(ancestorsNameColor);
+        echelle(maxLength);
 	}
 
     $('#floating_legend').show();
