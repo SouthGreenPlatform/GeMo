@@ -355,17 +355,18 @@ function echelle(maxLength){
                     .selectAll("#wrapper")
                     .append("svg")
                     .attr("id", "scale")
-                    .attr("width", width +20)
+                    .attr("width", width +50)
                     .attr("height", height)
                     //translate pour aligner avec les chromosomes.
-                    .attr("transform", 'translate(30,0)');
+                    .attr("transform", 'translate(15,0)');
     // Create scale
     const scale = d3.scaleLinear()
                     .domain([0, maxLength]) //unit pb
-                    .range([5, width+5]);   //unit px //je laisse une petite marge de 5 pour que le zéro ne soit pas coupé
+                    .range([20, width+20]);   //unit px //je laisse une petite marge de 5 pour que le zéro ne soit pas coupé
     // Add scales to axis
     const x_axis = d3.axisBottom()
                     .scale(scale)
+                    .tickFormat(d => d / 1000000 + " Mb")
                     .ticks(5);
     //Append group and insert axis
     svg.append("g").call(x_axis);
