@@ -346,9 +346,11 @@ function colorchange(){
 //////////////////////////////////////////////////
 function echelle(maxLength){
 
+    console.log("echelle "+maxLength);
     const width = 600;
     const height = 50;
     // Append SVG 
+    d3.select("body").selectAll("#scale").remove();
     const svg = d3.select("body")
                     .selectAll("#wrapper")
                     .append("svg")
@@ -1176,11 +1178,21 @@ function mosaique(floorValue){
 
 function ideogramConfig(mosaique){
 
+    let maxLength = 0;
     let chrNumber;
     let chr = {};
 
+    chrConfig = d3.tsvParse($("#editorChr").val());
+    for (let i = 0; i < chrConfig.length; i++) {
+        if(chrConfig[i]["len"] > maxLength){
+            console.log(chrConfig[i]["len"]);
+            maxLength = parseInt(chrConfig[i]["len"])
+        }
+    }
+    
+
     for (let i = 0; i < stuffedData.length; i++) {
-        chr[stuffedData[i]["chr"]] = 1;
+        chr[stuffedData[i]["chr"]] = 1; 
     }
     chrNumber = Object.keys(chr).length;
 /*     if(chrNumber < 11){ //Il faut 11 chromosomes minimum dans la ploidyDesc, surement en rapport avec l'organisme.
@@ -1200,6 +1212,7 @@ function ideogramConfig(mosaique){
     console.log(configChrompaint);
 
     const ideogramChrompaint = new Ideogram(configChrompaint);
+    echelle(maxLength);
     
 
 }
