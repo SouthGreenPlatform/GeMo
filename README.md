@@ -12,9 +12,9 @@ Gemo is currently running at the [Banana Genome Hub](https://banana-tools-genome
 
 ## Main features 
 
-### chromosome painting
+### Chromosome painting
 
-Chromosome representation has been developed on the top of [ideogram](https://github.com/eweitz/ideogram).
+Chromosome representation based on [ideogram](https://github.com/eweitz/ideogram).
 
 ### Polyploidy 
 
