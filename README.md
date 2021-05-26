@@ -25,8 +25,9 @@ Chromosome representation has been developed on the top of [ideogram](https://gi
 
 It accepts two types of files:
 
-- Genomic block: 
-- Normalized curve:
+- Genomic blocks: 
+
+- Normalized curves:
 
 See the Wiki for full documentation.
 
@@ -42,6 +43,8 @@ VCFHunter is a suite of [python scripts](https://github.com/SouthGreenPlatform/V
 Please look at the [tutorial](https://github.com/SouthGreenPlatform/VcfHunter/blob/master/turorial_painting_GEMO_visualization.md)
 
 ### TraceAncestor
+
+TraceAncestor permits to estimate the allelic dosage of ancestral alleles in hybrid individuals and then to perform chromosom painting.
 
 Please look at the [tutorial](https://github.com/SouthGreenPlatform/TraceAncestor_gemo)  
 ## Citation
