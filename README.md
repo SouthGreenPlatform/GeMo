@@ -36,9 +36,9 @@ It accepts two types of files:
 See the Wiki for full documentation.
 
 
-## Tutorials
+## Generating datasets
 
-In order to generate ready to use datasets, analyses can be conducted with the following software
+In order to generate ready-to-use datasets, analyses can be conducted with the following software:
 
 ### VCFHunter
 
