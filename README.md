@@ -43,8 +43,7 @@ Please look at the [tutorial](https://github.com/SouthGreenPlatform/VcfHunter/bl
 
 ### TraceAncestor
 
-Please look at the [tutorial](https://github.com/SouthGreenPlatform/TraceAncestor2)  (*Coming soon*)
-
+Please look at the [tutorial](https://github.com/SouthGreenPlatform/TraceAncestor_gemo)  
 ## Citation
 
 Summo M. et al (in prep)
