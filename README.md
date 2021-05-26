@@ -6,15 +6,19 @@ GeMo is a WebApp to respresent **Genome Mosaics** with current focus on plants. 
 ## Live demo
 Gemo is currently running at the [Banana Genome Hub](https://banana-tools-genome-hub.southgreen.fr/gemo/) where anyone can upload its own data or test with pre-loaded datasets.
 
+## Install
+
+*Coming soon*
+
 ## Main features 
 
-### Ideogram visualisation
+### chromosome painting
 
 Chromosome representation has been developed on the top of [ideogram](https://github.com/eweitz/ideogram).
 
 ### Polyploidy 
 
-*Coming soon*
+Karyotype can display to 1x to nX chromosome. Anueploidy can be represented.
 
 ### Custom Ancestral contributor
 
