@@ -15,9 +15,9 @@
 <!-- <script src="https://cdn.jsdelivr.net/npm/ideogram@1.16.0/dist/js/ideogram.min.js"></script> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/ideogram@1.20.0/dist/js/ideogram.min.js"></script> -->
 
-<!-- test avec la version qui gère les custom names (pas encore released)-->
-<script src="dist/ideogram/dist/js/ideogram.min.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/ideogram@1.29.0/dist/js/ideogram.min.js"></script> -->
+<!-- Ideogram -->
+<!-- <script src="dist/ideogram/dist/js/ideogram.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/ideogram@1.31.0/dist/js/ideogram.min.js"></script>
 
 <!--Tooltipster-->
 <link rel="stylesheet" type="text/css" href="src/tooltipster/dist/css/tooltipster.bundle.min.css" />
