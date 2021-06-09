@@ -6,15 +6,19 @@ GeMo is a WebApp to respresent **Genome Mosaics** with current focus on plants. 
 ## Live demo
 Gemo is currently running at the [Banana Genome Hub](https://banana-tools-genome-hub.southgreen.fr/gemo/) where anyone can upload its own data or test with pre-loaded datasets.
 
+## Install
+
+*Coming soon*
+
 ## Main features 
 
-### Ideogram visualisation
+### Chromosome painting
 
-Chromosome representation has been developed on the top of [ideogram](https://github.com/eweitz/ideogram).
+Chromosome representation based on [ideogram](https://github.com/eweitz/ideogram).
 
 ### Polyploidy 
 
-*Coming soon*
+Karyotype can display to 1x to nX chromosome. Anueploidy can be represented.
 
 ### Custom Ancestral contributor
 
@@ -25,15 +29,16 @@ Chromosome representation has been developed on the top of [ideogram](https://gi
 
 It accepts two types of files:
 
-- Genomic block: 
-- Normalized curve:
+- Genomic blocks: 
+
+- Normalized curves:
 
 See the Wiki for full documentation.
 
 
-## Tutorials
+## Generating datasets
 
-In order to generate ready to use datasets, analyses can be conducted with the following software
+In order to generate ready-to-use datasets, analyses can be conducted with the following software:
 
 ### VCFHunter
 
@@ -43,8 +48,9 @@ Please look at the [tutorial](https://github.com/SouthGreenPlatform/VcfHunter/bl
 
 ### TraceAncestor
 
-Please look at the [tutorial](https://github.com/SouthGreenPlatform/TraceAncestor2)  (*Coming soon*)
+TraceAncestor permits to estimate the allelic dosage of ancestral alleles in hybrid individuals and then to perform chromosom painting.
 
+Please look at the [tutorial](https://github.com/SouthGreenPlatform/TraceAncestor_gemo)  
 ## Citation
 
 Summo M. et al (in prep)
