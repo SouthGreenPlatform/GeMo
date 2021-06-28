@@ -345,8 +345,6 @@ function colorchange(){
 //Création de l'echelle du graph
 //////////////////////////////////////////////////
 function echelle(maxLength){
-
-    console.log("echelle "+maxLength);
     const width = 600;
     const height = 50;
     // Append SVG 
@@ -605,11 +603,12 @@ document.getElementById("submit").addEventListener("click",function(){
         console.log(data);
         
         ancestorsNameColor = d3.tsvParse($("#editorColor").val());
-        if (ancestorsNameColor === undefined) {
+        if (ancestorsNameColor === undefined || $("#editorColor").val() === "" ) {
             ancestorsNameColor = randomColorGenerator(data);
-            console.log(ancestorsNameColor);
+            console.log('random color '+ancestorsNameColor);
         }else{
             ancestorsNameColor = parsingColor(ancestorsNameColor);
+            console.log('entered '+ancestorsNameColor);
         }
         resetgraph();
         graphSetup(data);
@@ -727,7 +726,7 @@ let HEIGHT = 0;
 function graphSetup(data){
 
     let ancestorsNameColorBackup = JSON.parse(JSON.stringify(ancestorsNameColor));
-    
+
     //initialise en fonction de données
     let selectedOriginKey = Object.keys(ancestorsNameColorBackup);
     selectedOrigin = ancestorsNameColorBackup[selectedOriginKey[0]][0];
@@ -914,6 +913,8 @@ function graphSetup(data){
         .enter()
         .append('g')
         .attr('class', 'legend')
+        .style("padding-left","0px")
+        .style("padding-right","0px")
         .style("margin-bottom",""+((HEIGHT/ancestorsNameColor.length)/2)+"px");
 
     legend.append('input')
@@ -947,6 +948,7 @@ function graphSetup(data){
         });
 
     legend.append('input')
+        .style("width","80px")
         .attr("class","floor")
         .attr("type","number")
         .attr("step","0.001")
@@ -1095,7 +1097,6 @@ function mosaique(floorValue){
     // préparation du tableau pour le bloc idéogramme
 
     let mosaique = [];
-
     for (let i = 0; i < stuffedData.length; i++) {
         mosaique.push([]);
     }
@@ -1109,7 +1110,7 @@ function mosaique(floorValue){
     for (let i = 0; i < mosaique.length; i++) {
 
         originalChrNumber = stuffedData[i]["chr"].replace(/chr/g,"");
-
+        
         Object.keys(floorValue).forEach(function(origineKey) {
 
             if(countHaplotype !== -1) {
@@ -1149,17 +1150,18 @@ function mosaique(floorValue){
         }
 
         countHaplotype = 0;
+        
         metaBlocks.push(block);
         block = [];
         chrStr = "chr";
 
 
     }
-
+    //console.log("metaBlocks "+metaBlocks);
     let groupedBlock = groupByColor(metaBlocks);
-
+    //console.log("groupedBlock "+groupedBlock);
     groupedBlock = order(groupedBlock,haplotype); //variable à récuperer pour gemo.
-
+    //console.log("groupedBlock "+groupedBlock);
     metaBlocks = [];
     for (let block of groupedBlock){
         metaBlocks.push(block.flat(1));
@@ -1186,7 +1188,6 @@ function ideogramConfig(mosaique){
     chrConfig = d3.tsvParse($("#editorChr").val());
     for (let i = 0; i < chrConfig.length; i++) {
         if(chrConfig[i]["len"] > maxLength){
-            console.log(chrConfig[i]["len"]);
             maxLength = parseInt(chrConfig[i]["len"])
         }
     }
@@ -1201,6 +1202,7 @@ function ideogramConfig(mosaique){
     } */
 
     let dataSet = convertStrtoRangeSet(mosaique,haplotype);
+    console.log(dataSet);
     let ploidyDesc = ploidyDescGenerator(haplotype,chrNumber);
     let ancestors = ancestorsGenerator(haplotype);
     let configChrompaint = initConfig();

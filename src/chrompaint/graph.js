@@ -4,12 +4,14 @@ export function getKeyByValue(object, value) {
 }
 
 export function tracerCourbe(idChromosome, data, lineGen, svg, field){
-
+    console.log("idChromosome"+idChromosome);
+    console.log("data"+data);
     d3.selectAll(".line").remove();
 
         let container = svg.select("#graphlimit");
 
         data[idChromosome].values.forEach(function(d) {
+            //console.log("ddd"+d.value);
             container.append('path')
                 .attr("class", "line")
                 .attr("ancestor",function(){

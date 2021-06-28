@@ -3,25 +3,30 @@ export function groupByColor(metaBlocks){
     let group = {};
     let colorInBlock = [];
 
-    for (let i = 0; i < metaBlocks.length; i++) {
-
+    //parse toute les positions
+    for (let i = 0; i < metaBlocks.length; i++) {  
+        //parse tout les haplotype pour cette position
         for (let j = 0; j < metaBlocks[i].length; j++) {
+            //console.log("metaBlocks " + " "+ [i] + " " + [j] +" " + metaBlocks[i][j]);
 
+            //metaBlocks[i][j][4] = color hex
+            //metaBlocks[i][j][1] = haplotype number
+            //si la couleur est dans group et pas grise unknown
             if(!(metaBlocks[i][j][4] in group && metaBlocks[i][j][4] !== "#808080" )){
-
+                //group[color] = haplotype
                 group[metaBlocks[i][j][4]] = metaBlocks[i][j][1];
 
+            //sinon si l'haplotype est différent
             }else if(metaBlocks[i][j][1] !== group[metaBlocks[i][j][4]]){
 
                 for (let k = 0; k < metaBlocks[i].length; k++) {
                     colorInBlock.push(metaBlocks[i][k][4]);
                 }
-
-                if(!(colorInBlock.every((currentvalue) => currentvalue === colorInBlock[0]))){ //Si il y a des couleurs différentes dans ce block.
+                //Si il y a des couleurs différentes dans ce block.
+                if(!(colorInBlock.every((currentvalue) => currentvalue === colorInBlock[0]))){ 
 
                     let typeLeft = metaBlocks[i][j][1];
                     let typeTaken = group[metaBlocks[i][j][4]];
-
 
                     for (let k = 0; k < metaBlocks[i].length; k++) {
                         if (metaBlocks[i][k][1] === typeTaken) {
@@ -31,14 +36,10 @@ export function groupByColor(metaBlocks){
                     metaBlocks[i][j][1] = group[metaBlocks[i][j][4]];
                 }
             }
-
             colorInBlock = [];
-
         }
     }
-
     return metaBlocks;
-
 }
 
 export function order(block,haplotype){
