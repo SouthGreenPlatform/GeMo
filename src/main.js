@@ -783,12 +783,14 @@ function graphSetup(data){
     let yAxis = d3.axisLeft()
         .scale(y);
 
-    //x
 
+    //x
+    let maxLength = d3.max(d3.tsvParse($("#editorChr").val()), d => d.len);
     let x = d3.scaleLinear()
-        .domain([0,d3.max(data[selectedChromosome].values[0].values, function (d) {
-            return d.avr;
-        })])
+        //.domain([0,d3.max(data[selectedChromosome].values[0].values, function (d) {
+        //    return d.avr;
+        //})])
+        .domain([0,maxLength])
         .range([0, WIDTH]);
 
     let xAxis = d3.axisBottom()
