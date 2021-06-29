@@ -20,6 +20,28 @@ let ancestorsNameColor; //Match les abréviation d'origine avec leurs noms compl
 
 
 
+///////////////////////
+///// BOUTON HOME /////
+///////////////////////
+document.getElementById("homebutton").addEventListener("click", function(e) {
+	//affiche la page d'accueil
+	//document.getElementById("home").style.display = "block";
+	$('#home').show();
+	$('#welcome').show();
+	//$('#download_section').hide();
+	//$('#feedback').hide();
+    $('#chrompaint').hide();
+	$('#page-content-wrapper').hide();
+
+    //vire l'echelle
+    d3.select("body").selectAll("#scale").remove();
+
+	//remet le selcteur d'acc vide
+	$('#organism')[0].value="Organism";
+    $('#sample')[0].value="Sample";
+
+});
+
 ////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////
@@ -458,6 +480,8 @@ $('#sample').change( function(){
     });
 	$('#chrompaint').hide();
 	$('#page-content-wrapper').show();
+    $('#home').hide();
+	$('#welcome').hide();
 	load_accession(sampleJson);
 });
 
@@ -583,6 +607,8 @@ document.getElementById("submit").addEventListener("click",function(){
         //Affiche les div de chrompaint
         $('#chrompaint').show();
         $('#page-content-wrapper').hide();
+        $('#home').hide();
+	    $('#welcome').hide();
 
         //recup les données dans le formulaire
         rawData = d3.tsvParse($("#editorAnnot").val());

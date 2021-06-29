@@ -115,15 +115,27 @@ echo "<script> load_ideogram()</script>";
 		<aside id="sidebar">
 			<ul id="sidemenu" class="sidebar-nav">
 					
+		
+		<!--HOME-->
+		<li id="homebutton">
+			<a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-1">
+				<span class="sidebar-icon"><i class="fa fa-dashboard"></i></span>
+				<span class="sidebar-title">Home</span>
+			  	<b class="caret"></b>
+			</a>
+			<!-- <ul id="submenu-1" class="panel-collapse collapse panel-switch" role="menu">
+			</ul> -->
+		</li>
+
 		<!--ACCESSION-->
 		<li id="accession">
-			<a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-1">
+			<a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">
 				<span class="sidebar-icon"><i class="fa fa-dashboard"></i></span>
 				<span class="sidebar-title">Chromosome Painting</span>
 			<b class="caret"></b>
 			</a>
 			
-			<ul id="submenu-1" class="panel-collapse collapse panel-switch" role="menu">
+			<ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
 		
 			<!-- Menu-->
 			<li>
@@ -281,6 +293,18 @@ echo "<script> load_ideogram()</script>";
 	</div>
 </div>
 <!-- fin legende flottante -->
+
+<div id="home" class="container">
+
+	<div id="welcome">
+
+		<!--JUMBOTRON-->
+		<div class="jumbotron jb_welcome">
+		<h1 class="display-2">Welcome to GeMo</h1><br/>
+	</div>
+
+	</div> <!--fin du jumbotron-->
+</div><!--fin du home-->
 	
 		<div id="page-content-wrapper" role="main" class="ideo_container">
 <!-- The ideogram goes here. -->

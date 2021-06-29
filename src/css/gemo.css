@@ -408,6 +408,15 @@ textarea.form-control {
 
 }
 
+.jb_welcome {
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.9) 100%), url(/gemo/public/img/chromosomes1.png);
+  background-position: center;
+  background-size: 100%;
+  height: 100%;
+  text-align: left;
+  padding-left: 4rem;
+}
+
 /*Tooltipster*/
 
 .tooltip_templates { 
