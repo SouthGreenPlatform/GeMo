@@ -35,6 +35,7 @@
 <!--libs-->
 <script type="text/javascript" src="src/html2canvas.js"></script>
 <script type="text/javascript" src="src/canvas2image.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"></script>
 
 <!--d3-->
 <script src="https://d3js.org/d3-axis.v2.min.js"></script>
@@ -302,8 +303,10 @@ echo "<script> load_ideogram()</script>";
 		<div class="jumbotron jb_welcome">
 		<h1 class="display-2">Welcome to GeMo</h1><br/>
 	</div>
-
 	</div> <!--fin du jumbotron-->
+	<div id="md">
+		<zero-md src="README.md"></zero-md>
+	</div>
 </div><!--fin du home-->
 	
 		<div id="page-content-wrapper" role="main" class="ideo_container">
