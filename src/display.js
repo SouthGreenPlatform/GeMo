@@ -43,3 +43,21 @@ export function clear(){
 	}
 }
 
+export function homeClick(){
+	//affiche la page d'accueil
+	//document.getElementById("home").style.display = "block";
+	$('#home').show();
+	$('#welcome').show();
+	//$('#download_section').hide();
+	//$('#feedback').hide();
+    $('#chrompaint').hide();
+	$('#page-content-wrapper').hide();
+
+    //vire l'echelle
+    d3.select("body").selectAll("#scale").remove();
+
+	//remet le selcteur d'acc vide
+	$('#organism')[0].value="Organism";
+    $('#sample')[0].value="Sample";
+}
+

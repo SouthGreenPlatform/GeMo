@@ -1,7 +1,7 @@
 import { initConfig } from "./config.js";
 import { drawLegend } from "./legend.js";
 import { chromosomeParser, annotationParser, ploidyDesc } from "./dataParser.js";
-import { loadingon, loadingoff, displaytext, clear } from "./display.js";
+import { loadingon, loadingoff, displaytext, clear, homeClick } from "./display.js";
 //chrompaint
 import {resetgraph} from "./chrompaint/import.js";
 import {checkColorFile,checkLenFile,checkDataFile} from "./chrompaint/checkFile.js";
@@ -23,24 +23,8 @@ let ancestorsNameColor; //Match les abréviation d'origine avec leurs noms compl
 ///////////////////////
 ///// BOUTON HOME /////
 ///////////////////////
-document.getElementById("homebutton").addEventListener("click", function(e) {
-	//affiche la page d'accueil
-	//document.getElementById("home").style.display = "block";
-	$('#home').show();
-	$('#welcome').show();
-	//$('#download_section').hide();
-	//$('#feedback').hide();
-    $('#chrompaint').hide();
-	$('#page-content-wrapper').hide();
+document.getElementById("homebutton").addEventListener("click", homeClick, null);
 
-    //vire l'echelle
-    d3.select("body").selectAll("#scale").remove();
-
-	//remet le selcteur d'acc vide
-	$('#organism')[0].value="Organism";
-    $('#sample')[0].value="Sample";
-
-});
 
 ////////////////////////////////////////////////////////////////
 //
