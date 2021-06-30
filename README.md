@@ -28,6 +28,10 @@ Karyotype can display to 1x to nX chromosome. Aneuploidy can be represented.
 
 *Coming soon*
 
+### high quality image export
+
+*Coming soon*
+
 ## Data inputs (*Coming soon*)
 
 It accepts two types of files:
