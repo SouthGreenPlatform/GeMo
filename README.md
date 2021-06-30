@@ -18,7 +18,7 @@ Chromosome representation based on [ideogram](https://github.com/eweitz/ideogram
 
 ### Polyploidy 
 
-Karyotype can display to 1x to nX chromosome. Anueploidy can be represented.
+Karyotype can display to 1x to nX chromosome. Aneuploidy can be represented.
 
 ### Refinement of Ancestral/Parental contribution
 
