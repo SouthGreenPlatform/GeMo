@@ -20,7 +20,7 @@ Chromosome representation based on [ideogram](https://github.com/eweitz/ideogram
 
 Karyotype can display to 1x to nX chromosome. Aneuploidy can be represented.
 
-### Refinement of Ancestral/Parental contribution
+### Refinement of ancestral/parental contribution
 
 *Coming soon*
 
