@@ -24,6 +24,9 @@ Karyotype can display to 1x to nX chromosome. Anueploidy can be represented.
 
 *Coming soon*
 
+### Plot genes on mosaic karyotypes
+
+*Coming soon*
 
 ## Data inputs (*Coming soon*)
 
