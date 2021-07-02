@@ -517,6 +517,10 @@ function load_ideogram_from_form_data(){
 
     $('#floating_legend').show();
     $('#legend_button').show();
+    $('#page-content-wrapper').show();
+    $('#home').hide();
+	$('#welcome').hide();
+
 
 	//apparition du bouton download
 	$('#download').fadeIn()
