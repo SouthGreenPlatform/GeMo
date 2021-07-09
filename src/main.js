@@ -12,6 +12,8 @@ import {getKeyByValue, refreshFloor, curveOpacitySetup, refreshCurveOpacity, arr
 let ploidyA ="";
 //////////
 
+
+
 let lgtChro =[]; //longueur des chromosomes
 let chrBands = [];
 let config;
@@ -84,60 +86,6 @@ $('#SwitchLetters').change( function(){
 	displaytext();
 });
 
-////////////////////////////////////////////////////////////////
-// Load ideogram from preloaded accession
-////////////////////////////////////////////////////////////////
-/* function load_ideogram(){
-	//clear();
-	//values in chromosome form
-	console.log("load_ideogram preloaded files");
-	//console.log(config);
-	const chrdata = $("#editorChr").val();
-	//values in data form
-	const annotdata = $("#editorAnnot").val();
-
-    //pour les données preloaded
-    //le tableau des couleurs n'est toujours pas calculé
-    if (ancestorsNameColor === undefined){ 
-        const colordata = $("#editorColor").val();
-        ancestorsNameColor = parsingColor(d3.tsvParse(colordata));
-        console.log(ancestorsNameColor);
-    }
-	config.ploidyDesc = [];
-	//colorchange();
-	config.ploidy = Number($('#selectorploidy').val());
-	//parse les données chromosomes
-	let chrDataParsed = chromosomeParser(chrdata);
-	config.ploidyDesc = chrDataParsed[0];
-	config.ploidysize = chrDataParsed[1];
-	chrBands = chrDataParsed[2];
-	
-	//parse les données blocs
-	let annotDataParsed = annotationParser(annotdata, config.ploidy, ancestorsNameColor);
-	config.rangeSet = annotDataParsed[0];
-	annotTable = annotDataParsed[1];
-	
-	//Crée le graph
-	if(chrdata != ""){
-		//console.log(config);
-		const ideogram = new Ideogram(config);
-        drawLegend(ancestorsNameColor);
-        echelle();
-
-	}
-
-    $('#floating_legend').show();
-    $('#legend_button').show();
-
-	//apparition du bouton download
-	$('#download').fadeIn()
-	//repositione();
-	$('#potatosalad').on('click', function(event){
-    //The event won't be propagated to the document NODE and 
-    // therefore events delegated to document won't be fired
-   //event.stopPropagation();
-	});
-} */
 
 //Ajoute les tooltips, lien vers genome browser
 function addTooltip(){
@@ -208,6 +156,28 @@ function addTooltip(){
 	
 	loadingoff();
 }
+
+
+//Ajoute les tooltips des ? help
+$(".bi-question-circle.chrom").each(function(index ){
+
+	
+	this.setAttribute('class', 'bloc-help');
+
+	//set the tooltip content, link to genome browser
+	this.setAttribute('data-tooltip-content', "#tooltip_help");
+});
+//tooltipster activation
+    $('.bloc-help').tooltipster({
+		theme: 'tooltipster-noir',
+		contentAsHTML: true,
+		trigger: 'click',
+		interactive: true,
+		contentCloning: true,
+		delay: 100
+	});
+
+
 
 ////////////////////////////////////////////////////////////////
 // Fonction qui recalcul le schéma à partir des données dans les cadres
