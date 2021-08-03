@@ -8,6 +8,7 @@ import {checkColorFile,checkLenFile,checkDataFile} from "./chrompaint/checkFile.
 import {parsingData, parsingLen, parsingColor,randomColorGenerator, randomColorGenerator_block,dataStuffing} from "./chrompaint/parse.js";
 import {order, convertStrtoRangeSet, groupByColor, ancestorsGenerator, ploidyDescGenerator} from "./chrompaint/mosaique.js";
 import {getKeyByValue, refreshFloor, curveOpacitySetup, refreshCurveOpacity, arraySetup, floorPositionsSetup, refreshfloorPositions, tracerCourbe} from "./chrompaint/graph.js";
+import {addTooltip} from "./tooltip.js";
 ////////////
 let ploidyA ="";
 //////////
@@ -70,8 +71,8 @@ async function load_accession(sampleJson){
 
 	load_ideogram_from_form_data();
     //load_ideogram();
-	setTimeout(addTooltip,100);
-
+	setTimeout(addTooltip, 100, annotTable); //addTooltip();
+        setTimeout(loadingoff,100);
 	//addTooltip();
 	
 	//draw
@@ -85,77 +86,6 @@ async function load_accession(sampleJson){
 $('#SwitchLetters').change( function(){
 	displaytext();
 });
-
-
-//Ajoute les tooltips, lien vers genome browser
-function addTooltip(){
-
-	console.log("add tooltip");
-	//compteur pour retrouver les infos de coordonées du bloc
-	let blocCount = 0;
-
-	//parcourir chaque .range de .range-set = chaque bloc svg
-	//si transparent => supprimer le bloc
-	//sinon copier le bloc et append to range-set.parent dans une nouvelle balise g
-	$(".range").each(function(index ){
-
-		if ($(this).attr('style') == 'fill: transparent;'){
-			//console.log("remove");
-			$(this).remove();
-
-		}else{
-
-			//retreive annotations of the current bloc
-			//annotTable = fichier accession
-			let annotBloc = annotTable[blocCount];
-
-			//console.log(annotBloc);
-			//console.log($(this));
-			//console.log("---------------------");
-
-			const annotElements = annotBloc.split(' ');
-			
-			let chr = annotElements[0];
-			let start = annotElements[2];
-			let stop = annotElements[3];
-			//console.log(chr + ' ' + start+ ' '+stop);
-
-			let rangeset = $(this).parent();
-			let chromosome = rangeset.parent();
-
-			//retrieve chromosome position
-			//let clippath = chromosome.attr('clip-path');
-			//const regexp = /(chr\d+)/.exec(clippath);
-
-			//set the url to the retrieved chromosome
-			let url = 'Go to Banana Jbrowse\<br/\>\<a href=\"https://banana-genome-hub.southgreen.fr/content/m-acuminata-dh-pahang-version-2/?loc=chr'+chr+':'+start+'..'+stop+'\"\>Chr'+chr+' '+start+'..'+stop+'\<\/a\>'
-			let g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-			g.setAttributeNS(null, 'class', 'bloc-annot');
-
-			//set the tooltip content, link to genome browser
-			g.setAttribute('title', url);
-			chromosome.append(g);
-
-			let annot = $(this)[0].cloneNode(true);
-			annot.setAttribute('style', 'fill: transparent');
-			g.append(annot);
-			blocCount++;
-			//console.log(blocCount);
-			
-		}
-	});
-	//tooltipster activation
-    $('.bloc-annot').tooltipster({
-		theme: 'tooltipster-punk',
-		contentAsHTML: true,
-		//content: $('#tooltip_content'),
-		interactive: true,
-		contentCloning: true,
-		delay: 100
-	});
-	
-	loadingoff();
-}
 
 
 //Ajoute les tooltips des ? help
@@ -197,7 +127,8 @@ function updateIdeo() {
         loadingon();
         load_ideogram_from_form_data();
         //repositione();
-        setTimeout(addTooltip, 200); //addTooltip();
+        setTimeout(addTooltip, 100, annotTable); //addTooltip();
+        setTimeout(loadingoff,100);
     }
     
 	
@@ -609,7 +540,8 @@ document.getElementById("submit").addEventListener("click",function(){
 		loadingon();
 		load_ideogram_from_form_data();
 		//repositione();
-		setTimeout(addTooltip, 100); //addTooltip();
+		setTimeout(addTooltip, 100, annotTable); //addTooltip();
+        setTimeout(loadingoff,100);
     }
     
 });
