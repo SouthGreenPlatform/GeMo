@@ -144,7 +144,7 @@ echo "<script> load_ideogram()</script>";
 				<!--Pre-loaded data-->
 				<p class="menu_title">
 					Pre-loaded example
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle preloaded" viewBox="0 0 16 16">
 					<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 					<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
 					</svg>
@@ -159,7 +159,7 @@ echo "<script> load_ideogram()</script>";
 				<!--Custom data-->
 				<p class="menu_title">
 				With your own data
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle yourdata" viewBox="0 0 16 16">
 					<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 					<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
 				</svg>
@@ -177,7 +177,7 @@ echo "<script> load_ideogram()</script>";
 				<!--type of data-->
 				<p class="menu_title">
 				Input files
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle input" viewBox="0 0 16 16">
 					<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 					<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
 				</svg>
@@ -233,7 +233,7 @@ echo "<script> load_ideogram()</script>";
 						<form class="my-form">
 						<p class="menu_title">
 						Colors (optional)
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle colors" viewBox="0 0 16 16">
 							<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 							<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
 						</svg>
@@ -328,7 +328,21 @@ ideogram
 <!-- fin chrompaint -->
 </div>
 </div> 
-	
+
+<div class="tooltip_templates" >
+	<span id="tooltip_preloaded">
+		<pre>
+Preloaded data generated with VCFHunter and TraceAncestor
+		<pre>
+	</span>
+</div>
+<div class="tooltip_templates" >
+	<span id="tooltip_your_data">
+		<pre>
+Generate a visualization with your custom chromosomes data.
+		<pre>
+	</span>
+</div>
 <div class="tooltip_templates" >
 	<span id="tooltip_help">
 		<pre>
@@ -349,8 +363,56 @@ chr10	39038070	12000000	16000000	AB
 chr11	34441343	15000000	20000000	AB
 		<pre>
 	</span>
-</div>
+</div>	
+<div class="tooltip_templates" >	
+	<span id="tooltip_input">
+		<pre>
+It accepts two types of files:
 
+Genomic blocks:
+chr haplotype start end	ancestral_group
+01 0 1 29070452 g4
+01 1 1 29070452 g4
+02 0 1 29511734 g4
+02 1 1 29511734 g4
+
+Normalized curves:
+chr	start	end	V	T	S
+chr01	1145	189582	0.001671983513048138	0.014082301923852172	0.0016386866759508464
+chr01	189593	356965	0.0012441961973068657	0.012867234592909085	0.0018101312755326665
+chr01	356968	488069	0.0011179557674005532	0.010035172902205201	0.000759432489203596
+chr01	488097	633373	0.002678217164025965	0.010470727908771585	0.003896031529700906
+
+Generating datasets
+In order to generate ready-to-use datasets, analyses can be conducted with the following software:
+
+* VCFHunter
+VCFHunter is a suite of python scripts enabling chromosome painting of indivisual based on the contribution of ancestral groups using VCF files.
+Please look at the tutorial: https://github.com/SouthGreenPlatform/VcfHunter/blob/master/turorial_painting_GEMO_visualization.md
+
+* TraceAncestor
+TraceAncestor permits to estimate the allelic dosage of ancestral alleles in hybrid individuals and then to perform chromosom painting.
+Please look at the tutorial: https://github.com/SouthGreenPlatform/TraceAncestor_gemo
+		<pre>
+	</span>
+</div>
+<div class="tooltip_templates" >	
+	<span id="tooltip_colors">
+		<pre>
+group	name	hex
+un	undef_group	#b4b4b4
+g6	group6	#c00000
+g5	group5	#9a029a
+g3	group3	#1440cd
+g2	group2	#ffc000
+g1	group1	#000000
+g4	group4	#00b009
+g7	group7	#b4b4b4
+g0	group0	#000000
+
+		<pre>
+	</span>
+</div>
 
 
 

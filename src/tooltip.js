@@ -70,14 +70,47 @@ export function addTooltip(annotTable){
 
 //Ajoute les tooltips des ? help
 export function addHelpTooltips() {
+	
+	//preloaded help
+	$(".bi-question-circle.preloaded").each(function(index ){
+
+		this.setAttribute('class', 'bloc-help');
+		//set the tooltip content, link to genome browser
+		this.setAttribute('data-tooltip-content', "#tooltip_preloaded");
+	});
+
+	//your data help
+	$(".bi-question-circle.yourdata").each(function(index ){
+
+		this.setAttribute('class', 'bloc-help');
+		//set the tooltip content, link to genome browser
+		this.setAttribute('data-tooltip-content', "#tooltip_your_data");
+	});	
+
+	//chromosomes help
 	$(".bi-question-circle.chrom").each(function(index ){
 
 		this.setAttribute('class', 'bloc-help');
-
 		//set the tooltip content, link to genome browser
 		this.setAttribute('data-tooltip-content', "#tooltip_help");
 	});
 	
+	//input file help
+	$(".bi-question-circle.input").each(function(index ){
+
+		this.setAttribute('class', 'bloc-help');
+		//set the tooltip content, link to genome browser
+		this.setAttribute('data-tooltip-content', "#tooltip_input");
+	});
+
+	//color help
+	$(".bi-question-circle.colors").each(function(index ){
+
+		this.setAttribute('class', 'bloc-help');
+		//set the tooltip content, link to genome browser
+		this.setAttribute('data-tooltip-content', "#tooltip_colors");
+	});
+
 	//tooltipster activation
 	$('.bloc-help').tooltipster({
 		theme: 'tooltipster-noir',
@@ -87,6 +120,5 @@ export function addHelpTooltips() {
 		contentCloning: true,
 		delay: 100
 	});
-
 }
 	
