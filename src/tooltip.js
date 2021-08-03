@@ -67,3 +67,26 @@ export function addTooltip(annotTable){
 	
 
 }
+
+//Ajoute les tooltips des ? help
+export function addHelpTooltips() {
+	$(".bi-question-circle.chrom").each(function(index ){
+
+		this.setAttribute('class', 'bloc-help');
+
+		//set the tooltip content, link to genome browser
+		this.setAttribute('data-tooltip-content', "#tooltip_help");
+	});
+	
+	//tooltipster activation
+	$('.bloc-help').tooltipster({
+		theme: 'tooltipster-noir',
+		contentAsHTML: true,
+		trigger: 'click',
+		interactive: true,
+		contentCloning: true,
+		delay: 100
+	});
+
+}
+	

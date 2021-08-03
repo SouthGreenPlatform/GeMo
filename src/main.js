@@ -8,7 +8,7 @@ import {checkColorFile,checkLenFile,checkDataFile} from "./chrompaint/checkFile.
 import {parsingData, parsingLen, parsingColor,randomColorGenerator, randomColorGenerator_block,dataStuffing} from "./chrompaint/parse.js";
 import {order, convertStrtoRangeSet, groupByColor, ancestorsGenerator, ploidyDescGenerator} from "./chrompaint/mosaique.js";
 import {getKeyByValue, refreshFloor, curveOpacitySetup, refreshCurveOpacity, arraySetup, floorPositionsSetup, refreshfloorPositions, tracerCourbe} from "./chrompaint/graph.js";
-import {addTooltip} from "./tooltip.js";
+import {addTooltip, addHelpTooltips} from "./tooltip.js";
 ////////////
 let ploidyA ="";
 //////////
@@ -88,24 +88,7 @@ $('#SwitchLetters').change( function(){
 });
 
 
-//Ajoute les tooltips des ? help
-$(".bi-question-circle.chrom").each(function(index ){
-
-	
-	this.setAttribute('class', 'bloc-help');
-
-	//set the tooltip content, link to genome browser
-	this.setAttribute('data-tooltip-content', "#tooltip_help");
-});
-//tooltipster activation
-    $('.bloc-help').tooltipster({
-		theme: 'tooltipster-noir',
-		contentAsHTML: true,
-		trigger: 'click',
-		interactive: true,
-		contentCloning: true,
-		delay: 100
-	});
+addHelpTooltips();
 
 
 
