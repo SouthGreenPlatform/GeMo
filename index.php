@@ -129,13 +129,13 @@ echo "<script> load_ideogram()</script>";
 
 		<!--ACCESSION-->
 		<li id="accession">
-			<a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">
+			<a class="accordion-toggle toggle-switch" data-toggle="collapse" href="#submenu-2">
 				<span class="sidebar-icon"><i class="fa fa-dashboard"></i></span>
 				<span class="sidebar-title">Chromosome Painting</span>
 			<b class="caret"></b>
 			</a>
 			
-			<ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
+			<ul id="submenu-2" class="panel-collapse collapse panel-switch show" role="menu">
 		
 			<!-- Menu-->
 			<li>
