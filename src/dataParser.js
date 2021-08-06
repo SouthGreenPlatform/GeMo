@@ -189,3 +189,39 @@ function chromosomeTsvParser(data, conf){
 	}
 	//console.log(chrBands);
 }
+
+export function bedParser(bed){
+	//from:
+	//chr01	5287838	5289224	gene	0	-
+	//to:
+	//[{
+    //    name: 'BRCA1',
+    //    chr: '17',
+    //    start: 43044294,
+    //    stop: 43125482
+    //  }]
+
+	let bedArray = [];
+
+	//split le fichier par ligne
+	const split = bed.split("\n");
+	
+	for (let i = 0; i < split.length; i++) {
+        let line = split[i].split("\t");
+		let currentAnnot;
+		if(line.length > 0){	
+			currentAnnot = {
+				name: String(line[3]),
+				chr: String(line[0].replace("chr0","").replace("chr","")),
+				start: parseInt(line[1]),
+				stop: parseInt(line[2]),
+				trackIndex: 2
+			};
+			bedArray.push(currentAnnot);
+		}
+		
+	}
+
+	//console.log(bedArray);
+	return bedArray;
+}

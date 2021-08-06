@@ -111,6 +111,14 @@ export function addHelpTooltips() {
 		this.setAttribute('data-tooltip-content', "#tooltip_colors");
 	});
 
+	//bed annotations help
+	$(".bi-question-circle.bed").each(function(index ){
+
+		this.setAttribute('class', 'bloc-help');
+		//set the tooltip content, link to genome browser
+		this.setAttribute('data-tooltip-content', "#tooltip_bed");
+	});
+
 	//tooltipster activation
 	$('.bloc-help').tooltipster({
 		theme: 'tooltipster-noir',

@@ -1,6 +1,6 @@
 import { initConfig } from "./config.js";
 import { drawLegend } from "./legend.js";
-import { chromosomeParser, annotationParser, ploidyDesc } from "./dataParser.js";
+import { chromosomeParser, annotationParser, ploidyDesc, bedParser } from "./dataParser.js";
 import { loadingon, loadingoff, displaytext, clear, homeClick } from "./display.js";
 //chrompaint
 import {resetgraph} from "./chrompaint/import.js";
@@ -391,6 +391,14 @@ function load_ideogram_from_form_data(){
 	config.rangeSet = annotDataParsed[0];
 	annotTable = annotDataParsed[1];
 	
+    //Bed Annotations
+    if(bedAnnot){
+        console.log("j'ajoute le beeeeed");
+        console.log(bedAnnot);
+        config.annotations = bedAnnot;
+        config.annotationsLayout= 'tracks'
+    }
+
 	//Crée le graph
 	if(chrdata != ""){
 		//console.log(config);
@@ -435,6 +443,7 @@ function load_ideogram_from_form_data(){
 let dataFileInput = document.getElementById('dataFile');
 let colorFileInput = document.getElementById('colorFile');
 let lenFileInput = document.getElementById('lenFile');
+let bedFileInput = document.getElementById('bedFile');
 
 
 let haplotype = 2; //ploïdie
@@ -447,6 +456,8 @@ let data; //Nos données parsé (généré à partir de stuffedData).
 let chrConfig; //J'en aurais besoins si l'haplotype est changé après que les données ai été envoyé.
 let mosaiqueConfig; //Version parsé pour ideogram.js de chrConfig
 
+let bedAnnot; //fichier d'annotations bed
+
 ////////////////////////////////////////////////////////////////////
 ////////////RECUPERATION DES FICHIERS///////////////////////////////
 ////////////////////////////////////////////////////////////////////
@@ -457,6 +468,9 @@ colorFileInput.addEventListener('change',function(e){
     handleFiles(this.files,e.target.id);
 });
 lenFileInput.addEventListener('change',function(e){
+    handleFiles(this.files,e.target.id);
+});
+bedFileInput.addEventListener('change',function(e){
     handleFiles(this.files,e.target.id);
 });
 
@@ -579,6 +593,10 @@ function handleFiles(files,fileType) {
 						$("#editorChr").val(e.target.result);
 					}
 					break;
+                case'bed':
+					$("#editorBed").val(e.target.result);
+                    bedAnnot = bedParser(e.target.result);
+					break;
 			}
 		}else{
 			console.log("block");
@@ -598,6 +616,10 @@ function handleFiles(files,fileType) {
                         mosaiqueConfig = parsingLen(chrConfig);
                         $("#editorChr").val(e.target.result);
                     }
+					break;
+                case'bed':
+					$("#editorBed").val(e.target.result);
+                    bedAnnot = bedParser(e.target.result);
 					break;
 			}
 		}
