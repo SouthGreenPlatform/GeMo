@@ -1,0 +1,11 @@
+[
+  
+	{
+    "ID": "001",
+    "Name": "Banana (Musa spp.) diploïd", 
+    "FileName": "banana_chr.txt" }
+    ,{
+    "ID": "001",
+    "Name": "Banana (Musa spp.) triploïd", 
+    "FileName": "banana_chr_triploide.txt" }
+]

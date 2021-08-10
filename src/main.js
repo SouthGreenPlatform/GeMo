@@ -293,6 +293,39 @@ $('.custom-file-input').on('change', function(){
       .html(name); 
 });
 
+////////////////////////////////////////////
+// Populate preloaded list of chromosomes //
+////////////////////////////////////////////
+//ref https://www.encodedna.com/jquery/cascading-select-dropdown-list-using-json-data.htm
+//tab of preloaded chromosomes
+let arrChrom = [];
+
+// Fill the first dropdown with data.
+$.getJSON('./config/pre-loaded-chrom.json', function (data) {
+	//tab of organisms
+    let chromTab = [];
+
+	//retrieve chrom Name in each json entry
+    $.each(data, function (index, value) {
+        chromTab.push(value.Name);
+        // Fill the dropdown with chrom names
+        $('#chromosomes').append('<option value="' + value.FileName + '">' + value.Name + '</option>');
+        arrChrom = data;
+        console.log(arrChrom);
+    });
+});
+
+//fonction select chromosome => load chromosome in text area
+$('#chromosomes').change( function(){
+    fetch('/gemo/data/chromosomes/'+$("#chromosomes option:selected")[0].value)
+	.then(function(response) {
+        return response.text();
+    })
+    .then(function(responseText) {
+	    $("#editorChr").val(responseText);
+    });
+});
+
 //////////////////////////////////////////////////////
 // Populate preloaded list of organisms and samples //
 //////////////////////////////////////////////////////
