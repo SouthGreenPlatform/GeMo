@@ -41,6 +41,12 @@
 <!--d3-->
 <script src="https://d3js.org/d3-axis.v2.min.js"></script>
 
+<!--SocketIO-->
+<script src="node_modules/socket.io/client-dist/socket.io.js"></script>
+<script>
+	var socket = io('http://195.221.173.169:9070');
+</script>
+
 </head>
 <body>
 

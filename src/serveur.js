@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 
 const path = require('path');
 
+
 app.use(bodyParser.urlencoded({extended: true})); //je crois que ça me permet de lire le body de ma requête ajax dans parse.js sendFile()..
 app.use(bodyParser.json()); //donc je le laisse là.
 app.use(express.static(__dirname));
@@ -71,3 +72,20 @@ app.post('/upload', function(req, res){
 
 
 server=app.listen(9070,function() {});
+
+
+// ajout de socket.io
+const io = require('socket.io')(server, {
+	cors: {
+	origin: "*",
+	credentials: true  }
+});
+
+io.on('connection', socket => {
+	console.log( `Nouveau visiteur : ${socket.id}` );
+
+
+	
+
+
+});

@@ -8,7 +8,7 @@
     "build": "webpack --mode=production",
     "watch": "webpack --mode=development --watch",
     "server": "nodemon --watch server --inspect src/serveur.js",
-    "socket": "nodemon --watch server --inspect=127.0.0.1:9393 src/server_socket.js > socket.log &"
+    //"socket": "nodemon --watch server --inspect=127.0.0.1:9393 src/server_socket.js"
   },
   "author": "Marilyne Summo",
   "license": "ISC",
