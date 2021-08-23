@@ -8,6 +8,9 @@ node_modules/
 # Data directories
 #data*
 
+# Temp directories
+tmp/
+
 # Optional npm cache directory
 .npm
 
