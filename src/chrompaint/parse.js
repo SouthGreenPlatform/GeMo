@@ -55,7 +55,7 @@ export function randomColorGenerator_block(data){
  * @param lenFile données parsé (par d3.tsvParse()) issue du fichier reçu.
  */
 
-export function parsingLen(lenFile){
+export async function parsingLen(lenFile){
 
     const chromatide = 2;
 
@@ -141,47 +141,23 @@ export function parsingLen(lenFile){
     let tsv = "";
 
     result.map(function (each) {
-       tsv = tsv + each + "\n";
+        tsv = tsv + each + "\n";
     });
 
-    sendFile(tsv); //send to server
-
-
-}
-
-function sendFile(tsv){
-
-    $.ajax({
-        url: "http://195.221.173.169:9070/upload",
-        data: {
-            "data":JSON.stringify(tsv)
-        },
-        cache: false,
-        type: "POST",
-        timeout: 5000,
-        complete: function() {
-            //called when complete
-            console.log('process complete');
-        },
-
-        success: function(data) {
-            console.log(data);
-            console.log('process sucess');
-        },
-
-        error: function() {
-            console.log('process error');
-        },
-    });
-
-    customGenom()
-}
-
-function customGenom(){
-    $.ajax({
-        type: 'GET',
-        url: 'http://195.221.173.169:9070/run_convert_band_data.py',
-    });
+    //Appel au serveur
+    return new Promise( resolve => {
+        let configPath;
+        socket.emit('run', tsv, function(err, path){
+            if(err){
+                console.log(err);
+            }else{
+                console.log( "path to return " +path);
+                configPath = path;
+                console.log("confffff " + configPath);
+                resolve(configPath);
+            }
+        });
+	});
 }
 
 export function dataStuffing(data,chrConfig){

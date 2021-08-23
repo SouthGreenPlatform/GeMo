@@ -56,13 +56,16 @@ async function load_accession(sampleJson){
 	config.ploidy = ploidy;
 	$('#selectorploidy').val(ploidy);
 
-	config.dataDir = '/gemo/config/';
+	//config.dataDir = '/gemo/config/';
+    config.dataDir = '/gemo/tmp/gemo_run/gemo_'+configPath+"/";
+    
 	//config.dataDir = '/gemo/data/visuchromp/';
 	response = await fetch('/gemo/data/chromosomes/'+ChromFile);
 	responseText = await response.text();
 	$("#editorChr").val(responseText);
     chrConfig = d3.tsvParse(responseText);
-    mosaiqueConfig = parsingLen(chrConfig);
+    configPath = await parsingLen(chrConfig);
+    console.log("config paaaaaaaath async " + configPath);
     
     //color file
     response = await fetch('/gemo/data/accessions/'+ColorFile);
@@ -414,8 +417,9 @@ function load_ideogram_from_form_data(){
 	let ploidyParsed = ploidyDesc(chrdata);
 	config.ploidyDesc = ploidyParsed[0];
 	config.ploidysize = ploidyParsed[1];
-    config.dataDir = "/gemo/config/";
-	//chrBands = chrDataParsed[2];
+    //config.dataDir = "/gemo/config/";
+	config.dataDir = '/gemo/tmp/gemo_run/gemo_'+configPath+"/";
+    //chrBands = chrDataParsed[2];
 
     let maxLength = ploidyParsed[2];
 	
@@ -488,7 +492,7 @@ let data; //Nos données parsé (généré à partir de stuffedData).
 
 let chrConfig; //J'en aurais besoins si l'haplotype est changé après que les données ai été envoyé.
 let mosaiqueConfig; //Version parsé pour ideogram.js de chrConfig
-
+let configPath; //path vers les données chr parsées a entrer dans la config d'ideogram
 let bedAnnot; //fichier d'annotations bed
 
 ////////////////////////////////////////////////////////////////////
@@ -536,7 +540,8 @@ document.getElementById("submit").addEventListener("click",function(){
             throw "pas de données envoyé."
         }
         chrConfig = d3.tsvParse($("#editorChr").val());
-        mosaiqueConfig = parsingLen(chrConfig);
+        configPath = parsingLen(chrConfig);
+        console.log("config paaaaath "+ configPath);
         if(chrConfig === undefined){
             alert("Fichier de configuration des chromosomes manquant.");
             throw "Fichier de configuration des chromosomes manquant.";
@@ -622,7 +627,7 @@ function handleFiles(files,fileType) {
 				case'len':
 					if(checkLenFile(d3.tsvParse(e.target.result))) {
 						chrConfig = d3.tsvParse(e.target.result);
-						//mosaiqueConfig = parsingLen(chrConfig);
+						//configPath = parsingLen(chrConfig);
 						$("#editorChr").val(e.target.result);
 					}
 					break;
@@ -646,7 +651,8 @@ function handleFiles(files,fileType) {
 				case'len':
                     if(checkLenFile(d3.tsvParse(e.target.result))) {
                         chrConfig = d3.tsvParse(e.target.result);
-                        mosaiqueConfig = parsingLen(chrConfig);
+                        configPath = parsingLen(chrConfig);
+                        console.log("config paaaaath "+ configPath);
                         $("#editorChr").val(e.target.result);
                     }
 					break;
