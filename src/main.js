@@ -394,7 +394,7 @@ $('#sample').change( function(){
 ////////////////////////////////////////////////////////////////
 // Load ideogram
 ////////////////////////////////////////////////////////////////
-function load_ideogram_from_form_data(){
+async function load_ideogram_from_form_data(){
 	//clear();
 	//values in chromosome form
 	console.log("load_ideogram_from_form_data");
@@ -520,7 +520,7 @@ document.getElementById("selectorploidy").addEventListener('change',function(){
 ///////////////////////////////////////////////////////////
 // SUBMIT FORM ////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
-document.getElementById("submit").addEventListener("click",function(){
+document.getElementById("submit").addEventListener("click", async function(){
 
     //Si on est en mode "curve"
     var radio_form = $('#radio_form input:radio:checked').val()
@@ -540,7 +540,7 @@ document.getElementById("submit").addEventListener("click",function(){
             throw "pas de données envoyé."
         }
         chrConfig = d3.tsvParse($("#editorChr").val());
-        configPath = parsingLen(chrConfig);
+        configPath = await parsingLen(chrConfig);
         console.log("config paaaaath "+ configPath);
         if(chrConfig === undefined){
             alert("Fichier de configuration des chromosomes manquant.");
@@ -606,7 +606,7 @@ function handleFiles(files,fileType) {
 	var radio_form = $('#radio_form input:radio:checked').val()
 
     reader.readAsText(file, "UTF-8");
-    reader.onload = function (e) {
+    reader.onload = async function (e) {
 	
 		if(radio_form === "curve"){
 			console.log("curve");
@@ -627,7 +627,7 @@ function handleFiles(files,fileType) {
 				case'len':
 					if(checkLenFile(d3.tsvParse(e.target.result))) {
 						chrConfig = d3.tsvParse(e.target.result);
-						//configPath = parsingLen(chrConfig);
+						configPath = await parsingLen(chrConfig);
 						$("#editorChr").val(e.target.result);
 					}
 					break;
@@ -651,7 +651,7 @@ function handleFiles(files,fileType) {
 				case'len':
                     if(checkLenFile(d3.tsvParse(e.target.result))) {
                         chrConfig = d3.tsvParse(e.target.result);
-                        configPath = parsingLen(chrConfig);
+                        configPath = await parsingLen(chrConfig);
                         console.log("config paaaaath "+ configPath);
                         $("#editorChr").val(e.target.result);
                     }
@@ -1173,6 +1173,7 @@ function ideogramConfig(mosaique){
     configChrompaint.rangeSet = dataSet;
     configChrompaint.ancestors = ancestors;
     configChrompaint.ploidyDesc = ploidyDesc;
+    configChrompaint.dataDir = '/gemo/tmp/gemo_run/gemo_'+configPath+"/";
 
     console.log(configChrompaint);
 
