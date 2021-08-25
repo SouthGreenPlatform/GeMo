@@ -32,10 +32,54 @@ document.getElementById("homebutton").addEventListener("click", homeClick, null)
 ///////////////////////////
 ///// BOUTON DOWNLOAD /////
 //////////////////////////
+function getBase64String(dataURL) {
+    var idx = dataURL.indexOf('base64,') + 'base64,'.length;
+    return dataURL.substring(idx);
+ }
+
 $('#download').click(function(){ 
-    html2canvas(document.getElementById("page-content-wrapper")).then(function(canvas) {
+    //image
+/*     html2canvas(document.getElementById("page-content-wrapper")).then(function(canvas) {
     Canvas2Image.saveAsPNG(canvas);
-    });
+    }); */
+
+    
+
+    let chart = $('#_ideogram')
+        .attr('xmlns', 'http://www.w3.org/2000/svg');
+    
+    var data = new XMLSerializer().serializeToString(chart.get(0));
+    var svg = new Blob([data], { type: "image/svg+xml;charset=utf-8" });
+    var url = URL.createObjectURL(svg);
+
+    var img = $('<img />')
+        .width(1000)
+        .height(1000)
+        .on('load', function() {
+            var canvas = document.createElement('canvas');
+            canvas.width = 1000;
+            canvas.height = 1000;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img.get(0), 0, 0);
+            URL.revokeObjectURL(url);
+            //download
+            canvas.toBlob(function(blob) {
+                var zip = new JSZip();
+                zip.file("gemo.png", blob); // <-- JSZip v3 accepts blob
+                //retreive other data from form
+                zip.file("input.txt", $("#editorAnnot").val());
+                zip.file("chromosomes.txt", $("#editorChr").val());
+                zip.file("color.txt", $("#editorColor").val());
+
+                //generate zip
+                let content = zip.generateAsync({type:"blob"}).then(function (blob) {
+                    saveAs(blob, "gemo.zip"); // <-- trigger the download
+                }, function (e) {
+                    console.error(e)
+                });
+            });
+        });
+    img.attr('src', url);
 });
 
 ////////////////////////////////////////////////////////////////
