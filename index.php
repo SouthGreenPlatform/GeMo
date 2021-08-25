@@ -288,13 +288,6 @@ echo "<script> load_ideogram()</script>";
 
 						<!--Download image-->
 						<a id="download" style="display: none;" class="btn btn-sm btn-outline-warning">Download as PNG</a>
-						<script>
-						$('#download').click(function(){ 
-							html2canvas(document.getElementById("page-content-wrapper")).then(function(canvas) {
-							Canvas2Image.saveAsPNG(canvas);
-							});
-						});
-						</script>
 					</div>
 
 				</div><!-- fin formulaire -->

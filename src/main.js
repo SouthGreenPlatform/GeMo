@@ -29,6 +29,15 @@ let ancestorsNameColor; //Match les abréviation d'origine avec leurs noms compl
 document.getElementById("homebutton").addEventListener("click", homeClick, null);
 
 
+///////////////////////////
+///// BOUTON DOWNLOAD /////
+//////////////////////////
+$('#download').click(function(){ 
+    html2canvas(document.getElementById("page-content-wrapper")).then(function(canvas) {
+    Canvas2Image.saveAsPNG(canvas);
+    });
+});
+
 ////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////
