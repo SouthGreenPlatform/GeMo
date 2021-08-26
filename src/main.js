@@ -47,19 +47,24 @@ $('#download').click(function(){
 
     let chart = $('#_ideogram')
         .attr('xmlns', 'http://www.w3.org/2000/svg');
+    //dimensions
+    var bBox = chart.get(0).getBBox();
     
     var data = new XMLSerializer().serializeToString(chart.get(0));
     var svg = new Blob([data], { type: "image/svg+xml;charset=utf-8" });
     var url = URL.createObjectURL(svg);
 
     var img = $('<img />')
-        .width(1000)
-        .height(1000)
+        .width(bBox.width+100)
+        .height(bBox.height+100)
         .on('load', function() {
             var canvas = document.createElement('canvas');
-            canvas.width = 1000;
-            canvas.height = 1000;
+            canvas.width = bBox.width+100;
+            canvas.height = bBox.height+100;
             var ctx = canvas.getContext('2d');
+            //background
+            ctx.fillStyle = "white";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(img.get(0), 0, 0);
             URL.revokeObjectURL(url);
             //download
