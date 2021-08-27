@@ -223,5 +223,13 @@
     "ChromFile": "banana_chr.txt",
     "FileName": "ideo_THA018.txt",
     "ColorFile": "banana_color.txt"}
-
+,
+        {
+    "ID": "026",
+    "Sample": "Bergamot",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Bergamot.txt",
+    "ColorFile": "citrus_color.txt"}
 ]
