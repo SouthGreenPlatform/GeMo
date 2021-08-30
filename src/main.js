@@ -2,7 +2,7 @@ import { initConfig } from "./config.js";
 import { drawLegend } from "./legend.js";
 import { chromosomeParser, annotationParser, ploidyDesc, bedParser } from "./dataParser.js";
 import { loadingon, loadingoff, displaytext, clear, homeClick } from "./display.js";
-import { downloadArchive, getBase64String} from "./download.js"
+import { downloadArchive} from "./download.js"
 //chrompaint
 import {resetgraph} from "./chrompaint/import.js";
 import {checkColorFile,checkLenFile,checkDataFile} from "./chrompaint/checkFile.js";
