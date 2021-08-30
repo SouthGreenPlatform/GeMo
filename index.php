@@ -280,16 +280,18 @@ echo "<script> load_ideogram()</script>";
 
 					<!--Button-->
 					<div>
-						<button id="submit" class="btn btn-sm btn-outline-dark my-btn">Submit</button>
+						<button id="submit" class="btn btn-sm btn-outline-success my-btn">Submit</button>
 
 						<!--Clear-->
-						<button class="btn btn-sm btn-outline-warning" onclick="location.reload(true);" id="clear">Clear</button>
+						<button class="btn btn-sm btn-outline-danger" onclick="location.reload(true);" id="clear">Clear</button>
 						
 						<!-- Update -->
 						<button class="btn btn-sm btn-outline-primary" id="reload">Update image</button>
 
+					</div>
+					<div>
 						<!--Download image-->
-						<a id="download" style="display: none;" class="btn btn-sm btn-outline-warning">Download as PNG</a>
+						<button id="download" style="display: none;" class="btn btn-sm btn-outline-dark" id="reload">Download data and image</button>
 					</div>
 
 				</div><!-- fin formulaire -->

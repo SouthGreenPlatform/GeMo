@@ -424,12 +424,10 @@ textarea.form-control {
 }
 
 
-/*Download as png button*/
+/*Download button*/
 #download{
-  background : #005B59 !important;
-  border-color: black;
-  width: 200px;
-}
+  margin-top: 3px;
+} 
 
 #chrompaint_menu{
   line-height: 20px;
