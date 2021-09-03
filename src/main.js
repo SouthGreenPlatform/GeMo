@@ -40,7 +40,7 @@ $('#download').click(downloadArchive);
 ////////////////////////////////////////////////////////////////
 
 async function load_accession(sampleJson){
-	console.log("load accession");
+	console.log("load accession" + sampleJson[0].FileName);
 	let FileName = sampleJson[0].FileName;
 	let ploidy = sampleJson[0].Ploidy;
 	let ChromFile = sampleJson[0].ChromFile;
@@ -71,7 +71,7 @@ async function load_accession(sampleJson){
 	$("#editorChr").val(responseText);
     chrConfig = d3.tsvParse(responseText);
     configPath = await parsingLen(chrConfig);
-    console.log("config paaaaaaaath async " + configPath);
+    //console.log("config paaaaaaaath async " + configPath);
     
     //color file
     response = await fetch('/gemo/data/accessions/'+ColorFile);
@@ -320,7 +320,7 @@ $.getJSON('./config/pre-loaded-chrom.json', function (data) {
         // Fill the dropdown with chrom names
         $('#chromosomes').append('<option value="' + value.FileName + '">' + value.Name + '</option>');
         arrChrom = data;
-        console.log(arrChrom);
+        //console.log(arrChrom);
     });
 });
 
@@ -436,8 +436,8 @@ async function load_ideogram_from_form_data(){
 	
     //Bed Annotations
     if(bedAnnot){
-        console.log("j'ajoute le beeeeed");
-        console.log(bedAnnot);
+        //console.log("j'ajoute le beeeeed");
+        //console.log(bedAnnot);
         config.annotations = bedAnnot;
         config.annotationsLayout= 'tracks'
     }
@@ -541,13 +541,17 @@ document.getElementById("submit").addEventListener("click", async function(){
 
         //recup les données dans le formulaire
         rawData = d3.tsvParse($("#editorAnnot").val());
+/*         rawData.forEach(function(item, index, array) {
+            console.log(item, index);
+          }); */
+
         if(rawData === undefined){
             alert("Fichier de données manquant");
             throw "pas de données envoyé."
         }
         chrConfig = d3.tsvParse($("#editorChr").val());
         configPath = await parsingLen(chrConfig);
-        console.log("config paaaaath "+ configPath);
+        //console.log("config paaaaath "+ configPath);
         if(chrConfig === undefined){
             alert("Fichier de configuration des chromosomes manquant.");
             throw "Fichier de configuration des chromosomes manquant.";
@@ -658,7 +662,7 @@ function handleFiles(files,fileType) {
                     if(checkLenFile(d3.tsvParse(e.target.result))) {
                         chrConfig = d3.tsvParse(e.target.result);
                         configPath = await parsingLen(chrConfig);
-                        console.log("config paaaaath "+ configPath);
+                        //console.log("config paaaaath "+ configPath);
                         $("#editorChr").val(e.target.result);
                     }
 					break;
@@ -1170,7 +1174,8 @@ function ideogramConfig(mosaique){
     } */
 
     let dataSet = convertStrtoRangeSet(mosaique,haplotype);
-    console.log(dataSet);
+    //console.log(mosaique);
+    //console.log(dataSet);
     let ploidyDesc = ploidyDescGenerator(haplotype,chrNumber);
     let ancestors = ancestorsGenerator(haplotype);
     let configChrompaint = initConfig();
@@ -1185,6 +1190,8 @@ function ideogramConfig(mosaique){
 
     const ideogramChrompaint = new Ideogram(configChrompaint);
     echelle(maxLength);
+    //apparition du bouton download
+	$('#download').fadeIn()
     
 
 }
