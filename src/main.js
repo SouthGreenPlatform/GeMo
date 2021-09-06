@@ -411,11 +411,10 @@ async function load_ideogram_from_form_data(){
 
     //pour les données preloaded
     //le tableau des couleurs n'est toujours pas calculé
-    if (ancestorsNameColor === undefined){ 
-        const colordata = $("#editorColor").val();
-        ancestorsNameColor = parsingColor(d3.tsvParse(colordata));
-        console.log(ancestorsNameColor);
-    }
+    const colordata = $("#editorColor").val();
+    ancestorsNameColor = parsingColor(d3.tsvParse(colordata));
+    console.log(ancestorsNameColor);
+
 	config.ploidyDesc = [];
 	//colorchange();
 	config.ploidy = Number($('#selectorploidy').val());
@@ -577,7 +576,7 @@ document.getElementById("submit").addEventListener("click", async function(){
 	}else{
         console.log("block");
         data = $("#editorAnnot").val();
-		if (ancestorsNameColor === undefined || $("#editorColor").val() === "" ) {
+		if ($("#editorColor").val() === "" ) {
             console.log("generating random color");
             ancestorsNameColor = randomColorGenerator_block(data);
         }
