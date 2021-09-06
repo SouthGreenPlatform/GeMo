@@ -1,11 +1,27 @@
 [
-  
 	{
     "ID": "001",
-    "Name": "Banana (Musa spp.) diploïd", 
-    "FileName": "banana_chr.txt" }
+    "Name": "Banana (Musa spp.) diploïd AA", 
+    "FileName": "banana_chr_AA.txt" }
     ,{
-    "ID": "001",
-    "Name": "Banana (Musa spp.) triploïd", 
-    "FileName": "banana_chr_triploide.txt" }
+    "ID": "002",
+    "Name": "Banana (Musa spp.) diploïd BB", 
+    "FileName": "banana_chr_BB.txt" }
+    ,{
+    "ID": "003",
+    "Name": "Banana (Musa spp.) triploïd AAA", 
+    "FileName": "banana_chr_AAA.txt" }
+	,{
+    "ID": "004",
+    "Name": "Citrus (Clementina) diploïd", 
+    "FileName": "citrus_clementina.txt"
+	},{
+    "ID": "005",
+    "Name": "Citrus (Clementina) triploid", 
+    "FileName": "citrus_clementina_triploide.txt"
+	},{
+    "ID": "006",
+    "Name": "Citrus (Clementina) tetraploid", 
+    "FileName": "citrus_clementina_tetraploide.txt"
+	}
 ]

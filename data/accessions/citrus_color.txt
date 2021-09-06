@@ -1,6 +1,6 @@
 group	name	hex
 C	Citron	#fff34d
-P	Pumello	#2c6ee8
+P	Pummello	#2c6ee8
 M	Mandarin	#ff0000
 Mic	Papeda	#2aa72e
 undefined	undefined	#24a6dd

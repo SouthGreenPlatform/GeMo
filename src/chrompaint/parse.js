@@ -56,7 +56,6 @@ export function randomColorGenerator_block(data){
  */
 
 export async function parsingLen(lenFile){
-
     const chromatide = 2;
 
     /*
@@ -144,6 +143,8 @@ export async function parsingLen(lenFile){
         tsv = tsv + each + "\n";
     });
 
+    console.log("tsv : "+tsv);
+
     //Appel au serveur
     return new Promise( resolve => {
         let configPath;
@@ -166,6 +167,15 @@ export function dataStuffing(data,chrConfig){
     * On ajoute également un champ average("avr") qui fait la moyenne entre le début("start") et la fin("end") dans chaque ligne de données.
     * */
 
+/*     data.forEach(function(item, index, array) {
+        console.log(item, index);
+    });
+
+    chrConfig.forEach(function(item, index, array) {
+        console.log(item, index);
+    });  */
+
+    
     let i = 0;
     let borneInf = 0;
     while(i < data.length){
@@ -178,6 +188,7 @@ export function dataStuffing(data,chrConfig){
 
         for (let j = 0; j < chrConfig.length; j++) {
             if(chrConfig[j]["chr"] === chr){
+                //console.log("1 "+ len);
                 len = chrConfig[j]["len"];
             }
         }
@@ -204,6 +215,7 @@ export function dataStuffing(data,chrConfig){
         }
         let lastDataLine = JSON.parse(JSON.stringify(data[i-1]));
         lastDataLine["start"] = lastDataLine["end"];
+        console.log("2 "+ len);
         lastDataLine["end"] = len;
         data.splice(i, 0, lastDataLine);
         i++; //On a ajouté une ligne alors on avance l'itérateur.

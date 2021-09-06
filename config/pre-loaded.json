@@ -4,7 +4,7 @@
     "Sample": "Banksii620",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_Banksii620.txt",
     "ColorFile": "banana_color.txt"}
 ,  
@@ -13,7 +13,7 @@
     "Sample": "Banksii853",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_Banksii853.txt",
     "ColorFile": "banana_color.txt"}
 ,  
@@ -22,7 +22,7 @@
     "Sample": "Borneo",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_Borneo.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -31,7 +31,7 @@
     "Sample": "Calcutta4",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_Calcutta4.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -40,7 +40,7 @@
     "Sample": "Chicame",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_Chicame.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -49,7 +49,7 @@
     "Sample": "Galeo",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_Galeo.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -58,7 +58,7 @@
     "Sample": "GrandeNaine",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "3",
-    "ChromFile": "banana_chr_triploide.txt",
+    "ChromFile": "banana_chr_AAA.txt",
     "FileName": "ideo_GrandeNaine.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -67,7 +67,7 @@
     "Sample": "GuNinChiao",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_GuNinChiao.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -76,7 +76,7 @@
     "Sample": "Guyod",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_Guyod.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -85,7 +85,7 @@
     "Sample": "KhaePhrae",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_KhaePhrae.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -94,7 +94,7 @@
     "Sample": "Kirun",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_Kirun.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -103,7 +103,7 @@
     "Sample": "LongTavoy",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_LongTavoy.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -112,7 +112,7 @@
     "Sample": "MaiaOa",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_MaiaOa.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -121,7 +121,7 @@
     "Sample": "Mala",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_Mala.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -130,7 +130,7 @@
     "Sample": "Manang",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_Manang.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -139,7 +139,7 @@
     "Sample": "Microcarpa",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_Microcarpa.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -148,7 +148,7 @@
     "Sample": "Monyet",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_Monyet.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -157,7 +157,7 @@
     "Sample": "PaRayong",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_PaRayong.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -166,7 +166,7 @@
     "Sample": "PisangKlutukWulung",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_BB.txt",
     "FileName": "ideo_PisangKlutukWulung.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -175,7 +175,7 @@
     "Sample": "PisangMadu",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_PisangMadu.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -184,7 +184,7 @@
     "Sample": "PTBA00008",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_PTBA00008.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -193,7 +193,7 @@
     "Sample": "PTBA00267",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_PTBA00267.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -202,7 +202,7 @@
     "Sample": "Selangor",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_Selangor.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -211,7 +211,7 @@
     "Sample": "SF215",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_SF215.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -220,16 +220,459 @@
     "Sample": "THA018",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr.txt",
+    "ChromFile": "banana_chr_AA.txt",
     "FileName": "ideo_THA018.txt",
-    "ColorFile": "banana_color.txt"}
-,
-        {
+    "ColorFile": "banana_color.txt"
+	},
+    {
     "ID": "026",
+    "Sample": "Alemow",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Alemow.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "027",
     "Sample": "Bergamot",
     "Organism": "Citrus (Clementina)",
     "Ploidy" : "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Bergamot.txt",
-    "ColorFile": "citrus_color.txt"}
+    "ColorFile": "citrus_color.txt"
+	},
+	{
+    "ID": "028",
+    "Sample": "Bouquetier De Nive",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_BouquetierDeNice.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "029",
+    "Sample": "Buddha's Hand",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_BuddhasHand.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "030",
+    "Sample": "Chandler",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Chandler.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "031",
+    "Sample": "Cleopatra",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Cleopatra.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "032",
+    "Sample": "Coppenrhad",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "3",
+    "ChromFile": "citrus_clementina_triploide.txt",
+    "FileName": "ideo_Coppenrhad.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "033",
+    "Sample": "Corsican",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Corsican.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "034",
+    "Sample": "Dancy",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Dancy.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "035",
+    "Sample": "De Chios",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_DeChios.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "036",
+    "Sample": "Deep Red",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_DeepRed.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "037",
+    "Sample": "Duncan",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Duncan.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "038",
+    "Sample": "Etrog",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Etrog.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "039",
+    "Sample": "Eurka",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Eureka.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "040",
+    "Sample": "Giant Key",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "4",
+    "ChromFile": "citrus_clementina_tetraploide.txt",
+    "FileName": "ideo_GiantKey.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "041",
+    "Sample": "Kao Pan",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_KaoPan.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "041",
+    "Sample": "King",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_King.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "042",
+    "Sample": "Ladu",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Ladu.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "043",
+    "Sample": "Humpang",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Humpang.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "044",
+    "Sample": "Mac Veu de Montagne",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_MacVeuDeMontagne.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "045",
+    "Sample": "Marsh",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Marsh.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "046",
+    "Sample": "Meyer",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Meyer.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "047",
+    "Sample": "Lisbon",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Lisbon.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "048",
+    "Sample": "Micrantha_S",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Micrantha_Sflopapeda.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "049",
+    "Sample": "Micrantha",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Micrantha.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "050",
+    "Sample": "Pink",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Pink.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "051",
+    "Sample": "Poncire Commun",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_PoncireCommun.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "052",
+    "Sample": "San Hu Hong Chu",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_SanHuHong.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "053",
+    "Sample": "Nan Feng Mi Chu",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_NanFengMiChu.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "054",
+    "Sample": "Owari Satsuma",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_OwariSatsuma.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "055",
+    "Sample": "Ponkan",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Ponkan.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "056",
+    "Sample": "Rough",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Rough.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "057",
+    "Sample": "Rangpur",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Rangpur.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "058",
+    "Sample": "Tahitian",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Tahitian.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "059",
+    "Sample": "Se Hui Han",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_SeHuiHan.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+    {
+    "ID": "060",
+    "Sample": "Sunki",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Sunki.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+	{
+    "ID": "061",
+    "Sample": "Szibat",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Szibat.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+	{
+    "ID": "062",
+    "Sample": "Valencia Late",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_ValenciaLate.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+	{
+    "ID": "063",
+    "Sample": "Tahiti",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "3",
+    "ChromFile": "citrus_clementina_triploide.txt",
+    "FileName": "ideo_Tahiti.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+	{
+    "ID": "064",
+    "Sample": "Tanepao",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "3",
+    "ChromFile": "citrus_clementina_triploide.txt",
+    "FileName": "ideo_Tanepao.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+	{
+    "ID": "065",
+    "Sample": "Tahitian",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Tahitian.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+	{
+    "ID": "066",
+    "Sample": "Timor",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Timor.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+	{
+    "ID": "067",
+    "Sample": "Volkamer",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_Volkamer.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+	{
+    "ID": "068",
+    "Sample": "Washington Navel",
+    "Organism": "Citrus (Clementina)",
+    "Ploidy" : "2",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "ideo_WashingtonNavel.txt",
+    "ColorFile": "citrus_color.txt"
+	},
+	{
+    "ID": "069",
+    "Sample": "Kunnan 'AB'",
+    "Organism": "Banana (Baurens et al. 2019)",
+    "Ploidy" : "2",
+    "ChromFile": "baurens_AB.txt",
+    "FileName": "ideo_Kunnan.txt",
+    "ColorFile": "baurens_el_al_color.txt"
+	} ,
+	
+	{
+    "ID": "070",
+    "Sample": "Mysore 'AAB' (Pisang Ceylan)",
+    "Organism": "Banana (Baurens et al. 2019)",
+    "Ploidy" : "3",
+    "ChromFile": "baurens_AAB.txt",
+    "FileName": "ideo_Mysore.txt",
+    "ColorFile": "baurens_el_al_color.txt"
+	},
+	{
+    "ID": "071",
+    "Sample": "Pelpita 'ABB'",
+    "Organism": "Banana (Baurens et al. 2019)",
+    "Ploidy" : "3",
+    "ChromFile": "baurens_ABB.txt",
+    "FileName": "ideo_Pelpita.txt",
+    "ColorFile": "baurens_el_al_color.txt"
+	},	
+	{
+    "ID": "072",
+    "Sample": "Plantain 'AAB' (French CLair)",
+    "Organism": "Banana (Baurens et al. 2019)",
+    "Ploidy" : "3",
+    "ChromFile": "baurens_AAB.txt",
+    "FileName": "ideo_Plantain.txt",
+    "ColorFile": "baurens_el_al_color.txt"
+	},
+	{
+    "ID": "073",
+    "Sample": "Safet Velchi 'AB'",
+    "Organism": "Banana (Baurens et al. 2019)",
+    "Ploidy" : "2",
+    "ChromFile": "baurens_AB.txt",
+    "FileName": "ideo_Safet_Velchi.txt",
+    "ColorFile": "baurens_el_al_color.txt"
+	},  
+	{
+    "ID": "074",
+    "Sample": "Silk 'AAB' (Figue Pomme Geante)",
+    "Organism": "Banana (Baurens et al. 2019)",
+    "Ploidy" : "3",
+    "ChromFile": "baurens_AAB.txt",
+    "FileName": "ideo_Silk.txt",
+    "ColorFile": "baurens_el_al_color.txt"
+	}  
 ]

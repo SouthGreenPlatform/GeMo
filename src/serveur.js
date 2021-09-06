@@ -86,6 +86,13 @@ io.on('connection', socket => {
 		});
 	});
 
+    socket.on ( "disconnect" , function (){
+          // i want this socket data always displayed...
+          // but first-connected-client doesn't fire this event ..
+        console.log ( "cleaning " + analysisDir);
+    });
+
+
     /* app.post('/upload', function(req, res){
 
         data = JSON.stringify(req.body.data);

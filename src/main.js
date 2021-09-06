@@ -62,16 +62,20 @@ async function load_accession(sampleJson){
 	config.ploidy = ploidy;
 	$('#selectorploidy').val(ploidy);
 
-	//config.dataDir = '/gemo/config/';
-    config.dataDir = '/gemo/tmp/gemo_run/gemo_'+configPath+"/";
+	
     
 	//config.dataDir = '/gemo/data/visuchromp/';
 	response = await fetch('/gemo/data/chromosomes/'+ChromFile);
 	responseText = await response.text();
 	$("#editorChr").val(responseText);
-    chrConfig = d3.tsvParse(responseText);
-    configPath = await parsingLen(chrConfig);
+    //chrConfig = d3.tsvParse(responseText);
+    
+    //reporté a load ideogram from data
+    //configPath = await parsingLen(chrConfig);
     //console.log("config paaaaaaaath async " + configPath);
+
+    //config.dataDir = '/gemo/config/';
+    config.dataDir = '/gemo/tmp/gemo_run/gemo_'+configPath+"/";
     
     //color file
     response = await fetch('/gemo/data/accessions/'+ColorFile);
@@ -406,6 +410,8 @@ async function load_ideogram_from_form_data(){
 	console.log("load_ideogram_from_form_data");
 	//console.log(config);
 	const chrdata = $("#editorChr").val();
+    chrConfig = d3.tsvParse(chrdata);
+    configPath = await parsingLen(chrConfig);
 	//values in data form
 	const annotdata = $("#editorAnnot").val();
 
