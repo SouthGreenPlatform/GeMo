@@ -70,7 +70,15 @@ export function addTooltip(annotTable){
 
 //Ajoute les tooltips des ? help
 export function addHelpTooltips() {
-	
+
+	//bloc or curve help
+	$(".bi-question-circle.blocOrCurve").each(function(index ){
+
+		this.setAttribute('class', 'bloc-help');
+		//set the tooltip content, link to genome browser
+		this.setAttribute('data-tooltip-content', "#tooltip_blocOrCurve");
+	});
+
 	//preloaded help
 	$(".bi-question-circle.preloaded").each(function(index ){
 

@@ -73,8 +73,9 @@
 }
 
 .myradiobtn{
+  max-width: 45%;
   padding-left: 0;
-  padding-right:0.3rem
+  padding-right:0;
 }
 
 /* File input size */
@@ -422,6 +423,14 @@ textarea.form-control {
 .tooltip_templates { 
   display: none; 
 }
+
+.tooltip_img{
+  max-width: 30%;
+  border: solid;
+  border-width: 1px;
+}
+
+
 
 
 /*Download button*/
