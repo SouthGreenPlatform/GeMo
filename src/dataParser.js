@@ -81,12 +81,13 @@ export function annotationParser(data, configPloidy, ancestorsNameColor){
 	for (let i = 0; i < annotTable.length; i++) {
 		ploidy = [];
 
-		//skip les lignes vides
-		if (annotTable[i] == ""){
+		//skip les lignes vides ou l'en- tête
+		if (annotTable[i] == "" || annotTable[i].startsWith('chr')){
 			continue;
 		}
 
-		colonne = annotTable[i].split(" ");
+		//split les espaces ou les tabulations
+		colonne = annotTable[i].split(/[ \t]+/);
 		count++;
 		
 		//Boucle qui sert a définir la position de l'annotation

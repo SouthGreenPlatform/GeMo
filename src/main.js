@@ -372,7 +372,13 @@ async function load_ideogram_from_form_data(){
     //pour les données preloaded
     //le tableau des couleurs n'est toujours pas calculé
     const colordata = $("#editorColor").val();
-    ancestorsNameColor = parsingColor(d3.tsvParse(colordata));
+
+    if (colordata === "" ) {
+        ancestorsNameColor = randomColorGenerator_block(annotdata);
+    }else{
+        ancestorsNameColor = parsingColor(d3.tsvParse(colordata));
+    }
+    
     console.log(ancestorsNameColor);
 
 	config.ploidyDesc = [];
@@ -541,16 +547,7 @@ document.getElementById("submit").addEventListener("click", async function(){
     
 });
 
-/**
- * extrait le fichier qui a été drag'n'drop à partir de l'event
- * @param e l'event.
- */
 
-/* function handleDrop(e) {
-    let dt = e.dataTransfer;
-    let files = dt.files;
-    handleFiles(files,e.target.id)
-} */
 
 /**
  * Lis le fichier (@file) et le traité suivant sont (@fileType). le contenue du fichier et parse par d3.tsvParse, puis le résultat est placé dans une variable globale.
