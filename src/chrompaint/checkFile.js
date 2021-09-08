@@ -19,10 +19,10 @@ export function checkLenFile(lenFile){
 export function checkDataFile(dataFile){
     if (dataFile.columns.includes("chr") && dataFile.columns.includes("haplotype") && dataFile.columns.includes("start") && dataFile.columns.includes("end") && dataFile.columns.includes("ancestral_group")){
         console.log("input block");
-        return true;
+        return "block";
     }else if (dataFile.columns.includes("chr") && dataFile.columns.includes("start") && dataFile.columns.includes("end") && dataFile.columns.length >= 4) {
         console.log("input curve");
-        return true;
+        return "curve";
     }
     alert("File format error : block position file : chr    haplotype   start   stop    ancestral_group, or normalized curves file : chr  start   end group_name1 group_name2");
     return false;

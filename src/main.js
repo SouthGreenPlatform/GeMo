@@ -21,7 +21,7 @@ let chrBands = [];
 let config;
 let annotTable=[]; // annot file splited by line
 let ancestorsNameColor; //Match les abréviation d'origine avec leurs noms complet ainsi qu'une couleur.
-
+let vizType; //bloc or curve
 
 
 ///////////////////////
@@ -488,8 +488,8 @@ document.getElementById("selectorploidy").addEventListener('change',function(){
 document.getElementById("submit").addEventListener("click", async function(){
 
     //Si on est en mode "curve"
-    var radio_form = $('#radio_form input:radio:checked').val()
-    if(radio_form === "curve"){
+    //var radio_form = $('#radio_form input:radio:checked').val()
+    if(vizType === "curve"){
         console.log("curve");
 
         //Affiche les div de chrompaint
@@ -562,6 +562,47 @@ function handleFiles(files,fileType) {
     let fileName = fileType.replace("File",""); //1* colorFile -> color.
     let reader = new FileReader();              //initalisation d'un reader pour lire le fichier, si si, un reader, pour lire.
     let file = files[0];
+	var radio_form = $('#radio_form input:radio:checked').val();
+
+    reader.readAsText(file, "UTF-8");
+    reader.onload = async function (e) {
+	
+		switch(fileName){                       //2*
+			case'data':
+				rawData = e.target.result;
+                vizType = checkDataFile(d3.tsvParse(rawData));
+				$("#editorAnnot").val(rawData);
+				break;
+			case'color':
+				if(checkColorFile(d3.tsvParse(e.target.result))) {
+					ancestorsNameColor = parsingColor(d3.tsvParse(e.target.result));
+					$("#editorColor").val(e.target.result);
+				}
+				break;
+			case'len':
+            	if(checkLenFile(d3.tsvParse(e.target.result))) {
+					chrConfig = d3.tsvParse(e.target.result);
+					configPath = await parsingLen(chrConfig);
+					$("#editorChr").val(e.target.result);
+				}
+				break;
+            case'bed':
+				$("#editorBed").val(e.target.result);
+                bedAnnot = bedParser(e.target.result);
+				break;
+		}
+    };
+    reader.onerror = function () {
+        alert("Echec de chargement du fichier");
+        //dropArea.style.backgroundImage = "invalid 1s ease forwards";
+    }
+}
+
+
+function handleFiles_old(files,fileType) {
+    let fileName = fileType.replace("File",""); //1* colorFile -> color.
+    let reader = new FileReader();              //initalisation d'un reader pour lire le fichier, si si, un reader, pour lire.
+    let file = files[0];
 	var radio_form = $('#radio_form input:radio:checked').val()
 
     reader.readAsText(file, "UTF-8");
@@ -627,6 +668,7 @@ function handleFiles(files,fileType) {
         //dropArea.style.backgroundImage = "invalid 1s ease forwards";
     }
 }
+
 ///////////////////////CREATION DU GRAPHIQUE//////////////////////////////////////
 
 //let selectedOrigin = "Velut";   // l'origine actuellement séléctionné dont le seuil sera modifié si modification il y a.
