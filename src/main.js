@@ -534,6 +534,12 @@ document.getElementById("submit").addEventListener("click", async function(){
     
 	//En mode block
 	}else{
+        //Affiche les div de blockviz
+        $('#chrompaint').hide();
+        $('#page-content-wrapper').show();
+        $('#home').hide();
+	    $('#welcome').hide();
+
         console.log("block");
         data = $("#editorAnnot").val();
 		if ($("#editorColor").val() === "" ) {
