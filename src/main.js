@@ -84,8 +84,8 @@ async function load_accession(sampleJson){
 
 	load_ideogram_from_form_data();
     //load_ideogram();
-	setTimeout(addTooltip, 100, annotTable); //addTooltip();
-        setTimeout(loadingoff,100);
+	//setTimeout(addTooltip, 100, annotTable); //addTooltip();
+    //setTimeout(loadingoff,100);
 	//addTooltip();
 	
 	//draw
@@ -421,6 +421,9 @@ async function load_ideogram_from_form_data(){
 	$('#welcome').hide();
 	$('#download').fadeIn()
 
+    setTimeout(addTooltip, 100, annotTable); //addTooltip();
+    setTimeout(loadingoff,100);
+
 }
 
 
@@ -541,8 +544,7 @@ document.getElementById("submit").addEventListener("click", async function(){
 		loadingon();
 		load_ideogram_from_form_data();
 		//repositione();
-		setTimeout(addTooltip, 100, annotTable); //addTooltip();
-        setTimeout(loadingoff,100);
+		
     }
     
 });

@@ -37,7 +37,8 @@ export function randomColorGenerator_block(data){
     let arrayData = data.split('\n');
     arrayData.map(function(cur){
         
-        let line = cur.split(' ');
+        //split les espaces ou les tabulations
+        let line = cur.split(/[ \t]+/);
         if (colorMap[line[4]] === undefined) {
             let color = "#" + Math.floor(Math.random() * 16777215).toString(16);
             colorMap[line[4]] = [line[4], color]

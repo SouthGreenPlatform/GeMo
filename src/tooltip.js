@@ -24,7 +24,7 @@ export function addTooltip(annotTable){
 			// console.log($(this));
 			// console.log("---------------------");
 
-			const annotElements = annotBloc.split(' ');
+			const annotElements = annotBloc.split(/[ \t]+/);
 			
 			let chr = annotElements[0];
 			let start = annotElements[2];
