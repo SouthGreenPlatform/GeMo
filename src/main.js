@@ -198,52 +198,6 @@ function load_file2(){
 	//});   
 }
 
-
-/* function repositione(){
-	console.log("repositione");
-	setTimeout(function(){
-		const ideo = document.getElementById("_ideogram");
-		//var tideo = document.getElementById("targetideo");
-		//tideo.appendChild(ideo);
-	}, 50);
-} */
-
-
-
-
-
-
-
-function colorchange(){
-	for(let key in config.ancestors){
-		if($("#selectorpreset :selected").val() == "preset1"){
-			config.ancestors[key] = preset1[key];
-		}else if ($("#selectorpreset :selected").val() == "preset2"){
-			config.ancestors[key] = preset2[key];
-		}else{
-			config.ancestors[key] = preset3[key];
-		}  
-	}
-	if($("#selectorpreset :selected").val() == "preset1"){
-		for(let i = 0; i<config.rangeSet.length; i++){
-			config.rangeSet[i].color = preset1.ploidy;
-		}
-	}else if ($("#selectorpreset :selected").val() == "preset2"){
-		for(let i = 0; i<config.rangeSet.length; i++){
-			config.rangeSet[i].color = preset2.ploidy;
-		}
-	}else{
-		for(let i = 0; i<config.rangeSet.length; i++){
-			config.rangeSet[i].color = preset3.ploidy;
-		}
-	} 
-	//load_ideogram();
-}
-
-
-
-
-
 ///////////////////////////////////////////////////
 //Création de l'echelle du graph
 //////////////////////////////////////////////////
@@ -422,7 +376,6 @@ async function load_ideogram_from_form_data(){
     console.log(ancestorsNameColor);
 
 	config.ploidyDesc = [];
-	//colorchange();
 	config.ploidy = Number($('#selectorploidy').val());
 	//parse les données chromosomes
 	let ploidyParsed = ploidyDesc(chrdata);
@@ -460,16 +413,8 @@ async function load_ideogram_from_form_data(){
     $('#page-content-wrapper').show();
     $('#home').hide();
 	$('#welcome').hide();
-
-
-	//apparition du bouton download
 	$('#download').fadeIn()
-	//repositione();
-	$('#potatosalad').on('click', function(event){
-    //The event won't be propagated to the document NODE and 
-    // therefore events delegated to document won't be fired
-   //event.stopPropagation();
-	});
+
 }
 
 
