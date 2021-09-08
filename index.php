@@ -150,7 +150,7 @@ echo "<script> load_ideogram()</script>";
 				<div class="form-group">
 
 				<!-- bloc or curve -->
-				<p class="menu_title">
+<!-- 				<p class="menu_title">
 					Choose your visualization type
 					<svg xmlns="http://www.w3.org/2000/svg" cursor="pointer" width="16" height="16" fill="currentColor" class="bi bi-question-circle blocOrCurve" viewBox="0 0 16 16">
 					<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -164,22 +164,24 @@ echo "<script> load_ideogram()</script>";
 					<label class="myradiobtn btn btn-sm btn-outline-dark">
 						<input type="radio" name="formchoice" id="radiocurve" value="curve" autocomplete="off"> Data curation (graph)
 					</label>
-				</div>
+				</div> -->
 
 				<!--Pre-loaded data-->
-				<p class="menu_title">
-					Pre-loaded examples
-					<svg xmlns="http://www.w3.org/2000/svg" cursor="pointer" width="16" height="16" fill="currentColor" class="bi bi-question-circle preloaded" viewBox="0 0 16 16">
-					<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-					<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-					</svg>
-				</p>
-				<select class="custom-select custom-select-sm" id="organism">
-					<option value="Organism">--Organism--</option>
-				</select>
-				<select class="custom-select custom-select-sm" id="sample">
-					<option value="Sample">Sample</option>
-				</select>
+				<div class="menu_division">
+					<p class="menu_title">
+						Pre-loaded examples
+						<svg xmlns="http://www.w3.org/2000/svg" cursor="pointer" width="16" height="16" fill="currentColor" class="bi bi-question-circle preloaded" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+						<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+						</svg>
+					</p>
+					<select class="custom-select custom-select-sm" id="organism">
+						<option value="Organism">--Organism--</option>
+					</select>
+					<select class="custom-select custom-select-sm" id="sample">
+						<option value="Sample">Sample</option>
+					</select>
+				</div>
 
 				<!--Custom data-->
 				<p class="menu_title">
@@ -193,20 +195,14 @@ echo "<script> load_ideogram()</script>";
 				
 
 				<!--type of data-->
-				<p class="menu_title">
-				Input files
-				<svg xmlns="http://www.w3.org/2000/svg" cursor="pointer" width="16" height="16" fill="currentColor" class="bi bi-question-circle input" viewBox="0 0 16 16">
-					<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-					<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-				</svg>
-				</p>
-				
-
-
-
-				<!-- form-->
-				<div id="form">
-
+				<div class="menu_division">
+					<p class="menu_title">
+					Input files
+					<svg xmlns="http://www.w3.org/2000/svg" cursor="pointer" width="16" height="16" fill="currentColor" class="bi bi-question-circle input" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+						<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+					</svg>
+					</p>
 					<!-- data-->
 					<div>
 						<form class="my-form">
@@ -217,6 +213,9 @@ echo "<script> load_ideogram()</script>";
 							</div>
 						</form>
 					</div>
+				</div>
+
+				<div class="menu_division">
 					<!--Chrom length data-->
 					<div>
 						<form class="my-form">
@@ -247,66 +246,65 @@ echo "<script> load_ideogram()</script>";
 							</select>
 						</form>
 					</div>
+				</div>
 
-					<!--Colors data-->
-					<div>
-						<form class="my-form">
-						<p class="menu_title">
-						Colors (optional)
-						<svg xmlns="http://www.w3.org/2000/svg" cursor="pointer" width="16" height="16" fill="currentColor" class="bi bi-question-circle colors" viewBox="0 0 16 16">
-							<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-							<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-						</svg>
-						</p>
-							<textarea id="editorColor" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
-							<div class="custom-file" style="width:90%;">
-								<input type="file" class="custom-file-input" id="colorFile" accept=".txt, .conf, .csv, .tab, .tsv">
-								<label class="custom-file-label" for="colorFile">Choose file</label>
-							</div>
-						</form>
-					</div>
+				<!--Colors data-->
+				<div class="menu_division">
+					<form class="my-form">
+					<p class="menu_title">
+					Colors (optional)
+					<svg xmlns="http://www.w3.org/2000/svg" cursor="pointer" width="16" height="16" fill="currentColor" class="bi bi-question-circle colors" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+						<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+					</svg>
+					</p>
+						<textarea id="editorColor" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
+						<div class="custom-file" style="width:90%;">
+							<input type="file" class="custom-file-input" id="colorFile" accept=".txt, .conf, .csv, .tab, .tsv">
+							<label class="custom-file-label" for="colorFile">Choose file</label>
+						</div>
+					</form>
+				</div>
 
-					<!--Bed data-->
-					<div>
-						<form class="my-form">
-						<p class="menu_title">
-						Annotations (optional)
-						<svg xmlns="http://www.w3.org/2000/svg" cursor="pointer" width="16" height="16" fill="currentColor" class="bi bi-question-circle bed" viewBox="0 0 16 16">
-							<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-							<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-						</svg>
-						</p>
-							<textarea id="editorBed" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
-							<div class="custom-file" style="width:90%;">
-								<input type="file" class="custom-file-input" id="bedFile" >
-								<label class="custom-file-label" for="bedFile">Choose file</label>
-							</div>
-						</form>
-					</div>
+				<!--Bed data-->
+				<div class="menu_division">
+					<form class="my-form">
+					<p class="menu_title">
+					Annotations (optional)
+					<svg xmlns="http://www.w3.org/2000/svg" cursor="pointer" width="16" height="16" fill="currentColor" class="bi bi-question-circle bed" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+						<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+					</svg>
+					</p>
+						<textarea id="editorBed" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
+						<div class="custom-file" style="width:90%;">
+							<input type="file" class="custom-file-input" id="bedFile" >
+							<label class="custom-file-label" for="bedFile">Choose file</label>
+						</div>
+					</form>
+				</div>
 
-					<!--Letters show / hide-->
-					<div class="custom-control custom-switch">
-						<input type="checkbox" class="custom-control-input" id="SwitchLetters" checked ">
-						<label class="custom-control-label" for="SwitchLetters">Show Labels</label>
-					</div>
+				<!--Letters show / hide-->
+				<div class="custom-control custom-switch">
+					<input type="checkbox" class="custom-control-input" id="SwitchLetters" checked ">
+					<label class="custom-control-label" for="SwitchLetters">Show Labels</label>
+				</div>
 
-					<!--Button-->
-					<div>
-						<button id="submit" class="btn btn-sm btn-outline-success my-btn">Submit</button>
-
+				<!--Button-->
+				<div>
+					<button id="submit" class="btn btn-sm btn-outline-success my-btn">Submit</button>
 						<!--Clear-->
-						<button class="btn btn-sm btn-outline-danger" onclick="location.reload(true);" id="clear">Clear</button>
-						
-						<!-- Update -->
-						<button class="btn btn-sm btn-outline-primary" id="reload">Update image</button>
+					<button class="btn btn-sm btn-outline-danger" onclick="location.reload(true);" id="clear">Clear</button>
+					
+					<!-- Update -->
+					<button class="btn btn-sm btn-outline-primary" id="reload">Update image</button>
 
-					</div>
-					<div>
-						<!--Download image-->
-						<button id="download" style="display: none;" class="btn btn-sm btn-outline-dark" id="reload">Download data and image</button>
-					</div>
+				</div>
+				<div>
+					<!--Download image-->
+					<button id="download" style="display: none;" class="btn btn-sm btn-outline-dark" id="reload">Download data and image</button>
+				</div>
 
-				</div><!-- fin formulaire -->
 			</div>
 			
 			</li>
@@ -413,21 +411,25 @@ chr11	34441343	15000000	20000000	AB
 <div class="tooltip_templates" >	
 	<span id="tooltip_input">
 		<pre>
-It accepts two types of files:
+Enter a block file to display the mosaïc visualization :
 
-Genomic blocks:
-chr haplotype start end	ancestral_group
-01 0 1 29070452 g4
-01 1 1 29070452 g4
-02 0 1 29511734 g4
-02 1 1 29511734 g4
+chr	haplotype	start	end	ancestral_group
+01	0	1	29070452	g4
+01	1	1	29070452	g4
+02	0	1	29511734	g4
+02	1	1	29511734	g4
 
-Normalized curves:
+<img class="tooltip_img" src="./public/img/bloc.png"></img>
+
+Enter a file containing the ancestral components along the chromosomes to display an interactive graph and generate a new mosaïc visualisation :
+
 chr	start	end	V	T	S
 chr01	1145	189582	0.001671983513048138	0.014082301923852172	0.0016386866759508464
 chr01	189593	356965	0.0012441961973068657	0.012867234592909085	0.0018101312755326665
 chr01	356968	488069	0.0011179557674005532	0.010035172902205201	0.000759432489203596
 chr01	488097	633373	0.002678217164025965	0.010470727908771585	0.003896031529700906
+
+<img class="tooltip_img" src="./public/img/curve.png"></img>
 
 Generating datasets
 In order to generate ready-to-use datasets, analyses can be conducted with the following software:

@@ -461,3 +461,15 @@ textarea.form-control {
   z-index: 1;
   margin-top: -2.5em;
 }
+
+/* Menu */
+.menu_division {
+  margin-top: 5px;
+  padding-bottom:5px;
+  padding-left:5px;
+  border:1px dotted black;
+  width: 95%;
+  background: white;
+  /* padding-left: 5px;
+  padding-right: 5px; */
+}
