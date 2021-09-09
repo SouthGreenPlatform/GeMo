@@ -674,5 +674,14 @@
     "ChromFile": "baurens_AAB.txt",
     "FileName": "ideo_Silk.txt",
     "ColorFile": "baurens_el_al_color.txt"
-	}  
+	},
+    {
+    "ID": "075",
+    "Sample": "curve",
+    "Organism": "Banana curve",
+    "Ploidy" : "2",
+    "ChromFile": "banana_curve.tsv",
+    "FileName": "curve_banana.csv",
+    "ColorFile": "curve_color.txt"
+    }   
 ]

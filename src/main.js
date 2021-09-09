@@ -57,6 +57,7 @@ async function load_accession(sampleJson){
 	let response = await fetch('/gemo/data/accessions/'+FileName);
 	let responseText = await response.text();
 	await $("#editorAnnot").val(responseText);
+    vizType = checkDataFile(d3.tsvParse(responseText));
 
 	//Ploidy
 	config.ploidy = ploidy;
@@ -82,7 +83,13 @@ async function load_accession(sampleJson){
 	responseText = await response.text();
 	await $("#editorColor").val(responseText);
 
-	load_ideogram_from_form_data();
+    // submit ????
+    
+    $("#submit").click();
+	//load_ideogram_from_form_data();
+    
+    
+    
     //load_ideogram();
 	//setTimeout(addTooltip, 100, annotTable); //addTooltip();
     //setTimeout(loadingoff,100);
