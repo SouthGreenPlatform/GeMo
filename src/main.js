@@ -58,6 +58,7 @@ async function load_accession(sampleJson){
 	let responseText = await response.text();
 	await $("#editorAnnot").val(responseText);
     vizType = checkDataFile(d3.tsvParse(responseText));
+    console.log(d3.tsvParse(responseText).columns.includes("chr"));
 
 	//Ploidy
 	config.ploidy = ploidy;

@@ -1,3 +1,4 @@
+chr	haplotype	start	end	ancestral_group
 01 0 1 28800000 Mic
 01 1 1 28800000 Mic
 02 0 1 22200000 Mic

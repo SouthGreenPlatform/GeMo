@@ -1,3 +1,4 @@
+chr	haplotype	start	end	ancestral_group
 01 0 1 28800000 C
 01 1 1 28800000 P
 02 0 1 600000 C

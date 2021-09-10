@@ -1,3 +1,4 @@
+chr	haplotype	start	end	ancestral_group
 01 0 1 3745640 g4
 01 0 3746607 3749225 g7
 01 0 3749246 6631363 g4

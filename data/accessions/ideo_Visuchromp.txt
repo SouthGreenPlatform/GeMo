@@ -1,3 +1,4 @@
+chr	haplotype	start	end	ancestral_group
 01 0 0 1144 #808080 
 01 1 0 1144 #808080 
 01 0 1145 189582 #808080 

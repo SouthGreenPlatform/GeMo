@@ -1,3 +1,4 @@
+chr	haplotype	start	end	ancestral_group
 01 0 1 21018 un
 01 0 21019 28960423 BB
 01 0 28960424 29070452 un

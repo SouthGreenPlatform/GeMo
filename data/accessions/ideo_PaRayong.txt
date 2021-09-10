@@ -1,3 +1,4 @@
+chr	haplotype	start	end	ancestral_group
 01 0 1 29070452 g2
 01 1 1 29070452 g2
 02 0 1 29511734 g2
