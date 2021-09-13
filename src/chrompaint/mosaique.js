@@ -139,7 +139,8 @@ export function ploidyDescGenerator(haplotype,chrNumber){
     for (let i = 0; i < chrNumber; i++) {
 
         for (let i = 0; i < haplotype; i++) {
-            chrStr.push(String.fromCharCode('a'.charCodeAt(0) + i))
+            //chrStr.push(String.fromCharCode('a'.charCodeAt(0) + i))
+            chrStr.push(i+1)
         }
         ploidyDesc.push(chrStr.join(""));
         chrStr = [];

@@ -393,8 +393,16 @@ async function load_ideogram_from_form_data(){
 	config.ploidy = Number($('#selectorploidy').val());
 	//parse les données chromosomes
 	let ploidyParsed = ploidyDesc(chrdata);
+    //label
 	config.ploidyDesc = ploidyParsed[0];
+    //nombre de chromosomes
 	config.ploidysize = ploidyParsed[1];
+    
+    //Si pas de label on numérote les chromosomes
+    if(ploidyParsed[0][0]===''){
+        config.ploidyDesc = ploidyDescGenerator(config.ploidy,config.ploidysize);
+    }
+
     //config.dataDir = "/gemo/config/";
 	config.dataDir = '/gemo/tmp/gemo_run/gemo_'+configPath+"/";
     //chrBands = chrDataParsed[2];
