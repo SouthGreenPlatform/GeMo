@@ -1,27 +1,62 @@
 [
-	{
-    "ID": "001",
-    "Name": "Banana (Musa spp.) diploïd AA", 
-    "FileName": "banana_chr_AA.txt" }
-    ,{
-    "ID": "002",
-    "Name": "Banana (Musa spp.) diploïd BB", 
-    "FileName": "banana_chr_BB.txt" }
-    ,{
-    "ID": "003",
-    "Name": "Banana (Musa spp.) triploïd AAA", 
-    "FileName": "banana_chr_AAA.txt" }
-	,{
-    "ID": "004",
-    "Name": "Citrus (Clementina) diploïd", 
-    "FileName": "citrus_clementina.txt"
-	},{
-    "ID": "005",
-    "Name": "Citrus (Clementina) triploid", 
-    "FileName": "citrus_clementina_triploide.txt"
-	},{
-    "ID": "006",
-    "Name": "Citrus (Clementina) tetraploid", 
-    "FileName": "citrus_clementina_tetraploide.txt"
-	}
+    {
+        "ID": "001",
+        "Name": "Banana (Musa spp.) diploïd AA",
+        "FileName": "banana_chr_AA.txt"
+    },
+    {
+        "ID": "002",
+        "Name": "Banana (Musa spp.) diploïd BB",
+        "FileName": "banana_chr_BB.txt"
+    },
+    {
+        "ID": "003",
+        "Name": "Banana (Musa spp.) triploïd AAA",
+        "FileName": "banana_chr_AAA.txt"
+    },
+    {
+        "ID": "004",
+        "Name": "Citrus (Clementina) diploïd",
+        "FileName": "citrus_clementina.txt"
+    },
+    {
+        "ID": "005",
+        "Name": "Citrus (Clementina) triploid",
+        "FileName": "citrus_clementina_triploide.txt"
+    },
+    {
+        "ID": "006",
+        "Name": "Citrus (Clementina) tetraploid",
+        "FileName": "citrus_clementina_tetraploide.txt"
+    },
+    {
+        "ID": "007",
+        "Name": "Banana (M. acuminata) DH-Pahang v1",
+        "FileName": "DH-Pahang_v1.txt"
+    },
+    {
+        "ID": "008",
+        "Name": "Banana (M. acuminata) DH-Pahang v2",
+        "FileName": "DH-Pahang_v2.txt"
+    },
+    {
+        "ID": "009",
+        "Name": "Banana (M. acuminata) DH-Pahang v3",
+        "FileName": "DH-Pahang_v3.txt"
+    },
+    {
+        "ID": "010",
+        "Name": "Banana (M. acuminata) DH-Pahang v4",
+        "FileName": "DH-Pahang_v4.txt"
+    },
+    {
+        "ID": "011",
+        "Name": "Banana (M. balbisiana) DH-PKW v1",
+        "FileName": "DH-PKW_v1.txt"
+    },
+    {
+        "ID": "012",
+        "Name": "Banana (M. schizocarpa) ITC0926 v1",
+        "FileName": "ITC0926_v1.txt"
+    }
 ]

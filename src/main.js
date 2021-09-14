@@ -387,8 +387,6 @@ async function load_ideogram_from_form_data(){
         ancestorsNameColor = parsingColor(d3.tsvParse(colordata));
     }
     
-    console.log(ancestorsNameColor);
-
 	config.ploidyDesc = [];
 	config.ploidy = Number($('#selectorploidy').val());
 	//parse les données chromosomes
@@ -399,7 +397,7 @@ async function load_ideogram_from_form_data(){
 	config.ploidysize = ploidyParsed[1];
     
     //Si pas de label on numérote les chromosomes
-    if(ploidyParsed[0][0]===''){
+    if(!ploidyParsed[0][0]){
         config.ploidyDesc = ploidyDescGenerator(config.ploidy,config.ploidysize);
     }
 

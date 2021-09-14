@@ -93,35 +93,35 @@ export async function parsingLen(lenFile){
 
             line.push(parseInt(cur["chr"].replace("chr",""))); //chr
             //arm
-            if(ctrSup === "" && ctrInf === "" && i === (chromatide-2)){
+            if(!ctrSup && !ctrInf && i === (chromatide-2)){
                 line.push("p");
                 line.push("0");
                 line.push(parseInt(cur["len"]/2));
-            }else if(ctrSup === "" && ctrInf === "" && i === (chromatide-1)){
+            }else if(!ctrSup && !ctrInf && i === (chromatide-1)){
                 line.push("q");
                 line.push(parseInt(cur["len"]/2));
                 line.push(cur["len"]);
-            }else if(ctrInf !== "" && ctrSup === "" && i === (chromatide-2)){
+            }else if(ctrInf && !ctrSup && i === (chromatide-2)){
                 line.push("p");
                 line.push("0");
                 line.push(ctrInf);
-            }else if(ctrInf !== "" && ctrSup === "" && i === (chromatide-1)){
+            }else if(ctrInf && !ctrSup && i === (chromatide-1)){
                 line.push("q");
                 line.push(ctrInf);
                 line.push(cur["len"]);
-            }else if(ctrSup !== "" && ctrInf === "" && i === (chromatide-2)){
+            }else if(ctrSup && !ctrInf && i === (chromatide-2)){
                 line.push("p");
                 line.push("0");
                 line.push(ctrSup);
-            }else if(ctrSup !== "" && ctrInf === "" && i === (chromatide-1)) {
+            }else if(ctrSup && !ctrInf && i === (chromatide-1)) {
                 line.push("q");
                 line.push(ctrSup);
                 line.push(cur["len"]);
-            }else if(ctrSup !== "" && ctrInf !== "" && i === (chromatide-2)){
+            }else if(ctrSup && ctrInf && i === (chromatide-2)){
                 line.push("p");
                 line.push("0");
                 line.push(parseFloat((parseInt(ctrSup) + parseInt(ctrInf))/2)+"");
-            }else if(ctrSup !== "" && ctrInf !== "" && i === (chromatide-1)){
+            }else if(ctrSup && ctrInf && i === (chromatide-1)){
                 line.push("q");
                 line.push(parseFloat((parseInt(ctrSup) + parseInt(ctrInf))/2)+"");
                 line.push(cur["len"])
@@ -143,8 +143,6 @@ export async function parsingLen(lenFile){
     result.map(function (each) {
         tsv = tsv + each + "\n";
     });
-
-    console.log("tsv : "+tsv);
 
     //Appel au serveur
     return new Promise( resolve => {

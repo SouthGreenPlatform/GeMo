@@ -4,7 +4,7 @@
     "Sample": "Banksii620",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Banksii620.txt",
     "ColorFile": "banana_color.txt"}
 ,  
@@ -13,7 +13,7 @@
     "Sample": "Banksii853",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Banksii853.txt",
     "ColorFile": "banana_color.txt"}
 ,  
@@ -22,7 +22,7 @@
     "Sample": "Borneo",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Borneo.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -31,7 +31,7 @@
     "Sample": "Calcutta4",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Calcutta4.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -40,7 +40,7 @@
     "Sample": "Chicame",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Chicame.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -49,7 +49,7 @@
     "Sample": "Galeo",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Galeo.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -58,7 +58,7 @@
     "Sample": "GrandeNaine",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "3",
-    "ChromFile": "banana_chr_AAA.txt",
+    "ChromFile": "DH-Pahang_v2.txtt",
     "FileName": "ideo_GrandeNaine.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -67,7 +67,7 @@
     "Sample": "GuNinChiao",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_GuNinChiao.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -76,7 +76,7 @@
     "Sample": "Guyod",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Guyod.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -85,7 +85,7 @@
     "Sample": "KhaePhrae",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_KhaePhrae.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -94,7 +94,7 @@
     "Sample": "Kirun",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Kirun.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -103,7 +103,7 @@
     "Sample": "LongTavoy",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_LongTavoy.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -112,7 +112,7 @@
     "Sample": "MaiaOa",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_MaiaOa.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -121,7 +121,7 @@
     "Sample": "Mala",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Mala.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -130,7 +130,7 @@
     "Sample": "Manang",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Manang.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -139,7 +139,7 @@
     "Sample": "Microcarpa",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Microcarpa.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -148,7 +148,7 @@
     "Sample": "Monyet",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Monyet.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -157,7 +157,7 @@
     "Sample": "PaRayong",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_PaRayong.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -166,7 +166,7 @@
     "Sample": "PisangKlutukWulung",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_BB.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_PisangKlutukWulung.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -175,7 +175,7 @@
     "Sample": "PisangMadu",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_PisangMadu.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -184,7 +184,7 @@
     "Sample": "PTBA00008",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_PTBA00008.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -193,7 +193,7 @@
     "Sample": "PTBA00267",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_PTBA00267.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -202,7 +202,7 @@
     "Sample": "Selangor",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Selangor.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -211,7 +211,7 @@
     "Sample": "SF215",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_SF215.txt",
     "ColorFile": "banana_color.txt"}
 ,
@@ -220,7 +220,7 @@
     "Sample": "THA018",
     "Organism": "Banana (Musa spp.)",
     "Ploidy" : "2",
-    "ChromFile": "banana_chr_AA.txt",
+    "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_THA018.txt",
     "ColorFile": "banana_color.txt"
 	},
