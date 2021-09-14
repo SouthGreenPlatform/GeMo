@@ -197,14 +197,16 @@ echo "<script> load_ideogram()</script>";
 				<!--type of data-->
 				<div class="menu_division">
 					<p class="menu_title">
-					Input files
+					<a id="title_form" data-toggle="collapse" href="#collapseInput" aria-expanded="false" aria-controls="collapseExample">
+						Input files
+					</a>
 					<svg xmlns="http://www.w3.org/2000/svg" cursor="pointer" width="16" height="16" fill="currentColor" class="bi bi-question-circle input" viewBox="0 0 16 16">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-					</svg>
+					</svg>	
 					</p>
 					<!-- data-->
-					<div>
+					<div class="collapse" id="collapseInput">
 						<form class="my-form">
 							<textarea id="editorAnnot" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
 							<div class="custom-file" style="width:90%;">
@@ -220,30 +222,41 @@ echo "<script> load_ideogram()</script>";
 					<div>
 						<form class="my-form">
 							<p class="menu_title">
-							Chromosomes size and labels
+							<a id="title_form" data-toggle="collapse" href="#collapseChr" aria-expanded="false" aria-controls="collapseExample">
+					
+								Chromosomes size and labels
+							</a>
 							<svg xmlns="http://www.w3.org/2000/svg" cursor="pointer" width="16" height="16" fill="currentColor" class="bi bi-question-circle chrom" viewBox="0 0 16 16">
 								<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 								<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-							</svg>
+							</svg>			
 							</p>
-							<select style="width: 90%;" class="custom-select custom-select-sm" id="chromosomes">
-								<option value="Chrom">Choose organism</option>
-							</select>
-							<br/>
-							or upload your own
-							<textarea id="editorChr" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
-							<div class="custom-file" style="width:90%;">
-								<input type="file" class="custom-file-input" id="lenFile" accept=".txt, .csv, .tab, .tsv">
-								<label class="custom-file-label" for="lenFile">Choose file</label>
+							<div class="collapse" id="collapseChr">
+								<select style="width: 90%;" class="custom-select custom-select-sm" id="chromosomes">
+									<option value="Chrom">Choose organism</option>
+								</select>
+								<br/>
+								or upload your own
+								<textarea id="editorChr" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
+								<div class="custom-file" style="width:90%;">
+									<input type="file" class="custom-file-input" id="lenFile" accept=".txt, .csv, .tab, .tsv">
+									<label class="custom-file-label" for="lenFile">Choose file</label>
+								</div>
+								<!--Ploidy-->
+								<label for="selectorploidy">Global ploidy</label>
+								<select name="select" id="selectorploidy" class="custom-select-sm">
+									<option value="1">1</option>
+									<option value="2" selected>2</option> 
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+
+								<!--Letters show / hide-->
+								<div class="custom-control custom-switch">
+									<input type="checkbox" class="custom-control-input" id="SwitchLetters" checked ">
+									<label class="custom-control-label" for="SwitchLetters">Show Labels</label>
+								</div>
 							</div>
-							<!--Ploidy-->
-							<label for="selectorploidy">Global ploidy</label>
-							<select name="select" id="selectorploidy" class="custom-select-sm">
-								<option value="1">1</option>
-								<option value="2" selected>2</option> 
-								<option value="3">3</option>
-								<option value="4">4</option>
-							</select>
 						</form>
 					</div>
 				</div>
@@ -252,17 +265,22 @@ echo "<script> load_ideogram()</script>";
 				<div class="menu_division">
 					<form class="my-form">
 					<p class="menu_title">
-					Colors (optional)
+					<a id="title_form" data-toggle="collapse" href="#collapseColor" aria-expanded="false" aria-controls="collapseExample">
+					
+						Colors (optional)
+					</a>	
 					<svg xmlns="http://www.w3.org/2000/svg" cursor="pointer" width="16" height="16" fill="currentColor" class="bi bi-question-circle colors" viewBox="0 0 16 16">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-					</svg>
+					</svg>			
 					</p>
+					<div class="collapse" id="collapseColor">
 						<textarea id="editorColor" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
 						<div class="custom-file" style="width:90%;">
 							<input type="file" class="custom-file-input" id="colorFile" accept=".txt, .conf, .csv, .tab, .tsv">
 							<label class="custom-file-label" for="colorFile">Choose file</label>
 						</div>
+					</div>
 					</form>
 				</div>
 
@@ -270,24 +288,23 @@ echo "<script> load_ideogram()</script>";
 				<div class="menu_division">
 					<form class="my-form">
 					<p class="menu_title">
-					Annotations (optional)
+					<a id="title_form" data-toggle="collapse" href="#collapseAnnot" aria-expanded="false" aria-controls="collapseExample">
+					
+						Annotations (optional)
+					</a>
 					<svg xmlns="http://www.w3.org/2000/svg" cursor="pointer" width="16" height="16" fill="currentColor" class="bi bi-question-circle bed" viewBox="0 0 16 16">
 						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 						<path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-					</svg>
+					</svg>				
 					</p>
+					<div class="collapse" id="collapseAnnot">
 						<textarea id="editorBed" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
 						<div class="custom-file" style="width:90%;">
 							<input type="file" class="custom-file-input" id="bedFile" >
 							<label class="custom-file-label" for="bedFile">Choose file</label>
 						</div>
+					</div>
 					</form>
-				</div>
-
-				<!--Letters show / hide-->
-				<div class="custom-control custom-switch">
-					<input type="checkbox" class="custom-control-input" id="SwitchLetters" checked ">
-					<label class="custom-control-label" for="SwitchLetters">Show Labels</label>
 				</div>
 
 				<!--Button-->
