@@ -232,10 +232,10 @@ echo "<script> load_ideogram()</script>";
 							</svg>			
 							</p>
 							<div class="collapse" id="collapseChr">
-								<select style="width: 90%;" class="custom-select custom-select-sm" id="chromosomes">
+								<select class="custom-select custom-select-sm select_chrom" id="chromosomes">
 									<option value="Chrom">Choose organism</option>
 								</select>
-								<br/>
+								<br/><br/>
 								or upload your own
 								<textarea id="editorChr" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
 								<div class="custom-file" style="width:90%;">
@@ -243,6 +243,8 @@ echo "<script> load_ideogram()</script>";
 									<label class="custom-file-label" for="lenFile">Choose file</label>
 								</div>
 								<!--Ploidy-->
+								<br/>
+								<br/>
 								<label for="selectorploidy">Global ploidy</label>
 								<select name="select" id="selectorploidy" class="custom-select-sm">
 									<option value="1">1</option>
@@ -308,7 +310,7 @@ echo "<script> load_ideogram()</script>";
 				</div>
 
 				<!--Button-->
-				<div>
+				<div class="button_div">
 					<button id="submit" class="btn btn-sm btn-outline-success my-btn">Submit</button>
 						<!--Clear-->
 					<button class="btn btn-sm btn-outline-danger" onclick="location.reload(true);" id="clear">Clear</button>

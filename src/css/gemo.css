@@ -397,6 +397,11 @@ textarea.form-control {
   width: 45%;
 }
 
+.select_chrom{
+  width: 90%;
+  float: left;
+}
+
 /*Jumbotron*/
 .jumbo-bg{
     background-color: #262721;
@@ -484,4 +489,9 @@ textarea.form-control {
   width: 85%;
   margin-right: 0;
   display: inline-block !important;
+  float: left;
+}
+
+.button_div {
+  margin-top: 20px;
 }
