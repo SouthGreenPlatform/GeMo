@@ -35,10 +35,11 @@ document.getElementById("homebutton").addEventListener("click", homeClick, null)
 //////////////////////////
 $('#download').click(downloadArchive);
 
-////////////////////////////////////////////////////////////////
-//
-////////////////////////////////////////////////////////////////
 
+
+////////////////////////////////////////////////////////////////
+//PRE-LOADED DATA
+////////////////////////////////////////////////////////////////
 async function load_accession(sampleJson){
 	console.log("load accession" + sampleJson[0].FileName);
 	let FileName = sampleJson[0].FileName;
@@ -534,8 +535,6 @@ document.getElementById("submit").addEventListener("click", async function(){
         
         stuffedData = dataStuffing(rawData, chrConfig);
         data = parsingData(stuffedData);
-        
-        console.log(data);
         
         ancestorsNameColor = d3.tsvParse($("#editorColor").val());
         if (ancestorsNameColor === undefined || $("#editorColor").val() === "" ) {
@@ -1204,7 +1203,8 @@ function ideogramConfig(mosaique){
     const ideogramChrompaint = new Ideogram(configChrompaint);
     echelle(maxLength);
     //apparition du bouton download
-	$('#download').fadeIn()
+	$('#download').fadeIn();
+    loadingoff();
     
 
 }
@@ -1212,5 +1212,29 @@ function ideogramConfig(mosaique){
 
 
 
+
+////////////////////////////////////////////////////////////////
+//PRE-LOADED DATA VIA URL
+////////////////////////////////////////////////////////////////
+window.onload=function(){
+    var urlAccession = window.location.hash;
+    console.log("urlAccession "+urlAccession);
+    if(urlAccession){
+        let acc = urlAccession.replace(/#/g, '');
+        console.log(acc);
+        console.log(arrData);
+        //retreive all entries for this sample
+        let filterData = arrData.filter(function(value) {
+            return value.Sample === acc;
+        });
+        console.log(filterData);
+        $('#chrompaint').hide();
+        $('#page-content-wrapper').show();
+        $('#home').hide();
+        $('#welcome').hide();
+        load_accession(filterData);
+    }
+    //window.location = nouvelleAdresse;
+}
 
 

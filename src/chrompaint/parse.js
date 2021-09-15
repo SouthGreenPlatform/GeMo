@@ -151,9 +151,7 @@ export async function parsingLen(lenFile){
             if(err){
                 console.log(err);
             }else{
-                console.log( "path to return " +path);
                 configPath = path;
-                console.log("confffff " + configPath);
                 resolve(configPath);
             }
         });
@@ -214,7 +212,6 @@ export function dataStuffing(data,chrConfig){
         }
         let lastDataLine = JSON.parse(JSON.stringify(data[i-1]));
         lastDataLine["start"] = lastDataLine["end"];
-        console.log("2 "+ len);
         lastDataLine["end"] = len;
         data.splice(i, 0, lastDataLine);
         i++; //On a ajouté une ligne alors on avance l'itérateur.
