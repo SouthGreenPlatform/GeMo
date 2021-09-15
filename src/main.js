@@ -58,19 +58,18 @@ async function load_accession(sampleJson){
 	let responseText = await response.text();
 	await $("#editorAnnot").val(responseText);
     vizType = checkDataFile(d3.tsvParse(responseText));
-    console.log(d3.tsvParse(responseText).columns.includes("chr"));
-
+    //console.log(d3.tsvParse(responseText).columns.includes("chr"));
+    
 	//Ploidy
 	config.ploidy = ploidy;
 	$('#selectorploidy').val(ploidy);
 
-	
-    
 	//config.dataDir = '/gemo/data/visuchromp/';
 	response = await fetch('/gemo/data/chromosomes/'+ChromFile);
 	responseText = await response.text();
 	$("#editorChr").val(responseText);
     //chrConfig = d3.tsvParse(responseText);
+
     
     //reporté a load ideogram from data
     //configPath = await parsingLen(chrConfig);
@@ -83,13 +82,16 @@ async function load_accession(sampleJson){
     response = await fetch('/gemo/data/accessions/'+ColorFile);
 	responseText = await response.text();
 	await $("#editorColor").val(responseText);
-
-    // submit ????
     
+    //load_ideogram_from_form_data();
     $("#submit").click();
-	//load_ideogram_from_form_data();
-    
-    
+	
+    //ouvre le menu data
+    $("#collapseInput").show();
+    //ouvre le menu chr
+    $("#collapseChr").show();
+    //ouvre le menu color
+    $("#collapseColor").show();
     
     //load_ideogram();
 	//setTimeout(addTooltip, 100, annotTable); //addTooltip();
