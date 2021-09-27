@@ -1218,11 +1218,8 @@ function ideogramConfig(mosaique){
 ////////////////////////////////////////////////////////////////
 window.onload=function(){
     var urlAccession = window.location.hash;
-    console.log("urlAccession "+urlAccession);
     if(urlAccession){
         let acc = urlAccession.replace(/#/g, '');
-        console.log(acc);
-        console.log(arrData);
         //retreive all entries for this sample
         let filterData = arrData.filter(function(value) {
             return value.Sample === acc;
