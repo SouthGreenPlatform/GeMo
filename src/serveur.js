@@ -98,7 +98,7 @@ io.on('connection', socket => {
                     }
                 });
                 fs.rmdirSync(dir_path);
-                console.log("cleaning "+ analysisDir);
+                console.log("cleaning "+ dir_path);
             }
         }
         rimraf(analysisDir);
