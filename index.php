@@ -318,12 +318,23 @@ echo "<script> load_ideogram()</script>";
 					<!-- Update -->
 					<button class="btn btn-sm btn-outline-primary" id="reload">Update image</button>
 
+				
+					<div>
+						<!--Download image-->
+						<button id="download" style="display: none;" class="btn btn-sm btn-outline-dark" id="reload">Download data and image</button>
+					</div>
+					<div >
+						<!--Save as url-->
+						<button id="saveasurl"  class="btn btn-sm btn-outline-dark">Save as url</button>
+						<!-- The text field -->
+					</div>
+					<div class="saveAsURL" style="display: none;">
+						<input id="url" type="text" class="form-control form-control-sm" >
+						<!-- The button used to copy the text -->
+						<button id="copy" class="btn btn-sm btn-outline-dark">Copy</button>
+						
+					</div>
 				</div>
-				<div>
-					<!--Download image-->
-					<button id="download" style="display: none;" class="btn btn-sm btn-outline-dark" id="reload">Download data and image</button>
-				</div>
-
 			</div>
 			
 			</li>

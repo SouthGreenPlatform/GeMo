@@ -495,3 +495,18 @@ textarea.form-control {
 .button_div {
   margin-top: 20px;
 }
+
+#saveasurl{
+  margin-top: 3px;
+}
+#url{
+  margin-top: 3px;
+  width: 70%;
+  display: inline-block;
+}
+#copy{
+  display: inline-block;
+  height: 25px;
+  font-size: smaller;
+}
+

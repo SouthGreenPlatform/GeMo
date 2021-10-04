@@ -23,3 +23,31 @@ export function downloadArchive(){
         console.error(e)
     });
 }
+
+export function saveAsURL(){
+
+    //affiche l'url et le bouton
+    $('.saveAsURL').fadeIn();
+    $('#copy').click(function(){
+        $('#url').select();
+        document.execCommand( 'copy' );
+        return false;
+    } );
+    let url = document.location.href;
+    let cleanurl = url.replace(/#.*/g, '');
+    let annot = $("#editorAnnot").val();
+    let chrom = $("#editorChr").val();
+    let color = $("#editorColor").val();
+
+    //Appel au serveur
+    socket.emit('saveAsURL', annot, chrom, color, function(err, path){
+        if(err){
+            console.log(err);
+        }else{
+            console.log(path);
+            $('#url').val(cleanurl+"#"+path);
+        }
+    });
+    
+
+}

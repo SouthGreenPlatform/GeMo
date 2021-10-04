@@ -2,7 +2,8 @@ import { initConfig } from "./config.js";
 import { drawLegend } from "./legend.js";
 import { chromosomeParser, annotationParser, ploidyDesc, bedParser } from "./dataParser.js";
 import { loadingon, loadingoff, displaytext, clear, homeClick } from "./display.js";
-import { downloadArchive} from "./download.js"
+import { downloadArchive, saveAsURL} from "./download.js";
+import { drawBed } from "./draw.js";
 //chrompaint
 import {resetgraph} from "./chrompaint/import.js";
 import {checkColorFile,checkLenFile,checkDataFile} from "./chrompaint/checkFile.js";
@@ -35,6 +36,10 @@ document.getElementById("homebutton").addEventListener("click", homeClick, null)
 //////////////////////////
 $('#download').click(downloadArchive);
 
+//////////////////////////////
+///// BOUTON SAVE AS URL /////
+//////////////////////////////
+$('#saveasurl').click(saveAsURL);
 
 
 ////////////////////////////////////////////////////////////////
@@ -419,8 +424,11 @@ async function load_ideogram_from_form_data(){
     if(bedAnnot){
         //console.log("j'ajoute le beeeeed");
         //console.log(bedAnnot);
-        config.annotations = bedAnnot;
-        config.annotationsLayout= 'tracks'
+
+        /* config.annotations = bedAnnot;
+        config.annotationsLayout= 'tracks'; */
+
+        drawBed(bedAnnot);
     }
 
 	//Crée le graph
@@ -436,7 +444,8 @@ async function load_ideogram_from_form_data(){
     $('#page-content-wrapper').show();
     $('#home').hide();
 	$('#welcome').hide();
-	$('#download').fadeIn()
+	$('#download').fadeIn();
+    $('#saveasurl').fadeIn();
 
     setTimeout(addTooltip, 100, annotTable); //addTooltip();
     setTimeout(loadingoff,100);
@@ -1204,6 +1213,7 @@ function ideogramConfig(mosaique){
     echelle(maxLength);
     //apparition du bouton download
 	$('#download').fadeIn();
+    $('#saveasurl').fadeIn();
     loadingoff();
     
 
@@ -1216,20 +1226,52 @@ function ideogramConfig(mosaique){
 ////////////////////////////////////////////////////////////////
 //PRE-LOADED DATA VIA URL
 ////////////////////////////////////////////////////////////////
-window.onload=function(){
+window.onload = async function(){
     var urlAccession = window.location.hash;
     if(urlAccession){
         let acc = urlAccession.replace(/#/g, '');
+        
         //retreive all entries for this sample
         let filterData = arrData.filter(function(value) {
             return value.Sample === acc;
         });
         console.log(filterData);
-        $('#chrompaint').hide();
-        $('#page-content-wrapper').show();
-        $('#home').hide();
-        $('#welcome').hide();
-        load_accession(filterData);
+
+        //Known accession
+        if(!filterData.length==0){
+            $('#chrompaint').hide();
+            $('#page-content-wrapper').show();
+            $('#home').hide();
+            $('#welcome').hide();
+            load_accession(filterData);
+        }else{
+            //saved as url
+            //alert("data not found");
+            //cherche le repertoire 
+            let response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/annot.txt');
+            let responseText = await response.text();
+            await $("#editorAnnot").val(responseText);
+
+            response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/chrom.txt');
+            responseText = await response.text();
+            await $("#editorChr").val(responseText);
+
+            response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/color.txt');
+            responseText = await response.text();
+            await $("#editorColor").val(responseText);
+
+            //ouvre le menu data
+            $("#collapseInput").show();
+            //ouvre le menu chr
+            $("#collapseChr").show();
+            //ouvre le menu color
+            $("#collapseColor").show();
+
+            $("#submit").click();
+        }
+        
+
+        
     }
     //window.location = nouvelleAdresse;
 }

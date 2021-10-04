@@ -52,6 +52,7 @@ io.on('connection', socket => {
     const progPath = '/opt/projects/VisuSNP/htdocs/gemo/python/';
 	const workingPath = '/opt/projects/VisuSNP/htdocs/gemo/tmp/gemo_run/';
 	const analysisDir = workingPath + 'gemo_' + socket.id +'/';
+    const savedDir = '/opt/projects/VisuSNP/htdocs/gemo/tmp/gemo_saved/gemo_' + socket.id +'/';
     fs.mkdirSync(analysisDir);
     //run chrom config
 	socket.on('run', (tsv, callback) => {
@@ -84,6 +85,49 @@ io.on('connection', socket => {
             });
 
 		});
+	});
+
+    socket.on('saveAsURL', (annot, chrom, color, callback) => {
+		console.log("save as url");
+        //copy directory to saved location
+        /**
+         * Look ma, it's cp -R.
+         * @param {string} src  The path to the thing to copy.
+         * @param {string} dest The path to the new copy.
+         */
+        var copyRecursiveSync = function(src, dest) {
+            var exists = fs.existsSync(src);
+            var stats = exists && fs.statSync(src);
+            var isDirectory = exists && stats.isDirectory();
+            if (isDirectory) {
+            fs.mkdirSync(dest);
+            fs.readdirSync(src).forEach(function(childItemName) {
+                copyRecursiveSync(path.join(src, childItemName),
+                                path.join(dest, childItemName));
+            });
+            } else {
+            fs.copyFileSync(src, dest);
+            }
+        };
+        //copie le repertoire d'analyse dans un repertoire sauvegardé
+        copyRecursiveSync(analysisDir, savedDir);
+        //enregistre les fichiers annot chrom et color
+        fs.writeFile(savedDir+'annot.txt', annot, {encoding:'utf8', flag : 'w+' }, function (err) {
+            //err
+            if (err) return console.log("error write file "+err);
+            console.log(savedDir+'annot.txt saved');
+        });
+        fs.writeFile(savedDir+'chrom.txt', chrom, {encoding:'utf8', flag : 'w+' }, function (err) {
+            //err
+            if (err) return console.log("error write file "+err);
+            console.log(savedDir+'chrom.txt saved');
+        });
+        fs.writeFile(savedDir+'color.txt', color, {encoding:'utf8', flag : 'w+' }, function (err) {
+            //err
+            if (err) return console.log("error write file "+err);
+            console.log(savedDir+'color.txt saved');
+        });
+        callback(null, socket.id);
 	});
 
     socket.on ( "disconnect" , function (){
