@@ -3,6 +3,7 @@ export function drawBed(bedAnnot, maxLength){
 	console.log(bedAnnot);
 
 	let ratio = maxLength /600;
+	let minWidth = 2;
 	
 	$( document ).ready(function() {
 
@@ -14,7 +15,9 @@ export function drawBed(bedAnnot, maxLength){
 			let start = parseInt(obj.start) / parseInt(ratio);
 			//console.log("start "+start);
 			let stop = parseInt(obj.stop) / parseInt(ratio);
-			let width = parseInt(stop)-parseInt(start);
+			let width = parseInt(stop)/600-parseInt(start)/600;
+
+			if(width<minWidth){width = minWidth;}
 
 			//draw
 			d3.selectAll(".chromosome-set").select("[id^='chr"+obj.chr+"']")
@@ -25,7 +28,7 @@ export function drawBed(bedAnnot, maxLength){
 			.attr("x", parseInt(start))         // position the left of the rectangle
 			.attr("y", 30)          // position the top of the rectangle
 			.attr("height", 10)    // set the height
-			.attr("width", 2); 
+			.attr("width", width); 
 
 		
 		});
