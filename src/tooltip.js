@@ -18,12 +18,8 @@ export function addTooltip(annotTable){
 
 			//retreive annotations of the current bloc
 			//annotTable = fichier accession
-			let annotBloc = annotTable[blocCount];
-
-			// console.log(annotBloc);
-			// console.log($(this));
-			// console.log("---------------------");
-
+			//+1 pour ne pas tenir compte de l'en-tête des annots
+			let annotBloc = annotTable[blocCount+1];
 			const annotElements = annotBloc.split(/[ \t]+/);
 			
 			let chr = annotElements[0];
