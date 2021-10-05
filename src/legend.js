@@ -4,6 +4,23 @@ export function drawLegend(colors){
 	//empty div before
 	$('#legend_div').empty();
 
+	//ajoute une couleur pour no data
+	let divcol = document.createElement('div');
+	divcol.style="cursor:not-allowed;";
+	let colNoData = document.createElement('input');
+	colNoData.type = 'color';
+	colNoData.id = "No data";
+	colNoData.value = "#B0B0B0";
+	colNoData.style = "margin: .4rem; cursor:not-allowed; pointer-events:none";
+	let label = document.createElement('label');
+	label.setAttribute ("for", "No data");
+	label.style = "cursor:not-allowed; pointer-events:none"
+	label.innerText = "No data";
+
+	divcol.appendChild(colNoData);
+	divcol.appendChild(label);
+	document.getElementById('legend_div').appendChild(divcol); 
+
 	//pour chaque groupe
 	Object.keys(colors).map(function(group){
 		//console.log("..."+group+" "+colors[group][0]+" "+colors[group][1]);
@@ -15,14 +32,15 @@ export function drawLegend(colors){
 		//       value="#e66465">
 		//<label for="group">groupName</label>
 		//</div>
-		let divcol = document.createElement('div');
+		divcol = document.createElement('div');
 		let col = document.createElement('input');
 		col.type = 'color';
 		col.id = group;
 		col.value = hex;
-		col.style = "margin: .4rem;"
+		col.style = "margin: .4rem; cursor:pointer;";
 		let label = document.createElement('label');
 		label.setAttribute ("for", group);
+		label.style = "cursor:pointer;";
 		label.innerText = groupName;
 
 		divcol.appendChild(col);
@@ -45,4 +63,6 @@ export function drawLegend(colors){
 			$("#reload").click();
 		});
 	});
+
+	
 }
