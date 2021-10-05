@@ -420,24 +420,17 @@ async function load_ideogram_from_form_data(){
 	config.rangeSet = annotDataParsed[0];
 	annotTable = annotDataParsed[1];
 	
-    //Bed Annotations
-    if(bedAnnot){
-        //console.log("j'ajoute le beeeeed");
-        //console.log(bedAnnot);
-
-        /* config.annotations = bedAnnot;
-        config.annotationsLayout= 'tracks'; */
-
-        drawBed(bedAnnot);
-    }
-
 	//Crée le graph
 	if(chrdata != ""){
 		//console.log(config);
 		const ideogram = new Ideogram(config);
         drawLegend(ancestorsNameColor);
         echelle(maxLength);
+        //Bed Annotations
+    
 	}
+
+    
 
     $('#floating_legend').show();
     $('#legend_button').show();
@@ -448,6 +441,13 @@ async function load_ideogram_from_form_data(){
     $('#saveasurl').fadeIn();
 
     setTimeout(addTooltip, 100, annotTable); //addTooltip();
+    
+    if(bedAnnot){
+        /* config.annotations = bedAnnot;
+        config.annotationsLayout= 'tracks'; */
+        setTimeout(drawBed, 100, bedAnnot, maxLength);
+        //drawBed(bedAnnot);
+    }
     setTimeout(loadingoff,100);
 
 }

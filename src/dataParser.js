@@ -210,7 +210,7 @@ export function bedParser(bed){
 	for (let i = 0; i < split.length; i++) {
         let line = split[i].split("\t");
 		let currentAnnot;
-		if(line.length > 0){	
+		if(line != ''){	
 			currentAnnot = {
 				name: String(line[3]),
 				chr: String(line[0].replace("chr0","").replace("chr","")),
@@ -223,6 +223,6 @@ export function bedParser(bed){
 		
 	}
 
-	//console.log(bedArray);
+	console.log(bedArray);
 	return bedArray;
 }
