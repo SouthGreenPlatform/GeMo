@@ -1,0 +1,3 @@
+group	name	hex
+g3	A	blue
+g6	B	red

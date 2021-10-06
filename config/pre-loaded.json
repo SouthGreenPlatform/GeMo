@@ -1,687 +1,1057 @@
-[
-	{
+[{
     "ID": "001",
     "Sample": "Banksii620",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Banksii620.txt",
-    "ColorFile": "banana_color.txt"}
-,  
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "002",
     "Sample": "Banksii853",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Banksii853.txt",
-    "ColorFile": "banana_color.txt"}
-,  
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "003",
     "Sample": "Borneo",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Borneo.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "004",
     "Sample": "Calcutta4",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Calcutta4.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "005",
     "Sample": "Chicame",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Chicame.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "006",
     "Sample": "Galeo",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Galeo.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "007",
     "Sample": "GrandeNaine",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "3",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "3",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_GrandeNaine.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "008",
     "Sample": "GuNinChiao",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_GuNinChiao.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "009",
     "Sample": "Guyod",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Guyod.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "010",
     "Sample": "KhaePhrae",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_KhaePhrae.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "011",
     "Sample": "Kirun",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Kirun.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "012",
     "Sample": "LongTavoy",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_LongTavoy.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "013",
     "Sample": "MaiaOa",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_MaiaOa.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "014",
     "Sample": "Mala",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Mala.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "015",
     "Sample": "Manang",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Manang.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "016",
     "Sample": "Microcarpa",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Microcarpa.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "017",
     "Sample": "Monyet",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Monyet.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "018",
     "Sample": "PaRayong",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_PaRayong.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "019",
     "Sample": "PisangKlutukWulung",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_PisangKlutukWulung.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "020",
     "Sample": "PisangMadu",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_PisangMadu.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "021",
     "Sample": "PTBA00008",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_PTBA00008.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "022",
     "Sample": "PTBA00267",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_PTBA00267.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "023",
     "Sample": "Selangor",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_Selangor.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "024",
     "Sample": "SF215",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_SF215.txt",
-    "ColorFile": "banana_color.txt"}
-,
-	{
+    "FileCurve": "",
+    "ColorFile": "banana_color.txt"
+},
+{
     "ID": "025",
     "Sample": "THA018",
+    "AccessionCode": "",
     "Organism": "Banana (Musa spp.)",
-    "Ploidy" : "2",
+    "Study": "Martin et al, 2020",
+    "Ploidy": "2",
     "ChromFile": "DH-Pahang_v2.txt",
     "FileName": "ideo_THA018.txt",
+    "FileCurve": "",
     "ColorFile": "banana_color.txt"
-	},
-    {
+},
+{
     "ID": "026",
     "Sample": "Alemow",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Alemow.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "027",
     "Sample": "Bergamot",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Bergamot.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-	{
+},
+{
     "ID": "028",
     "Sample": "Bouquetier De Nive",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_BouquetierDeNice.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "029",
     "Sample": "Buddha's Hand",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_BuddhasHand.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "030",
     "Sample": "Chandler",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Chandler.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "031",
     "Sample": "Cleopatra",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Cleopatra.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "032",
     "Sample": "Coppenrhad",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "3",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "3",
     "ChromFile": "citrus_clementina_triploide.txt",
     "FileName": "ideo_Coppenrhad.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "033",
     "Sample": "Corsican",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Corsican.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "034",
     "Sample": "Dancy",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Dancy.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "035",
     "Sample": "De Chios",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_DeChios.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "036",
     "Sample": "Deep Red",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_DeepRed.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "037",
     "Sample": "Duncan",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Duncan.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "038",
     "Sample": "Etrog",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Etrog.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "039",
     "Sample": "Eurka",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Eureka.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "040",
     "Sample": "Giant Key",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "4",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "4",
     "ChromFile": "citrus_clementina_tetraploide.txt",
     "FileName": "ideo_GiantKey.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "041",
     "Sample": "Kao Pan",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_KaoPan.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "041",
     "Sample": "King",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_King.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "042",
     "Sample": "Ladu",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Ladu.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "043",
     "Sample": "Humpang",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Humpang.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "044",
     "Sample": "Mac Veu de Montagne",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_MacVeuDeMontagne.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "045",
     "Sample": "Marsh",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Marsh.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "046",
     "Sample": "Meyer",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Meyer.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "047",
     "Sample": "Lisbon",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Lisbon.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "048",
     "Sample": "Micrantha_S",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Micrantha_Sflopapeda.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "049",
     "Sample": "Micrantha",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Micrantha.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "050",
     "Sample": "Pink",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Pink.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "051",
     "Sample": "Poncire Commun",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_PoncireCommun.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "052",
     "Sample": "San Hu Hong Chu",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_SanHuHong.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "053",
     "Sample": "Nan Feng Mi Chu",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_NanFengMiChu.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "054",
     "Sample": "Owari Satsuma",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_OwariSatsuma.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "055",
     "Sample": "Ponkan",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Ponkan.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "056",
     "Sample": "Rough",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Rough.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "057",
     "Sample": "Rangpur",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Rangpur.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "058",
     "Sample": "Tahitian",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Tahitian.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "059",
     "Sample": "Se Hui Han",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_SeHuiHan.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-    {
+},
+{
     "ID": "060",
     "Sample": "Sunki",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Sunki.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-	{
+},
+{
     "ID": "061",
     "Sample": "Szibat",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Szibat.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-	{
+},
+{
     "ID": "062",
     "Sample": "Valencia Late",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_ValenciaLate.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-	{
+},
+{
     "ID": "063",
     "Sample": "Tahiti",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "3",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "3",
     "ChromFile": "citrus_clementina_triploide.txt",
     "FileName": "ideo_Tahiti.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-	{
+},
+{
     "ID": "064",
     "Sample": "Tanepao",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "3",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "3",
     "ChromFile": "citrus_clementina_triploide.txt",
     "FileName": "ideo_Tanepao.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-	{
+},
+{
     "ID": "065",
     "Sample": "Tahitian",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Tahitian.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-	{
+},
+{
     "ID": "066",
     "Sample": "Timor",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Timor.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-	{
+},
+{
     "ID": "067",
     "Sample": "Volkamer",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_Volkamer.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-	{
+},
+{
     "ID": "068",
     "Sample": "Washington Navel",
+    "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
-    "Ploidy" : "2",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
     "FileName": "ideo_WashingtonNavel.txt",
+    "FileCurve": "",
     "ColorFile": "citrus_color.txt"
-	},
-	{
+},
+{
     "ID": "069",
     "Sample": "Kunnan 'AB'",
-    "Organism": "Banana (Baurens et al. 2019)",
-    "Ploidy" : "2",
+    "AccessionCode": "",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Baurens et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "baurens_AB.txt",
     "FileName": "ideo_Kunnan.txt",
+    "FileCurve": "ideo_curve.txt",
     "ColorFile": "baurens_el_al_color.txt"
-	} ,
-	
-	{
+},
+
+{
     "ID": "070",
     "Sample": "Mysore 'AAB' (Pisang Ceylan)",
-    "Organism": "Banana (Baurens et al. 2019)",
-    "Ploidy" : "3",
+    "AccessionCode": "",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Baurens et al. 2019",
+    "Ploidy": "3",
     "ChromFile": "baurens_AAB.txt",
     "FileName": "ideo_Mysore.txt",
+    "FileCurve": "ideo_Mysore_curve.txt",
     "ColorFile": "baurens_el_al_color.txt"
-	},
-	{
+},
+{
     "ID": "071",
     "Sample": "Pelpita 'ABB'",
-    "Organism": "Banana (Baurens et al. 2019)",
-    "Ploidy" : "3",
+    "AccessionCode": "",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Baurens et al. 2019",
+    "Ploidy": "3",
     "ChromFile": "baurens_ABB.txt",
     "FileName": "ideo_Pelpita.txt",
+    "FileCurve": "ideo_Pelpita_curve.txt",
     "ColorFile": "baurens_el_al_color.txt"
-	},	
-	{
+},
+{
     "ID": "072",
     "Sample": "Plantain 'AAB' (French CLair)",
-    "Organism": "Banana (Baurens et al. 2019)",
-    "Ploidy" : "3",
+    "AccessionCode": "",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Baurens et al. 2019",
+    "Ploidy": "3",
     "ChromFile": "baurens_AAB.txt",
     "FileName": "ideo_Plantain.txt",
+    "FileCurve": "ideo_Plantain_curve.txt",
     "ColorFile": "baurens_el_al_color.txt"
-	},
-	{
+},
+{
     "ID": "073",
     "Sample": "Safet Velchi 'AB'",
-    "Organism": "Banana (Baurens et al. 2019)",
-    "Ploidy" : "2",
+    "AccessionCode": "",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Baurens et al. 2019",
+    "Ploidy": "2",
     "ChromFile": "baurens_AB.txt",
     "FileName": "ideo_Safet_Velchi.txt",
+    "FileCurve": "ideo_Safet_Velchi_curve.txt",
     "ColorFile": "baurens_el_al_color.txt"
-	},  
-	{
+},
+{
     "ID": "074",
     "Sample": "Silk 'AAB' (Figue Pomme Geante)",
-    "Organism": "Banana (Baurens et al. 2019)",
-    "Ploidy" : "3",
+    "AccessionCode": "",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Baurens et al. 2019",
+    "Ploidy": "3",
     "ChromFile": "baurens_AAB.txt",
     "FileName": "ideo_Silk.txt",
+    "FileCurve": "ideo_Silk_curve.txt",
     "ColorFile": "baurens_el_al_color.txt"
-	},
-    {
+},
+{
     "ID": "075",
-    "Sample": "curve",
-    "Organism": "Banana curve",
-    "Ploidy" : "2",
+    "Sample": "Test",
+    "AccessionCode": "",
+    "Organism": "Banana test",
+    "Ploidy": "2",
     "ChromFile": "banana_curve.tsv",
-    "FileName": "curve_banana.csv",
+    "FileName": "",
+    "FileCurve": "curve_banana.csv",
     "ColorFile": "curve_color.txt"
-    }   
+},
+{
+    "ID": "076",
+    "Sample": "'AAB pattern 1A' (Cachaco)",
+    "AccessionCode": "ITC0643",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Cenci et al. 2020",
+    "Ploidy": "3",
+    "ChromFile": "DH-Pahang_v2.txt",
+    "FileName": "ABB_pattern1a_1_Cachaco.txt",
+    "FileCurve": "",
+    "ColorFile": "cenci_et_al_color.txt"
+},
+{
+    "ID": "077",
+    "Sample": "'AAB pattern 1B' (Blue Java)",
+    "AccessionCode": "ITC0361",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Cenci et al. 2020",
+    "Ploidy": "3",
+    "ChromFile": "DH-Pahang_v2.txt",
+    "FileName": "ABB_pattern1b-Blue_Java.txt",
+    "FileCurve": "",
+    "ColorFile": "cenci_et_al_color.txt"
+},
+{
+    "ID": "078",
+    "Sample": "'AAB pattern 1C' (Indian Saba)",
+    "AccessionCode": "ITC1138",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Cenci et al. 2020",
+    "Ploidy": "3",
+    "ChromFile": "DH-Pahang_v2.txt",
+    "FileName": "ABB_pattern1c.txt",
+    "FileCurve": "",
+    "ColorFile": "cenci_et_al_color.txt"
+},
+{
+    "ID": "079",
+    "Sample": "'AAB Pattern 2 Pisang Awak (Namwa Khom)'",
+    "AccessionCode": "ITC0659",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Cenci et al. 2020",
+    "Ploidy": "3",
+    "ChromFile": "DH-Pahang_v2.txt",
+    "FileName": "ABB_pattern2_Namwa_Khom.txt",
+    "FileCurve": "",
+    "ColorFile": "cenci_et_al_color.txt"
+},
+{
+    "ID": "080",
+    "Sample": "'AAB pattern 3 Pisang Awak' (Vananthpurani)",
+    "AccessionCode": "ITC1749",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Cenci et al. 2020",
+    "Ploidy": "3",
+    "ChromFile": "DH-Pahang_v2.txt",
+    "FileName": "ABB_pattern3.txt",
+    "FileCurve": "",
+    "ColorFile": "cenci_et_al_color.txt"
+},
+{
+    "ID": "081",
+    "Sample": "'AAB pattern 4' (Pelipita)",
+    "AccessionCode": "ITC0472",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Cenci et al. 2020",
+    "Ploidy": "3",
+    "ChromFile": "DH-Pahang_v2.txt",
+    "FileName": "ABB_pattern4.txt",
+    "FileCurve": "",
+    "ColorFile": "cenci_et_al_color.txt"
+},
+{
+    "ID": "082",
+    "Sample": "'AAB pattern 5' (Kluai Tiparot)",
+    "AccessionCode": "ITC0652",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Cenci et al. 2020",
+    "Ploidy": "3",
+    "ChromFile": "DH-Pahang_v2.txt",
+    "FileName": "ABB_pattern5.txt",
+    "FileCurve": "",
+    "ColorFile": "cenci_et_al_color.txt"
+},
+{
+    "ID": "083",
+    "Sample": "'AAB pattern 6' (Auko)",
+    "AccessionCode": "ITC0983",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Cenci et al. 2020",
+    "Ploidy": "3",
+    "ChromFile": "DH-Pahang_v2.txt",
+    "FileName": "ABB_pattern6.txt",
+    "FileCurve": "",
+    "ColorFile": "cenci_et_al_color.txt"
+},
+{
+    "ID": "084",
+    "Sample": "'AB Pattern 1' (Safet Velchi)",
+    "AccessionCode": "ITC0245",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Cenci et al. 2020",
+    "Ploidy": "2",
+    "ChromFile": "DH-Pahang_v2.txt",
+    "FileName": "AB_pattern1.txt",
+    "FileCurve": "",
+    "ColorFile": "cenci_et_al_color.txt"
+},
+{
+    "ID": "085",
+    "Sample": "'AB Pattern 2' (Kunnan)",
+    "AccessionCode": "ITC1034",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Cenci et al. 2020",
+    "Ploidy": "2",
+    "ChromFile": "DH-Pahang_v2.txt",
+    "FileName": "AB_pattern2.txt",
+    "FileCurve": "",
+    "ColorFile": "cenci_et_al_color.txt"
+},
+{
+    "ID": "086",
+    "Sample": "'AB pattern 3' (Padali Moongil)",
+    "AccessionCode": "ITC1729",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Cenci et al. 2020",
+    "Ploidy": "2",
+    "ChromFile": "DH-Pahang_v2.txt",
+    "FileName": "AB_pattern3.txt",
+    "FileCurve": "",
+    "ColorFile": "cenci_et_al_color.txt"
+},
+{
+    "ID": "087",
+    "Sample": "'AB pattern 4' (Adukka Kunnan)",
+    "AccessionCode": "ITC1751",
+    "Organism": "Banana (Musa spp.)",
+    "Study": "Cenci et al. 2020",
+    "Ploidy": "2",
+    "ChromFile": "DH-Pahang_v2.txt",
+    "FileName": "AB_pattern4.txt",
+    "FileCurve": "",
+    "ColorFile": "cenci_et_al_color.txt"
+}
 ]
