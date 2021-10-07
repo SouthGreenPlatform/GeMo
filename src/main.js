@@ -42,25 +42,47 @@ $('#download').click(downloadArchive);
 $('#saveasurl').click(saveAsURL);
 
 
+
 ////////////////////////////////////////////////////////////////
 //PRE-LOADED DATA
 ////////////////////////////////////////////////////////////////
-async function load_accession(sampleJson){
+async function load_accession(sampleJson, type){
 	console.log("load accession" + sampleJson[0].FileName);
-	let FileName = sampleJson[0].FileName;
+	let fileName = sampleJson[0].FileName;
+    let fileCurve = sampleJson[0].FileCurve;
 	let ploidy = sampleJson[0].Ploidy;
 	let ChromFile = sampleJson[0].ChromFile;
     let ColorFile =sampleJson[0].ColorFile;
+
 	clear();
 	//console.log(new Error().stack);
+
+    //SWITACHABLE
+    if(fileName && fileCurve){
+		$("#switch").show();
+	}else{
+        $("#switch").hide();
+    }
 	
+    let fileToLoad;
+    //file to load
+    if(type == "block"){
+        fileToLoad = fileName;
+    }else if(type =="curve"){
+        fileToLoad = fileCurve;
+    }else if(fileName){
+        fileToLoad = fileName;
+    }else{
+        fileToLoad = fileCurve;
+    }
+
 	//affiche le loader
 	document.getElementById("loader").style.display = "block";
 	
 	config = initConfig();
 	//load le fichier mosaique dans le formulaire
 
-	let response = await fetch('/gemo/data/accessions/'+FileName);
+	let response = await fetch('/gemo/data/accessions/'+fileToLoad);
 	let responseText = await response.text();
 	await $("#editorAnnot").val(responseText);
     vizType = checkDataFile(d3.tsvParse(responseText));
@@ -366,7 +388,23 @@ $('#sample').change( function(){
 	$('#page-content-wrapper').show();
     $('#home').hide();
 	$('#welcome').hide();
+    
 	load_accession(sampleJson);
+});
+
+/////////////////////////////////////
+///// BOUTON SWITCH BLOCK CURVE /////
+/////////////////////////////////////
+$('input[type=radio][name=formchoice]').change(function() {
+    let sampleJson = arrData.filter(function(value) {
+        return value.ID === $("#sample option:selected")[0].value;
+    });
+	if (this.value == 'block') {
+		load_accession(sampleJson, "block")
+	}
+	else if (this.value == 'curve') {
+		load_accession(sampleJson, "curve")
+	}
 });
 
 
