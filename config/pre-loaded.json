@@ -835,7 +835,7 @@
     "Ploidy": "2",
     "ChromFile": "baurens_AB.txt",
     "FileName": "ideo_Kunnan.txt",
-    "FileCurve": "ideo_curve.txt",
+    "FileCurve": "ideo_Kunnan_curve.txt",
     "ColorFile": "baurens_el_al_color.txt"
 },
 
