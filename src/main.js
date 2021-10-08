@@ -63,25 +63,34 @@ async function load_accession(sampleJson, type){
 	}else{
         $("#switch").hide();
     }
-	
-    let fileToLoad;
-    //file to load
-    if(type == "block"){
-        fileToLoad = fileName;
-    }else if(type =="curve"){
-        fileToLoad = fileCurve;
-    }else if(fileName){
-        fileToLoad = fileName;
-    }else{
-        fileToLoad = fileCurve;
-    }
 
 	//affiche le loader
 	document.getElementById("loader").style.display = "block";
 	
 	config = initConfig();
-	//load le fichier mosaique dans le formulaire
+    let fileToLoad;
 
+    //file to load
+    if(type == "block"){
+        fileToLoad = fileName;
+        console.log("file to load block");
+        //$( "#switch" ).prop( "checked", false );
+    }else if(type =="curve"){
+        fileToLoad = fileCurve;
+        console.log("file to load curve");
+        //$( "#switch" ).prop( "checked", true );
+    }else if(type == "none" && fileName){
+        fileToLoad = fileName;
+        console.log("file to load block");
+        //$( "#switch" ).prop( "checked", false );
+    }else if(type == "none" && fileCurve){
+        fileToLoad = fileCurve;
+        console.log("file to load curve");
+        //$( "#switch" ).prop( "checked", true );
+    }
+
+	
+	//load le fichier mosaique dans le formulaire
 	let response = await fetch('/gemo/data/accessions/'+fileToLoad);
 	let responseText = await response.text();
 	await $("#editorAnnot").val(responseText);
@@ -389,21 +398,21 @@ $('#sample').change( function(){
     $('#home').hide();
 	$('#welcome').hide();
     
-	load_accession(sampleJson);
+	load_accession(sampleJson, 'none');
 });
 
 /////////////////////////////////////
 ///// BOUTON SWITCH BLOCK CURVE /////
 /////////////////////////////////////
-$('input[type=radio][name=formchoice]').change(function() {
+$('#switch').change(function() {
     let sampleJson = arrData.filter(function(value) {
         return value.ID === $("#sample option:selected")[0].value;
     });
-	if (this.value == 'block') {
-		load_accession(sampleJson, "block")
-	}
-	else if (this.value == 'curve') {
-		load_accession(sampleJson, "curve")
+    if (document.getElementById("Switch").checked){
+		load_accession(sampleJson, "curve");
+        console.log("cheeeeeeeck");
+	}else{
+		load_accession(sampleJson, "block");
 	}
 });
 
@@ -1281,7 +1290,7 @@ window.onload = async function(){
             $('#page-content-wrapper').show();
             $('#home').hide();
             $('#welcome').hide();
-            load_accession(filterData);
+            load_accession(filterData, 'none');
         }else{
             //saved as url
             //alert("data not found");

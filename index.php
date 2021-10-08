@@ -206,13 +206,17 @@ echo "<script> load_ideogram()</script>";
 					</svg>	
 					</p>
 					<!--switch-->
-					<div style="display: none;" class="btn-group btn-group-toggle" id="switch" data-toggle="buttons">
+<!-- 					<div style="display: none;" class="btn-group btn-group-toggle" id="switch" data-toggle="buttons">
 						<label class="myradiobtn btn btn-sm btn-outline-dark active">
 							<input type="radio" name="formchoice" id="radioblock" value="block" autocomplete="off" checked> Mosaïc blocks (ideogram)
 						</label>
 						<label class="myradiobtn btn btn-sm btn-outline-dark">
 							<input type="radio" name="formchoice" id="radiocurve" value="curve" autocomplete="off"> Data curation (graph)
 						</label>
+					</div> -->
+					<div id="switch" style="display: none;" class="custom-control custom-switch">
+						<input type="checkbox" class="custom-control-input" id="Switch">
+						<label class="custom-control-label" for="Switch">Switch to curration mode</label>
 					</div>
 					<!-- data-->
 					<div class="collapse" id="collapseInput">
