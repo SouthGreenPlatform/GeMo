@@ -48,9 +48,8 @@ export function saveAsURL(){
 var exportSVG = function(svg) {
         // first create a clone of our svg node so we don't mess the original one
         var clone = svg.cloneNode(true);
-        //svg.selectAll("tooltipstered").remove();
+        //ENLEVE LES TOOLTIPS SINON ILS S'AFFICHENT EN GRIS DANS INKSCAPE
         clone.querySelectorAll('.tooltipstered').forEach(n => n.remove());
-        console.log(clone);
         // parse the styles
         parseStyles(clone);//from   w  ww  .  de m  o  2s .c  o  m
         // create a doctype
