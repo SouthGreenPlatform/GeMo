@@ -1,20 +1,5 @@
 [
     {
-        "ID": "001",
-        "Name": "Banana (Musa spp.) diploïd AA",
-        "FileName": "banana_chr_AA.txt"
-    },
-    {
-        "ID": "002",
-        "Name": "Banana (Musa spp.) diploïd BB",
-        "FileName": "banana_chr_BB.txt"
-    },
-    {
-        "ID": "003",
-        "Name": "Banana (Musa spp.) triploïd AAA",
-        "FileName": "banana_chr_AAA.txt"
-    },
-    {
         "ID": "004",
         "Name": "Citrus (Clementina) diploïd",
         "FileName": "citrus_clementina.txt"
