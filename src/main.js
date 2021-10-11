@@ -549,11 +549,14 @@ bedFileInput.addEventListener('change',function(e){
     handleFiles(this.files,e.target.id);
 });
 
-document.getElementById("selectorploidy").value = haplotype;
 
-document.getElementById("selectorploidy").addEventListener('change',function(){
-    haplotype = document.getElementById("selectorploidy").value;
-});
+//document.getElementById("selectorploidy").value = haplotype;
+//document.getElementById("selectorploidy").addEventListener('change',function(){
+//    haplotype = document.getElementById("selectorploidy").value;
+//});
+
+haplotype = document.getElementById("selectorploidy").value;
+//console.log("haplotype "+ haplotype);
 
 ///////////////////////////////////////////////////////////
 // SUBMIT FORM ////////////////////////////////////////////
@@ -693,6 +696,8 @@ let HEIGHT = 0;
 function graphSetup(data){
 
     let ancestorsNameColorBackup = JSON.parse(JSON.stringify(ancestorsNameColor));
+
+    let haplotype = Number($('#selectorploidy').val());
 
     //initialise en fonction de données
     let selectedOriginKey = Object.keys(ancestorsNameColorBackup);
@@ -1075,6 +1080,7 @@ function mosaique(floorValue){
     let chrStr = "chr";
     let originalChrNumber = "";
     let countHaplotype = 0;
+    let haplotype = Number($('#selectorploidy').val());
 
     for (let i = 0; i < mosaique.length; i++) {
 
@@ -1153,6 +1159,7 @@ function ideogramConfig(mosaique){
     let maxLength = 0;
     let chrNumber;
     let chr = {};
+    let haplotype = Number($('#selectorploidy').val());
 
     chrConfig = d3.tsvParse($("#editorChr").val());
     for (let i = 0; i < chrConfig.length; i++) {
