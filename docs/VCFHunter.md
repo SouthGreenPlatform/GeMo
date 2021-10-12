@@ -8,6 +8,10 @@ This tutorial aimed at showing how data should be processed to be then visualize
 
 Chromosome painting using non admixed ancestral accessions
 ----------------------------------------------------------------
+First, you need to extract a VCF from Gigwa https://www.crop-diversity.org/gigwa/
+
+Select A-B recombinaisons
+
 
 ### Data input :
 
