@@ -1,13 +1,10 @@
-Tutorial for TraceAncestor chromosome painting and data visualization with GEMO
+Chromosome painting using TraceAncestor
 ===========================================================================
 
-This tutorial aimed at showing how data should be processed to be then 
-visualized with the [GEMO tool](https://github.com/SouthGreenPlatform/GeMo) GEMO tool.
+TraceAncestor2.pl is a script that allows to estimate the allelic dosage of ancestral alleles in hybrid individuals and then to perform chromosome painting.
 
 
-TraceAncestor2.pl is a script that permits to estimate the allelic dosage of ancestral alleles in hybrid individuals and then to perform chromosom painting.
-The v2 of TranceAncestor is a modification of the v1 (https://github.com/SouthGreenPlatform/galaxy-wrappers/tree/master/Galaxy_SouthGreen/traceancestor) in order to match the input of the GeMo vizualisation tool.
-
+[Ahmed,D. et al. (2019) Genotyping by sequencing can reveal the complex mosaic genomes in gene pools resulting from reticulate evolution: a case study in diploid and polyploid citrus. Annals of Botany, 123, 1231–1251.](https://doi.org/10.1093/aob/mcz029)
 
 # TUTORIAL
 
@@ -35,8 +32,10 @@ A1, A2, A3 are the ancestors and Ind1, Ind2 ... are the names of pure breed indi
 
 | A1 | Ind1 | Ind2 | Ind3 | Ind4 | Ind5 | Ind6 |
 |----|------|------|------|------|------|------|
-| A2 | Ind7 | Ind8 | Ind9 | Ind10 |
-| A3 | Ind11 | Ind12 | Ind13 | Ind14 | Ind15 |
+| M | Chiosf | depressa | Sunki | Cleopatre | Willow_Leaf|Nan_feng_mi_chu|
+| P | Chandler | KaoPan | Pink | Timor | PampTahiti |Deep_red|
+| C | CedCorse | Digite | Hupang | Mac_Veu_de_montagne | etrog |Poncire_commun|
+| Mic | Micrantha_Sflopapeda | Micrantha |  |  |  ||
 
 
 ### Ouputs
