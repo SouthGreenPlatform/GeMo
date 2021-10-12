@@ -52,7 +52,8 @@ async function load_accession(sampleJson, type){
     let fileCurve = sampleJson[0].FileCurve;
 	let ploidy = sampleJson[0].Ploidy;
 	let ChromFile = sampleJson[0].ChromFile;
-    let ColorFile =sampleJson[0].ColorFile;
+    let ColorFile = sampleJson[0].ColorFile;
+    let GenomeBrowser = sampleJson[0].GenomeBrowser;
 
 	clear();
 	//console.log(new Error().stack);
@@ -119,6 +120,9 @@ async function load_accession(sampleJson, type){
     response = await fetch('/gemo/data/accessions/'+ColorFile);
 	responseText = await response.text();
 	await $("#editorColor").val(responseText);
+
+    //genome browser link
+	$("#editorGB").val(GenomeBrowser);
     
     //load_ideogram_from_form_data();
     $("#submit").click();
@@ -129,6 +133,8 @@ async function load_accession(sampleJson, type){
     $("#collapseChr").show();
     //ouvre le menu color
     $("#collapseColor").show();
+    //ouvre le menu genome browser
+    $("#collapseGB").show();
     
     //load_ideogram();
 	//setTimeout(addTooltip, 100, annotTable); //addTooltip();
@@ -170,7 +176,6 @@ function updateIdeo() {
         loadingon();
         load_ideogram_from_form_data();
         //repositione();
-        setTimeout(addTooltip, 100, annotTable); //addTooltip();
         setTimeout(loadingoff,100);
     }
     
@@ -441,6 +446,9 @@ async function load_ideogram_from_form_data(){
     }else{
         ancestorsNameColor = parsingColor(d3.tsvParse(colordata));
     }
+
+    //le tableau des couleurs n'est toujours pas calculé
+    let gblink = $("#editorGB").val();
     
 	config.ploidyDesc = [];
 	config.ploidy = Number($('#selectorploidy').val());
@@ -487,7 +495,9 @@ async function load_ideogram_from_form_data(){
 	$('#download').fadeIn();
     $('#saveasurl').fadeIn();
 
-    setTimeout(addTooltip, 100, annotTable); //addTooltip();
+    if(gblink){
+        setTimeout(addTooltip, 100, annotTable, gblink);
+    }
     
     if(bedAnnot){
         /* config.annotations = bedAnnot;
