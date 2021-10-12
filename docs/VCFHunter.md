@@ -196,10 +196,10 @@ mkdir step5
 
 This command generate several files. A file named 
 
- 1. **Kunnan_ideo.tab** that contained block that could be drawn with GEMO (data section), a file named 
- 2. **Kunnan_chrom.tab** that contained information required to draw chromosomes.
- 3. **Kunnan_color.tab** contained color information that could be used to draw blocks with custom color. 
-
+- **Kunnan_ideo.tab** that contained block that could be drawn with GEMO (data section), a file named 
+- **Kunnan_chrom.tab** that contained information required to draw chromosomes.
+- **Kunnan_color.tab** contained color information that could be used to draw blocks with custom color. 
+- **Kunnan_win_ratio.tab**
 
 
 For blocks refinement using custom and adjustable parameters. The file of normalized ratio should be reformatted with this simple command line to obtain a file named **Kunnan_win_ratio.tab**: 
