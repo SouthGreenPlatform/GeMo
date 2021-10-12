@@ -1,43 +1,57 @@
 
-Tutorial for VcfHunter chromosome painting and data visualization with GEMO
+Chromosome painting using VCFHunter
 ===========================================================================
 
 **This tutorial point to tools that are not yet available but that will come soon**
 
 This tutorial aimed at showing how data should be processed to be then visualized with the GeMo
 
+Installation
+---------------------------------------------------------
+Install [VCFHunter](https://github.com/SouthGreenPlatform/VcfHunter) following the documentation
+
+Download dataset
+---------------------------------------------------------
+First, for this tutorial, you can use [Gigwa](https://www.crop-diversity.org/gigwa/), a web application for managing and exploring high-density genotyping data, to download a VCF
+
+
+- Select the database Populations_A_B
+
+![Select Database](select_database.png?raw=true "Select Database")
+
+- Select the accessions P2 and T01 to T11 on the Indivuals drop down menu, and click on Search button
+
+![Select Individu](select_individu.png?raw=true "Select Individu")
+
+- Download result (check radio "Export Metadata" and "Keep file on servers")
+![Export](export_gigwa.png?raw=true "Export Gigwa")
+
+Copy the link, and create a repository on your terminal
+
+```
+mkdir VCFHunter
+cd VCF
+wget --no-check-certificate https://www.crop-diversity.org/gigwa/genofilt/tmpOutput/anonymousUser/b429763f507dc1bb2b169d7da5cf1804/Population_A-B__project1__2021-10-12__148329variants__VCF.zip
+unzip Population_A-B__project1__2021-10-12__148329variants__VCF.zip
+cut -f 1,6 Population_A-B__21individuals_metadata.tsv > Origin.tab
+sed -i 's:balbisiana:BB:' Origin.tab
+sed -i 's:acuminata:AA:' Origin.tab
+ls Population_A-B__148329variants__10individuals.vcf > Vcf.conf
+```
+
 Chromosome painting using non admixed ancestral accessions
 ----------------------------------------------------------------
-First, you need to extract a VCF from Gigwa https://www.crop-diversity.org/gigwa/
-
-Select A-B recombinaisons
-
 
 ### Data input :
 
- - Origin.tab is a file which contained two column: a first column containing ancestral accession names and a second column containing their ancestral origin (this program can work until 8 distinct origins)
-  
-|  Accession|Ancestral origin|
-|--|--|
-| P2 | AA|
-| T01 | BB|
-| T02 | BB|
-| T03 | AA|
-| T04 | AA|
-| T05 | AA|
-| T06 | AA|
-| T07 | AA|
-| T08 | BB| 
-| T10 | AA|
-| T11 | AA|
-
+ - Origin.tab
  - Vcf.conf is a file which contained path to vcf files which will be used for e-chromosome painting.
  - color.conf
  
-|  group|name  |
-|--|--|
-| AA |  acuminata|
-| BB |  balbisiana|
+|  group|name  |r|g|b|
+|--|--|--|--|--|
+| AA |  acuminata|0|255|0|
+| BB |  balbisiana|255|0|0|
 
  - chromosome.tab 
 
