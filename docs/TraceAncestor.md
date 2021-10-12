@@ -3,10 +3,10 @@ Chromosome painting using TraceAncestor
 
 TraceAncestor2.pl is a script that allows to estimate the allelic dosage of ancestral alleles in hybrid individuals and then to perform chromosome painting.
 
+## Reference
+- [Ahmed,D. et al. (2019) Genotyping by sequencing can reveal the complex mosaic genomes in gene pools resulting from reticulate evolution: a case study in diploid and polyploid citrus. Annals of Botany, 123, 1231–1251.](https://doi.org/10.1093/aob/mcz029)
 
-[Ahmed,D. et al. (2019) Genotyping by sequencing can reveal the complex mosaic genomes in gene pools resulting from reticulate evolution: a case study in diploid and polyploid citrus. Annals of Botany, 123, 1231–1251.](https://doi.org/10.1093/aob/mcz029)
-
-# TUTORIAL
+## Calculate GST values
 
 ##1. TAvcf2gst.pl
 
@@ -16,17 +16,17 @@ This script is used to define GST values from individuals that are identified as
 
 Must be used on pure breed. If there is introgressed part on the genome of the individual, the part must be removed before analysis. 
 	
-	perl TAvcf2gst.pl [-v vcf file] [-a ancestor file] [-d depth]
+```bash
+TAvcf2gst.pl --help
 
-### Inputs
-	-d | --depth : minimal depth for a snp to be used in the analysis (default = 5)
+usage: TAvcf2gst.pl [-v vcf file] [-a ancestor file] [-d depth]
 
-	-v | --vcf: vcf containing the pure breed individuals. 
+-v | --vcf : vcf containing the ancestors
+-a | --ancestor : ancestor file
+-d | --depth : minimal depth for a snp to be used in the analysis
+```
 
-	-a | --ancestor :  ancestor file.
-
-
-*example of an ancestor file:*
+*Example of an ancestor file:*
 
 A1, A2, A3 are the ancestors and Ind1, Ind2 ... are the names of pure breed individuals in the Vcf files.
 
@@ -56,26 +56,28 @@ A1, A2, A3 are the ancestors and Ind1, Ind2 ... are the names of pure breed indi
 - GST = value of GST (inter-population differentiation parameter) (With 1,2,3 the ancestors names)
 - F = Alternative allele frequency for each ancestor (With 1,2,3 the ancestors names)
 
-##2. TAprefilter.pl
+## TAprefilter.pl
 
 ### Usage
 
 This script is used to define a matrix of ancestry informative markers from the matrix gotten at the step 1.
 
-	perl TAprefilter.pl [-t matrix file] [-g threshold for gst] [-m threshold for missing data]
+```bash 
+TAprefilter.pl --help
 
-### Inputs
+usage: script.pl [-t matrix file] [-g threshold for gst] [-m threshold for missing data] [-h help]
 
-	-g | --gst : maximum value of the GST of a DSNP to be a marker (default = 0.9).
-	-m | --missing : maximum value of missing data frequence for a DSNP to be a marker (default = 0.3) 
-	-t | --input : reference matrice with GST and alternative allele frequence (F) informations (output of TAvcf2gst.pl).
-
+-t | --input : reference matrice produce by the previous step
+-g | --gst : threshold for gst
+-m | --missing : threshold for missing data
+-h | --help : display this help
+```
 
 ### Ouputs
 
 A matrix containing all the ancestry informative markers for every ancestors.
 
-*example:*
+*Example:*
 
 | ancestor | chromosome | position | allele |
 |----------|------------|----------|--------|
@@ -120,10 +122,7 @@ A matrix containing all the ancestry informative markers for every ancestors.
 
 ### Ouputs
 	
-	1- *ideogram_hybridname* : the painting data. An Ideogram output compatible with GeMo
-
-	2- *len_ideogram_hybridname* : the chromosomes data. An Ideogram output compatible with ideogram.js
-	
-	3- *ancestorFreq* : frequency of ancestors alleles along chromosome for the particular hybrid focused.
-
-    4- *Gemo_curve* (optionnal if the option -c is activated): frequency of ancestors alleles along chromosome for the GeMo vizualisation tool.
+- *ideogram_hybridname* : the painting data. An Ideogram output compatible with GeMo
+- *len_ideogram_hybridname* : the chromosomes data. An Ideogram output compatible with ideogram.js
+- *ancestorFreq* : frequency of ancestors alleles along chromosome for the particular hybrid focused.
+- *Gemo_curve* (optionnal if the option -c is activated): frequency of ancestors alleles along chromosome for the GeMo vizualisation tool.
