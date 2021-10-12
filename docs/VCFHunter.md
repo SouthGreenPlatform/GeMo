@@ -5,6 +5,8 @@ Chromosome painting using VCFHunter
 **This tutorial point to tools that are not yet available but that will come soon**
 
 This tutorial aimed at showing how data should be processed to be then visualized with the GeMo
+ 
+[Baurens,F.-C. et al.(2019) Recombination and Large Structural Variations Shape Interspecific Edible Bananas Genomes. Mol Biol Evol, 36, 97–111.](https://doi.org/10.1093/molbev/msy199) 
 
 Installation
 ---------------------------------------------------------
