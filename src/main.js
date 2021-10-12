@@ -90,7 +90,6 @@ async function load_accession(sampleJson, type){
         //$( "#switch" ).prop( "checked", true );
     }
 
-	
 	//load le fichier mosaique dans le formulaire
 	let response = await fetch('/gemo/data/accessions/'+fileToLoad);
 	let responseText = await response.text();
@@ -107,11 +106,6 @@ async function load_accession(sampleJson, type){
 	responseText = await response.text();
 	$("#editorChr").val(responseText);
     //chrConfig = d3.tsvParse(responseText);
-
-    
-    //reporté a load ideogram from data
-    //configPath = await parsingLen(chrConfig);
-    //console.log("config paaaaaaaath async " + configPath);
 
     //config.dataDir = '/gemo/config/';
     config.dataDir = '/gemo/tmp/gemo_run/gemo_'+configPath+"/";
@@ -135,15 +129,6 @@ async function load_accession(sampleJson, type){
     $("#collapseColor").show();
     //ouvre le menu genome browser
     $("#collapseGB").show();
-    
-    //load_ideogram();
-	//setTimeout(addTooltip, 100, annotTable); //addTooltip();
-    //setTimeout(loadingoff,100);
-	//addTooltip();
-	
-	//draw
-	//loadingon();
-	
 }
 
 ////////////////////////////////////////////////////////////////
@@ -153,16 +138,15 @@ $('#SwitchLetters').change( function(){
 	displaytext();
 });
 
-
+////////////////////////////////////////////////////////////////
+// Help Tooltips
+////////////////////////////////////////////////////////////////
 addHelpTooltips();
-
-
 
 ////////////////////////////////////////////////////////////////
 // Fonction qui recalcul le schéma à partir des données dans les cadres
 ////////////////////////////////////////////////////////////////
 document.getElementById("reload").addEventListener("click", updateIdeo, null);
-
 function updateIdeo() {
 
     var radio_form = $('#radio_form input:radio:checked').val()
@@ -178,76 +162,6 @@ function updateIdeo() {
         //repositione();
         setTimeout(loadingoff,100);
     }
-    
-	
-}
-
-////////////////////////////////////////////////////////////////
-//
-////////////////////////////////////////////////////////////////
-function load_file(){
-	console.log("chr to form");
-	$("#editorChr").text("");
-	//$("#fileInputC").show();
-	const fileInputC = document.getElementById('fileInputC');
-	//fileInputC.addEventListener('change', function(e) {
-		const file = fileInputC.files[0];
-		const reader = new FileReader();
-		reader.onload = function(e) {
-
-			const lines = reader.result.split('\n');
-			if (lines[lines.length - 1] ==""){
-				let texte = "";
-				for(let i = 0; i < lines.length -1; i++){
-					if (i < lines.length -2){
-						texte = texte + lines[i];
-						texte = texte + '\n';
-					}
-					else{
-						texte = texte + lines[i];
-					}
-				}
-				$("#editorChr").text(texte);
-			}
-			else{
-				$("#editorChr").text(reader.result);
-			}	
-		};
-		reader.readAsText(file);  
-}
-
-function load_file2(){
-	console.log("annot to form");
-	$("#fileInputD").show();
-	const fileInputD = document.getElementById('fileInputD');
-	//fileInputD.addEventListener('change', function(e) {
-		const file = fileInputD.files[0];
-		const reader = new FileReader();
-		reader.onload = function(e) {
-
-			//$("#editorAnnot").text(reader.result);
-
-			const lines = reader.result.split('\n');
-			if (lines[lines.length - 1] ==""){
-				let texte = "";
-				for(let i = 0; i < lines.length -1; i++){
-					if (i < lines.length -2){
-						texte = texte + lines[i];
-						texte = texte + '\n';
-					}
-					else{
-						texte = texte + lines[i];
-					}
-				}
-				$("#editorAnnot").text(texte);
-			}
-			else{
-				$("#editorAnnot").text(reader.result);
-			}	
-			//$("#fileInputD").hide();
-		};
-		reader.readAsText(file); 
-	//});   
 }
 
 ///////////////////////////////////////////////////
@@ -279,24 +193,11 @@ function echelle(maxLength){
     svg.append("g").call(x_axis);
 }
 
-
-
 ///////////////////////////////////////////////
 // MENU
 ///////////////////////////////////////////////
-///////////////////////////////////////
-///// Choix du form block / curve /////
-///////////////////////////////////////
-/* $('input[type=radio][name=formchoice]').change(function() {
-    if (this.value == 'block') {
-		$('#curveform').hide();
-		$('#blockform').show();
-    }
-    else if (this.value == 'curve') {
-        $('#curveform').show();
-		$('#blockform').hide();
-    }
-}); */
+///////////////////////////////////////////////
+
 ///////////////////////////////////////
 //Affichage du nom des fichiers input//
 ///////////////////////////////////////
@@ -308,8 +209,8 @@ $('.custom-file-input').on('change', function(){
 		name += '\"' + files[i].name + '\"' + (i != files.length-1 ? ", " : ""); 
 	} 
 	$(this)
-      .next(".custom-file-label")
-      .html(name); 
+    .next(".custom-file-label")
+    .html(name); 
 });
 
 ////////////////////////////////////////////
@@ -341,7 +242,7 @@ $('#chromosomes').change( function(){
         return response.text();
     })
     .then(function(responseText) {
-	    $("#editorChr").val(responseText);
+        $("#editorChr").val(responseText);
     });
 });
 
@@ -421,8 +322,6 @@ $('#switch').change(function() {
 	}
 });
 
-
-
 ////////////////////////////////////////////////////////////////
 // Load ideogram
 ////////////////////////////////////////////////////////////////
@@ -484,9 +383,6 @@ async function load_ideogram_from_form_data(){
         //Bed Annotations
     
 	}
-
-    
-
     $('#floating_legend').show();
     $('#legend_button').show();
     $('#page-content-wrapper').show();
@@ -506,38 +402,21 @@ async function load_ideogram_from_form_data(){
         //drawBed(bedAnnot);
     }
     setTimeout(loadingoff,100);
-
 }
-
-
-
-
-
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////
 //// C H R O M P A I N T ///////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-
-
 
 // let dropArea = document.getElementById('drop-area');
 let dataFileInput = document.getElementById('dataFile');
 let colorFileInput = document.getElementById('colorFile');
 let lenFileInput = document.getElementById('lenFile');
 let bedFileInput = document.getElementById('bedFile');
-
-
 let haplotype = 2; //ploïdie
-
 let rawData; //Données brut, comme envoyé.
 let stuffedData; //Données brut, avec les lignes de bourrage. Sera pratique plus tard (généré à partir de rawData).
 let data; //Nos données parsé (généré à partir de stuffedData).
-
-
 let chrConfig; //J'en aurais besoins si l'haplotype est changé après que les données ai été envoyé.
 let mosaiqueConfig; //Version parsé pour ideogram.js de chrConfig
 let configPath; //path vers les données chr parsées a entrer dans la config d'ideogram
@@ -559,14 +438,8 @@ bedFileInput.addEventListener('change',function(e){
     handleFiles(this.files,e.target.id);
 });
 
-
-//document.getElementById("selectorploidy").value = haplotype;
-//document.getElementById("selectorploidy").addEventListener('change',function(){
-//    haplotype = document.getElementById("selectorploidy").value;
-//});
-
 haplotype = document.getElementById("selectorploidy").value;
-//console.log("haplotype "+ haplotype);
+
 
 ///////////////////////////////////////////////////////////
 // SUBMIT FORM ////////////////////////////////////////////
@@ -582,13 +455,10 @@ document.getElementById("submit").addEventListener("click", async function(){
         $('#chrompaint').show();
         $('#page-content-wrapper').hide();
         $('#home').hide();
-	    $('#welcome').hide();
+        $('#welcome').hide();
 
         //recup les données dans le formulaire
         rawData = d3.tsvParse($("#editorAnnot").val());
-/*         rawData.forEach(function(item, index, array) {
-            console.log(item, index);
-          }); */
 
         if(rawData === undefined){
             alert("Fichier de données manquant");
@@ -622,7 +492,7 @@ document.getElementById("submit").addEventListener("click", async function(){
         $('#chrompaint').hide();
         $('#page-content-wrapper').show();
         $('#home').hide();
-	    $('#welcome').hide();
+        $('#welcome').hide();
 
         console.log("block");
         data = $("#editorAnnot").val();
@@ -633,13 +503,8 @@ document.getElementById("submit").addEventListener("click", async function(){
 		config = initConfig();
 		loadingon();
 		load_ideogram_from_form_data();
-		//repositione();
-		
     }
-    
 });
-
-
 
 /**
  * Lis le fichier (@file) et le traité suivant sont (@fileType). le contenue du fichier et parse par d3.tsvParse, puis le résultat est placé dans une variable globale.
@@ -670,7 +535,7 @@ function handleFiles(files,fileType) {
 				}
 				break;
 			case'len':
-            	if(checkLenFile(d3.tsvParse(e.target.result))) {
+                if(checkLenFile(d3.tsvParse(e.target.result))) {
 					chrConfig = d3.tsvParse(e.target.result);
 					configPath = await parsingLen(chrConfig);
 					$("#editorChr").val(e.target.result);
@@ -727,18 +592,14 @@ function graphSetup(data){
     WIDTH = visu.clientWidth - marginLeft - marginRight;
     HEIGHT = visu.clientHeight - marginTop - marginBottom;
 
-
     //création de notre svg qui sera notre container pour notre graphique
-
     let svg = d3.select("#graph").append("svg")
         .attr("width", (WIDTH + marginLeft) + marginRight)
         .attr("height", HEIGHT + marginTop + marginBottom)
         .append("g")
         .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
 
-
     //création d'un clip path, tous tracés hors de cet élement ne sera pas affichée (résout le problème des courbes dépassant les axes lors du zoom)
-
     svg.append("defs").append("svg:clipPath")
         .attr("id", "clip")
         .append("svg:rect")
@@ -751,11 +612,8 @@ function graphSetup(data){
         .attr("id","graphlimit")
         .attr("clip-path", "url(#clip)");
 
-
     //mise en place des axes et du zoom.
-
     //y
-
     //ici on crée une échelle, domaine de définition + taille à l'écran.
     let y = d3.scaleLinear()
         .range([HEIGHT, 0])     //la taille à l'écran.
@@ -764,7 +622,6 @@ function graphSetup(data){
     //ici on crée un axe (axisLeft(), parce que ce sera notre ordonné et à gauche.) et on lui donne notre échelle crée plus haut (scale()).
     let yAxis = d3.axisLeft()
         .scale(y);
-
 
     //x
     let maxLength = d3.max(d3.tsvParse($("#editorChr").val()), d => d.len);
@@ -779,7 +636,6 @@ function graphSetup(data){
         .scale(x);
 
     //On place nos axes dans notre svg
-
     let axisG = svg.append("g")
         .attr("id", "xaxis")
         .attr("transform", "translate(0," + HEIGHT + ")")
@@ -787,7 +643,6 @@ function graphSetup(data){
         .style("color", "white")
         .attr("y", 6)
         .attr("dy", ".71em");
-
 
     svg.append("g")
         .attr("id", "yaxis")
@@ -800,7 +655,6 @@ function graphSetup(data){
         .text("Valeur de l'origine");
 
     //ici on va créer le zoom. x notre échelle en place,1) x2 une copie sur laquelle on peut zoomer,2) quand un zoom a lieux,3) on copie x2 dans x,4)On re-échelonne xAxis (pour prendre en compte notre nouveaux df),5)On re-call xAxis sur notre élement axe (axisG),6) on refresh le graphique pour actualiser la position des données sur celui ci.
-
     let x2 = x.copy();                         //1
 
     let zoom = d3.zoom()
@@ -829,12 +683,10 @@ function graphSetup(data){
 
 
     //Création du selecteur de chromosome (dropdown) et du resetColor
-
     let container = d3.select("#floorContainer").append("div")
         .attr("id","top_part");
 
     //Chromosome selector
-
     container.append("select")
         .attr("id","chromosomeSelector")
         .on("change",function(){
@@ -843,7 +695,6 @@ function graphSetup(data){
         });
 
     //ResetColor button
-
     container.append("input")
         .attr("type","button")
         .attr("value","reset colors")
@@ -874,12 +725,10 @@ function graphSetup(data){
                 let ancestorsId = color.parentNode.lastChild.id;
                 color.value = ancestorsNameColor[ancestorsId][1];
             }
-
             //refresh graph and ideogram
             mosaique(floorValues,data);
             tracerCourbe(selectedChromosome,data,lineGen,svg,ancestorsNameColor,ancestorsNameColor);
         });
-
 
     data.forEach(function(current_data,i){ //impossible d'utiliser .data() .enter() ici pour des raisons obscure.
 
@@ -889,9 +738,7 @@ function graphSetup(data){
             .attr("value", i);
     });
 
-
     //Création d'une légende pour chaque origine (ainsi que des inputs : seuil, affichage etc)
-
     let legend = d3.select("#floorContainer").append("div").attr("id","legend").selectAll('g')
         .data(data[selectedChromosome].values)
         .enter()
@@ -923,7 +770,6 @@ function graphSetup(data){
             mosaique(floorValues,data);
             tracerCourbe(selectedChromosome,data,lineGen,svg,ancestorsNameColor);
         });
-
 
     legend.append('text')
         .style("width","30%")
@@ -961,11 +807,9 @@ function graphSetup(data){
     legendSetup(); //Ajout de nos eventListener sur les légendes les checkbox, les seuils etc..
 
     //Tout est prêt pour tracer nos courbes.
-
     tracerCourbe(selectedChromosome,data,lineGen,svg,ancestorsNameColor);
 
     //A partir d'ici c'est l'ajout des tooltips, des seuils et de leurs intéractions
-
     let mouseG = svg.append("g")
         .attr("class", "mouse-over-effects");
 
@@ -981,13 +825,11 @@ function graphSetup(data){
         .style("fill","white")
         .attr("class","y-value");
 
-
     let yHeight = document.getElementById("yaxis").firstChild.getBoundingClientRect().height; //retrouver la taille en px du df de y
     let origine = getKeyByValue(ancestorsNameColor,selectedOrigin); //getKeyByValue(ancestorsNameColor,"Velut") retourne "V"
     let floorPositions = arraySetup(haplotype); // crée le dico qui contiendra les positions pour les seuils fixe (ligne en pointillé)
     let floorValues = arraySetup(haplotype); // crée le même dico mais avec les valeurs des seuils (0.5,0.25,...)
     floorPositionsSetup(floorPositions,mouseG,WIDTH,ancestorsNameColor,yHeight); // crée les lignes en pointillé (ainsi que le conteneur) selon le dico crée au dessus.
-
 
     mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
         .attr('width', WIDTH) // can't catch mouse events on a g element
@@ -1053,7 +895,6 @@ function legendSetup(){
             legend.children[i].style.backgroundColor = "#ccc"
         });
     }
-
 }
 
 function globalUpdate(floorValues,selectedChromosome,floorPositions,data){
@@ -1064,9 +905,7 @@ function globalUpdate(floorValues,selectedChromosome,floorPositions,data){
 }
 
 ///////////////////CREATION DES DONNEES ET SETUP POUR IDEOGRAM///////////////////////
-
 function mosaique(floorValue){
-
     /*
     1 0 0 200000 #7DC7D2
     1 0 200001 400000 #7AA1D2
@@ -1077,9 +916,7 @@ function mosaique(floorValue){
     1 0 1200001 1400000 #7DC7D2
      */
 
-
     // préparation du tableau pour le bloc idéogramme
-
     let mosaique = [];
     for (let i = 0; i < stuffedData.length; i++) {
         mosaique.push([]);
@@ -1095,11 +932,8 @@ function mosaique(floorValue){
     for (let i = 0; i < mosaique.length; i++) {
 
         originalChrNumber = stuffedData[i]["chr"].replace(/chr/g,"");
-        
         Object.keys(floorValue).forEach(function(origineKey) {
-
             if(countHaplotype !== -1) {
-
                 //Si pour la valeur de l'origine courante le seuil est dépassé, (détéction d'une dose) et qu'il reste un haplotype à alouer alors j'ajoute une ligne dans mon block
                 if (stuffedData[i][origineKey] >= floorValue[origineKey] && countHaplotype < haplotype) {
 
@@ -1109,9 +943,7 @@ function mosaique(floorValue){
                             countHaplotype++;
                         }
                     }
-
                 }
-
                 //Si une dose est détécté mais que plus d'haplotype dispo je met tout le block en gris.
                 else if (stuffedData[i][origineKey] >= floorValue[origineKey] && countHaplotype >= haplotype) {
                     block = []; //reset block
@@ -1120,9 +952,7 @@ function mosaique(floorValue){
                     }
                     countHaplotype = -1;
                 }
-
             }
-
         });
 
         //Si à la fin de la recherche de dose il reste de la place je la remplie avec du gris.
@@ -1135,12 +965,9 @@ function mosaique(floorValue){
         }
 
         countHaplotype = 0;
-        
         metaBlocks.push(block);
         block = [];
         chrStr = "chr";
-
-
     }
     //console.log("metaBlocks "+metaBlocks);
     let groupedBlock = groupByColor(metaBlocks);
@@ -1152,17 +979,11 @@ function mosaique(floorValue){
         metaBlocks.push(block.flat(1));
     }
 
-
     let strMosaique = metaBlocks.join(" ").replace(/,/g,' ');
     strMosaique = strMosaique.replace(/^ +/gm,""); //variable à récuperer pour gemo.(sous forme de string) encodeURIComponent....
-
-
     //console.log(strMosaique);
-
     ideogramConfig(strMosaique);
-
 }
-
 
 function ideogramConfig(mosaique){
 
@@ -1178,18 +999,12 @@ function ideogramConfig(mosaique){
         }
     }
     
-
     for (let i = 0; i < stuffedData.length; i++) {
         chr[stuffedData[i]["chr"]] = 1; 
     }
     chrNumber = Object.keys(chr).length;
-/*     if(chrNumber < 11){ //Il faut 11 chromosomes minimum dans la ploidyDesc, surement en rapport avec l'organisme.
-        chrNumber = 11;
-    } */
 
     let dataSet = convertStrtoRangeSet(mosaique,haplotype);
-    //console.log(mosaique);
-    //console.log(dataSet);
     let ploidyDesc = ploidyDescGenerator(haplotype,chrNumber);
     let ancestors = ancestorsGenerator(haplotype);
     let configChrompaint = initConfig();
@@ -1208,13 +1023,7 @@ function ideogramConfig(mosaique){
 	$('#download').fadeIn();
     $('#saveasurl').fadeIn();
     loadingoff();
-    
-
 }
-
-
-
-
 
 ////////////////////////////////////////////////////////////////
 //PRE-LOADED DATA VIA URL
@@ -1259,14 +1068,8 @@ window.onload = async function(){
             $("#collapseChr").show();
             //ouvre le menu color
             $("#collapseColor").show();
-
             $("#submit").click();
-        }
-        
-
-        
+        } 
     }
     //window.location = nouvelleAdresse;
 }
-
-
