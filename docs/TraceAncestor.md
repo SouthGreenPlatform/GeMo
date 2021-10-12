@@ -6,9 +6,8 @@ TraceAncestor2.pl is a script that allows to estimate the allelic dosage of ance
 ## Reference
 - [Ahmed,D. et al. (2019) Genotyping by sequencing can reveal the complex mosaic genomes in gene pools resulting from reticulate evolution: a case study in diploid and polyploid citrus. Annals of Botany, 123, 1231–1251.](https://doi.org/10.1093/aob/mcz029)
 
-## Calculate GST values
 
-##1. TAvcf2gst.pl
+## TAvcf2gst.pl
 
 ### Usage
 
