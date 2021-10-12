@@ -94,31 +94,22 @@ A matrix containing all the ancestry informative markers for every ancestors.
 
 ### Usage
 
-	perl TraceAncestor.pl [-t matrix file] [-v vcf file] [-m merge] [-c color file] [-p ploidy] [-w number of markers by window] [-l LOD value] [-s threshold for LOD] [-k window size in K-bases] [-i particular hybrid to focus on] [-f focus file with several hybrids to focus on] 
+```bash
+TraceAncestor2.pl --help
 
-### Inputs
+usage: TraceAncestor.pl [-t matrix file] [-v vcf file] [-p ploidy] [-w number of markers by window] [-s threshold for LOD] [-k window size in K-bases] [-i hybrid name to focus on]
 
-	-t | --input : reference matrice (output of TAprefilter.pl)
-
-	-v | --vcf : vcf of the hybrid population
-	
-	-m | --merge : If this option is activated, the windows will be made only with common SNP between vcf and ancestor matrix (do not activate this option if the snp list in ancestor matrix is not exhaustive. For instance in the case of wgs analysis.)
-
-	-p | --ploidy : ploidy of the hybrid population (2, 3 or 4).
-
-	-w | --window : number of markers by window (default = 10)
-
-	-l | --lod : lod value to conclude for one hypothesis or an other (default = 3)
-
-	-s | --threshold : threshold for the calcul of LOD score (default = 0.99 (For an acceptable sequencage error rate of 0.01))
-
-	-k | --cut : number of K bases for one window (default = 100)
-
-	-i | --ind : particular hybrid you want to focus on.
-
-    -c | --curve : calculate curves for gemo vizualisation tools (needs a lot of memory. Activate it only on a cluster)
-
-	-h | --help : display an help
+-t | --input : reference matrice.
+-v | --vcf : vcf of the hybrid population
+-p | --ploidy : ploidy of the hybrid population
+-w | --window : number of markers by window
+-l | --lod : LOD value to conclude for one hypothesis
+-s | --freq : theoretical frequency used to calcul the LOD
+-k | --cut : number of K bases in one window
+-i | --ind : particular hybrid you want to focus on.
+-c | --curve : calculate curves for gemo vizualisation tools (needs a lot of memory. Activate it only on a cluster)
+-h | --help : display this help
+```
 
 ### Ouputs
 	
