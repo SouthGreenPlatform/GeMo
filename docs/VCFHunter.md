@@ -5,15 +5,15 @@ Chromosome painting using VCFHunter
 **This tutorial point to tools that are not yet available but that will come soon**
 
 This tutorial aimed at showing how data should be processed to be then visualized with the GeMo
- 
-[Baurens,F.-C. et al.(2019) Recombination and Large Structural Variations Shape Interspecific Edible Bananas Genomes. Mol Biol Evol, 36, 97–111.](https://doi.org/10.1093/molbev/msy199) 
 
-Installation
----------------------------------------------------------
+## References
+- [Baurens,F.-C. et al.(2019) Recombination and Large Structural Variations Shape Interspecific Edible Bananas Genomes. Mol Biol Evol, 36, 97–111.](https://doi.org/10.1093/molbev/msy199) 
+- [Martin et al., 2020a. Martin G, Cardi C, Sarah G, Ricci S, Jenny C, Fondi E, Perrier X, Glaszmann J-C, D’Hont A, Yahiaoui N. 2020. Genome ancestry mosaics reveal multiple and cryptic contributors to cultivated banana. Plant J. 102:1008–1025.](https://doi.org/10.1111/tpj.14683)
+
+## Installation 
 Install [VCFHunter](https://github.com/SouthGreenPlatform/VcfHunter) following the documentation
 
-Download dataset
----------------------------------------------------------
+## Download dataset 
 First, for this tutorial, you can use [Gigwa](https://www.crop-diversity.org/gigwa/), a web application for managing and exploring high-density genotyping data, to download a VCF
 
 
@@ -46,8 +46,7 @@ grep "^#CHROM" Population_A-B__148329variants__21individuals.vcf
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	ACC48-FPG	ACC48-FPN	ACC48-P_Ceylan	ACC48-Red_Yade	DYN163-Kunnan	DYN275-Pelipita	DYN359-Safet_Velchi	GP1	GP2	P1	P2	T01	T02	T03	T04	T05	T06	T07	T08	T10	T11
 ```
 
-Chromosome painting using non admixed ancestral accessions
-----------------------------------------------------------------
+## Chromosome painting using non admixed ancestral accessions 
 
 ### Data input :
 
