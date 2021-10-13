@@ -18,11 +18,12 @@ Must be used on pure breed. If there is introgressed part on the genome of the i
 ```bash
 TAvcf2gst.pl --help
 
-usage: TAvcf2gst.pl [-v vcf file] [-a ancestor file] [-d depth]
-
--v | --vcf : vcf containing the ancestors
--a | --ancestor : ancestor file
--d | --depth : minimal depth for a snp to be used in the analysis
+Parameters :
+    --vcf       vcf containing the ancestors [Required]
+    --ancestor  ancestor file [Required]
+    --depth     minimal depth for a snp to be used in the analysis (Default 5)
+    --output    output file name (Default GSTmatrice)
+    --help
 ```
 
 *Example of an ancestor file:*
@@ -63,13 +64,12 @@ This script is used to define a matrix of ancestry informative markers from the 
 
 ```bash 
 TAprefilter.pl --help
-
-usage: script.pl [-t matrix file] [-g threshold for gst] [-m threshold for missing data] [-h help]
-
--t | --input : reference matrice produce by the previous step
--g | --gst : threshold for gst
--m | --missing : threshold for missing data
--h | --help : display this help
+Parameters :
+    --input     reference matrice [Required]
+    --gst       threshold for gst (Default : 0.9)
+    --missing   threshold for missing data (Default 0.3)
+    --output    output file name (Default Diagnosis_matrix)
+    --help      display this help
 ```
 
 ### Ouputs
