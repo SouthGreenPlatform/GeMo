@@ -101,7 +101,7 @@ BB    balbisiana 255 0   0
 
 
 Chromosome painting using non admixed ancestral accessions
-----------------------------------------------------------
+==========================================================
 
 1 - Identification of private alleles and formating output for more analysis
 ----------------------------------------------------------------------------
