@@ -5,13 +5,13 @@ This tutorial aimed at showing how data should be processed to be then
 visualized with the GeMo
 
 Installation
-------------
+============
 
 Install `VCFHunter <https://github.com/SouthGreenPlatform/VcfHunter>`__
 following the documentation
 
-Download dataset
-----------------
+Download datasets
+=================
 
 First, for this tutorial, you can use
 `Gigwa <https://www.crop-diversity.org/gigwa/>`__, a web application for
@@ -66,7 +66,7 @@ VCF content
    #CHROM  POS ID  REF ALT QUAL    FILTER  INFO    FORMAT  ACC48-FPG   ACC48-FPN   ACC48-P_Ceylan  ACC48-Red_Yade  DYN163-Kunnan   DYN275-Pelipita DYN359-Safet_Velchi GP1 GP2 P1  P2  T01 T02 T03 T04 T05 T06 T07 T08 T10 T11
 
 Principle
----------
+=========
 
 The principle of this analysis is to :
 
@@ -83,7 +83,7 @@ visualize data and optimize parameters.
 
 
 Data input
-----------
+==========
 
 -  Origin.tab
 -  Vcf.conf is a file which contained path to vcf files which will be
@@ -98,6 +98,7 @@ AA    acuminata  0   255 0
 BB    balbisiana 255 0   0
 ===== ========== === === =
 
+------------------------------------------------------------------------
 
 
 Chromosome painting using non admixed ancestral accessions
@@ -300,10 +301,10 @@ to obtain a file named **Kunnan_win_ratio.tab**:
    zcat step4/Kunnan_win_ratio.tab.gz | awk '{$2=""; print $0}' | sed 's/CHR/chr/' | sed 's/Start/start/' | sed 's/End/end/' | sed 's/  / /g' | sed 's/ /\t/g' | sort -k1,1 -k2n,2  > step5/Kunnan_win_ratio.tab
 
 Visualization and block refinement with GeMo
---------------------------------------------
+============================================
 
 References
-----------
+==========
 
 -  `Baurens,F.-C. et al.(2019) Recombination and Large Structural
    Variations Shape Interspecific Edible Bananas Genomes. Mol Biol Evol,
