@@ -2,7 +2,7 @@ TraceAncestor2.pl is a script that allows to estimate the allelic dosage
 of ancestral alleles in hybrid individuals and then to perform
 chromosome painting.
 
-TAvcf2gst.pl
+vcf2gst.pl
 ============
 
 Usage
@@ -14,9 +14,14 @@ identified as pure breed for an ancestor.
 Must be used on pure breed. If there is introgressed part on the genome
 of the individual, the part must be removed before analysis.
 
+:download:`vcf2gst.pl<vcf2gst.pl>`
+
+.. literalinclude:: vcf2gst.pl
+    :language: perl
+
 .. code:: bash
 
-   TAvcf2gst.pl --help
+   vcf2gst.pl --help
 
    Parameters :
        --vcf       vcf containing the ancestors [Required]

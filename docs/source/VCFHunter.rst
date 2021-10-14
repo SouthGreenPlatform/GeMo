@@ -32,8 +32,7 @@ managing and exploring high-density genotyping data, to download a VCF
 .. image:: _images/select_individu.png
    :target: _images/select_individu.png
    :align: center
-   :alt: Select Database
-
+   :alt: Select Individu
 
    Select Individu
 
@@ -43,7 +42,9 @@ managing and exploring high-density genotyping data, to download a VCF
 .. image:: _images/export_gigwa.png
    :target: _images/export_gigwa.png
    :align: center
-   :alt: Export Gigwa
+   :alt: Export
+
+   Export
 
 Copy the link, and create a repository on your terminal
 
