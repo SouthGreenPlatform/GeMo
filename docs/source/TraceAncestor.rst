@@ -1,23 +1,12 @@
-Chromosome painting using TraceAncestor
-=======================================
-
 TraceAncestor2.pl is a script that allows to estimate the allelic dosage
 of ancestral alleles in hybrid individuals and then to perform
 chromosome painting.
 
-Reference
----------
-
--  `Ahmed,D. et al. (2019) Genotyping by sequencing can reveal the
-   complex mosaic genomes in gene pools resulting from reticulate
-   evolution: a case study in diploid and polyploid citrus. Annals of
-   Botany, 123, 1231–1251. <https://doi.org/10.1093/aob/mcz029>`__
-
 TAvcf2gst.pl
-------------
+============
 
 Usage
-~~~~~
+-----
 
 This script is used to define GST values from individuals that are
 identified as pure breed for an ancestor.
@@ -60,7 +49,7 @@ breed individuals in the Vcf files.
 +-----+----------+----------+--------+----------+----------+----------+
 
 Ouputs
-~~~~~~
+------
 
 *The output is a CSV file containing GST (inter-population
 differentiation parameter) information:*
@@ -84,12 +73,12 @@ differentiation parameter) information:*
    ancestors names)
 
 TAprefilter.pl
---------------
+==============
 
 .. _usage-1:
 
 Usage
-~~~~~
+-----
 
 This script is used to define a matrix of ancestry informative markers
 from the matrix gotten at the step 1.
@@ -107,7 +96,7 @@ from the matrix gotten at the step 1.
 .. _ouputs-1:
 
 Ouputs
-~~~~~~
+------
 
 A matrix containing all the ancestry informative markers for every
 ancestors.
@@ -128,12 +117,12 @@ A1       1          150528   T
 -  allele = Base of the ancestral allele
 
 TraceAncestor2.pl
------------------
+=================
 
 .. _usage-2:
 
 Usage
-~~~~~
+-----
 
 .. code:: bash
 
@@ -155,7 +144,7 @@ Usage
 .. _ouputs-2:
 
 Ouputs
-~~~~~~
+------
 
 -  *ideogram_hybridname* : the painting data. An Ideogram output
    compatible with GeMo
@@ -165,3 +154,11 @@ Ouputs
    the particular hybrid focused.
 -  *Gemo_curve* (optionnal if the option -c is activated): frequency of
    ancestors alleles along chromosome for the GeMo vizualisation tool.
+
+Reference
+=========
+
+-  `Ahmed,D. et al. (2019) Genotyping by sequencing can reveal the
+   complex mosaic genomes in gene pools resulting from reticulate
+   evolution: a case study in diploid and polyploid citrus. Annals of
+   Botany, 123, 1231–1251. <https://doi.org/10.1093/aob/mcz029>`__
