@@ -1,0 +1,2 @@
+sphinx_pdj_theme
+sphinx_copybutton
