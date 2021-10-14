@@ -63,25 +63,41 @@ master_doc = 'index'
 # a list of builtin themes.
 html_theme = 'sphinx_rtd_theme'
 
+
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
+html_theme_options = {
+    'logo_only': False,
+    'display_version': True,
+    'prev_next_buttons_location': 'bottom',
+    'style_external_links': False,
+    'vcs_pageview_mode': '',
+    'style_nav_header_background': 'cyan',
+    # Toc options
+    'collapse_navigation': False,
+    'sticky_navigation': True,
+    'navigation_depth': 3,
+    'includehidden': False,
+    'titles_only': False
+}
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = "GeMo"
+html_title = "GeMo : A linear mosaic genome painting tool in plants"
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 html_short_title = "GeMo"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-#html_logo = '_images/culebront_logo.png'
+#
+html_logo = '_images/GeMo.png'
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-#html_favicon = '_images/culebront_logo2.png'
+html_favicon = '_images/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
