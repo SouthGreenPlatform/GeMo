@@ -1,0 +1,175 @@
+# Configuration file for the Sphinx documentation builder.
+#
+# This file only contains a selection of the most common options. For a full
+# list see the documentation:
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
+
+# -- Path setup --------------------------------------------------------------
+
+# If extensions (or modules to document with autodoc) are in another directory,
+# add these directories to sys.path here. If the directory is relative to the
+# documentation root, use os.path.abspath to make it absolute, like shown here.
+#
+# import os
+# import sys
+# sys.path.insert(0, os.path.abspath('.'))
+import sphinx_rtd_theme
+
+
+# -- Project information -----------------------------------------------------
+
+project = 'GeMo'
+copyright = '2021, Summo'
+author = 'Summo'
+
+github_doc_root = 'https://github.com/SouthGreenPlatform/GeMo/tree/master/docs/'
+issues_github_path = 'https://github.com/SouthGreenPlatform/GeMo/issues'
+
+# The full version, including alpha/beta/rc tags
+release = '1.0.0'
+
+
+# -- General configuration ---------------------------------------------------
+
+# Add any Sphinx extension module names here, as strings. They can be
+# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
+# ones.
+extensions = [
+    'sphinx.ext.viewcode',
+    'sphinx.ext.autosectionlabel',
+    'sphinx_copybutton',
+    'sphinx_rtd_theme'
+]
+
+
+# Add any paths that contain templates here, relative to this directory.
+templates_path = ['_templates']
+
+# The suffix of source filenames.
+source_suffix = ['.rst', "md"]
+
+# List of patterns, relative to source directory, that match files and
+# directories to ignore when looking for source files.
+exclude_patterns = ['_build']
+
+# The name of the Pygments (syntax highlighting) style to use.
+pygments_style = 'sphinx'
+
+master_doc = 'index'
+
+# -- Options for HTML output ----------------------------------------------
+
+# The theme to use for HTML and HTML Help pages.  See the documentation for
+# a list of builtin themes.
+html_theme = 'sphinx_rtd_theme'
+
+# Theme options are theme-specific and customize the look and feel of a theme
+# further.  For a list of options available for each theme, see the
+# documentation.
+
+# The name for this set of Sphinx documents.  If None, it defaults to
+# "<project> v<release> documentation".
+html_title = "GeMo"
+
+# A shorter title for the navigation bar.  Default is the same as html_title.
+html_short_title = "GeMo"
+
+# The name of an image file (relative to this directory) to place at the top
+# of the sidebar.
+#html_logo = '_images/culebront_logo.png'
+
+# The name of an image file (within the static path) to use as favicon of the
+# docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
+# pixels large.
+#html_favicon = '_images/culebront_logo2.png'
+
+# Add any paths that contain custom static files (such as style sheets) here,
+# relative to this directory. They are copied after the builtin static files,
+# so a file named "default.css" will overwrite the builtin "default.css".
+html_static_path = ['_static']
+
+# If false, no index is generated.
+html_use_index = True
+
+# If true, the index is split into individual pages for each letter.
+html_split_index = False
+
+# If true, links to the reST sources are added to the pages.
+# html_show_sourcelink = True
+
+# If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
+html_show_sphinx = False
+
+# If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
+html_show_copyright = True
+
+
+# -- Options for LaTeX output ---------------------------------------------
+# latex_engine = 'pdflatex'
+
+# latex_elements = {
+    # The paper size ('letterpaper' or 'a4paper').
+    # 'papersize': 'a4paper',
+    # The font size ('10pt', '11pt' or '12pt').
+    # 'pointsize': '12pt',
+    # Latex figure (float) alignment
+    # 'figure_align':'htbp',
+    # 'extraclassoptions': 'openany',
+    # 'preamble': r'''
+        # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        # %%%add number to subsubsection 2=subsection, 3=subsubsection
+        # \setcounter{secnumdepth}{0}
+        # %%%% Table of content upto 2=subsection, 3=subsubsection
+        # \setcounter{tocdepth}{2}
+    # ''',
+
+    # 'sphinxsetup': \
+        # 'hmargin={0.7in,0.7in}, vmargin={0.7in,0.7in}, \
+        # marginpar=1in, \
+        # verbatimwithframe=False, \
+        # TitleColor={rgb}{0,0,0}, \
+        # HeaderFamily=\\rmfamily\\bfseries, \
+        # InnerLinkColor={rgb}{0,0,1}, \
+        # OuterLinkColor={rgb}{0,0,1}',
+# }
+
+# Grouping the document tree into LaTeX files. List of tuples
+# (source start file, target name, title,
+#  author, documentclass [howto, manual, or own class]).
+
+# latex_documents = [
+  # ('index', 'CulebrONT.tex', 'Documentation',
+   # latex_authors, 'manual', True),
+# ]
+
+# The name of an image file (relative to this directory) to place at the top of
+# the title page.
+# latex_logo = '_images/culebront_logo.png'
+
+# For "manual" documents, if this is true, then toplevel headings are parts,
+# not chapters.
+# latex_use_parts = False
+
+# If true, show page references after internal links.
+#latex_show_pagerefs = False
+
+# If true, show URL addresses after external links.
+#latex_show_urls = False
+
+# Documents to append as an appendix to all manuals.
+#latex_appendices = []
+
+# If false, no module index is generated.
+#latex_domain_indices = True
+
+# latex_toplevel_sectioning = 'section'
+
+# These paths are either relative to html_static_path
+# or fully qualified paths (eg. https://...)
+html_css_files = [
+        './gemo_docs.css',
+]
+
+def setup(app):
+    app.add_css_file('gemo_docs.css')  # may also be an URL('logo.css')  # may also be an URL
+    # app.add_css_file('sphinx-argparse.css')
