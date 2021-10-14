@@ -1,0 +1,464 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang="" lang="" version="-//W3C//DTD XHTML 1.1//EN" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Chromosome painting using TraceAncestor &mdash; GeMo</title>
+  
+
+  
+
+  
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="_static/css/pdj.css" type="text/css" />
+
+  
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/css/pdj.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="GeMo" href="index.html"/>
+        <link rel="prev" title="Chromosome painting using VCFHunter" href="VCFHunter.html"/>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="cache-control" content="public" />
+    <meta name="robots" content="follow, all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Add jQuery library -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+  </head>
+
+  <body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> GeMo </a>
+        <div role="search">
+	  <form id ="rtd-search-form" class="wy-form"
+		action="search.html" method="get">
+	    <input type="text" name="q" placeholder="Search docs" />
+	    <input type="hidden" name="check_keywords" value="yes" />
+	    <input type="hidden" name="area" value="default" />
+	  </form>
+	</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	
+          
+          
+              <p class="caption" role="heading"><span class="caption-text">About GeMo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README.html">GeMo - Genome Mosaics visualization tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="README.html#live-demo">Live demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#main-features">Main features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#data-inputs-coming-soon">Data inputs (<em>Coming soon</em>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#generating-datasets">Generating datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#citation">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Chromosome painting using VCFHunter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="VCFHunter.html">Chromosome painting using VCFHunter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="VCFHunter.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VCFHunter.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VCFHunter.html#download-dataset">Download dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VCFHunter.html#chromosome-painting-using-non-admixed-ancestral-accessions">Chromosome painting using non admixed ancestral accessions</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Chromosome painting using TraceAncestor</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chromosome painting using TraceAncestor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tavcf2gst-pl">TAvcf2gst.pl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#taprefilter-pl">TAprefilter.pl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#traceancestor2-pl">TraceAncestor2.pl</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+
+      </div>
+      &nbsp;
+    </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" id="barra-mobile" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">Porão do Juca</a>
+      </nav>
+
+      <div class="wy-nav-content">
+	<div class="fundo-claro">
+	</div>
+	<div class="fundo-escuro">
+	</div>
+
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+	    
+	    <!-- <ul class="wy-breadcrumbs"> -->
+	    <!--   <li><a href="#">Docs</a> &raquo;</li> -->
+
+	    <!--   <li>Features</li> -->
+	    <!--   <li class="wy-breadcrumbs-aside"> -->
+
+	    <!-- 	<a href="_sources/index.txt" rel="nofollow"> View page source</a> -->
+
+	    <!--   </li> -->
+	    <!-- </ul> -->
+	    <!-- <hr/> -->
+	  </div>
+
+          <div role="main" class="">
+
+	    <div id="content" class="hfeed entry-container hentry">
+  <div class="section" id="chromosome-painting-using-traceancestor">
+<h1>Chromosome painting using TraceAncestor<a class="headerlink" href="#chromosome-painting-using-traceancestor" title="Permalink to this headline">¶</a></h1>
+<p>TraceAncestor2.pl is a script that allows to estimate the allelic dosage
+of ancestral alleles in hybrid individuals and then to perform
+chromosome painting.</p>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://doi.org/10.1093/aob/mcz029">Ahmed,D. et al. (2019) Genotyping by sequencing can reveal the
+complex mosaic genomes in gene pools resulting from reticulate
+evolution: a case study in diploid and polyploid citrus. Annals of
+Botany, 123, 1231–1251.</a></p></li>
+</ul>
+</div>
+<div class="section" id="tavcf2gst-pl">
+<h2>TAvcf2gst.pl<a class="headerlink" href="#tavcf2gst-pl" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<p>This script is used to define GST values from individuals that are
+identified as pure breed for an ancestor.</p>
+<p>Must be used on pure breed. If there is introgressed part on the genome
+of the individual, the part must be removed before analysis.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>TAvcf2gst.pl --help
+
+Parameters :
+    --vcf       vcf containing the ancestors <span class="o">[</span>Required<span class="o">]</span>
+    --ancestor  ancestor file <span class="o">[</span>Required<span class="o">]</span>
+    --depth     minimal depth <span class="k">for</span> a snp to be used <span class="k">in</span> the analysis <span class="o">(</span>Default <span class="m">5</span><span class="o">)</span>
+    --output    output file name <span class="o">(</span>Default GSTmatrice<span class="o">)</span>
+    --help
+</pre></div>
+</div>
+<p><em>Example of an ancestor file:</em></p>
+<p>A1, A2, A3 are the ancestors and Ind1, Ind2 … are the names of pure
+breed individuals in the Vcf files.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 13%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>A1</p></th>
+<th class="head"><p>Ind1</p></th>
+<th class="head"><p>Ind2</p></th>
+<th class="head"><p>Ind3</p></th>
+<th class="head"><p>Ind4</p></th>
+<th class="head"><p>Ind5</p></th>
+<th class="head"><p>Ind6</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>M</p></td>
+<td><p>Chiosf</p></td>
+<td><p>depressa</p></td>
+<td><p>Sunki</p></td>
+<td><p>C
+leopatre</p></td>
+<td><p>Wil
+low_Leaf</p></td>
+<td><p>Nan_fen
+g_mi_chu</p></td>
+</tr>
+<tr class="row-odd"><td><p>P</p></td>
+<td><p>Chandler</p></td>
+<td><p>KaoPan</p></td>
+<td><p>Pink</p></td>
+<td><p>Timor</p></td>
+<td><p>Pa
+mpTahiti</p></td>
+<td><p>Deep_red</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>CedCorse</p></td>
+<td><p>Digite</p></td>
+<td><p>Hupang</p></td>
+<td><p>Mac
+_Veu_de_
+montagne</p></td>
+<td><p>etrog</p></td>
+<td><p>Poncir
+e_commun</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mic</p></td>
+<td><p>Micr
+antha_Sf
+lopapeda</p></td>
+<td><p>M
+icrantha</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ouputs">
+<h3>Ouputs<a class="headerlink" href="#ouputs" title="Permalink to this headline">¶</a></h3>
+<p><em>The output is a CSV file containing GST (inter-population
+differentiation parameter) information:</em></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 11%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 26%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 4%" />
+<col style="width: 4%" />
+<col style="width: 4%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>#CHROM</p></th>
+<th class="head"><p>POS</p></th>
+<th class="head"><p>REF</p></th>
+<th class="head"><p>ALT</p></th>
+<th class="head"><p>%Nref</p></th>
+<th class="head"><p>GST1</p></th>
+<th class="head"><p>GST2</p></th>
+<th class="head"><p>GST3</p></th>
+<th class="head"><p>F1</p></th>
+<th class="head"><p>F2</p></th>
+<th class="head"><p>F3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>85524</p></td>
+<td><p>A</p></td>
+<td><p>G</p></td>
+<td><p>0.3103448276</p></td>
+<td><p>0.2</p></td>
+<td><p>0.2</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>with :</em></p>
+<ul class="simple">
+<li><p>#CHROM = chromosome name</p></li>
+<li><p>POS = position of DSNP</p></li>
+<li><p>REF = Base of the reference allele of this DSNP</p></li>
+<li><p>ALT = Base of the alternative allele of this DSNP</p></li>
+<li><p>%Nref = Percentage of maximal missing data for this DSNP</p></li>
+<li><p>GST = value of GST (inter-population differentiation parameter) (With
+1,2,3 the ancestors names)</p></li>
+<li><p>F = Alternative allele frequency for each ancestor (With 1,2,3 the
+ancestors names)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="taprefilter-pl">
+<h2>TAprefilter.pl<a class="headerlink" href="#taprefilter-pl" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="usage-1">
+<span id="id1"></span><h3>Usage<a class="headerlink" href="#usage-1" title="Permalink to this headline">¶</a></h3>
+<p>This script is used to define a matrix of ancestry informative markers
+from the matrix gotten at the step 1.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>TAprefilter.pl --help
+Parameters :
+    --input     reference matrice <span class="o">[</span>Required<span class="o">]</span>
+    --gst       threshold <span class="k">for</span> gst <span class="o">(</span>Default : <span class="m">0</span>.9<span class="o">)</span>
+    --missing   threshold <span class="k">for</span> missing data <span class="o">(</span>Default <span class="m">0</span>.3<span class="o">)</span>
+    --output    output file name <span class="o">(</span>Default Diagnosis_matrix<span class="o">)</span>
+    --help      display this <span class="nb">help</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ouputs-1">
+<span id="id2"></span><h3>Ouputs<a class="headerlink" href="#ouputs-1" title="Permalink to this headline">¶</a></h3>
+<p>A matrix containing all the ancestry informative markers for every
+ancestors.</p>
+<p><em>Example:</em></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 31%" />
+<col style="width: 25%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ancestor</p></th>
+<th class="head"><p>chromosome</p></th>
+<th class="head"><p>position</p></th>
+<th class="head"><p>allele</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A1</p></td>
+<td><p>1</p></td>
+<td><p>150528</p></td>
+<td><p>T</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>with:</em></p>
+<ul class="simple">
+<li><p>ancestor = Ancestor names</p></li>
+<li><p>chromosome = Chromosome numbers</p></li>
+<li><p>position = Position of the DSNP marker</p></li>
+<li><p>allele = Base of the ancestral allele</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="traceancestor2-pl">
+<h2>TraceAncestor2.pl<a class="headerlink" href="#traceancestor2-pl" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="usage-2">
+<span id="id3"></span><h3>Usage<a class="headerlink" href="#usage-2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>TraceAncestor2.pl --help
+
+usage: TraceAncestor.pl <span class="o">[</span>-t matrix file<span class="o">]</span> <span class="o">[</span>-v vcf file<span class="o">]</span> <span class="o">[</span>-p ploidy<span class="o">]</span> <span class="o">[</span>-w number of markers by window<span class="o">]</span> <span class="o">[</span>-s threshold <span class="k">for</span> LOD<span class="o">]</span> <span class="o">[</span>-k window size <span class="k">in</span> K-bases<span class="o">]</span> <span class="o">[</span>-i hybrid name to focus on<span class="o">]</span>
+
+-t <span class="p">|</span> --input : reference matrice.
+-v <span class="p">|</span> --vcf : vcf of the hybrid population
+-p <span class="p">|</span> --ploidy : ploidy of the hybrid population
+-w <span class="p">|</span> --window : number of markers by window
+-l <span class="p">|</span> --lod : LOD value to conclude <span class="k">for</span> one hypothesis
+-s <span class="p">|</span> --freq : theoretical frequency used to calcul the LOD
+-k <span class="p">|</span> --cut : number of K bases <span class="k">in</span> one window
+-i <span class="p">|</span> --ind : particular hybrid you want to focus on.
+-c <span class="p">|</span> --curve : calculate curves <span class="k">for</span> gemo vizualisation tools <span class="o">(</span>needs a lot of memory. Activate it only on a cluster<span class="o">)</span>
+-h <span class="p">|</span> --help : display this <span class="nb">help</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ouputs-2">
+<span id="id4"></span><h3>Ouputs<a class="headerlink" href="#ouputs-2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><em>ideogram_hybridname</em> : the painting data. An Ideogram output
+compatible with GeMo</p></li>
+<li><p><em>len_ideogram_hybridname</em> : the chromosomes data. An Ideogram output
+compatible with ideogram.js</p></li>
+<li><p><em>ancestorFreq</em> : frequency of ancestors alleles along chromosome for
+the particular hybrid focused.</p></li>
+<li><p><em>Gemo_curve</em> (optionnal if the option -c is activated): frequency of
+ancestors alleles along chromosome for the GeMo vizualisation tool.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+	    </div>
+            <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="VCFHunter.html" class="btn btn-neutral" title="Chromosome painting using VCFHunter"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Summo.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/jucacrispim/sphinx_pdj_theme">theme</a> provided by <a href="http://poraodojuca.net">Porão do Juca</a>.
+
+</footer>
+	</div>
+	</div>
+	  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+    <script type="text/javascript" src="_static/documentation_options.js">
+
+    </script>
+    <script type="text/javascript" src="_static/jquery.js">
+
+    </script>
+    <script type="text/javascript" src="_static/underscore.js">
+
+    </script>
+    <script type="text/javascript" src="_static/doctools.js">
+
+    </script>
+    <script type="text/javascript" src="_static/clipboard.min.js">
+
+    </script>
+    <script type="text/javascript" src="_static/copybutton.js">
+
+    </script>
+
+  
+
+   <script type="text/javascript"
+           src="_static/js/theme.js"></script>
+
+   <script type="text/javascript"
+           src="_static/js/pdj.js"></script>
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+  </body>
+</html>
