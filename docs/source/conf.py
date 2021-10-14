@@ -163,3 +163,13 @@ html_show_copyright = True
 #latex_domain_indices = True
 
 # latex_toplevel_sectioning = 'section'
+
+# These paths are either relative to html_static_path
+# or fully qualified paths (eg. https://...)
+html_css_files = [
+        './gemo_docs.css',
+]
+
+def setup(app):
+    app.add_css_file('gemo_docs.css')  # may also be an URL('logo.css')  # may also be an URL
+    # app.add_css_file('sphinx-argparse.css')
