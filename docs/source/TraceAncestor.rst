@@ -16,10 +16,7 @@ of the individual, the part must be removed before analysis.
 
 :download:`vcf2gst.pl<vcf2gst.pl>`
 
-.. literalinclude:: vcf2gst.pl
-    :language: perl
-
-.. code:: bash
+.. code-block:: bash
 
    vcf2gst.pl --help
 
@@ -80,7 +77,7 @@ differentiation parameter) information:*
 TAprefilter.pl
 ==============
 
-.. _usage-1:
+.. _usage-prefilter:
 
 Usage
 -----
@@ -88,7 +85,7 @@ Usage
 This script is used to define a matrix of ancestry informative markers
 from the matrix gotten at the step 1.
 
-.. code:: bash
+.. code-block:: bash
 
    TAprefilter.pl --help
    Parameters :
@@ -98,7 +95,7 @@ from the matrix gotten at the step 1.
        --output    output file name (Default Diagnosis_matrix)
        --help      display this help
 
-.. _ouputs-1:
+.. _ouputs-prefilter:
 
 Ouputs
 ------
@@ -124,12 +121,12 @@ A1       1          150528   T
 TraceAncestor2.pl
 =================
 
-.. _usage-2:
+.. _usage-traceancestor:
 
 Usage
 -----
 
-.. code:: bash
+.. code-block:: bash
 
    TraceAncestor2.pl --help
 
@@ -146,7 +143,7 @@ Usage
    -c | --curve : calculate curves for gemo vizualisation tools (needs a lot of memory. Activate it only on a cluster)
    -h | --help : display this help
 
-.. _ouputs-2:
+.. _ouputs-traceancestor:
 
 Ouputs
 ------
