@@ -478,6 +478,20 @@ input.form-control {
   margin-top: -2.5em;
 }
 
+/* div scrollable palette */
+#palette {
+  margin-top: 10px;
+  height: 100px;
+  overflow-y: auto;
+  border:1px solid black;
+  width: 95%;
+}
+
+#radioPalette {
+  margin-left: 10px;
+}
+
+
 /* Menu */
 .menu_division {
   margin-top: 5px;
@@ -496,6 +510,16 @@ input.form-control {
 
 .menu_title #title_form{
   background: #434343 !important;
+  width: 85%;
+  margin-right: 0;
+  display: inline-block !important;
+  float: left;
+}
+
+.menu_title #title_form_2{
+  background: white !important;
+  color: black !important;
+  font-weight: normal;
   width: 85%;
   margin-right: 0;
   display: inline-block !important;

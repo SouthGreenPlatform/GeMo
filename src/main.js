@@ -1,5 +1,5 @@
 import { initConfig } from "./config.js";
-import { drawLegend } from "./legend.js";
+import { drawLegend, parsingColor, randomColorGenerator, randomColorGenerator_block, drawPalette } from "./legend.js";
 import { chromosomeParser, annotationParser, ploidyDesc, bedParser } from "./dataParser.js";
 import { loadingon, loadingoff, displaytext, clear, homeClick } from "./display.js";
 import { downloadArchive, saveAsURL} from "./download.js";
@@ -7,7 +7,7 @@ import { drawBed } from "./draw.js";
 //chrompaint
 import {resetgraph} from "./chrompaint/import.js";
 import {checkColorFile,checkLenFile,checkDataFile} from "./chrompaint/checkFile.js";
-import {parsingData, parsingLen, parsingColor,randomColorGenerator, randomColorGenerator_block,dataStuffing} from "./chrompaint/parse.js";
+import {parsingData, parsingLen,dataStuffing} from "./chrompaint/parse.js";
 import {order, convertStrtoRangeSet, groupByColor, ancestorsGenerator, ploidyDescGenerator} from "./chrompaint/mosaique.js";
 import {getKeyByValue, refreshFloor, curveOpacitySetup, refreshCurveOpacity, arraySetup, floorPositionsSetup, refreshfloorPositions, tracerCourbe} from "./chrompaint/graph.js";
 import {addTooltip, addHelpTooltips} from "./tooltip.js";
@@ -23,6 +23,7 @@ let config;
 let annotTable=[]; // annot file splited by line
 let ancestorsNameColor; //Match les abréviation d'origine avec leurs noms complet ainsi qu'une couleur.
 let vizType; //bloc or curve
+var paletteTab; //palette de couleur prédefinie
 
 
 ///////////////////////
@@ -139,6 +140,13 @@ $('#SwitchLetters').change( function(){
 });
 
 ////////////////////////////////////////////////////////////////
+// Draw palette
+////////////////////////////////////////////////////////////////
+window.onload = drawPalette();
+
+
+
+////////////////////////////////////////////////////////////////
 // Help Tooltips
 ////////////////////////////////////////////////////////////////
 addHelpTooltips();
@@ -149,8 +157,8 @@ addHelpTooltips();
 document.getElementById("reload").addEventListener("click", updateIdeo, null);
 function updateIdeo() {
 
-    var radio_form = $('#radio_form input:radio:checked').val()
-    if(radio_form === "curve"){
+    //var radio_form = $('#radio_form input:radio:checked').val();
+    if(vizType === "curve"){
         console.log("update curve");
         $("#submit").click();
     }else{
@@ -339,10 +347,16 @@ async function load_ideogram_from_form_data(){
     //pour les données preloaded
     //le tableau des couleurs n'est toujours pas calculé
     const colordata = $("#editorColor").val();
-
-    if (colordata === "" ) {
+    
+    if($('.collapse input:radio:checked').val()){
+        console.log("checked");
+        ancestorsNameColor = randomColorGenerator_block(annotdata);
+    }
+    else if (colordata === "" ) {
+        console.log("no data = default");
         ancestorsNameColor = randomColorGenerator_block(annotdata);
     }else{
+        console.log("entered color");
         ancestorsNameColor = parsingColor(d3.tsvParse(colordata));
     }
 
@@ -475,14 +489,31 @@ document.getElementById("submit").addEventListener("click", async function(){
         stuffedData = dataStuffing(rawData, chrConfig);
         data = parsingData(stuffedData);
         
-        ancestorsNameColor = d3.tsvParse($("#editorColor").val());
+/*         ancestorsNameColor = d3.tsvParse($("#editorColor").val());
         if (ancestorsNameColor === undefined || $("#editorColor").val() === "" ) {
             ancestorsNameColor = randomColorGenerator(data);
             console.log('random color '+ancestorsNameColor);
         }else{
             ancestorsNameColor = parsingColor(ancestorsNameColor);
             console.log('entered '+ancestorsNameColor);
-        }
+        } */
+
+    if($('.collapse input:radio:checked').val()){
+        console.log("checked");
+        ancestorsNameColor = randomColorGenerator(data);
+    }
+    else if ($("#editorColor").val() === "" ) {
+        console.log("no data = default");
+        ancestorsNameColor = randomColorGenerator(data);
+    }else{
+        console.log("entered color");
+        ancestorsNameColor = parsingColor(d3.tsvParse($("#editorColor").val()));
+    }
+
+
+
+
+
         resetgraph();
         graphSetup(data);
     
@@ -496,10 +527,10 @@ document.getElementById("submit").addEventListener("click", async function(){
 
         console.log("block");
         data = $("#editorAnnot").val();
-		if ($("#editorColor").val() === "" ) {
+		/* if ($("#editorColor").val() === "" ) {
             console.log("generating random color");
             ancestorsNameColor = randomColorGenerator_block(data);
-        }
+        } */
 		config = initConfig();
 		loadingon();
 		load_ideogram_from_form_data();

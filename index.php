@@ -39,6 +39,7 @@
 <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"></script>
 <script type="text/javascript" src="dist/jszip/jszip.min.js"></script>
 <script type="text/javascript" src="dist/file-saver/FileSaver.min.js"></script>
+<script src="https://d3js.org/colorbrewer.v1.min.js"></script>
 
 <!--d3-->
 <script src="https://d3js.org/d3-axis.v2.min.js"></script>
@@ -290,6 +291,17 @@ echo "<script> load_ideogram()</script>";
 					</svg>			
 					</p>
 					<div class="collapse" id="collapseColor">
+						<p class="menu_title">	
+							<a class="btn btn-sm btn-outline-dark" id="title_form_2" data-toggle="collapse" href="#palette" aria-expanded="false" aria-controls="palette">
+							Choose existing palette
+							</a>
+						</p>
+						<br/><br/>
+						<div class="collapse" id="palette">
+							
+						</div>
+						
+						or enter your own color data
 						<textarea id="editorColor" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
 						<div class="custom-file" style="width:90%;">
 							<input type="file" class="custom-file-input" id="colorFile" accept=".txt, .conf, .csv, .tab, .tsv">
