@@ -1,23 +1,12 @@
-Chromosome painting using TraceAncestor
-=======================================
-
 TraceAncestor2.pl is a script that allows to estimate the allelic dosage
 of ancestral alleles in hybrid individuals and then to perform
 chromosome painting.
 
-Reference
----------
-
--  `Ahmed,D. et al. (2019) Genotyping by sequencing can reveal the
-   complex mosaic genomes in gene pools resulting from reticulate
-   evolution: a case study in diploid and polyploid citrus. Annals of
-   Botany, 123, 1231–1251. <https://doi.org/10.1093/aob/mcz029>`__
-
-TAvcf2gst.pl
-------------
+vcf2gst.pl
+============
 
 Usage
-~~~~~
+-----
 
 This script is used to define GST values from individuals that are
 identified as pure breed for an ancestor.
@@ -25,9 +14,11 @@ identified as pure breed for an ancestor.
 Must be used on pure breed. If there is introgressed part on the genome
 of the individual, the part must be removed before analysis.
 
-.. code:: bash
+:download:`vcf2gst.pl<vcf2gst.pl>`
 
-   TAvcf2gst.pl --help
+.. code-block:: bash
+
+   vcf2gst.pl --help
 
    Parameters :
        --vcf       vcf containing the ancestors [Required]
@@ -60,7 +51,7 @@ breed individuals in the Vcf files.
 +-----+----------+----------+--------+----------+----------+----------+
 
 Ouputs
-~~~~~~
+------
 
 *The output is a CSV file containing GST (inter-population
 differentiation parameter) information:*
@@ -84,17 +75,17 @@ differentiation parameter) information:*
    ancestors names)
 
 TAprefilter.pl
---------------
+==============
 
-.. _usage-1:
+.. _usage-prefilter:
 
 Usage
-~~~~~
+-----
 
 This script is used to define a matrix of ancestry informative markers
 from the matrix gotten at the step 1.
 
-.. code:: bash
+.. code-block:: bash
 
    TAprefilter.pl --help
    Parameters :
@@ -104,10 +95,10 @@ from the matrix gotten at the step 1.
        --output    output file name (Default Diagnosis_matrix)
        --help      display this help
 
-.. _ouputs-1:
+.. _ouputs-prefilter:
 
 Ouputs
-~~~~~~
+------
 
 A matrix containing all the ancestry informative markers for every
 ancestors.
@@ -128,14 +119,14 @@ A1       1          150528   T
 -  allele = Base of the ancestral allele
 
 TraceAncestor2.pl
------------------
+=================
 
-.. _usage-2:
+.. _usage-traceancestor:
 
 Usage
-~~~~~
+-----
 
-.. code:: bash
+.. code-block:: bash
 
    TraceAncestor2.pl --help
 
@@ -152,10 +143,10 @@ Usage
    -c | --curve : calculate curves for gemo vizualisation tools (needs a lot of memory. Activate it only on a cluster)
    -h | --help : display this help
 
-.. _ouputs-2:
+.. _ouputs-traceancestor:
 
 Ouputs
-~~~~~~
+------
 
 -  *ideogram_hybridname* : the painting data. An Ideogram output
    compatible with GeMo
@@ -165,3 +156,11 @@ Ouputs
    the particular hybrid focused.
 -  *Gemo_curve* (optionnal if the option -c is activated): frequency of
    ancestors alleles along chromosome for the GeMo vizualisation tool.
+
+Reference
+=========
+
+-  `Ahmed,D. et al. (2019) Genotyping by sequencing can reveal the
+   complex mosaic genomes in gene pools resulting from reticulate
+   evolution: a case study in diploid and polyploid citrus. Annals of
+   Botany, 123, 1231–1251. <https://doi.org/10.1093/aob/mcz029>`__

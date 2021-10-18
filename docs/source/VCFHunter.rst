@@ -24,18 +24,13 @@ managing and exploring high-density genotyping data, to download a VCF
    :align: center
    :alt: Select Database
 
-   Select Database
-
 -  Select the accessions P2 and T01 to T11 on the Indivuals drop down
    menu, and click on Search button
 
 .. image:: _images/select_individu.png
    :target: _images/select_individu.png
    :align: center
-   :alt: Select Database
-
-
-   Select Individu
+   :alt: Select Individu
 
 -  Download result (check radio “Export Metadata” and “Keep file on
    servers”)
@@ -60,7 +55,7 @@ Copy the link, and create a repository on your terminal
 
 VCF content
 
-.. code:: bash
+.. code-block:: bash
 
    grep "^#CHROM" Population_A-B__148329variants__21individuals.vcf
    #CHROM  POS ID  REF ALT QUAL    FILTER  INFO    FORMAT  ACC48-FPG   ACC48-FPN   ACC48-P_Ceylan  ACC48-Red_Yade  DYN163-Kunnan   DYN275-Pelipita DYN359-Safet_Velchi GP1 GP2 P1  P2  T01 T02 T03 T04 T05 T06 T07 T08 T10 T11
@@ -82,8 +77,8 @@ Files obtained at the end of the process can be given to GeMo tools to
 visualize data and optimize parameters.
 
 
-Data input
-==========
+Input
+=====
 
 -  Origin.tab
 -  Vcf.conf is a file which contained path to vcf files which will be
@@ -120,7 +115,7 @@ Outputs can be found in directory passed in *-o* option. For each
 accessions identified as belonging to a genetic pool a directory is
 created.
 
-.. code:: bash
+.. code-block:: bash
 
    tree step1
    step1
@@ -261,7 +256,7 @@ follows: column 1 contained accession name, column 2 contained
 chromosome ID, column 3, 4 and 5 contained start, end, and origin of a
 region.
 
-::
+.. code-block:: bash
 
    mkdir step4
    <path_vcfhunter>/PaintArp.py -a Kunnan -r step3/Kunnan_ratio.tab.gz -c color.conf -o step4/Kunnan -w 12 -O 0 -s chromosome.tab
@@ -277,7 +272,7 @@ adjustable parameters. For block drawing of step 4 we will reformat
 block files so that they match expectation with GeMo. For this run the
 following command line:
 
-.. code:: {bash}
+.. code-block:: bash
 
    mkdir step5
    <path_vcfhunter>/convertForIdeo.py --name Kunnan --dir step4 --col color.conf --size chromosome.tab --prefix step5/Kunnan
@@ -296,7 +291,7 @@ For blocks refinement using custom and adjustable parameters. The file
 of normalized ratio should be reformatted with this simple command line
 to obtain a file named **Kunnan_win_ratio.tab**:
 
-.. code:: {bash}
+.. code-block:: bash
 
    zcat step4/Kunnan_win_ratio.tab.gz | awk '{$2=""; print $0}' | sed 's/CHR/chr/' | sed 's/Start/start/' | sed 's/End/end/' | sed 's/  / /g' | sed 's/ /\t/g' | sort -k1,1 -k2n,2  > step5/Kunnan_win_ratio.tab
 
