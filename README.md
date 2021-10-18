@@ -6,9 +6,6 @@ GeMo is a WebApp to respresent **Genome Mosaics** with current focus on plants. 
 ## Live demo
 Gemo is currently running at the [Banana Genome Hub](https://banana-tools-genome-hub.southgreen.fr/gemo/) where anyone can upload its own data or test with pre-loaded datasets.
 
-## Install
-
-*Coming soon*
 
 ## Main features 
 
@@ -22,25 +19,16 @@ Karyotype can display to 1x to nX chromosome. Aneuploidy can be represented.
 
 ### Refinement of ancestral/parental contribution
 
-*Coming soon*
 
 ### Plot genes on mosaic karyotypes
 
-*Coming soon*
 
 ### high quality image export
 
-*Coming soon*
 
-## Data inputs (*Coming soon*)
 
-It accepts two types of files:
 
-- Genomic blocks: 
-
-- Normalized curves:
-
-See the Wiki for full documentation.
+## Documentation
 
 
 ## Generating datasets
