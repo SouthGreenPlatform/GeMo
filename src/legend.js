@@ -79,42 +79,52 @@ export function parsingColor(colorFile){
  * @param data : les données parsé. (après être passé dans parsingData())
  */
 export function randomColorGenerator(data){
+	
+	let paletteTab;
+	let colorMap = {};
 
 	//si une palette est selectionnée
 	let palette = $('.collapse input:radio:checked').val();
-	let paletteTab;
-
 	if(palette){
-		let maxNum = Math.max(...Object.keys(colorbrewer[palette]));
-		paletteTab = colorbrewer[palette][maxNum];
 		$('.collapse input:radio:checked').prop('checked', false);
 	}else{
-		palette = "PRGn";
-		let maxNum = Math.max(...Object.keys(colorbrewer[palette]));
-		paletteTab = colorbrewer[palette][maxNum];
-	}
-	let index =0;
+		palette = "BrBG";
+	}    
 	
-    let colorMap = {};
+	//compte le nombre de group
     data.map(function(cur){
         cur.values.map(function(origine) {
             if (colorMap[origine["key"]] === undefined) {
-                //let color = "#" + Math.floor(Math.random() * 16777215).toString(16);
-                let color = paletteTab[index];
-				console.log(color);
-				if(color){
-					console.log("from palette");
-					colorMap[origine["key"]] = [origine["key"], color]
-					index++;
-				}else{
-					console.log("random generating");
-					let color = "#" + Math.floor(Math.random() * 16777215).toString(16);
-					colorMap[origine["key"]] = [origine["key"], color]
-					index++;
-				}
-            }
+                colorMap[origine["key"]] = 1;
+			}
         });
     });
+
+	//palette la plus grande
+	let maxNum = Math.max(...Object.keys(colorbrewer[palette]));
+	//nombre de groupes à colorer
+	let nbGroup = Object.keys(colorMap).length;
+	//si trop de groupes on prend la palette la plus grande
+	if(nbGroup > maxNum){
+		paletteTab = colorbrewer[palette][maxNum];
+	}else{
+		paletteTab = colorbrewer[palette][nbGroup];
+	}
+	
+	//attribution des couleurs aux groupes
+	Object.keys(colorMap).map(function(group, i){
+		//hex
+		let color = paletteTab[i];
+		if(color){
+			console.log("from palette");
+			colorMap[group] = [group, color];
+		//si trop de groupes on attribue un couleur aléatoire
+		}else{
+			console.log("from palette");
+			let color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+			colorMap[group] = [group, color]
+		}
+	});
 
 	//rempli le formulaire
 	let colorToString = "group\tname\thex";
@@ -126,6 +136,16 @@ export function randomColorGenerator(data){
     return colorMap;
 }
 
+/* 	{
+    "ancestral_group": [
+        "ancestral_group",
+        "#543005"
+    ],
+    "g3": [
+        "g3",
+        "#8c510a"
+    ]
+} */
 
 /**
  * génère in dictionnaire {@colorMap} comme si on avait passé un fichier de couleur en paramètre, mais avec des couleurs aléatoires et des noms complets identiques à ceux dans les données.
@@ -133,43 +153,55 @@ export function randomColorGenerator(data){
  */
 export function randomColorGenerator_block(data){
 
+	let paletteTab;
+	let colorMap = {};
+
 	//si une palette est selectionnée
 	let palette = $('.collapse input:radio:checked').val();
-	let paletteTab;
-
 	if(palette){
-		let maxNum = Math.max(...Object.keys(colorbrewer[palette]));
-		paletteTab = colorbrewer[palette][maxNum];
 		$('.collapse input:radio:checked').prop('checked', false);
 	}else{
-		palette = "PRGn";
-		let maxNum = Math.max(...Object.keys(colorbrewer[palette]));
-		paletteTab = colorbrewer[palette][maxNum];
+		palette = "BrBG";
 	}
 
-    let colorMap = {};
 	let index =0;
     let arrayData = data.split('\n');
+
+	//compte le nombre de groupe
     arrayData.map(function(cur){
         
         //split les espaces ou les tabulations
         let line = cur.split(/[ \t]+/);
         if (colorMap[line[4]] === undefined) {
-            //let color = "#" + Math.floor(Math.random() * 16777215).toString(16);
-            let color = paletteTab[index];
-			if(color){
-				colorMap[line[4]] = [line[4], color];
-				index++;
-			}
-			else{
-				let color = "#" + Math.floor(Math.random() * 16777215).toString(16);
-				colorMap[line[4]] = [line[4], color];
-				index++;
-			}
-			
+            colorMap[line[4]] = 1;
         }
-		
     });
+
+	//palette la plus grande
+	let maxNum = Math.max(...Object.keys(colorbrewer[palette]));
+	//nombre de groupes à colorer
+	let nbGroup = Object.keys(colorMap).length;
+	//si trop de groupes on prend la palette la plus grande
+	if(nbGroup > maxNum){
+		paletteTab = colorbrewer[palette][maxNum];
+	}else{
+		paletteTab = colorbrewer[palette][nbGroup];
+	}
+
+	//attribution des couleurs aux groupes
+	Object.keys(colorMap).map(function(group, i){
+		//hex
+		let color = paletteTab[i];
+		if(color){
+			console.log("from palette");
+			colorMap[group] = [group, color];
+		//si trop de groupes on attribue un couleur aléatoire
+		}else{
+			console.log("from palette");
+			let color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+			colorMap[group] = [group, color]
+		}
+	});
 
 	//rempli le formulaire
 	let colorToString = "group\tname\thex";
