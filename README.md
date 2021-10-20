@@ -4,15 +4,11 @@ GeMo is a WebApp to represent **Genome Mosaics** with current focus on plants. H
 
 ## Main features 
 
-1. Chromosome painting visualisation
+1. Dynamic chromosome painting visualisation
 
-Linear chromosome representation based on [ideogram](https://github.com/eweitz/ideogram).
-Support for polyploidy
-Work with preloaded datasets or direct input trhough interface
+2. Online Data curation of mosaic prediction
 
-2. Data curation of mosaic prediction
-
-3. Plot genes on mosaic karyotypes
+3. Markers or Genes Plots on mosaic karyotypes
 
 4. Data and high quality image export
 
