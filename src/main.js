@@ -77,18 +77,22 @@ async function load_accession(sampleJson, type){
         fileToLoad = fileName;
         console.log("file to load block");
         //$( "#switch" ).prop( "checked", false );
+        document.getElementById("Switch").checked = false;
     }else if(type =="curve"){
         fileToLoad = fileCurve;
         console.log("file to load curve");
         //$( "#switch" ).prop( "checked", true );
+        document.getElementById("Switch").checked = true;
     }else if(type == "none" && fileName){
         fileToLoad = fileName;
         console.log("file to load block");
         //$( "#switch" ).prop( "checked", false );
+        document.getElementById("Switch").checked = false;
     }else if(type == "none" && fileCurve){
         fileToLoad = fileCurve;
         console.log("file to load curve");
         //$( "#switch" ).prop( "checked", true );
+        document.getElementById("Switch").checked = true;
     }
 
 	//load le fichier mosaique dans le formulaire
@@ -307,6 +311,8 @@ $('#sample').change( function(){
     let sampleJson = arrData.filter(function(value) {
         return value.ID === $("#sample option:selected")[0].value;
     });
+    
+    console.log(sampleJson);
 	$('#chrompaint').hide();
 	$('#page-content-wrapper').show();
     $('#home').hide();
@@ -324,7 +330,6 @@ $('#switch').change(function() {
     });
     if (document.getElementById("Switch").checked){
 		load_accession(sampleJson, "curve");
-        console.log("cheeeeeeeck");
 	}else{
 		load_accession(sampleJson, "block");
 	}
