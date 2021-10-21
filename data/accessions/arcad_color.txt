@@ -1,0 +1,8 @@
+group	name	hex
+g6	zeb	#e10b53
+g5	unk	#9b039b
+g4	ban	#45ff00
+un	un	#bdbdbd
+g1	Bal	#000000
+g2	bur	#e2530b
+g3	mal	#2300ff
