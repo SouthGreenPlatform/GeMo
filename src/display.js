@@ -61,3 +61,12 @@ export function homeClick(){
     $('#sample')[0].value="Sample";
 }
 
+export function ideoViewbox(){
+	$( document ).ready(function() {
+		let svg = document.getElementById('_ideogram');
+		let width = parseInt($('#_ideogram').width());
+		let height = parseInt($('#_ideogram').height());
+		svg.setAttribute("viewBox", "0 -20 "+width+" "+height);
+	});
+}
+

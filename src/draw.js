@@ -26,7 +26,7 @@ export function drawBed(bedAnnot, maxLength){
 			.attr('title', "Name: "+obj.name+" \nStart: "+obj.start+" Stop: "+obj.stop)
 			.attr('class', 'bed-annot')
 			.attr("x", parseInt(start))         // position the left of the rectangle
-			.attr("y", 30)          // position the top of the rectangle
+			.attr("y", -10)          // position the top of the rectangle
 			.attr("height", 10)    // set the height
 			.attr("width", width); 
 

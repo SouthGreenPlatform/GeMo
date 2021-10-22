@@ -223,13 +223,13 @@
 
 @media (min-width: 992px) {
     #wrapper {
-        padding-left: 300px;/*225px;*/
+        padding-left: 350px;/*225px;*/
     }
 }
 
 @media (min-width: 992px) {
     #wrapper #sidebar-wrapper {
-        width: 300px;/*225px;*/
+        width: 350px;/*225px;*/
     }
 }
 
@@ -242,9 +242,9 @@
     position: absolute; /*fixed;*/
     left: 225px;
     width: 0;
-    height: 150%;
+    height: 200%;
     margin-left: -225px;
-    overflow-y: auto; /*scrollbar du menu*/
+    overflow-y: unset; /*scrollbar du menu*/
     background: #f8f8f8;
     -webkit-transition: all .5s ease;
     -moz-transition: all .5s ease;
@@ -255,7 +255,7 @@
 #sidebar-wrapper .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 300px;/*225px;*/
+    width: 350px;/*225px;*/
     font-size: 14px;
     margin: 0;
     padding: 0;
@@ -388,17 +388,27 @@ textarea
     overflow-y:scroll;
 }
 textarea.form-control {
-    width: 90%;
+    width: 95%;
     font-size: 11px;
     font-family: monospace;
 }
 
+input.form-control {
+  width: 95%;
+  font-size: 11px;
+  font-family: monospace;
+}
+
 .custom-select-sm{
-  width: 45%;
+  width: 47%;
+}
+
+#selectorploidy{
+  width: 20%;
 }
 
 .select_chrom{
-  width: 90%;
+  width: 95%;
   float: left;
 }
 
@@ -468,6 +478,20 @@ textarea.form-control {
   margin-top: -2.5em;
 }
 
+/* div scrollable palette */
+#palette {
+  margin-top: 10px;
+  height: 100px;
+  overflow-y: auto;
+  border:1px solid black;
+  width: 95%;
+}
+
+#radioPalette {
+  margin-left: 10px;
+}
+
+
 /* Menu */
 .menu_division {
   margin-top: 5px;
@@ -486,6 +510,16 @@ textarea.form-control {
 
 .menu_title #title_form{
   background: #434343 !important;
+  width: 85%;
+  margin-right: 0;
+  display: inline-block !important;
+  float: left;
+}
+
+.menu_title #title_form_2{
+  background: white !important;
+  color: black !important;
+  font-weight: normal;
   width: 85%;
   margin-right: 0;
   display: inline-block !important;
