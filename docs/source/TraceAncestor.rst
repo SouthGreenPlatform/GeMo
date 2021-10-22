@@ -2,8 +2,16 @@ TraceAncestor2.pl is a script that allows to estimate the allelic dosage
 of ancestral alleles in hybrid individuals and then to perform
 chromosome painting.
 
-vcf2gst.pl
+Installation
 ============
+
+.. code-block:: bash
+
+git clone https://github.com/SouthGreenPlatform/TraceAncestor.git
+cd TraceAncestor
+
+vcf2gst.pl
+==========
 
 Usage
 -----
@@ -14,7 +22,6 @@ identified as pure breed for an ancestor.
 Must be used on pure breed. If there is introgressed part on the genome
 of the individual, the part must be removed before analysis.
 
-:download:`vcf2gst.pl<vcf2gst.pl>`
 
 .. code-block:: bash
 
@@ -27,40 +34,36 @@ of the individual, the part must be removed before analysis.
        --output    output file name (Default GSTmatrice)
        --help
 
-*Example of an ancestor file:*
+Input
+-----
 
-A1, A2, A3 are the ancestors and Ind1, Ind2 … are the names of pure
-breed individuals in the Vcf files.
+ --ancestor Ancestor file (Required)
 
-+-----+----------+----------+--------+----------+----------+----------+
-| A1  | Ind1     | Ind2     | Ind3   | Ind4     | Ind5     | Ind6     |
-+=====+==========+==========+========+==========+==========+==========+
-| M   | Chiosf   | depressa | Sunki  | C        | Wil      | Nan_fen  |
-|     |          |          |        | leopatre | low_Leaf | g_mi_chu |
-+-----+----------+----------+--------+----------+----------+----------+
-| P   | Chandler | KaoPan   | Pink   | Timor    | Pa       | Deep_red |
-|     |          |          |        |          | mpTahiti |          |
-+-----+----------+----------+--------+----------+----------+----------+
-| C   | CedCorse | Digite   | Hupang | Mac      | etrog    | Poncir   |
-|     |          |          |        | _Veu_de_ |          | e_commun |
-|     |          |          |        | montagne |          |          |
-+-----+----------+----------+--------+----------+----------+----------+
-| Mic | Micr     | M        |        |          |          |          |
-|     | antha_Sf | icrantha |        |          |          |          |
-|     | lopapeda |          |        |          |          |          |
-+-----+----------+----------+--------+----------+----------+----------+
+.. literalinclude:: ancestor.txt
+    :language: text
 
-Ouputs
+The first column correspond to the ancestor (ie : M, P, C, Mic)
+The other columns are the names of pure breed individuals in the vcf files (ie : Chandler, KaoPan, Pink...)
+
+ --vcf VCF file (Required)
+
+:download:`data.vcf<data.vcf>`
+
+Now, you can run the following command
+
+.. code-block:: bash
+
+   vcf2gst.pl --ancestor ancestor.txt --vcf data.vcf --output GSTMatrix.txt
+
+Output
 ------
 
 *The output is a CSV file containing GST (inter-population
 differentiation parameter) information:*
 
-====== ===== === === ============ ==== ==== ==== == == ==
-#CHROM POS   REF ALT %Nref        GST1 GST2 GST3 F1 F2 F3
-====== ===== === === ============ ==== ==== ==== == == ==
-1      85524 A   G   0.3103448276 0.2  0.2  1    0  0  1
-====== ===== === === ============ ==== ==== ==== == == ==
+.. literalinclude:: GSTMatrix.txt
+    :language: text
+    :lines: 1-5
 
 *with :*
 
@@ -74,8 +77,8 @@ differentiation parameter) information:*
 -  F = Alternative allele frequency for each ancestor (With 1,2,3 the
    ancestors names)
 
-TAprefilter.pl
-==============
+prefilter.pl
+============
 
 .. _usage-prefilter:
 
@@ -85,9 +88,12 @@ Usage
 This script is used to define a matrix of ancestry informative markers
 from the matrix gotten at the step 1.
 
+
+:download:`prefilter.pl<prefilter.pl>`
+
 .. code-block:: bash
 
-   TAprefilter.pl --help
+   prefilter.pl --help
    Parameters :
        --input     reference matrice [Required]
        --gst       threshold for gst (Default : 0.9)
@@ -95,31 +101,33 @@ from the matrix gotten at the step 1.
        --output    output file name (Default Diagnosis_matrix)
        --help      display this help
 
-.. _ouputs-prefilter:
+Now, you can run the following command
 
-Ouputs
+.. code-block:: bash
+
+   prefilter.pl --input GSTMatrix.txt --output Diagnosis_matrix.txt
+
+.. _output-prefilter:
+
+Output
 ------
 
 A matrix containing all the ancestry informative markers for every
 ancestors.
 
-*Example:*
-
-======== ========== ======== ======
-ancestor chromosome position allele
-======== ========== ======== ======
-A1       1          150528   T
-======== ========== ======== ======
+.. literalinclude:: Diagnosis_matrix.txt
+    :language: text
+    :lines: 1-5
 
 *with:*
 
 -  ancestor = Ancestor names
 -  chromosome = Chromosome numbers
--  position = Position of the DSNP marker
+-  position = Position of the SNP marker
 -  allele = Base of the ancestral allele
 
-TraceAncestor2.pl
-=================
+TraceAncestor.pl
+================
 
 .. _usage-traceancestor:
 
@@ -128,34 +136,38 @@ Usage
 
 .. code-block:: bash
 
-   TraceAncestor2.pl --help
+   TraceAncestor.pl --help
 
    usage: TraceAncestor.pl [-t matrix file] [-v vcf file] [-p ploidy] [-w number of markers by window] [-s threshold for LOD] [-k window size in K-bases] [-i hybrid name to focus on]
 
-   -t | --input : reference matrice.
-   -v | --vcf : vcf of the hybrid population
-   -p | --ploidy : ploidy of the hybrid population
-   -w | --window : number of markers by window
-   -l | --lod : LOD value to conclude for one hypothesis
-   -s | --freq : theoretical frequency used to calcul the LOD
-   -k | --cut : number of K bases in one window
-   -i | --ind : particular hybrid you want to focus on.
-   -c | --curve : calculate curves for gemo vizualisation tools (needs a lot of memory. Activate it only on a cluster)
-   -h | --help : display this help
+    --input     reference matrice [Required]
+    --vcf       vcf of the hybrid population
+    --ploidy    ploidy of the hybrid population (Default 2)
+    --window    number of markers by window (Default 10)
+    --lod       LOD value to conclude for one hypothesis (Default 3)
+    --freq      theoretical frequency used to calcul the LOD (Default 0.99)
+    --cut       number of K bases in one window (Default 100)
+    --hybrid    particular hybrid you want to focus on
+    --outdir    Directory output (Default result)
+    --help      display this help
+
+
+Now, you can run the following command
+
+.. code-block:: bash
+
+   TraceAncestor.pl --input Diagnosis_matrix.txt --vcf data.vcf --hybrid Giant_key --ploidy 4
+
 
 .. _ouputs-traceancestor:
 
-Ouputs
-------
+Outputs
+-------
 
--  *ideogram_hybridname* : the painting data. An Ideogram output
-   compatible with GeMo
--  *len_ideogram_hybridname* : the chromosomes data. An Ideogram output
-   compatible with ideogram.js
--  *ancestorFreq* : frequency of ancestors alleles along chromosome for
-   the particular hybrid focused.
--  *Gemo_curve* (optionnal if the option -c is activated): frequency of
-   ancestors alleles along chromosome for the GeMo vizualisation tool.
+-  Giant_key_ideo.txt : the painting data. An Ideogram output compatible with GeMo
+-  Giant_key_chrom.txt : the chromosomes data.
+-  Giant_key_ancestor.txt : frequency of ancestors alleles along chromosome for the particular hybrid focused.
+-  Giant_key_curve.txt : frequency of ancestors alleles along chromosome for the GeMo visualization tool.
 
 Reference
 =========
