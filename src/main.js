@@ -1,7 +1,7 @@
 import { initConfig } from "./config.js";
 import { drawLegend, parsingColor, randomColorGenerator, randomColorGenerator_block, drawPalette } from "./legend.js";
 import { chromosomeParser, annotationParser, ploidyDesc, bedParser } from "./dataParser.js";
-import { loadingon, loadingoff, displaytext, clear, homeClick } from "./display.js";
+import { loadingon, loadingoff, displaytext, clear, homeClick, ideoViewbox } from "./display.js";
 import { downloadArchive, saveAsURL} from "./download.js";
 import { drawBed } from "./draw.js";
 //chrompaint
@@ -409,6 +409,8 @@ async function load_ideogram_from_form_data(){
 	$('#welcome').hide();
 	$('#download').fadeIn();
     $('#saveasurl').fadeIn();
+
+    setTimeout(ideoViewbox, 100);
 
     if(gblink){
         setTimeout(addTooltip, 100, annotTable, gblink);
