@@ -89,8 +89,6 @@ This script is used to define a matrix of ancestry informative markers
 from the matrix gotten at the step 1.
 
 
-:download:`prefilter.pl<prefilter.pl>`
-
 .. code-block:: bash
 
    prefilter.pl --help
