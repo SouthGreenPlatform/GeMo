@@ -40,6 +40,7 @@ Input
 
  --ancestor Ancestor file (Required)
 
+:download:`ancestor.txt<ancestor.txt>`
 .. literalinclude:: ancestor.txt
     :language: text
 
@@ -48,7 +49,6 @@ The other columns are the names of pure breed individuals in the vcf files (ie :
 
  --vcf VCF file (Required)
 
-:download:`data.vcf<data.vcf>`
 
 Now, you can run the following command
 
@@ -181,6 +181,19 @@ Outputs
 .. literalinclude:: Giant_key_curve.txt
     :language: text
     :lines: 1-5
+
+Vizualise result
+================
+
+Go to `GeMo <https://banana-tools-genome-hub.southgreen.fr/gemo/>` WebApp
+
+-  Load data has follow
+
+.. image:: _images/GeMo_inputTA.png
+   :target: _images/GeMo_inputTA.png
+   :align: center
+   :alt: Gemo_Vizualise
+
 
 Reference
 =========
