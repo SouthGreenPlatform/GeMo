@@ -7,9 +7,9 @@ Installation
 
 .. code-block:: bash
 
-    git clone https://github.com/SouthGreenPlatform/TraceAncestor.git
-    cd TraceAncestor
-    chmod +x bin/*
+   git clone https://github.com/SouthGreenPlatform/TraceAncestor.git
+   cd TraceAncestor
+   chmod +x bin/*
 
 vcf2gst.pl
 ==========
@@ -167,17 +167,20 @@ Outputs
 
 .. literalinclude:: Giant_key_ideo.txt
     :language: text
+    :lines: 1-5
 
 -  Giant_key_chrom.txt : the chromosomes data.
 -  Giant_key_ancestor.txt : frequency of ancestors alleles along chromosome for the particular hybrid focused.
 
 .. literalinclude:: Giant_key_ancestor.txt
     :language: text
+    :lines: 1-5
 
 -  Giant_key_curve.txt : frequency of ancestors alleles along chromosome for the GeMo visualization tool.
 
 .. literalinclude:: Giant_key_curve.txt
     :language: text
+    :lines: 1-5
 
 Reference
 =========
