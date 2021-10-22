@@ -185,7 +185,7 @@ Outputs
 Vizualise result
 ================
 
-Go to `GeMo <https://banana-tools-genome-hub.southgreen.fr/gemo/>` WebApp
+Go to `GeMo <https://banana-tools-genome-hub.southgreen.fr/gemo/>`__ WebApp
 
 -  Load data has follow
 
