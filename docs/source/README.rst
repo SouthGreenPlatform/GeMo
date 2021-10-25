@@ -12,44 +12,18 @@ GeMo is currently running at the `Banana Genome
 Hub <https://banana-tools-genome-hub.southgreen.fr/gemo/>`__ where
 anyone can upload its own data or test with pre-loaded mosaics/datasets.
 
-Install
--------
-
-*Coming soon*
 
 Main features
 -------------
 
-Chromosome painting
-~~~~~~~~~~~~~~~~~~~
+1. Dynamic chromosome painting visualisation
 
-Chromosome representation based on
-`ideogram <https://github.com/eweitz/ideogram>`__.
+2. Online Data curation of mosaic prediction
 
-Polyploidy
-~~~~~~~~~~
+3. Markers or Genes Plots on mosaic karyotypes
 
-Karyotype can display to 1x to nX chromosome. Aneuploidy can be
-represented.
+4. Data and high quality image export
 
-Refinement of ancestral/parental contribution
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-*Coming soon*
-
-Plot genes on mosaic karyotypes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-*Coming soon*
-
-Data and high resolution image downloads
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Once data is visualized, customized and possibly curated, GeMo offers
-the possibility to download the latest version of the data sets and
-export the output graphics as SVG for publication purposes. data can be
-also stored temporarily online with an unique URL allowing to share it
-with multiple users.
 
 Data inputs (*Coming soon*)
 ---------------------------
@@ -89,7 +63,7 @@ Please look at the `tutorial <TraceAncestor.md>`__
 Citation
 --------
 
-Summo M. et al (in prep)
+ummo M, Comte A, Martin G, Weitz E, Perelle P, Droc G and Rouard M. GeMo: A mosaic genome painting tool for plant genomes. (in prep)
 
 Acknowledgements
 ----------------
