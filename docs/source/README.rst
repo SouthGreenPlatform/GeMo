@@ -18,6 +18,7 @@ Main features
 -------------
 
 1. Dynamic chromosome painting visualisation
+<<<<<<< HEAD
 
 2. Online Data curation of mosaic prediction
 
@@ -25,6 +26,15 @@ Main features
 
 4. Data and high quality image export
 
+=======
+
+2. Online Data curation of mosaic prediction
+
+3. Markers or Genes Plots on mosaic karyotypes
+
+4. Data and high quality image export
+
+>>>>>>> fbf3c8f2ea277f120152037393d9397bbb673510
 
 Data inputs (*Coming soon*)
 ---------------------------
