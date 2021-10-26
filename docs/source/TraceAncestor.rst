@@ -5,11 +5,24 @@ chromosome painting.
 Installation
 ============
 
-.. code-block:: bash
+`TraceAncestor_GeMo.tar.gz <https://banana-genome-hub.southgreen.fr/filebrowser/download/5740912>`__
 
-   git clone https://github.com/SouthGreenPlatform/TraceAncestor.git
+::
+
+   wget https://banana-genome-hub.southgreen.fr/filebrowser/download/5740912
+   tar -xzvf 5740912
    cd TraceAncestor
-   chmod +x bin/*
+   tree
+   .
+   ├── bin
+   │   ├── prefilter.pl
+   │   ├── TraceAncestor.pl
+   │   └── vcf2gst.pl
+   └── data
+       ├── ancestor.txt
+       ├── citrus_color.txt
+       └── data.vcf
+
 
 vcf2gst.pl
 ==========
@@ -50,20 +63,12 @@ The other columns are the names of pure breed individuals in the vcf files (ie :
 
  --vcf VCF file (Required)
 
-**Download dataset for this tutorial**
-
-:download:`ancestor.txt<ancestor.txt>`
-
-Download file for this tutorial
-
-`VCF File <https://banana-genome-hub.southgreen.fr/filebrowser/download/5735004>`_
-
 
 Now, you can run the following command
 
 .. code-block:: bash
 
-   vcf2gst.pl --ancestor ancestor.txt --vcf data.vcf --output GSTMatrix.txt
+   perl bin/vcf2gst.pl --ancestor data/ancestor.txt --vcf data/data.vcf --output GSTMatrix.txt
 
 Output
 ------
@@ -113,7 +118,7 @@ Now, you can run the following command
 
 .. code-block:: bash
 
-   prefilter.pl --input GSTMatrix.txt --output Diagnosis_matrix.txt
+   perl bin/prefilter.pl --input GSTMatrix.txt --output Diagnosis_matrix.txt
 
 .. _output-prefilter:
 
@@ -164,7 +169,7 @@ Now, you can run the following command
 
 .. code-block:: bash
 
-   TraceAncestor.pl --input Diagnosis_matrix.txt --vcf data.vcf --hybrid Giant_key --ploidy 4
+   perl bin/TraceAncestor.pl --input Diagnosis_matrix.txt --vcf data.vcf --hybrid Giant_key --ploidy 4
 
 
 .. _ouputs-traceancestor:
