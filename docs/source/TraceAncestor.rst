@@ -40,7 +40,6 @@ Input
 
  --ancestor Ancestor file (Required)
 
-:download:`ancestor.txt<ancestor.txt>`
 .. literalinclude:: ancestor.txt
     :language: text
 
@@ -49,6 +48,10 @@ The other columns are the names of pure breed individuals in the vcf files (ie :
 
  --vcf VCF file (Required)
 
+**Download dataset for this tutorial**
+
+:download:`ancestor.txt<ancestor.txt>`
+ 
 
 Now, you can run the following command
 
@@ -182,8 +185,8 @@ Outputs
     :language: text
     :lines: 1-5
 
-Vizualise result
-================
+Visualization and block refinement with GeMo
+============================================
 
 Go to `GeMo <https://banana-tools-genome-hub.southgreen.fr/gemo/>`__ WebApp
 
