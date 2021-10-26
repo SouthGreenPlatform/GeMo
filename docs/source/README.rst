@@ -1,55 +1,30 @@
-GeMo - Genome Mosaics visualization tool
-========================================
+GeMo is a WebApp to represent Genome Mosaics with current focus on plants. However, GeMo is developed in a generic way it can be also applied to other organisms.
 
-GeMo is a web interface that allows to visualize **Genome Mosaics** with
-current focus on plants. GeMo is interactive and user-friendly to help
-users to handle their data in an easy and interactive way.
+
+GeMo requires two types of datasets to generate the ideogram visualization:
+ - the chromosome names and their respective sizes.
+ - the position of the mosaic blocks along the chromosomes
 
 Live demo
 ---------
 
 GeMo is currently running at the `Banana Genome
+<<<<<<< HEAD
 Hub <https://banana-tools-genome-hub.southgreen.fr/gemo/>`__ where
 anyone can upload its own data or test with pre-loaded mosaics/datasets.
 
-Install
--------
-
-*Coming soon*
 
 Main features
 -------------
 
-Chromosome painting
-~~~~~~~~~~~~~~~~~~~
+1. Dynamic chromosome painting visualisation
 
-Chromosome representation based on
-`ideogram <https://github.com/eweitz/ideogram>`__.
+2. Online Data curation of mosaic prediction
 
-Polyploidy
-~~~~~~~~~~
+3. Markers or Genes Plots on mosaic karyotypes
 
-Karyotype can display to 1x to nX chromosome. Aneuploidy can be
-represented.
+4. Data and high quality image export
 
-Refinement of ancestral/parental contribution
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-*Coming soon*
-
-Plot genes on mosaic karyotypes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-*Coming soon*
-
-Data and high resolution image downloads
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Once data is visualized, customized and possibly curated, GeMo offers
-the possibility to download the latest version of the data sets and
-export the output graphics as SVG for publication purposes. data can be
-also stored temporarily online with an unique URL allowing to share it
-with multiple users.
 
 Data inputs (*Coming soon*)
 ---------------------------
@@ -80,16 +55,21 @@ Please look at the `tutorial <VCFHunter.md>`__
 
 TraceAncestor
 ~~~~~~~~~~~~~
+=======
+Hub <https://banana-tools-genome-hub.southgreen.fr/gemo/>`__
 
-TraceAncestor allows to estimate the allelic dosage of ancestral alleles
-in hybrid individuals and then to perform chromosome painting.
+The public version of GeMo contains a series of mosaics for pre-loaded genomes resulting from published studies (Ahmed et al. 2019, Baurens et al., 2019, Cenci et al, 2020, Martin et al. 2020) that were conducted in Banana and Citrus for subsets of genotypes . When selecting a pre-loaded entry, the form is automatically filled with the raw data and the visualization parameters.
 
-Please look at the `tutorial <TraceAncestor.md>`__
+Main features
+=============
+>>>>>>> Update README
+
+
 
 Citation
 --------
 
-Summo M. et al (in prep)
+ummo M, Comte A, Martin G, Weitz E, Perelle P, Droc G and Rouard M. GeMo: A mosaic genome painting tool for plant genomes. (in prep)
 
 Acknowledgements
 ----------------
