@@ -13,34 +13,42 @@ following the documentation
 Download datasets
 =================
 
-First, for this tutorial, you can use
-`Gigwa <https://www.crop-diversity.org/gigwa/>`__, a web application for
-managing and exploring high-density genotyping data, to download a VCF
+Two ways :
 
--  Select the database Populations_A_B
+- Download `VCFHunter_GeMo.tar.gz <https://banana-genome-hub.southgreen.fr/filebrowser/download/5736974>`__
+
+::
+
+   mkdir VCFHunter
+   wget https://banana-genome-hub.southgreen.fr/filebrowser/download/5736974
+   tar -xzvf 5736974
+
+Goto :ref:`step1`
+
+- Create input dataset using  `Gigwa <https://www.crop-diversity.org/gigwa/>`__, a web application for managing and exploring high-density genotyping data, to download a VCF
+
+**Select the database Populations_A_B**
 
 .. image:: _images/select_database.png
    :target: _images/select_database.png
    :align: center
    :alt: Select Database
 
--  Select the accessions P2 and T01 to T11 on the Indivuals drop down
-   menu, and click on Search button
+**Select the accessions P2 and T01 to T11 on the Indivuals drop down menu, and click on Search button**
 
 .. image:: _images/select_individu.png
    :target: _images/select_individu.png
    :align: center
    :alt: Select Individu
 
--  Download result (check radio “Export Metadata” and “Keep file on
-   servers”)
+**Download result (check radio “Export Metadata” and “Keep file on servers”)**
 
 .. image:: _images/export_gigwa.png
    :target: _images/export_gigwa.png
    :align: center
    :alt: Export Gigwa
 
-Copy the link, and create a repository on your terminal
+**Copy the link, and create a repository on your terminal**
 
 ::
 
@@ -98,6 +106,8 @@ BB    balbisiana 255 0   0
 
 Chromosome painting using non admixed ancestral accessions
 ==========================================================
+
+.. _step1:
 
 1 - Identification of private alleles and formating output for more analysis
 ----------------------------------------------------------------------------

@@ -40,6 +40,8 @@ Input
 
  --ancestor Ancestor file (Required)
 
+For example :
+
 .. literalinclude:: ancestor.txt
     :language: text
 
@@ -51,7 +53,11 @@ The other columns are the names of pure breed individuals in the vcf files (ie :
 **Download dataset for this tutorial**
 
 :download:`ancestor.txt<ancestor.txt>`
- 
+
+Download file for this tutorial
+
+`VCF File <https://banana-genome-hub.southgreen.fr/filebrowser/download/5735004>`_
+
 
 Now, you can run the following command
 
@@ -196,6 +202,7 @@ Go to `GeMo <https://banana-tools-genome-hub.southgreen.fr/gemo/>`__ WebApp
    :target: _images/GeMo_inputTA.png
    :align: center
    :alt: Gemo_Vizualise
+
 
 
 Reference
