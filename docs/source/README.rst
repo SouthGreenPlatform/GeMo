@@ -18,12 +18,143 @@ Data inputs
 
 GeMo requires two types of datasets to generate the ideogram visualization
 
-1. The chromosome names and their respective sizes
-2. The position of the mosaic blocks along the chromosomes. It accepts two types of files:
+.. image:: _images/menu.png
+   :target: _images/menu.png
+   :width: 250
+   :alt: Menu
 
-   * Genomic blocks:
-   * Normalized curves:
+1. Input files
 
+The position of the mosaic blocks along the chromosomes. It accepts two types of files:
+
+**Genomic blocks**
+
+.. list-table::
+   :header-rows: 1
+
+   * - chr
+     - haplotype
+     - start
+     - end
+     - ancestral_group
+   * - chr01
+     - 0
+     - 1
+     - 29070452
+     - g4
+   * - chr01
+     - 1
+     - 1
+     - 29070452
+     - g4
+   * - chr02
+     - 0
+     - 1
+     - 29511734
+     - g4
+   * - chr02
+     - 1
+     - 1
+     - 29511734
+     - g4
+
+
+**Normalized curves**
+
+.. list-table::
+   :header-rows: 1
+
+   * - chr
+     - start
+     - end
+     - V
+     - T
+     - S
+   * - chr01
+     - 1145
+     - 189582
+     - 0.001671988
+     - 0.014082301
+     - 0.001638686
+   * - chr01
+     - 189593
+     - 356965
+     - 0.001244196
+     - 0.012867256
+     - 0.001810139
+   * - chr01
+     - 356968
+     - 488069
+     - 0.001117959
+     - 0.010035172
+     - 0.000759437
+   * - chr01
+     - 488097
+     - 633373
+     - 0.002678213
+     - 0.010470727
+     - 0.003896031
+
+2. Chromosomes sizes and labels
+
+Chromosome data format, each column tab separated
+chr, len, centromereInf (optional), centromereSup (optional), label (optional)
+
+.. list-table::
+   :widths: 25 25 25
+   :header-rows: 1
+
+
+   * - chr
+     - len
+     - label
+   * - chr01
+     - 37945898
+     - AB
+   * - chr02
+     - 34728925
+     - AB
+   * - chr03
+     - 40528553
+     - AB
+   * - chr04
+     - 34728925
+     - AB
+   * - chr05
+     - 44598304
+     - AB
+   * - chr06
+     - 46248384
+     - AB
+   * - chr07
+     - 42818424
+     - AB
+   * - chr08
+     - 38870123
+     - AB
+
+Optional file
+
+**Color**
+
+.. list-table::
+   :header-rows: 1
+
+   * - group
+     - name
+     - hex
+   * - g1
+     - group1
+     - #000000
+   * - g2
+     - group2
+     - #ffc000
+   * - g3
+     - group3
+     - #1440cd
+   * - g4
+     - group4
+     - #00b009
 
 Live demo
 =========
