@@ -156,6 +156,29 @@ Optional file
      - group4
      - #00b009
 
+**Annotations**
+ 
+.. list-table::
+
+   * - chr01
+     - 5287838
+     - 5289224
+     - gene
+     - 0
+     - -
+   * - chr01
+     - 15485703
+     - 15486813
+     - gene
+     - 0
+     - +
+   * - chr02
+     - 2276353
+     - 2277821
+     - gene
+     - 0
+     - +
+
 Live demo
 =========
 
