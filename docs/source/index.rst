@@ -6,7 +6,7 @@
 Welcome to GeMo's documentation!
 ================================
 
-Intro (TODO)
+GeMo is a WebApp to represent Genome Mosaics with current focus on plants. However, GeMo is developed in a generic way it can be also applied to other organisms.
 
 .. toctree::
    :caption: About GeMo
