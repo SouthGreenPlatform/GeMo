@@ -264,6 +264,7 @@ $('#chromosomes').change( function(){
 //ref https://www.encodedna.com/jquery/cascading-select-dropdown-list-using-json-data.htm
 //tab of preloaded example
 let arrData = [];
+let arrStudy = [];
     
 // Fill the first dropdown with data.
 $.getJSON('./config/pre-loaded.json', function (data) {
@@ -290,19 +291,44 @@ $.getJSON('./config/pre-loaded.json', function (data) {
 //fonction select organism => populate sample
 $('#organism').change(function () {
     let selectedOrganism = this.options[this.selectedIndex].value;
-
+    
 	//retreive all entries for this organism
     let filterData = arrData.filter(function(value) {
         return value.Organism === selectedOrganism;
     });
+
+    //retrieve all studies for this organism
+    let studyTab=[];
+    $.each(filterData, function (index, value) {
+        studyTab.push(value.Study);
+    });
+    // Remove duplicates
+    studyTab = Array.from(new Set (studyTab));
+    console.log("study "+studyTab);
+
     $('#sample')
         .empty()
         .append('<option value="">--Sample--</option>');
 
-    $.each(filterData, function (index, value) {
-        // Now, fill the second dropdown list with samples
-        $('#sample').append('<option value="' + value.ID + '">' + value.Sample + '</option>');
+    //fill the drop down with 
+    // - studies
+    // -- samples
+    $.each(studyTab, function (index, study) {
+        //retreive all entries for this study
+        let filterData = arrData.filter(function(value) {
+            return value.Study === study;
+        });
+        $('#sample')
+            .append('<optgroup label="'+study+'">--'+study+'--</optgroup>');
+        $.each(filterData, function (index, value) {
+            // Now, fill the second dropdown list with samples
+            $('#sample').append('<option value="' + value.ID + '">' + value.Sample + '</option>');
+        });
     });
+
+    
+
+    
 });
 
 //fonction select sample => load accession
