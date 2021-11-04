@@ -290,6 +290,7 @@ $.getJSON('./config/pre-loaded.json', function (data) {
 
 //fonction select organism => populate sample
 $('#organism').change(function () {
+    
     let selectedOrganism = this.options[this.selectedIndex].value;
     
 	//retreive all entries for this organism
@@ -318,15 +319,26 @@ $('#organism').change(function () {
         let filterData = arrData.filter(function(value) {
             return value.Study === study;
         });
-        $('#sample')
-            .append('<optgroup label="'+study+'">--'+study+'--</optgroup>');
+        //demarre la section optgroup
+        //$('#sample').append('<optgroup label="'+study+'">');
+        var optgroup = document.createElement("optgroup");
+        optgroup.setAttribute("label", study);
+
         $.each(filterData, function (index, value) {
             // Now, fill the second dropdown list with samples
-            $('#sample').append('<option value="' + value.ID + '">' + value.Sample + '</option>');
+            //$('#sample').append('<option value="' + value.ID + '">' + value.Sample + '</option>');
+            var option = document.createElement("option");
+            option.setAttribute("value",value.ID);
+            option.innerHTML= value.Sample;
+            optgroup.append(option);
         });
+        //ferme la section optgroup
+        $('#sample').append(optgroup);
     });
 
-    
+     $('#sample').select2({
+        placeholder: 'Select sample',
+    }); 
 
     
 });
