@@ -1,99 +1,197 @@
-GeMo - Genome Mosaics visualization tool
-========================================
+GeMo is a WebApp to represent Genome Mosaics with current focus on plants. However, GeMo is developed in a generic way it can be also applied to other organisms.
 
-GeMo is a web interface that allows to visualize **Genome Mosaics** with
-current focus on plants. GeMo is interactive and user-friendly to help
-users to handle their data in an easy and interactive way.
-
-Live demo
----------
-
-GeMo is currently running at the `Banana Genome
-Hub <https://banana-tools-genome-hub.southgreen.fr/gemo/>`__ where
-anyone can upload its own data or test with pre-loaded mosaics/datasets.
-
-Install
--------
-
-*Coming soon*
 
 Main features
--------------
+=============
 
-Chromosome painting
-~~~~~~~~~~~~~~~~~~~
+1. Dynamic chromosome painting visualisation
 
-Chromosome representation based on
-`ideogram <https://github.com/eweitz/ideogram>`__.
+2. Online Data curation of mosaic prediction
 
-Polyploidy
-~~~~~~~~~~
+3. Markers or Genes Plots on mosaic karyotypes
 
-Karyotype can display to 1x to nX chromosome. Aneuploidy can be
-represented.
+4. Data and high quality image export
 
-Refinement of ancestral/parental contribution
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-*Coming soon*
+Data inputs
+===========
 
-Plot genes on mosaic karyotypes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+GeMo requires two types of datasets to generate the ideogram visualization
 
-*Coming soon*
+.. image:: _images/menu.png
+   :target: _images/menu.png
+   :width: 250
+   :alt: Menu
 
-Data and high resolution image downloads
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Input files
 
-Once data is visualized, customized and possibly curated, GeMo offers
-the possibility to download the latest version of the data sets and
-export the output graphics as SVG for publication purposes. data can be
-also stored temporarily online with an unique URL allowing to share it
-with multiple users.
+The position of the mosaic blocks along the chromosomes. It accepts two types of files:
 
-Data inputs (*Coming soon*)
----------------------------
+**Genomic blocks**
 
-It accepts two types of files:
+.. list-table::
+   :header-rows: 1
 
--  Genomic blocks:
+   * - chr
+     - haplotype
+     - start
+     - end
+     - ancestral_group
+   * - chr01
+     - 0
+     - 1
+     - 29070452
+     - g4
+   * - chr01
+     - 1
+     - 1
+     - 29070452
+     - g4
+   * - chr02
+     - 0
+     - 1
+     - 29511734
+     - g4
+   * - chr02
+     - 1
+     - 1
+     - 29511734
+     - g4
 
--  Normalized curves:
 
-See the Wiki for full documentation.
+**Normalized curves**
 
-Generating datasets
--------------------
+.. list-table::
+   :header-rows: 1
 
-In order to generate ready-to-use datasets, analyses can be conducted
-with the following software:
+   * - chr
+     - start
+     - end
+     - V
+     - T
+     - S
+   * - chr01
+     - 1145
+     - 189582
+     - 0.001671988
+     - 0.014082301
+     - 0.001638686
+   * - chr01
+     - 189593
+     - 356965
+     - 0.001244196
+     - 0.012867256
+     - 0.001810139
+   * - chr01
+     - 356968
+     - 488069
+     - 0.001117959
+     - 0.010035172
+     - 0.000759437
+   * - chr01
+     - 488097
+     - 633373
+     - 0.002678213
+     - 0.010470727
+     - 0.003896031
 
-VCFHunter
-~~~~~~~~~
+2. Chromosomes sizes and labels
 
-VCFHunter is a suite of `python
-scripts <https://github.com/SouthGreenPlatform/VcfHunter>`__ enabling
-chromosome painting of individual based on the contribution of ancestral
-groups using VCF files.
+Chromosome data format, each column tab separated
+chr, len, centromereInf (optional), centromereSup (optional), label (optional)
 
-Please look at the `tutorial <VCFHunter.md>`__
+.. list-table::
+   :widths: 25 25 25
+   :header-rows: 1
 
-TraceAncestor
-~~~~~~~~~~~~~
 
-TraceAncestor allows to estimate the allelic dosage of ancestral alleles
-in hybrid individuals and then to perform chromosome painting.
+   * - chr
+     - len
+     - label
+   * - chr01
+     - 37945898
+     - AB
+   * - chr02
+     - 34728925
+     - AB
+   * - chr03
+     - 40528553
+     - AB
+   * - chr04
+     - 34728925
+     - AB
+   * - chr05
+     - 44598304
+     - AB
+   * - chr06
+     - 46248384
+     - AB
+   * - chr07
+     - 42818424
+     - AB
+   * - chr08
+     - 38870123
+     - AB
 
-Please look at the `tutorial <TraceAncestor.md>`__
+Optional file
+
+**Color**
+
+.. list-table::
+   :header-rows: 1
+
+   * - group
+     - name
+     - hex
+   * - g1
+     - group1
+     - #000000
+   * - g2
+     - group2
+     - #ffc000
+   * - g3
+     - group3
+     - #1440cd
+   * - g4
+     - group4
+     - #00b009
+
+**Annotations**
+ 
+.. list-table::
+
+   * - chr01
+     - 5287838
+     - 5289224
+     - gene
+     - 0
+     - -
+   * - chr01
+     - 15485703
+     - 15486813
+     - gene
+     - 0
+     - +
+   * - chr02
+     - 2276353
+     - 2277821
+     - gene
+     - 0
+     - +
+
+Live demo
+=========
+
+GeMo is currently running at the `Banana Genome Hub <https://banana-tools-genome-hub.southgreen.fr/gemo/>`__ where
+anyone can upload its own data or test with pre-loaded mosaics/datasets.
 
 Citation
---------
+========
 
-Summo M. et al (in prep)
+Summo M, Comte A, Martin G, Weitz E, Perelle P, Droc G and Rouard M. GeMo: A mosaic genome painting tool for plant genomes. (in prep)
 
 Acknowledgements
-----------------
+================
 
-GeMo has been developed in the framework of the `Genome Harvest
-project <https://www.genomeharvest.fr>`__ supported by the Agropolis
+GeMo has been developed in the framework of the `Genome Harvest project <https://www.genomeharvest.fr>`__ supported by the Agropolis
 fondation.
