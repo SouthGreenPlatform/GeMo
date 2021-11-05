@@ -544,3 +544,28 @@ input.form-control {
   font-size: smaller;
 }
 
+/* Select2 overwrite */
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+  background-color: #603244;
+  color: white;
+}
+
+.select2-results__option {
+  padding: 1px;
+  font-size: small;
+}
+
+.select2-container--default .select2-results>.select2-results__options {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.select2-container--default .select2-selection--single {
+  height: 31px !important;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+  padding-left: 0px;
+}
