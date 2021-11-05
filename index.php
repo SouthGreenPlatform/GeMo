@@ -423,8 +423,6 @@ echo "<script> load_ideogram()</script>";
 		</div>
 
 <div id="chrompaint" style="display: none">
-	chrompaint
-
 <div id="box3">
 <div id="graph"></div>
 <div id="selector">
@@ -433,7 +431,6 @@ echo "<script> load_ideogram()</script>";
 </div>
 </div>
 <div id="box4">
-ideogram
 </div>
 <!-- fin chrompaint -->
 </div>
