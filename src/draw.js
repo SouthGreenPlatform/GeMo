@@ -20,6 +20,7 @@ export function drawBed(bedAnnot, maxLength){
 			if(width<minWidth){width = minWidth;}
 
 			//draw
+			console.log(obj.chr);
 			d3.selectAll(".chromosome-set").select("[id^='chr"+obj.chr+"']")
 			.append("rect")       // attach a rectangle
 			.style("fill", "black")
@@ -44,4 +45,13 @@ export function drawBed(bedAnnot, maxLength){
 	});
 
 	
+}
+
+export function ideoViewbox(){
+	$( document ).ready(function() {
+		let svg = document.getElementById('_ideogram');
+		let width = parseInt($('#_ideogram').width());
+		let height = parseInt($('#_ideogram').height());
+		svg.setAttribute("viewBox", "0 -20 "+width+" "+height);
+	});
 }

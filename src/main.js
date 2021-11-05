@@ -1,9 +1,9 @@
 import { initConfig } from "./config.js";
 import { drawLegend, parsingColor, randomColorGenerator, randomColorGenerator_block, drawPalette } from "./legend.js";
 import { chromosomeParser, annotationParser, ploidyDesc, bedParser } from "./dataParser.js";
-import { loadingon, loadingoff, displaytext, clear, homeClick, ideoViewbox } from "./display.js";
+import { loadingon, loadingoff, displaytext, clear, homeClick } from "./display.js";
 import { downloadArchive, saveAsURL} from "./download.js";
-import { drawBed } from "./draw.js";
+import { drawBed, ideoViewbox } from "./draw.js";
 //chrompaint
 import {resetgraph} from "./chrompaint/import.js";
 import {checkColorFile,checkLenFile,checkDataFile} from "./chrompaint/checkFile.js";
@@ -448,7 +448,7 @@ async function load_ideogram_from_form_data(){
 	$('#download').fadeIn();
     $('#saveasurl').fadeIn();
 
-    setTimeout(ideoViewbox, 100);
+    //setTimeout(ideoViewbox, 100);
 
     if(gblink){
         setTimeout(addTooltip, 100, annotTable, gblink);
@@ -457,6 +457,7 @@ async function load_ideogram_from_form_data(){
     if(bedAnnot){
         /* config.annotations = bedAnnot;
         config.annotationsLayout= 'tracks'; */
+        setTimeout(ideoViewbox, 100);
         setTimeout(drawBed, 100, bedAnnot, maxLength);
         //drawBed(bedAnnot);
     }
@@ -563,6 +564,8 @@ document.getElementById("submit").addEventListener("click", async function(){
 
         resetgraph();
         graphSetup(data);
+
+
     
 	//En mode block
 	}else{
@@ -951,9 +954,24 @@ function graphSetup(data){
             floorPositions[origine] = document.getElementsByClassName("mouse-line")[0].attributes.d.value; //update floorPositions with the value clicked
 
             globalUpdate(floorValues,selectedChromosome,floorPositions,data);
+            if(bedAnnot){
+                /* config.annotations = bedAnnot;
+                config.annotationsLayout= 'tracks'; */
+                setTimeout(ideoViewbox, 100);
+                setTimeout(drawBed, 100, bedAnnot, maxLength);
+                //drawBed(bedAnnot);
+            }
         });
 
     globalUpdate(floorValues,selectedChromosome,floorPositions,data);
+    
+    if(bedAnnot){
+        /* config.annotations = bedAnnot;
+        config.annotationsLayout= 'tracks'; */
+        setTimeout(ideoViewbox, 100);
+        setTimeout(drawBed, 100, bedAnnot, maxLength);
+        //drawBed(bedAnnot);
+    }
 }
 
 function legendSetup(){
