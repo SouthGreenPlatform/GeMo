@@ -512,6 +512,7 @@ document.getElementById("submit").addEventListener("click", async function(){
 
         //Affiche les div de chrompaint
         $('#chrompaint').show();
+        $('#legend_div').empty();
         $('#floating_legend').hide();
         $('#page-content-wrapper').hide();
         $('#home').hide();
