@@ -331,8 +331,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Alemow.txt",
-    "FileCurve": "",
+    "FileName": "Alemow_ideo.txt",
+    "FileCurve": "Alemow_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -343,8 +343,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Bergamot.txt",
-    "FileCurve": "",
+    "FileName": "Bergamot_ideo.txt",
+    "FileCurve": "Bergamot_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -355,8 +355,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_BouquetierDeNice.txt",
-    "FileCurve": "",
+    "FileName": "Bouquetier_ideo.txt",
+    "FileCurve": "Bouquetier_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -367,8 +367,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_BuddhasHand.txt",
-    "FileCurve": "",
+    "FileName": "Buddha_Hand_ideo.txt",
+    "FileCurve": "Buddha_Hand_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -379,8 +379,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Chandler.txt",
-    "FileCurve": "",
+    "FileName": "Chandler_ideo.txt",
+    "FileCurve": "Chandler_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -391,8 +391,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Cleopatra.txt",
-    "FileCurve": "",
+    "FileName": "Cleopatra_ideo.txt",
+    "FileCurve": "Cleopatra_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -403,8 +403,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "3",
     "ChromFile": "citrus_clementina_triploide.txt",
-    "FileName": "ideo_Coppenrhad.txt",
-    "FileCurve": "",
+    "FileName": "Coppenrhad_ideo.txt",
+    "FileCurve": "Coppenrhad_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -415,8 +415,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Corsican.txt",
-    "FileCurve": "",
+    "FileName": "Corsican_ideo.txt",
+    "FileCurve": "Corsican_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -427,8 +427,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Dancy.txt",
-    "FileCurve": "",
+    "FileName": "Dancy_ideo.txt",
+    "FileCurve": "Dancy_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -439,8 +439,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_DeChios.txt",
-    "FileCurve": "",
+    "FileName": "De_Chios_ideo.txt",
+    "FileCurve": "De_Chios_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -451,8 +451,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_DeepRed.txt",
-    "FileCurve": "",
+    "FileName": "Deep_red_ideo.txt",
+    "FileCurve": "Deep_red_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -463,8 +463,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Duncan.txt",
-    "FileCurve": "",
+    "FileName": "Duncan_ideo.txt",
+    "FileCurve": "Duncan_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -475,20 +475,20 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Etrog.txt",
-    "FileCurve": "",
+    "FileName": "Etrog_ideo.txt",
+    "FileCurve": "Etrog_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
     "ID": "039",
-    "Sample": "Eurka",
+    "Sample": "Eureka",
     "AccessionCode": "",
     "Organism": "Citrus (Clementina)",
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Eureka.txt",
-    "FileCurve": "",
+    "FileName": "Eureka_ideo.txt",
+    "FileCurve": "Eureka_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -499,8 +499,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "4",
     "ChromFile": "citrus_clementina_tetraploide.txt",
-    "FileName": "ideo_GiantKey.txt",
-    "FileCurve": "",
+    "FileName": "Giant_key_ideo.txt",
+    "FileCurve": "Giant_key_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -511,8 +511,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_KaoPan.txt",
-    "FileCurve": "",
+    "FileName": "KaoPan_ideo.txt",
+    "FileCurve": "KaoPan_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -523,8 +523,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_King.txt",
-    "FileCurve": "",
+    "FileName": "King_ideo.txt",
+    "FileCurve": "King_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -535,8 +535,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Ladu.txt",
-    "FileCurve": "",
+    "FileName": "Ladu_ideo.txt",
+    "FileCurve": "Ladu_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -547,8 +547,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Humpang.txt",
-    "FileCurve": "",
+    "FileName": "Humpang_ideo.txt",
+    "FileCurve": "Humpang_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -559,8 +559,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_MacVeuDeMontagne.txt",
-    "FileCurve": "",
+    "FileName": "Mac_Veu_de_montagne_ideo.txt",
+    "FileCurve": "Mac_Veu_de_montagne_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -571,8 +571,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Marsh.txt",
-    "FileCurve": "",
+    "FileName": "Marsh_ideo.txt",
+    "FileCurve": "Marsh_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -583,8 +583,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Meyer.txt",
-    "FileCurve": "",
+    "FileName": "Meyer_ideo.txt",
+    "FileCurve": "Meyer_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -595,8 +595,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Lisbon.txt",
-    "FileCurve": "",
+    "FileName": "Lisbon_ideo.txt",
+    "FileCurve": "Lisbon_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -607,8 +607,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Micrantha_Sflopapeda.txt",
-    "FileCurve": "",
+    "FileName": "Micrantha_Sflopapeda_ideo.txt",
+    "FileCurve": "Micrantha_Sflopapeda_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -619,8 +619,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Micrantha.txt",
-    "FileCurve": "",
+    "FileName": "Micrantha_ideo.txt",
+    "FileCurve": "Micrantha_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -631,8 +631,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Pink.txt",
-    "FileCurve": "",
+    "FileName": "Pink_ideo.txt",
+    "FileCurve": "Pink_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -643,8 +643,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_PoncireCommun.txt",
-    "FileCurve": "",
+    "FileName": "Poncire_commun_ideo.txt",
+    "FileCurve": "Poncire_commun_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -655,8 +655,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_SanHuHong.txt",
-    "FileCurve": "",
+    "FileName": "San_Hu_Hong_Chu_ideo.txt",
+    "FileCurve": "San_Hu_Hong_Chu_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -667,8 +667,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_NanFengMiChu.txt",
-    "FileCurve": "",
+    "FileName": "Nan_feng_mi_chu_ideo.txt",
+    "FileCurve": "Nan_feng_mi_chu_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -679,8 +679,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_OwariSatsuma.txt",
-    "FileCurve": "",
+    "FileName": "Owari_Satsuma_ideo.txt",
+    "FileCurve": "Owari_Satsuma_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -691,8 +691,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Ponkan.txt",
-    "FileCurve": "",
+    "FileName": "Ponkan_ideo.txt",
+    "FileCurve": "Ponkan_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -703,8 +703,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Rough.txt",
-    "FileCurve": "",
+    "FileName": "Rough_ideo.txt",
+    "FileCurve": "Rough_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -715,8 +715,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Rangpur.txt",
-    "FileCurve": "",
+    "FileName": "Rangpur_ideo.txt",
+    "FileCurve": "Rangpur_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -727,8 +727,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Tahitian.txt",
-    "FileCurve": "",
+    "FileName": "Tahitian_ideo.txt",
+    "FileCurve": "Tahitian_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -739,8 +739,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_SeHuiHan.txt",
-    "FileCurve": "",
+    "FileName": "Se_Hui_Gan_ideo.txt",
+    "FileCurve": "Se_Hui_Gan_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -751,8 +751,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Sunki.txt",
-    "FileCurve": "",
+    "FileName": "Sunki_ideo.txt",
+    "FileCurve": "Sunki_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -763,8 +763,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Szibat.txt",
-    "FileCurve": "",
+    "FileName": "Szibat_ideo.txt",
+    "FileCurve": "Szibat_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -775,8 +775,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_ValenciaLate.txt",
-    "FileCurve": "",
+    "FileName": "Valencia_late_ideo.txt",
+    "FileCurve": "Valencia_late_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -787,8 +787,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "3",
     "ChromFile": "citrus_clementina_triploide.txt",
-    "FileName": "ideo_Tahiti.txt",
-    "FileCurve": "",
+    "FileName": "Tahiti_ideo.txt",
+    "FileCurve": "Tahiti_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -799,22 +799,10 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "3",
     "ChromFile": "citrus_clementina_triploide.txt",
-    "FileName": "ideo_Tanepao.txt",
-    "FileCurve": "",
+    "FileName": "Tanepao_ideo.txt",
+    "FileCurve": "Tanepao_curve.txt",
     "ColorFile": "citrus_color.txt"
-},
-{
-    "ID": "065",
-    "Sample": "Tahitian",
-    "AccessionCode": "",
-    "Organism": "Citrus (Clementina)",
-    "Study": "Ahmed  et al. 2019",
-    "Ploidy": "2",
-    "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Tahitian.txt",
-    "FileCurve": "",
-    "ColorFile": "citrus_color.txt"
-},
+}, 
 {
     "ID": "066",
     "Sample": "Timor",
@@ -823,8 +811,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Timor.txt",
-    "FileCurve": "",
+    "FileName": "Timor_ideo.txt",
+    "FileCurve": "Timor_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -835,8 +823,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_Volkamer.txt",
-    "FileCurve": "",
+    "FileName": "Volkamer_ideo.txt",
+    "FileCurve": "Volkamer_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -847,8 +835,8 @@
     "Study": "Ahmed  et al. 2019",
     "Ploidy": "2",
     "ChromFile": "citrus_clementina.txt",
-    "FileName": "ideo_WashingtonNavel.txt",
-    "FileCurve": "",
+    "FileName": "Washington_navel_ideo.txt",
+    "FileCurve": "Washington_navel_curve.txt",
     "ColorFile": "citrus_color.txt"
 },
 {
@@ -1245,7 +1233,7 @@
       "FileName" : "GrandeNaine_ideo.tab",
       "AccessionCode" : "",
       "Study" : "ARCAD",
-      "Ploidy" : "3",
+      "Ploidy" : "2",
       "ColorFile" : "arcad_color.txt",
       "Sample" : "GrandeNaine"
    },
@@ -1404,6 +1392,18 @@
       "Ploidy" : "2",
       "ColorFile" : "arcad_color.txt",
       "Sample" : "PTBA00267"
-   }
+   },
+   {
+    "ID": "113",
+    "Sample": "Willowleaf",
+    "AccessionCode": "",
+    "Organism": "Citrus (Clementina)",
+    "Study": "Ahmed  et al. 2019",
+    "Ploidy": "3",
+    "ChromFile": "citrus_clementina.txt",
+    "FileName": "Willow_Leaf_ideo.txt",
+    "FileCurve": "Willow_Leaf_curve.txt",
+    "ColorFile": "citrus_color.txt"
+  }
 ]
 
