@@ -324,7 +324,7 @@ echo "<script> load_ideogram()</script>";
 						<textarea id="editorBed" rows="3" class="form-control" placeholder="Insert values here" ></textarea>
 						<div class="custom-file" style="width:90%;">
 							<input type="file" class="custom-file-input" id="bedFile" >
-							<label class="custom-file-label" for="bedFile">Choose file</label>
+							<label class="custom-file-label" for="bedFile" id="bedLabel" >Choose file</label>
 						</div>
 					</div>
 					</form>

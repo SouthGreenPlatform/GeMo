@@ -49,6 +49,8 @@ $('#saveasurl').click(saveAsURL);
 ////////////////////////////////////////////////////////////////
 async function load_accession(sampleJson, type){
 	console.log("load accession" + sampleJson[0].FileName);
+
+    //retreive json content
 	let fileName = sampleJson[0].FileName;
     let fileCurve = sampleJson[0].FileCurve;
 	let ploidy = sampleJson[0].Ploidy;
@@ -122,6 +124,12 @@ async function load_accession(sampleJson, type){
 
     //genome browser link
 	$("#editorGB").val(GenomeBrowser);
+
+    //bed annot
+    $("#editorBed").val('');
+    $("#bedFile").val('');
+    $("#bedLabel").html('');
+    bedAnnot = null;
     
     //load_ideogram_from_form_data();
     $("#submit").click();
