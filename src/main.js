@@ -233,38 +233,7 @@ $('.custom-file-input').on('change', function(){
     .html(name); 
 });
 
-////////////////////////////////////////////
-// Populate preloaded list of chromosomes //
-////////////////////////////////////////////
-//ref https://www.encodedna.com/jquery/cascading-select-dropdown-list-using-json-data.htm
-//tab of preloaded chromosomes
-let arrChrom = [];
 
-// Fill the first dropdown with data.
-$.getJSON('./config/pre-loaded-chrom.json', function (data) {
-	//tab of organisms
-    let chromTab = [];
-
-	//retrieve chrom Name in each json entry
-    $.each(data, function (index, value) {
-        chromTab.push(value.Name);
-        // Fill the dropdown with chrom names
-        $('#chromosomes').append('<option value="' + value.FileName + '">' + value.Name + '</option>');
-        arrChrom = data;
-        //console.log(arrChrom);
-    });
-});
-
-//fonction select chromosome => load chromosome in text area
-$('#chromosomes').change( function(){
-    fetch('/gemo/data/chromosomes/'+$("#chromosomes option:selected")[0].value)
-	.then(function(response) {
-        return response.text();
-    })
-    .then(function(responseText) {
-        $("#editorChr").val(responseText);
-    });
-});
 
 //////////////////////////////////////////////////////
 // Populate preloaded list of organisms and samples //
@@ -343,14 +312,10 @@ $('#organism').change(function () {
         //ferme la section optgroup
         $('#sample').append(optgroup);
     });
-
      $('#sample').select2({
         placeholder: 'Select sample',
-    }); 
-
-    
+    });  
 });
-
 //fonction select sample => load accession
 $('#sample').change( function(){
 	//retreive all entries for this ID sample
@@ -367,6 +332,40 @@ $('#sample').change( function(){
 	load_accession(sampleJson, 'none');
 });
 
+
+////////////////////////////////////////////
+// Populate preloaded list of chromosomes //
+////////////////////////////////////////////
+//ref https://www.encodedna.com/jquery/cascading-select-dropdown-list-using-json-data.htm
+//tab of preloaded chromosomes
+let arrChrom = [];
+
+// Fill the first dropdown with data.
+$.getJSON('./config/pre-loaded-chrom.json', function (data) {
+	//tab of organisms
+    let chromTab = [];
+
+	//retrieve chrom Name in each json entry
+    $.each(data, function (index, value) {
+        chromTab.push(value.Name);
+        // Fill the dropdown with chrom names
+        $('#chromosomes').append('<option value="' + value.FileName + '">' + value.Name + '</option>');
+        arrChrom = data;
+        //console.log(arrChrom);
+    });
+});
+
+//fonction select chromosome => load chromosome in text area
+$('#chromosomes').change( function(){
+    fetch('/gemo/data/chromosomes/'+$("#chromosomes option:selected")[0].value)
+	.then(function(response) {
+        return response.text();
+    })
+    .then(function(responseText) {
+        $("#editorChr").val(responseText);
+    });
+});
+
 /////////////////////////////////////
 ///// BOUTON SWITCH BLOCK CURVE /////
 /////////////////////////////////////
@@ -380,6 +379,33 @@ $('#switch').change(function() {
 		load_accession(sampleJson, "block");
 	}
 });
+
+
+
+///////////////////////////////////////////////
+// Populate preloaded list of genome browser //
+///////////////////////////////////////////////
+
+// Fill the dropdown with data.
+$.getJSON('./config/pre-loaded-gb.json', function (data) {
+
+	//retrieve chrom Name in each json entry
+    $.each(data, function (index, value) {
+        // Fill the dropdown with chrom names
+        $('#gb').append('<option value="' + value.URL + '">' + value.Name + '</option>');
+    });
+});
+
+//fonction select gb => load url in text area
+$('#gb').change( function(){
+    console.log($("#gb option:selected")[0].value);
+    $("#editorGB").val($("#gb option:selected")[0].value);
+});
+
+
+
+
+
 
 ////////////////////////////////////////////////////////////////
 // Load ideogram

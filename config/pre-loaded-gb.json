@@ -1,0 +1,57 @@
+[
+    {
+        "ID": "001",
+        "Name": "Banana (M. acuminata) DH-Pahang v1",
+        "URL": "https://banana-genome-hub.southgreen.fr/content/m-acuminata-dh-pahang-version-1/"
+    },
+    {
+        "ID": "002",
+        "Name": "Banana (M. acuminata) DH-Pahang v2",
+        "URL": "https://banana-genome-hub.southgreen.fr/content/m-acuminata-dh-pahang-version-2/"
+    },
+	{
+        "ID": "004",
+        "Name": "Banana (M. acuminata) DH-Pahang v4",
+        "URL": "https://banana-genome-hub.southgreen.fr/content/m-acuminata-dh-pahang-version-43/"
+    },
+	{
+        "ID": "005",
+        "Name": "Banana (M. balbisiana) DH-PKW v1.1",
+        "URL": "https://banana-genome-hub.southgreen.fr/content/m-balbisiana/"
+    },
+	{
+        "ID": "006",
+        "Name": "Banana (M. schizocharpa) Schizocharpa v1.0",
+        "URL": "https://banana-genome-hub.southgreen.fr/content/m-schizocharpa/"
+    },
+	{
+        "ID": "007",
+        "Name": "Banana (M. acuminata) Schizocharpa v2",
+        "URL": "https://banana-genome-hub.southgreen.fr/content/banksii-v2/"
+    },
+	{
+        "ID": "008",
+        "Name": "Banana (M. acuminata) Calcutta4 v1",
+        "URL": "https://banana-genome-hub.southgreen.fr/content/calcutta4-v1/"
+    },
+	{
+        "ID": "009",
+        "Name": "Banana (E. glaucum) Ensete Glaucum v1.0",
+        "URL": "https://banana-genome-hub.southgreen.fr/content/ensete-glaucum-v1/"
+    },
+	{
+        "ID": "010",
+        "Name": "Banana (M. acuminata) Zebrina v1",
+        "URL": "https://banana-genome-hub.southgreen.fr/content/zebrina-v1/"
+    },
+	{
+        "ID": "006",
+        "Name": "Banana (M. schizocharpa) Schizocharpa v1.0",
+        "URL": "https://banana-genome-hub.southgreen.fr/content/m-schizocharpa/"
+    },
+	{
+        "ID": "006",
+        "Name": "Banana (M. ensete) Musa ensete pangenome",
+        "URL": "https://banana-genome-hub.southgreen.fr/content/musa-ensete-pangenome/"
+    }
+]

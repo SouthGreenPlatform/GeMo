@@ -344,6 +344,11 @@ echo "<script> load_ideogram()</script>";
 					</svg>				
 					</p>
 					<div class="collapse" id="collapseGB">
+						<select class="custom-select custom-select-sm select_gb" id="gb">
+							<option value="gb">Choose genome browser</option>
+						</select>
+						<br/><br/>
+						or enter your own
 						<input id="editorGB" type="text" class="form-control" placeholder="Insert values here">
 					</div>
 					</form>

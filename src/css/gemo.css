@@ -411,6 +411,10 @@ input.form-control {
   width: 95%;
   float: left;
 }
+.select_gb {
+  width: 95%;
+  float: left;
+}
 
 /*Jumbotron*/
 .jumbo-bg{
