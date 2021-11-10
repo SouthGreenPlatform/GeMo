@@ -135,13 +135,13 @@ async function load_accession(sampleJson, type){
     $("#submit").click();
 	
     //ouvre le menu data
-    $("#collapseInput").show();
+    $("#collapseInput").collapse('show')
     //ouvre le menu chr
-    $("#collapseChr").show();
+    $("#collapseChr").collapse('show')
     //ouvre le menu color
-    $("#collapseColor").show();
+    $("#collapseColor").collapse('show')
     //ouvre le menu genome browser
-    $("#collapseGB").show();
+    $("#collapseGB").collapse('show')
 }
 
 ////////////////////////////////////////////////////////////////
