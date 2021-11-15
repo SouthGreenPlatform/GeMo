@@ -9,30 +9,34 @@ export function groupByColor(metaBlocks){
         for (let j = 0; j < metaBlocks[i].length; j++) {
             //console.log("metaBlocks " + " "+ [i] + " " + [j] +" " + metaBlocks[i][j]);
 
-            //metaBlocks[i][j][4] = color hex
-            //metaBlocks[i][j][1] = haplotype number
+            let hexColor = metaBlocks[i][j][4];
+            let haplo = metaBlocks[i][j][1];
+
             //si la couleur est dans group et pas grise unknown
-            if(!(metaBlocks[i][j][4] in group && metaBlocks[i][j][4] !== "#808080" )){
+            if(!(hexColor in group && hexColor !== "#808080" )){
                 //group[color] = haplotype
-                group[metaBlocks[i][j][4]] = metaBlocks[i][j][1];
+                group[hexColor] = haplo;
 
             //sinon si l'haplotype est différent
-            }else if(metaBlocks[i][j][1] !== group[metaBlocks[i][j][4]]){
+            }else if(haplo !== group[hexColor]){
 
+                //toutes les couleurs à cette position
                 for (let k = 0; k < metaBlocks[i].length; k++) {
                     colorInBlock.push(metaBlocks[i][k][4]);
                 }
-                //Si il y a des couleurs différentes dans ce block.
+                //Si il y a des couleurs différentes à cette position
                 if(!(colorInBlock.every((currentvalue) => currentvalue === colorInBlock[0]))){ 
 
-                    let typeLeft = metaBlocks[i][j][1];
-                    let typeTaken = group[metaBlocks[i][j][4]];
+                    let currentHaplo = metaBlocks[i][j][1];
+                    let savedHaplo = group[metaBlocks[i][j][4]];
 
+                    //pour cette position à tout les haplotype
                     for (let k = 0; k < metaBlocks[i].length; k++) {
-                        if (metaBlocks[i][k][1] === typeTaken) {
-                            metaBlocks[i][k][1] = typeLeft;
+                        if (metaBlocks[i][k][1] === savedHaplo) {
+                            metaBlocks[i][k][1] = currentHaplo;
                         }
                     }
+                    //change l'haplotype à celui déjà vu dans groupe
                     metaBlocks[i][j][1] = group[metaBlocks[i][j][4]];
                 }
             }
