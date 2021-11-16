@@ -178,6 +178,19 @@ Optional file
      - gene
      - 0
      - +
+     
+Data outputs
+===========
+
+Once data is provided the chromosome diagram is generated on the fly. Chromosomes display colored blocks usually corresponding to their ancestral/parental origin. An interactive legend is present to label each group with a corresponding color. The user can modify the color of a group directly in the legend.
+
+.. image:: _images/output_blocks.png
+   :target: _images/output_blocks.png
+   :width: 250
+   :alt: blocks
+   
+
+Gemo offers the possibility to export the output graphics as SVG for publication purposes. It also proposes the latest version of the data sets, which corresponds to input datasets (edited if curation was condcuted).
 
 Live demo
 =========
