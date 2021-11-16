@@ -184,8 +184,8 @@ Data outputs
 
 Once data is provided the chromosome diagram is generated on the fly. Chromosomes display colored blocks usually corresponding to their ancestral/parental origin. An interactive legend is present to label each group with a corresponding color. The user can modify the color of a group directly in the legend.
 
-.. image:: _images/output_blocks.png
-   :target: _images/output_blocks.png
+.. image:: _images/bloc.png
+   :target: _images/bloc.png
    :width: 250
    :alt: blocks
    
