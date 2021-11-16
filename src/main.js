@@ -485,8 +485,11 @@ async function load_ideogram_from_form_data(){
     //setTimeout(ideoViewbox, 100);
 
     if(gblink){
-        setTimeout(addTooltip, 100, annotTable, gblink);
+        setTimeout(addTooltip, 100, annotTable, gblink, ancestorsNameColor);
     }
+
+    let bedData = $("#editorBed").val();
+    bedAnnot = bedParser(bedData);
     
     if(bedAnnot){
         /* config.annotations = bedAnnot;
@@ -988,6 +991,8 @@ function graphSetup(data){
             floorPositions[origine] = document.getElementsByClassName("mouse-line")[0].attributes.d.value; //update floorPositions with the value clicked
 
             globalUpdate(floorValues,selectedChromosome,floorPositions,data);
+            let bedData = $("#editorBed").val();
+            bedAnnot = bedParser(bedData);
             if(bedAnnot){
                 /* config.annotations = bedAnnot;
                 config.annotationsLayout= 'tracks'; */
@@ -998,7 +1003,8 @@ function graphSetup(data){
         });
 
     globalUpdate(floorValues,selectedChromosome,floorPositions,data);
-    
+    let bedData = $("#editorBed").val();
+    bedAnnot = bedParser(bedData);
     if(bedAnnot){
         /* config.annotations = bedAnnot;
         config.annotationsLayout= 'tracks'; */
