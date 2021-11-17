@@ -7,9 +7,9 @@ export function addTooltip(annotTable, gblink){
 
 	//Appel au serveur
     // genère un gff à envoyer au genome browser
-	let annot = $("#editorAnnot").val();
+	//let annot = $("#editorAnnot").val();
 	let color = $("#editorColor").val();
-    socket.emit('gff', annot, color, function(err, addTrack){
+    socket.emit('gff', annotTable, color, function(err, addTrack){
         if(err){
             console.log(err);
         }else{
@@ -51,7 +51,7 @@ export function addTooltip(annotTable, gblink){
 					//const regexp = /(chr\d+)/.exec(clippath);
 
 					//set the url to the retrieved chromosome
-					let url = 'Go to genome browser\<br/\>\<a href=\"'+gblink+'?loc=chr'+chr+':'+start+'..'+stop+'&'+addTrack+'\"\>Chr'+chr+' '+start+'..'+stop+'\<\/a\>';
+					let url = 'Go to genome browser\<br/\>\<a target=\"_blank\" href=\"'+gblink+'?loc=chr'+chr+':'+start+'..'+stop+'&'+addTrack+'\"\>Chr'+chr+' '+start+'..'+stop+'\<\/a\>';
 
 					
 					let g = document.createElementNS('http://www.w3.org/2000/svg', 'g');

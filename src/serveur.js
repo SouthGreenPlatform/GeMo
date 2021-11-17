@@ -92,7 +92,7 @@ io.on('connection', socket => {
         console.log("gff");
 
         //enregistre les fichiers necessaires au script
-        fs.writeFile(analysisDir+'annot.txt', annot, {encoding:'utf8', flag : 'w+' }, function (err) {
+        fs.writeFile(analysisDir+'annot.txt', annot.join("\n"), {encoding:'utf8', flag : 'w+' }, function (err) {
             //err
             if (err) return console.log("error write file "+err);
             console.log(analysisDir+'annot.txt saved');
