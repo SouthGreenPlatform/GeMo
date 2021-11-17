@@ -1,65 +1,93 @@
 //Ajoute les tooltips, lien vers genome browser
 export function addTooltip(annotTable, gblink){
 
-	console.log("add tooltip "+gblink);
-	//compteur pour retrouver les infos de coordonées du bloc
-	let blocCount = 0;
+	//console.log(annotTable);
 
-	//parcourir chaque .range de .range-set = chaque bloc svg
-	//si transparent => supprimer le bloc
-	//sinon copier le bloc et append to range-set.parent dans une nouvelle balise g
-	$(".range").each(function(index ){
-		
-		if ($(this).attr('style') == 'fill: transparent;'){
-			//console.log("remove");
-			$(this).remove();
+	//console.log("add tooltip "+gblink);
 
-		}else{
+	//Appel au serveur
+    // genère un gff à envoyer au genome browser
+	let annot = $("#editorAnnot").val();
+	let color = $("#editorColor").val();
+    socket.emit('gff', annot, color, function(err, addTrack){
+        if(err){
+            console.log(err);
+        }else{
 
-			//retreive annotations of the current bloc
-			//annotTable = fichier accession
-			//+1 pour ne pas tenir compte de l'en-tête des annots
-			let annotBloc = annotTable[blocCount+1];
-			const annotElements = annotBloc.split(/[ \t]+/);
-			
-			let chr = annotElements[0];
-			let start = annotElements[2];
-			let stop = annotElements[3];
-			// console.log(chr + ' ' + start+ ' '+stop);
+			//.log(addTrack);
+			addTrack = encodeURI(addTrack);
+			//console.log(addTrack);
+			//compteur pour retrouver les infos de coordonées du bloc
+			let blocCount = 0;
 
-			let rangeset = $(this).parent();
-			let chromosome = rangeset.parent();
+			//parcourir chaque .range de .range-set = chaque bloc svg
+			//si transparent => supprimer le bloc
+			//sinon copier le bloc et append to range-set.parent dans une nouvelle balise g
+			$(".range").each(function(index ){
+				
+				if ($(this).attr('style') == 'fill: transparent;'){
+					//console.log("remove");
+					$(this).remove();
 
-			//retrieve chromosome position
-			//let clippath = chromosome.attr('clip-path');
-			//const regexp = /(chr\d+)/.exec(clippath);
+				}else{
 
-			//set the url to the retrieved chromosome
-			let url = 'Go to genome browser\<br/\>\<a href=\"'+gblink+'?loc=chr'+chr+':'+start+'..'+stop+'\"\>Chr'+chr+' '+start+'..'+stop+'\<\/a\>'
-			let g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-			g.setAttributeNS(null, 'class', 'bloc-annot');
+					//retreive annotations of the current bloc
+					//annotTable = fichier accession
+					//+1 pour ne pas tenir compte de l'en-tête des annots
+					let annotBloc = annotTable[blocCount+1];
+					//console.log(annotBloc);
+					const annotElements = annotBloc.split(/[ \t]+/);
+					
+					let chr = annotElements[0];
+					let start = annotElements[2];
+					let stop = annotElements[3];
+					// console.log(chr + ' ' + start+ ' '+stop);
 
-			//set the tooltip content, link to genome browser
-			g.setAttribute('title', url);
-			chromosome.append(g);
+					let rangeset = $(this).parent();
+					let chromosome = rangeset.parent();
 
-			let annot = $(this)[0].cloneNode(true);
-			annot.setAttribute('style', 'fill: transparent');
-			g.append(annot);
-			blocCount++;
-			//console.log(blocCount);
-			
-		}
-	});
-	//tooltipster activation
-    $('.bloc-annot').tooltipster({
-		theme: 'tooltipster-punk',
-		contentAsHTML: true,
-		//content: $('#tooltip_content'),
-		interactive: true,
-		contentCloning: true,
-		delay: 100
-	});
+					//retrieve chromosome position
+					//let clippath = chromosome.attr('clip-path');
+					//const regexp = /(chr\d+)/.exec(clippath);
+
+					//set the url to the retrieved chromosome
+					let url = 'Go to genome browser\<br/\>\<a href=\"'+gblink+'?loc=chr'+chr+':'+start+'..'+stop+'&'+addTrack+'\"\>Chr'+chr+' '+start+'..'+stop+'\<\/a\>';
+
+					
+					let g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+					g.setAttributeNS(null, 'class', 'bloc-annot');
+
+					//set the tooltip content, link to genome browser
+					g.setAttribute('title', url);
+					chromosome.append(g);
+
+					let annot = $(this)[0].cloneNode(true);
+					annot.setAttribute('style', 'fill: transparent');
+					g.append(annot);
+					blocCount++;
+					//console.log(blocCount);
+					
+				}
+			});
+			//tooltipster activation
+			$('.bloc-annot').tooltipster({
+				theme: 'tooltipster-punk',
+				contentAsHTML: true,
+				//content: $('#tooltip_content'),
+				interactive: true,
+				contentCloning: true,
+				delay: 100
+			});
+
+
+
+
+
+        }
+    });
+
+
+	
 	
 
 }

@@ -436,9 +436,6 @@ async function load_ideogram_from_form_data(){
         console.log("entered color");
         ancestorsNameColor = parsingColor(d3.tsvParse(colordata));
     }
-
-    //le tableau des couleurs n'est toujours pas calculé
-    let gblink = $("#editorGB").val();
     
 	config.ploidyDesc = [];
 	config.ploidy = Number($('#selectorploidy').val());
@@ -484,8 +481,10 @@ async function load_ideogram_from_form_data(){
 
     //setTimeout(ideoViewbox, 100);
 
+    //Si lien vers genome browser on calcul les tooltips
+    let gblink = $("#editorGB").val();
     if(gblink){
-        setTimeout(addTooltip, 100, annotTable, gblink, ancestorsNameColor);
+        setTimeout(addTooltip, 100, annotTable, gblink);
     }
 
     let bedData = $("#editorBed").val();
@@ -990,28 +989,13 @@ function graphSetup(data){
 
             floorPositions[origine] = document.getElementsByClassName("mouse-line")[0].attributes.d.value; //update floorPositions with the value clicked
 
-            globalUpdate(floorValues,selectedChromosome,floorPositions,data);
-            let bedData = $("#editorBed").val();
-            bedAnnot = bedParser(bedData);
-            if(bedAnnot){
-                /* config.annotations = bedAnnot;
-                config.annotationsLayout= 'tracks'; */
-                setTimeout(ideoViewbox, 100);
-                setTimeout(drawBed, 100, bedAnnot, maxLength);
-                //drawBed(bedAnnot);
-            }
+            globalUpdate(floorValues,selectedChromosome,floorPositions,data,maxLength);
+            
+            
         });
 
-    globalUpdate(floorValues,selectedChromosome,floorPositions,data);
-    let bedData = $("#editorBed").val();
-    bedAnnot = bedParser(bedData);
-    if(bedAnnot){
-        /* config.annotations = bedAnnot;
-        config.annotationsLayout= 'tracks'; */
-        setTimeout(ideoViewbox, 100);
-        setTimeout(drawBed, 100, bedAnnot, maxLength);
-        //drawBed(bedAnnot);
-    }
+    globalUpdate(floorValues,selectedChromosome,floorPositions,data,maxLength);
+    
 }
 
 function legendSetup(){
@@ -1033,11 +1017,21 @@ function legendSetup(){
     }
 }
 
-function globalUpdate(floorValues,selectedChromosome,floorPositions,data){
+function globalUpdate(floorValues,selectedChromosome,floorPositions,data,maxLength){
     refreshCurveOpacity();
     refreshFloor(floorValues,selectedChromosome);
     refreshfloorPositions(floorPositions,selectedChromosome);
     mosaique(floorValues,data);
+
+    let bedData = $("#editorBed").val();
+    bedAnnot = bedParser(bedData);
+    if(bedAnnot){
+        /* config.annotations = bedAnnot;
+        config.annotationsLayout= 'tracks'; */
+        setTimeout(ideoViewbox, 100);
+        setTimeout(drawBed, 100, bedAnnot, maxLength);
+        //drawBed(bedAnnot);
+    }
 }
 
 ///////////////////CREATION DES DONNEES ET SETUP POUR IDEOGRAM///////////////////////
@@ -1158,6 +1152,14 @@ function ideogramConfig(mosaique){
     //apparition du bouton download
 	$('#download').fadeIn();
     $('#saveasurl').fadeIn();
+
+    //Si lien vers genome browser on calcul les tooltips
+    let gblink = $("#editorGB").val();
+    let annotTable = mosaique.split("\n");
+    if(gblink){
+        setTimeout(addTooltip, 100, annotTable, gblink);
+    }
+    
     loadingoff();
 }
 

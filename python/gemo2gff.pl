@@ -5,7 +5,7 @@ use strict;
 # convert gemo block file to gff3 to send to genome browser  #
 ##############################################################
 
-#perl annotToJson.pl ../data/annotations/annot_Nip.txt ../data/annotations/nip.json
+#perl gemo2gff.pl path/to/annot.txt path/to/color.txt path/to/write/gemo.gff
 
 my $inFile = shift;
 my $color = shift;

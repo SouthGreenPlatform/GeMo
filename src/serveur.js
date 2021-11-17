@@ -87,6 +87,39 @@ io.on('connection', socket => {
 		});
 	});
 
+
+    socket.on ( "gff" , (annot, color, callback) => {
+        console.log("gff");
+
+        //enregistre les fichiers necessaires au script
+        fs.writeFile(analysisDir+'annot.txt', annot, {encoding:'utf8', flag : 'w+' }, function (err) {
+            //err
+            if (err) return console.log("error write file "+err);
+            console.log(analysisDir+'annot.txt saved');
+        });
+
+        //enregistre les fichiers necessaires au script
+        fs.writeFile(analysisDir+'color.txt', color, {encoding:'utf8', flag : 'w+' }, function (err) {
+            //err
+            if (err) return console.log("error write file "+err);
+            console.log(analysisDir+'color.txt saved');
+        });
+
+        const { exec } = require("child_process");
+        exec(`perl ${progPath}gemo2gff.pl ./annot.txt ./color.txt ./gemo.gff`, (error, stdout, stderr) => {
+            console.log(`${progPath}gemo2gff.pl ./annot.txt ./color.txt ./gemo.gff`);
+            if (error) {
+                console.error(`exec error: ${error}`);
+            }
+            console.log(`stdout: ${stdout}`);
+        });
+
+        let trackURL = "addStores={\"url\":{\"type\":\"JBrowse/Store/SeqFeature/GFF3\",\"urlTemplate\":\"http://dev.visusnp.southgreen.fr/gemo/tmp/gemo_run/gemo_"+socket.id+"/gemo.gff\"}}&addTracks=[{\"label\":\"genes\",\"type\":\"JBrowse/View/Track/CanvasFeatures\",\"store\":\"url\"}]";
+
+        callback(null, trackURL);
+    });
+    
+    
     socket.on('saveAsURL', (annot, chrom, color, callback) => {
 		console.log("save as url");
         //copy directory to saved location
@@ -117,16 +150,6 @@ io.on('connection', socket => {
             if (err) return console.log("error write file "+err);
             console.log(savedDir+'annot.txt saved');
         });
-        fs.writeFile(savedDir+'chrom.txt', chrom, {encoding:'utf8', flag : 'w+' }, function (err) {
-            //err
-            if (err) return console.log("error write file "+err);
-            console.log(savedDir+'chrom.txt saved');
-        });
-        fs.writeFile(savedDir+'color.txt', color, {encoding:'utf8', flag : 'w+' }, function (err) {
-            //err
-            if (err) return console.log("error write file "+err);
-            console.log(savedDir+'color.txt saved');
-        });
         callback(null, socket.id);
 	});
 
@@ -147,6 +170,8 @@ io.on('connection', socket => {
         }
         rimraf(analysisDir);
     });
+
+    
 
 
     /* app.post('/upload', function(req, res){
