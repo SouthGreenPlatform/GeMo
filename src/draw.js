@@ -21,7 +21,7 @@ export function drawBed(bedAnnot, maxLength){
 
 			//draw
 			console.log(obj.chr);
-			d3.selectAll(".chromosome-set").select("[id^='chr"+obj.chr+"']")
+			d3.selectAll(".chromosome-set").select("[id^='chr"+obj.chr+"-']")
 			.append("rect")       // attach a rectangle
 			.style("fill", "black")
 			.attr('title', "Name: "+obj.name+" \nStart: "+obj.start+" Stop: "+obj.stop)
