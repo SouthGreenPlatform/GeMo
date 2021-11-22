@@ -184,7 +184,7 @@ A list of genomic coordinates (e.g. genes of interest, QTLs) can be provided in 
      - +
      
 Data outputs
-===========
+============
 
 Once data is provided the chromosome diagram is generated on the fly. Chromosomes display colored blocks usually corresponding to their ancestral/parental origin. An interactive legend is present to label each group with a corresponding color. The user can modify the color of a group directly in the legend.
 
@@ -207,6 +207,15 @@ In this mode, the graph represents the proportion of haplotypes of each ancestra
    :alt: curves
 
 In this example, allelic ratio for a range of founding genepools are respresented by different colors for chromosome 1. Two genepools in green is the main contributor with smaller contribtuons from the blue and red gene pools.
+
+Data curation and export
+=======================
+
+Uploaded datasets are automatically loaded in the text box of the GeMo menu, allowing users to update the content and reflect it on the image by clicking on the "update image" button.
+
+In curve mode, The user can visually set the threshold on the graph to recalculate the mosaic block contribution. This can be particularly useful when multiple putative parental gene pools with unclear signals can create noisy mosaics or to switch segments from one haplotype to another for better consistency. Once a threshold is changed, the karyotype diagram is automatically updated.
+
+Gemo offers the possibility to download the latest version of the data sets and export the output graphics as SVG for publication purposes. In addition, data can be also stored temporarily online with a unique URL allowing to share it with multiple users.
 
 
 Live demo
