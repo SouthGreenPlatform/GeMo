@@ -222,6 +222,9 @@ fondation.
 Troubleshooting and web browser compatibility
 =============================================
 
+
+The web interfaces were tested with the following platforms and web browsers:
+
 .. list-table::
    :header-rows: 1
 
