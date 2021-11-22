@@ -133,7 +133,9 @@ chr, len, centromereInf (optional), centromereSup (optional), label (optional)
      - 38870123
      - AB
 
-Optional file
+Optional files
+
+Users can provide their own color codes or use the online features (custom or color blind friendly palettes) 
 
 **Color**
 
@@ -157,6 +159,8 @@ Optional file
      - #00b009
 
 **Annotations**
+
+A list of genomic coordinates (e.g. genes of interest, QTLs) can be provided in a BED-like to visually spot the corresponding regions on the chromosomes. This can be particularly useful to check correlations between parental/ancestral blocks and genes/regions of interest.
  
 .. list-table::
 
