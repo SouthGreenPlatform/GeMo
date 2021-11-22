@@ -88,7 +88,7 @@ io.on('connection', socket => {
 	});
 
 
-    socket.on ( "gff" , (annot, color, callback) => {
+    socket.on ( "gff" , (annot, color, ploidy, callback) => {
         console.log("gff");
 
         //enregistre les fichiers necessaires au script
@@ -105,18 +105,66 @@ io.on('connection', socket => {
             console.log(analysisDir+'color.txt saved');
         });
 
+        //remove old GFF
+        //pour chaque gff generé
+        fs.readdir(analysisDir, (err, files) => {
+            if (err)
+                console.log(err);
+            else {
+                files.forEach(file => {
+                    if(file.match(/gff/)){
+                        try {
+                            fs.unlinkSync(analysisDir+file)
+                            console.log('remove '+ analysisDir+file);//file removed
+                        } catch(err) {
+                            console.error(err)
+                        }
+                    }
+                });
+            }
+        });
+        
+        //cree les gff
         const { exec } = require("child_process");
-        exec(`perl ${progPath}gemo2gff.pl ./annot.txt ./color.txt ./gemo.gff`, (error, stdout, stderr) => {
-            console.log(`${progPath}gemo2gff.pl ./annot.txt ./color.txt ./gemo.gff`);
+        exec(`perl ${progPath}gemo2gff.pl ${ploidy} ./annot.txt ./color.txt ./`, (error, stdout, stderr) => {
+            console.log(`${progPath}gemo2gff.pl ./annot.txt ./color.txt ./`);
             if (error) {
                 console.error(`exec error: ${error}`);
             }
             console.log(`stdout: ${stdout}`);
+            
+            let trackURL ="";
+            let addStores ="&addStores={";
+            let addTracks ="&addTracks=[";
+            let index =0;
+            let first = true;
+            //pour chaque gff generé
+            fs.readdir(analysisDir, (err, files) => {
+                if (err)
+                    console.log(err);
+                else {
+                    console.log("\nCurrent gff files:");
+                    files.forEach(file => {
+                        if(file.match(/gff/)){
+                            console.log(file);
+                            if(!first){
+                                addStores += ",";
+                                addTracks += ",";
+                            }
+                            addStores += "\"url"+index+"\":{\"type\":\"JBrowse/Store/SeqFeature/GFF3\",\"urlTemplate\":\"https://banana-tools-genome-hub.southgreen.fr/gemo/tmp/gemo_saved/gemo_"+socket.id+"/"+file+"\"}";
+                            addTracks += "{\"label\":\"gemo"+index+"\",\"type\":\"JBrowse/View/Track/CanvasFeatures\",\"store\":\"url"+index+"\"}";
+                            index ++;
+                            first = false;
+                        } 
+                    });
+                    addStores += "}";
+                    addTracks += "]";
+                    trackURL = addStores + addTracks;
+                    console.log(trackURL);
+                    callback(null, trackURL);
+                }
+            });  
         });
-
-        let trackURL = "addStores={\"url\":{\"type\":\"JBrowse/Store/SeqFeature/GFF3\",\"urlTemplate\":\"http://dev.visusnp.southgreen.fr/gemo/tmp/gemo_run/gemo_"+socket.id+"/gemo.gff\"}}&addTracks=[{\"label\":\"genes\",\"type\":\"JBrowse/View/Track/CanvasFeatures\",\"store\":\"url\"}]";
-
-        callback(null, trackURL);
     });
     
     

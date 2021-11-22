@@ -8,6 +8,7 @@ $Data::Dumper::Indent = 0;
 
 #perl gemo2gff.pl path/to/annot.txt path/to/color.txt path/to/write/gemo.gff
 
+my $ploidy = shift;
 my $inFile = shift;
 my $color = shift;
 my $gff = shift;
@@ -40,8 +41,13 @@ while (<COLOR>) {
 }
 close COLOR;
 
+my %handles;
 #create gff output file
-open GFF, ">$gff" or die "cannot create $gff !\n";
+for(my $i = 0; $i<$ploidy; $i++) {
+    open my $fh, ">$i.gff" or die "cannot create $i.gff !\n";
+    $handles{$i} =  $fh;
+}
+
 
 #parse infile
 open INFILE, "$inFile" or die "cannot open $inFile !\n";
@@ -64,8 +70,12 @@ while (<INFILE>) {
         my $val = $5;
         $val =~ s/\s+$//; #enleve les espace en fin de chaine
 
-        print GFF "Chr$chr\tGeMo\tmatch\t$start\t$stop\t.\t.\t.\tID=$color{$val}{'name'};Name=$color{$val}{'name'};Hap=$hap;Color=$color{$val}{'color'}\n";        
+        print { $handles{$hap} } "Chr$chr\tGeMo\tmatch\t$start\t$stop\t.\t.\t.\tID=$color{$val}{'name'};Name=$color{$val}{'name'};Hap=$hap;Color=$color{$val}{'color'}\n";        
     }
 }
 close INFILE;
-close GFF;
+
+for(my $i = 0; $i<$ploidy; $i++) {
+    
+    close ( $handles{$i} );
+}

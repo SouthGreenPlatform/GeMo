@@ -5,11 +5,14 @@ export function addTooltip(annotTable, gblink){
 
 	//console.log("add tooltip "+gblink);
 
+	let ploidy = $("#selectorploidy").val();
+	console.log(ploidy);
+
 	//Appel au serveur
     // genère un gff à envoyer au genome browser
 	//let annot = $("#editorAnnot").val();
 	let color = $("#editorColor").val();
-    socket.emit('gff', annotTable, color, function(err, addTrack){
+    socket.emit('gff', annotTable, color, ploidy, function(err, addTrack){
         if(err){
             console.log(err);
         }else{
