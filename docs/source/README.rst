@@ -192,6 +192,11 @@ Once data is provided the chromosome diagram is generated on the fly. Chromosome
 
 Gemo offers the possibility to export the output graphics as SVG for publication purposes. It also proposes the latest version of the data sets, which corresponds to input datasets (edited if curation was condcuted).
 
+.. image:: _images/curve.png
+   :target: _images/curve.png
+   :width: 250
+   :alt: blocks
+
 Live demo
 =========
 
@@ -208,3 +213,36 @@ Acknowledgements
 
 GeMo has been developed in the framework of the `Genome Harvest project <https://www.genomeharvest.fr>`__ supported by the Agropolis
 fondation.
+
+Troubleshooting and web browser compatibility
+=============================================
+
+.. list-table::
+   :header-rows: 1
+
+   * - OS
+     - Version
+     - Chrome
+     - Firefox
+     - Edge
+     - Safari
+   * - Windows 10
+     - 
+     - 
+     -
+     -
+     -
+   * - Linux
+     - 
+     - 
+     -
+     -
+     -
+   * - Mac OS
+     - 
+     - 
+     -
+     -
+     -
+
+
