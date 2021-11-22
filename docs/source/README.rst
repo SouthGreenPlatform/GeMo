@@ -186,6 +186,8 @@ Once data is provided the chromosome diagram is generated on the fly. Chromosome
 
 1. Blocks 
 
+In the example below, the 11 chromosomes of an doploid organism is visualized. Three main colors (green, blue and red) are visible and corresponds to 3 distinct genepools that contributed to the genetic make up of this genotype. The segements in grey corresponds to unknown.
+
 .. image:: _images/bloc.png
    :target: _images/bloc.png
    :width: 500
