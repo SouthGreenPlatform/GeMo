@@ -152,7 +152,7 @@ io.on('connection', socket => {
                                 addTracks += ",";
                             }
                             addStores += "\"url"+index+"\":{\"type\":\"JBrowse/Store/SeqFeature/GFF3\",\"urlTemplate\":\"https://banana-tools-genome-hub.southgreen.fr/gemo/tmp/gemo_saved/gemo_"+socket.id+"/"+file+"\"}";
-                            addTracks += "{\"label\":\"gemo"+index+"\",\"type\":\"JBrowse/View/Track/CanvasFeatures\",\"store\":\"url"+index+"\"}";
+                            addTracks += "{\"label\":\"gemo"+index+"\",\"type\":\"JBrowse/View/Track/CanvasFeatures\",\"store\":\"url"+index+"\",\"style\":{\"color\":\"function(feature){return feature.get('color')}\"}}";
                             index ++;
                             first = false;
                         } 

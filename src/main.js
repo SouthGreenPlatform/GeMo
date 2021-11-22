@@ -296,6 +296,7 @@ $('#organism').change(function () {
         let filterData = arrData.filter(function(value) {
             return value.Study === study;
         });
+        console.log(filterData);
         //demarre la section optgroup
         //$('#sample').append('<optgroup label="'+study+'">');
         var optgroup = document.createElement("optgroup");
@@ -312,7 +313,7 @@ $('#organism').change(function () {
         //ferme la section optgroup
         $('#sample').append(optgroup);
     });
-     $('#sample').select2({
+    $('#sample').select2({
         placeholder: 'Select sample',
     });  
 });
