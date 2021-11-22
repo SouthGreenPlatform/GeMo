@@ -227,11 +227,11 @@ Troubleshooting and web browser compatibility
      - Edge
      - Safari
    * - Windows 10
-     - 
-     - 
-     -
-     -
-     -
+     - 10
+     - 88.0.4324.150
+     - 94.0.1
+     - 96.0.1054.29
+     - n/a
    * - Linux
      - 
      - 
