@@ -193,13 +193,14 @@ Once data is provided the chromosome diagram is generated on the fly. Chromosome
    
 2. Curves
 
-In this mode, the graph represent the proportion of haplotypes of each ancestral origin along chromosomes. They are the results of a normalisation of the number of reads supporting each origin on a given window.
+In this mode, the graph represents the proportion of haplotypes of each ancestral origin along chromosomes. They are the results of a normalisation of the number of reads supporting each origin on a given window.
 
 .. image:: _images/curve.png
    :target: _images/curve.png
    :width: 700
    :alt: curves
 
+In this example, allelic ratio for a range of founding genepools are respresented by different colors for chromosome 1. Two genepools in green is the main contributor with smaller contribtuons from the blue and red gene pools.
 
 
 Live demo
