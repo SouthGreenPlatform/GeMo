@@ -18,8 +18,8 @@ Data inputs
 
 GeMo requires two types of datasets to generate the ideogram visualization
 
-.. image:: _images/menu.png
-   :target: _images/menu.png
+.. image:: ./docs/source/_images/menu.png
+   :target: ./docs/source/_images/menu.png
    :width: 250
    :alt: Menu
 
@@ -192,8 +192,8 @@ Once data is provided the chromosome diagram is generated on the fly. Chromosome
 
 In the example below, the 11 chromosomes of an doploid organism is visualized. Three main colors (green, blue and red) are visible and corresponds to 3 distinct genepools that contributed to the genetic make up of this genotype. The segements in grey corresponds to unknown.
 
-.. image:: _images/bloc.png
-   :target: _images/bloc.png
+.. image:: ./docs/source/_images/bloc.png
+   :target: ./docs/source/_images/bloc.png
    :width: 500
    :alt: blocks
    
@@ -201,8 +201,8 @@ In the example below, the 11 chromosomes of an doploid organism is visualized. T
 
 In this mode, the graph represents the proportion of haplotypes of each ancestral origin along chromosomes. They are the results of a normalisation of the number of reads supporting each origin on a given window.
 
-.. image:: _images/curve.png
-   :target: _images/curve.png
+.. image:: ./docs/source/_images/curve.png
+   :target: ./docs/source/_images/curve.png
    :width: 700
    :alt: curves
 
