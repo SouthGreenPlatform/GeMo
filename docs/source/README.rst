@@ -133,7 +133,9 @@ chr, len, centromereInf (optional), centromereSup (optional), label (optional)
      - 38870123
      - AB
 
-Optional file
+Optional files
+
+Users can provide their own color codes or use the online features (custom or color blind friendly palettes) 
 
 **Color**
 
@@ -157,6 +159,8 @@ Optional file
      - #00b009
 
 **Annotations**
+
+A list of genomic coordinates (e.g. genes of interest, QTLs) can be provided in a BED-like to visually spot the corresponding regions on the chromosomes. This can be particularly useful to check correlations between parental/ancestral blocks and genes/regions of interest.
  
 .. list-table::
 
@@ -180,17 +184,39 @@ Optional file
      - +
      
 Data outputs
-===========
+============
 
 Once data is provided the chromosome diagram is generated on the fly. Chromosomes display colored blocks usually corresponding to their ancestral/parental origin. An interactive legend is present to label each group with a corresponding color. The user can modify the color of a group directly in the legend.
 
+1. Blocks 
+
+In the example below, the 11 chromosomes of an doploid organism is visualized. Three main colors (green, blue and red) are visible and corresponds to 3 distinct genepools that contributed to the genetic make up of this genotype. The segements in grey corresponds to unknown.
+
 .. image:: _images/bloc.png
    :target: _images/bloc.png
-   :width: 250
+   :width: 500
    :alt: blocks
    
+2. Curves
 
-Gemo offers the possibility to export the output graphics as SVG for publication purposes. It also proposes the latest version of the data sets, which corresponds to input datasets (edited if curation was condcuted).
+In this mode, the graph represents the proportion of haplotypes of each ancestral origin along chromosomes. They are the results of a normalisation of the number of reads supporting each origin on a given window.
+
+.. image:: _images/curve.png
+   :target: _images/curve.png
+   :width: 700
+   :alt: curves
+
+In this example, allelic ratio for a range of founding genepools are respresented by different colors for chromosome 1. Two genepools in green is the main contributor with smaller contribtuons from the blue and red gene pools.
+
+Data curation and export
+=======================
+
+Uploaded datasets are automatically loaded in the text box of the GeMo menu, allowing users to update the content and reflect it on the image by clicking on the "update image" button.
+
+In curve mode, The user can visually set the threshold on the graph to recalculate the mosaic block contribution. This can be particularly useful when multiple putative parental gene pools with unclear signals can create noisy mosaics or to switch segments from one haplotype to another for better consistency. Once a threshold is changed, the karyotype diagram is automatically updated.
+
+Gemo offers the possibility to download the latest version of the data sets and export the output graphics as SVG for publication purposes. In addition, data can be also stored temporarily online with a unique URL allowing to share it with multiple users.
+
 
 Live demo
 =========
@@ -208,3 +234,39 @@ Acknowledgements
 
 GeMo has been developed in the framework of the `Genome Harvest project <https://www.genomeharvest.fr>`__ supported by the Agropolis
 fondation.
+
+Troubleshooting and web browser compatibility
+=============================================
+
+
+The web interfaces were tested with the following platforms and web browsers:
+
+.. list-table::
+   :header-rows: 1
+
+   * - OS
+     - Version
+     - Chrome
+     - Firefox
+     - Edge
+     - Safari
+   * - Windows 10
+     - 10
+     - 88.0.4324.150
+     - 94.0.1
+     - 96.0.1054.29
+     - n/a
+   * - Linux
+     - 
+     - 
+     -
+     -
+     -
+   * - Mac OS
+     - 
+     - 
+     -
+     -
+     -
+
+
