@@ -493,7 +493,8 @@ chr	haplotype	start	end	ancestral_group
 
 <img class="tooltip_img" src="./public/img/bloc.png"></img>
 
-Enter a file containing the ancestral components along the chromosomes to display an interactive graph and generate a new mosaïc visualisation :
+Enter a file containing the ancestral components along the chromosomes to display an interactive graph 
+and generate a new mosaïc visualisation :
 
 chr	start	end	V	T	S
 chr01	1145	189582	0.001671983513048138	0.014082301923852172	0.0016386866759508464
@@ -507,12 +508,16 @@ Generating datasets
 In order to generate ready-to-use datasets, analyses can be conducted with the following software:
 
 * VCFHunter
-VCFHunter is a suite of python scripts enabling chromosome painting of indivisual based on the contribution of ancestral groups using VCF files.
-Please look at the tutorial: https://github.com/SouthGreenPlatform/VcfHunter/blob/master/turorial_painting_GEMO_visualization.md
+VCFHunter is a suite of python scripts enabling chromosome painting of indivisual based on the contribution 
+of ancestral groups using VCF files.
+Please look at the tutorial: 
+https://github.com/SouthGreenPlatform/VcfHunter/blob/master/turorial_painting_GEMO_visualization.md
 
 * TraceAncestor
-TraceAncestor permits to estimate the allelic dosage of ancestral alleles in hybrid individuals and then to perform chromosom painting.
-Please look at the tutorial: https://github.com/SouthGreenPlatform/TraceAncestor_gemo
+TraceAncestor permits to estimate the allelic dosage of ancestral alleles in hybrid individuals and then 
+to perform chromosom painting.
+Please look at the tutorial: 
+https://github.com/SouthGreenPlatform/TraceAncestor_gemo
 		<pre>
 	</span>
 </div>

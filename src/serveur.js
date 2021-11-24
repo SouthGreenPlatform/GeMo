@@ -198,6 +198,16 @@ io.on('connection', socket => {
             if (err) return console.log("error write file "+err);
             console.log(savedDir+'annot.txt saved');
         });
+        fs.writeFile(savedDir+'chrom.txt', chrom, {encoding:'utf8', flag : 'w+' }, function (err) {
+            //err
+            if (err) return console.log("error write file "+err);
+            console.log(savedDir+'chrom.txt saved');
+        });
+        fs.writeFile(savedDir+'color.txt', color, {encoding:'utf8', flag : 'w+' }, function (err) {
+            //err
+            if (err) return console.log("error write file "+err);
+            console.log(savedDir+'color.txt saved');
+        });
         callback(null, socket.id);
 	});
 
