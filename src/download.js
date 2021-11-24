@@ -1,17 +1,30 @@
 export function downloadArchive(){
 
+    //genère un ID
+    var date = new Date();
+    var components = [
+        date.getYear(),
+        date.getMonth(),
+        date.getDate(),
+        date.getHours(),
+        date.getMinutes(),
+        date.getSeconds(),
+        date.getMilliseconds()
+    ];
+    var id = components.join("");
+
     let blob_svg = exportSVG(document.getElementById('_ideogram'));
     ///ARCHIVE
     var zip = new JSZip();
-    zip.file("gemo.svg", blob_svg); // <-- JSZip v3 accepts blob
+    zip.file("gemo_"+id+".svg", blob_svg); // <-- JSZip v3 accepts blob
     //retreive other data from form
-    zip.file("input.txt", $("#editorAnnot").val());
-    zip.file("chromosomes.txt", $("#editorChr").val());
-    zip.file("color.txt", $("#editorColor").val());
+    zip.file("input_"+id+".txt", $("#editorAnnot").val());
+    zip.file("chromosomes_"+id+".txt", $("#editorChr").val());
+    zip.file("color_"+id+".txt", $("#editorColor").val());
                 
     //generate zip
     let content = zip.generateAsync({type:"blob"}).then(function (blob) {
-        saveAs(blob, "gemo.zip"); // <-- trigger the download
+        saveAs(blob, "gemo_"+id+".zip"); // <-- trigger the download
     }, function (e) {
         console.error(e)
     });
