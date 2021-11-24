@@ -557,6 +557,24 @@ chr02	15358393	15361764	gene	0	+
 </div>
 </div>
 
+<div class="tooltip_templates" >
+<div class="help_content" id="tooltip_gb">	
+	<span class="help_content" id="tooltip_gb">
+		<pre>
+Jbrowse link example : 
+https://banana-genome-hub.southgreen.fr/content/m-acuminata-dh-pahang-version-2/
+
+GeMo will generate tooltips when hovering over each chromosomal block. 
+A link is displayed to explore a chromosome block directly on jbrowse. 
+<img class="tooltip_img" src="./public/img/tooltip.png"></img>
+
+The mosaic data are sent as tracks to be viewed in jbrowse.
+<img class="tooltip_img" src="./public/img/jbrowse.png"></img>
+		<pre>
+	</span>
+</div>
+</div>
+
 
 
 
