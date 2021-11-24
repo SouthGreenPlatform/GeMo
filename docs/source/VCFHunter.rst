@@ -285,25 +285,21 @@ following command line:
 .. code-block:: bash
 
    mkdir step5
-   <path_vcfhunter>/convertForIdeo.py --name Kunnan --dir step4 --col color.conf --size chromosome.tab --prefix step5/Kunnan
+   <path_vcfhunter>/convertForIdeo.py --name Kunnan --dir step4 --col color.conf --size chromosome.tab --prefix step5/Kunnan --plo 2
 
 This command generate several files. A file named
 
 -  **Kunnan_ideo.tab** that contained block that could be drawn with
-   GEMO (data section), a file named
+   GeMo (data section), a file named
+-  **Kunnan_curve.tab** that contained block that could be drawn with
+   GeMo (data section), a file named
+-  **Kunnan_ideoProb.tab** that contained block that could be drawn with
+   GeMo (data section), a file named
 -  **Kunnan_chrom.tab** that contained information required to draw
    chromosomes.
 -  **Kunnan_color.tab** contained color information that could be used
    to draw blocks with custom color.
--  **Kunnan_win_ratio.tab**
 
-For blocks refinement using custom and adjustable parameters. The file
-of normalized ratio should be reformatted with this simple command line
-to obtain a file named **Kunnan_win_ratio.tab**:
-
-.. code-block:: bash
-
-   zcat step4/Kunnan_win_ratio.tab.gz | awk '{$2=""; print $0}' | sed 's/CHR/chr/' | sed 's/Start/start/' | sed 's/End/end/' | sed 's/  / /g' | sed 's/ /\t/g' | sort -k1,1 -k2n,2  > step5/Kunnan_win_ratio.tab
 
 Visualization and block refinement with GeMo
 ============================================
