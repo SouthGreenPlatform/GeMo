@@ -291,7 +291,8 @@ This command generate several files. A file named
 
 -  **Kunnan_ideo.tab** that contained block that could be drawn with
    GeMo (data section), a file named
--  **Kunnan_curve.tab**
+-  **Kunnan_curve.tab** that contained block that could be drawn with
+   GeMo (data section), a file named
 -  **Kunnan_ideoProb.tab** that contained block that could be drawn with
    GeMo (data section), a file named
 -  **Kunnan_chrom.tab** that contained information required to draw
