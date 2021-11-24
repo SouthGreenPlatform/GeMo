@@ -445,9 +445,15 @@ input.form-control {
 }
 
 .tooltip_img{
-  max-width: 30%;
+  max-width: 30vw;
   border: solid;
   border-width: 1px;
+}
+
+.help_content{
+  max-width: 500px;
+  max-height: 400px;
+  
 }
 
 

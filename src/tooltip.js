@@ -159,6 +159,7 @@ export function addHelpTooltips() {
 		theme: 'tooltipster-noir',
 		contentAsHTML: true,
 		trigger: 'click',
+		position: 'right',
 		interactive: true,
 		contentCloning: true,
 		delay: 100
