@@ -433,7 +433,7 @@ echo "<script> load_ideogram()</script>";
 </div> 
 
 <div class="tooltip_templates" >
-	<span id="tooltip_blocOrCurve">
+	<span class="help_content" id="tooltip_blocOrCurve">
 		<pre>
 Mosaic visualization shows colored blocs on the chromosomes:
 <img class="tooltip_img" src="./public/img/bloc.png"></img>
@@ -446,21 +446,21 @@ on an interactive graph to help the mosaïc construction:
 	</span>
 </div>
 <div class="tooltip_templates" >
-	<span id="tooltip_preloaded">
+	<span class="help_content" id="tooltip_preloaded">
 		<pre>
 Preloaded data generated with VCFHunter and TraceAncestor
 		<pre>
 	</span>
 </div>
 <div class="tooltip_templates" >
-	<span id="tooltip_your_data">
+	<span class="help_content" id="tooltip_your_data">
 		<pre>
 Generate a visualization with your custom chromosomes data.
 		<pre>
 	</span>
 </div>
 <div class="tooltip_templates" >
-	<span id="tooltip_help">
+	<span class="help_content" id="tooltip_help">
 		<pre>
 Chromosome data format, each column tab separated
 chr, len, centromereInf (optional), centromereSup (optional), label (optional)
@@ -480,8 +480,9 @@ chr11	34441343	15000000	20000000	AB
 		<pre>
 	</span>
 </div>	
-<div class="tooltip_templates" >	
-	<span id="tooltip_input">
+<div class="tooltip_templates" >
+<div class="help_content" id="tooltip_input">		
+	<span class="help_content" ">
 		<pre>
 Enter a block file to display the mosaïc visualization :
 
@@ -521,8 +522,10 @@ https://github.com/SouthGreenPlatform/TraceAncestor_gemo
 		<pre>
 	</span>
 </div>
-<div class="tooltip_templates" >	
-	<span id="tooltip_colors">
+</div>
+<div class="tooltip_templates" >
+<div class="help_content" id="tooltip_colors">		
+	<span class="help_content" ">
 		<pre>
 group	name	hex
 un	undef_group	#b4b4b4
@@ -538,8 +541,10 @@ g0	group0	#000000
 		<pre>
 	</span>
 </div>
-<div class="tooltip_templates" >	
-	<span id="tooltip_bed">
+</div>
+<div class="tooltip_templates" >
+<div class="help_content" id="tooltip_bed">	
+	<span class="help_content" id="tooltip_bed">
 		<pre>
 bed file example :
 chr01	5287838	5289224	gene	0	-
@@ -549,6 +554,7 @@ chr02	2276353	2277821	gene	0	+
 chr02	15358393	15361764	gene	0	+
 		<pre>
 	</span>
+</div>
 </div>
 
 
