@@ -913,17 +913,6 @@
     "ColorFile": "baurens_el_al_color.txt"
 },
 {
-    "ID": "075",
-    "Sample": "Test",
-    "AccessionCode": "",
-    "Organism": "Banana test",
-    "Ploidy": "2",
-    "ChromFile": "banana_curve.tsv",
-    "FileName": "",
-    "FileCurve": "curve_banana.csv",
-    "ColorFile": "curve_color.txt"
-},
-{
     "ID": "076",
     "Sample": "'AAB pattern 1A' (Cachaco)",
     "AccessionCode": "ITC0643",
