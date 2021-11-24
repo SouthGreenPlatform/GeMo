@@ -21,9 +21,9 @@
 <script src="https://cdn.jsdelivr.net/npm/ideogram@1.31.0/dist/js/ideogram.min.js"></script>
 
 <!--Tooltipster-->
-<link rel="stylesheet" type="text/css" href="src/tooltipster/dist/css/tooltipster.bundle.min.css" />
-<link rel="stylesheet" type="text/css" href="src/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-noir.min.css" />
-<script type="text/javascript" src="src/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
+<link rel="stylesheet" type="text/css" href="dist/tooltipster/dist/css/tooltipster.bundle.min.css" />
+<link rel="stylesheet" type="text/css" href="dist/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-noir.min.css" />
+<script type="text/javascript" src="dist/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
 
 <!--select2-->
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />

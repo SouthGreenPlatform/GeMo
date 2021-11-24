@@ -76,7 +76,18 @@ export function addTooltip(annotTable, gblink){
 			$('.bloc-annot').tooltipster({
 				theme: 'tooltipster-punk',
 				contentAsHTML: true,
-				//content: $('#tooltip_content'),
+				trigger: 'custom',
+				triggerOpen: {
+					mouseenter: true,
+					tap: true,
+					click: true
+				},
+				triggerClose: {
+					click: true,
+					mouseleave: true,
+					tap: true,
+					scroll: true
+				},
 				interactive: true,
 				contentCloning: true,
 				delay: 100
@@ -166,7 +177,15 @@ export function addHelpTooltips() {
 	$('.bloc-help').tooltipster({
 		theme: 'tooltipster-noir',
 		contentAsHTML: true,
-		trigger: 'click',
+		trigger: 'custom',
+		triggerOpen: {
+			click: true,
+			tap: true
+		},
+		triggerClose: {
+			click: true,
+			tap: true
+		},
 		position: 'right',
 		interactive: true,
 		contentCloning: true,
