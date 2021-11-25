@@ -52,7 +52,6 @@ io.on('connection', socket => {
     const progPath = '/opt/projects/VisuSNP/htdocs/gemo/python/';
 	const workingPath = '/opt/projects/VisuSNP/htdocs/gemo/tmp/gemo_run/';
 	const analysisDir = workingPath + 'gemo_' + socket.id +'/';
-    const savedDir = '/opt/projects/VisuSNP/htdocs/gemo/tmp/gemo_saved/gemo_' + socket.id +'/';
     fs.mkdirSync(analysisDir);
     //run chrom config
 	socket.on('run', (tsv, callback) => {
@@ -170,6 +169,21 @@ io.on('connection', socket => {
     
     socket.on('saveAsURL', (annot, chrom, color, callback) => {
 		console.log("save as url");
+        //genère un ID
+        var date = new Date();
+        var components = [
+            date.getYear(),
+            date.getMonth(),
+            date.getDate(),
+            date.getHours(),
+            date.getMinutes(),
+            date.getSeconds(),
+            date.getMilliseconds()
+        ];
+        var id = components.join("");
+
+        const savedDir = '/opt/projects/VisuSNP/htdocs/gemo/tmp/gemo_saved/gemo_' + id +'/';
+
         //copy directory to saved location
         /**
          * Look ma, it's cp -R.
@@ -208,7 +222,7 @@ io.on('connection', socket => {
             if (err) return console.log("error write file "+err);
             console.log(savedDir+'color.txt saved');
         });
-        callback(null, socket.id);
+        callback(null, id);
 	});
 
     socket.on ( "disconnect" , function (){
