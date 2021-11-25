@@ -880,6 +880,7 @@ function graphSetup(data){
         .attr("class","color")
         .attr("type","color")
         .attr("value",function(d){
+            console.log( ancestorsNameColor[d.key][1]);
             return ancestorsNameColor[d.key][1];
         })
         .on("change",function(){
@@ -1035,6 +1036,7 @@ function globalUpdate(floorValues,selectedChromosome,floorPositions,data,maxLeng
     }
 }
 
+
 ///////////////////CREATION DES DONNEES ET SETUP POUR IDEOGRAM///////////////////////
 function mosaique(floorValue){
     /*
@@ -1047,59 +1049,56 @@ function mosaique(floorValue){
     1 0 1200001 1400000 #7DC7D2
      */
 
-    // préparation du tableau pour le bloc idéogramme
-    let mosaique = [];
-    for (let i = 0; i < stuffedData.length; i++) {
-        mosaique.push([]);
-    }
+    //console.log(stuffedData);
 
-    let metaBlocks = [];
     let block = [];
-    let chrStr = "chr";
+    let metaBlocks = [];
     let originalChrNumber = "";
-    let countHaplotype = 0;
     let haplotype = Number($('#selectorploidy').val());
 
-    for (let i = 0; i < mosaique.length; i++) {
+/*     Object.keys(floorValue).forEach(function(origineKey) {
+        console.log("orig "+origineKey +" val" + floorValue[origineKey]);
+    }); */
+
+    for (let i = 0; i < stuffedData.length; i++) {
+
+        let listeHaplo = [];
 
         originalChrNumber = stuffedData[i]["chr"].replace(/chr/g,"");
+        
         Object.keys(floorValue).forEach(function(origineKey) {
-            if(countHaplotype !== -1) {
-                //Si pour la valeur de l'origine courante le seuil est dépassé, (détéction d'une dose) et qu'il reste un haplotype à alouer alors j'ajoute une ligne dans mon block
-                if (stuffedData[i][origineKey] >= floorValue[origineKey] && countHaplotype < haplotype) {
 
-                    for (let j = 0; j <= haplotype ; j++) {
-                        if(stuffedData[i][origineKey] >= (floorValue[origineKey]*(j+1)) && countHaplotype < haplotype){
-                            block.push([originalChrNumber, countHaplotype, parseInt(stuffedData[i]["start"]), parseInt(stuffedData[i]["end"]), ancestorsNameColor[origineKey][1],'\n']);
-                            countHaplotype++;
-                        }
-                    }
-                }
-                //Si une dose est détécté mais que plus d'haplotype dispo je met tout le block en gris.
-                else if (stuffedData[i][origineKey] >= floorValue[origineKey] && countHaplotype >= haplotype) {
-                    block = []; //reset block
-                    for (let j = 0; j < haplotype; j++) {
-                        block.push([originalChrNumber, j, parseInt(stuffedData[i]["start"]), parseInt(stuffedData[i]["end"]), "#808080",'\n']);
-                    }
-                    countHaplotype = -1;
-                }
+            //nombre d'haplo detecté pour une origine, valeur entière
+            let seuil = floorValue[origineKey];
+            let haploNum = Math.trunc(stuffedData[i][origineKey] / seuil);
+            let haploFinal = Math.min(haploNum, haplotype);
+            for (let j = 0; j < haploFinal; j++){
+                listeHaplo.push(ancestorsNameColor[origineKey][1]);
             }
+            
         });
 
-        //Si à la fin de la recherche de dose il reste de la place je la remplie avec du gris.
-        if(block.length < haplotype){
-            let emplacementRestant = haplotype - block.length;
-            for (let j = 0; j < emplacementRestant; j++) {
-                block.push([originalChrNumber,countHaplotype,parseInt(stuffedData[i]["start"]),parseInt(stuffedData[i]["end"]),"#808080",'\n']);
-                countHaplotype++;
+        if(listeHaplo.length > haplotype){
+            for(let k = 0; k > haplotype.length; k++){
+                listeHaplo.push("#808080");
+            }
+        }else if(listeHaplo.length < haplotype){
+            for(let k = haplotype - listeHaplo.length; k < haplotype; k++){
+                listeHaplo.push("#808080");
             }
         }
 
-        countHaplotype = 0;
+        let countHaplotype = 0;
+        listeHaplo.forEach(function(val){
+            block.push([originalChrNumber, countHaplotype, parseInt(stuffedData[i]["start"]), parseInt(stuffedData[i]["end"]), val,'\n']);
+            countHaplotype++;
+        });
+
         metaBlocks.push(block);
-        block = [];
-        chrStr = "chr";
+        block=[];
+        //console.log("listehaplo "+listeHaplo);
     }
+
     //console.log("metaBlocks "+metaBlocks);
     let groupedBlock = groupByColor(metaBlocks);
     //console.log("groupedBlock "+groupedBlock);
@@ -1115,6 +1114,90 @@ function mosaique(floorValue){
     //console.log(strMosaique);
     ideogramConfig(strMosaique);
 }
+
+
+
+// function mosaique(floorValue){
+//     /*
+//     1 0 0 200000 #7DC7D2
+//     1 0 200001 400000 #7AA1D2
+//     1 0 400001 600000 #7AA1D2
+//     1 0 600001 800000 #BCE2CA
+//     1 0 800001 1000000 #7AA1D2
+//     1 0 1000001 1200000 #7AA1D2
+//     1 0 1200001 1400000 #7DC7D2
+//      */
+
+//     // préparation du tableau pour le bloc idéogramme
+//     let mosaique = [];
+//     for (let i = 0; i < stuffedData.length; i++) {
+//         mosaique.push([]);
+//     }
+
+//     console.log(stuffedData);
+
+//     let metaBlocks = [];
+//     let block = [];
+//     let chrStr = "chr";
+//     let originalChrNumber = "";
+//     let countHaplotype = 0;
+//     let haplotype = Number($('#selectorploidy').val());
+
+//     for (let i = 0; i < mosaique.length; i++) {
+
+//         originalChrNumber = stuffedData[i]["chr"].replace(/chr/g,"");
+//         Object.keys(floorValue).forEach(function(origineKey) {
+//             if(countHaplotype !== -1) {
+//                 //Si pour la valeur de l'origine courante le seuil est dépassé, (détéction d'une dose) et qu'il reste un haplotype à alouer alors j'ajoute une ligne dans mon block
+//                 if (stuffedData[i][origineKey] >= floorValue[origineKey] && countHaplotype < haplotype) {
+
+//                     for (let j = 0; j <= haplotype ; j++) {
+//                         if(stuffedData[i][origineKey] >= (floorValue[origineKey]*(j+1)) && countHaplotype < haplotype){
+//                             block.push([originalChrNumber, countHaplotype, parseInt(stuffedData[i]["start"]), parseInt(stuffedData[i]["end"]), ancestorsNameColor[origineKey][1],'\n']);
+//                             countHaplotype++;
+//                         }
+//                     }
+//                 }
+//                 //Si une dose est détécté mais que plus d'haplotype dispo je met tout le block en gris.
+//                 else if (stuffedData[i][origineKey] >= floorValue[origineKey] && countHaplotype >= haplotype) {
+//                     block = []; //reset block
+//                     for (let j = 0; j < haplotype; j++) {
+//                         block.push([originalChrNumber, j, parseInt(stuffedData[i]["start"]), parseInt(stuffedData[i]["end"]), "#808080",'\n']);
+//                     }
+//                     countHaplotype = -1;
+//                 }
+//             }
+//         });
+
+//         //Si à la fin de la recherche de dose il reste de la place je la remplie avec du gris.
+//         if(block.length < haplotype){
+//             let emplacementRestant = haplotype - block.length;
+//             for (let j = 0; j < emplacementRestant; j++) {
+//                 block.push([originalChrNumber,countHaplotype,parseInt(stuffedData[i]["start"]),parseInt(stuffedData[i]["end"]),"#808080",'\n']);
+//                 countHaplotype++;
+//             }
+//         }
+
+//         countHaplotype = 0;
+//         metaBlocks.push(block);
+//         block = [];
+//         chrStr = "chr";
+//     }
+//     console.log("metaBlocks "+metaBlocks);
+//     let groupedBlock = groupByColor(metaBlocks);
+//     //console.log("groupedBlock "+groupedBlock);
+//     groupedBlock = order(groupedBlock,haplotype); //variable à récuperer pour gemo.
+//     //console.log("groupedBlock "+groupedBlock);
+//     metaBlocks = [];
+//     for (let block of groupedBlock){
+//         metaBlocks.push(block.flat(1));
+//     }
+
+//     let strMosaique = metaBlocks.join(" ").replace(/,/g,' ');
+//     strMosaique = strMosaique.replace(/^ +/gm,""); //variable à récuperer pour gemo.(sous forme de string) encodeURIComponent....
+//     //console.log(strMosaique);
+//     ideogramConfig(strMosaique);
+// }
 
 function ideogramConfig(mosaique){
 

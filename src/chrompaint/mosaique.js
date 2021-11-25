@@ -9,7 +9,7 @@ export function groupByColor(metaBlocks){
         for (let j = 0; j < metaBlocks[i].length; j++) {
             //console.log("metaBlocks " + " "+ [i] + " " + [j] +" " + metaBlocks[i][j]);
             
-            //console.log("Avant " + " i:"+ [i] + " j:" + [j] +" --- " + metaBlocks[i][j]);
+            console.log("Avant " + " i:"+ [i] + " j:" + [j] +" --- " + metaBlocks[i][j]);
             //console.log("Avant " + " i:"+ [i] + " j:" + [j] +" --- " + JSON.stringify(group));
 
             let hexColor = metaBlocks[i][j][4];
