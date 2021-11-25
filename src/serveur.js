@@ -30,12 +30,6 @@ app.use(function (req, res, next) {
     next();
 });
 
-
-
-
-
-
-
 server=app.listen(9070,function() {});
 
 
