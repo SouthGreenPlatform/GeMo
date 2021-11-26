@@ -42,6 +42,29 @@ $('#download').click(downloadArchive);
 //////////////////////////////
 $('#saveasurl').click(saveAsURL);
 
+//////////////////////////////
+///// READ THE DOCS EMBED ////
+//////////////////////////////
+$( document ).ready(function() {
+
+    var params = {'url': 'https://gemo.readthedocs.io/en/latest/README.html',
+    // 'doctool': 'sphinx',
+    // 'doctoolversion': '4.2.0',
+    };
+    var url = 'https://readthedocs.org/api/v3/embed/?' + $.param(params);
+    $.get(url, function(data) {
+        let content = data['content'];
+        //fix img url
+        content = content.replaceAll("_images", "docs/source/_images");
+        //fix link symbol
+        content = content.replaceAll("headline\"></a>", "headline\">&#x1F517; </a>");
+        
+        $('#help-container').html(content);
+    });
+});
+
+
+
 
 
 ////////////////////////////////////////////////////////////////

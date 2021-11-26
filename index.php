@@ -409,9 +409,9 @@ echo "<script> load_ideogram()</script>";
 		<h1 class="display-2">Welcome to GeMo</h1><br/>
 	</div>
 	</div> <!--fin du jumbotron-->
-	<div id="md">
-		<zero-md src="README.md"></zero-md>
-	</div>
+
+	<div id="help-container"></div>
+
 </div><!--fin du home-->
 	
 		<div id="page-content-wrapper" role="main" class="ideo_container">

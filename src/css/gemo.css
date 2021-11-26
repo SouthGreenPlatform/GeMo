@@ -578,3 +578,49 @@ input.form-control {
 .select2-container .select2-selection--single .select2-selection__rendered {
   padding-left: 0px;
 }
+
+#help-container{
+  font-family: Lato,proxima-nova,Helvetica Neue,Arial,sans-serif;
+  font-weight: 400;
+  color: #404040;
+}
+
+#help-container .h1, h1 {
+  font-size: 1.5rem;
+}
+
+#help-container ol {
+  display: block;
+  list-style-type: decimal;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+#help-container ol li p {
+  line-height: 24px;
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#help-container table {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: grey;
+}
+
+#help-container td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+}
+
+#help-container td p, th p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
