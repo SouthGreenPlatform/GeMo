@@ -217,7 +217,7 @@ export function drawPalette(){
 	//console.log("draw palette");
 	//console.log(colorbrewer);
 	// variable for the namespace 
-	const svgns = "http://www.w3.org/2000/svg";
+	const svgns = "https://www.w3.org/2000/svg";
 	//const svg = document.getElementById("svgPalette");
 
 	let x = 5;

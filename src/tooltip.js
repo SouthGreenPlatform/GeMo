@@ -57,7 +57,7 @@ export function addTooltip(annotTable, gblink){
 					let url = 'Go to genome browser\<br/\>\<a target=\"_blank\" href=\"'+gblink+'?loc=chr'+chr+':'+start+'..'+stop+'&'+addTrack+'\"\>Chr'+chr+' '+start+'..'+stop+'\<\/a\>';
 
 					
-					let g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+					let g = document.createElementNS('https://www.w3.org/2000/svg', 'g');
 					g.setAttributeNS(null, 'class', 'bloc-annot');
 
 					//set the tooltip content, link to genome browser
