@@ -188,29 +188,32 @@ function updateIdeo() {
 //Création de l'echelle du graph
 //////////////////////////////////////////////////
 function echelle(maxLength){
-    const width = 600;
-    const height = 50;
-    // Append SVG 
-    d3.select("body").selectAll("#scale").remove();
-    const svg = d3.select("body")
-                    .selectAll("#wrapper")
-                    .append("svg")
-                    .attr("id", "scale")
-                    .attr("width", width +50)
-                    .attr("height", height)
-                    //translate pour aligner avec les chromosomes.
-                    .attr("transform", 'translate(15,0)');
-    // Create scale
-    const scale = d3.scaleLinear()
-                    .domain([0, maxLength]) //unit pb
-                    .range([20, width+20]);   //unit px //je laisse une petite marge de 5 pour que le zéro ne soit pas coupé
-    // Add scales to axis
-    const x_axis = d3.axisBottom()
-                    .scale(scale)
-                    .tickFormat(d => d / 1000000 + " Mb")
-                    .ticks(5);
-    //Append group and insert axis
-    svg.append("g").call(x_axis);
+    
+    $(function() {
+        //console.log( "ready!" );
+        const width = 600; //max length in px of chromosomes
+        // Append SVG 
+        d3.select("body").selectAll("#scale").remove();
+        const svg = d3.select("body").select("#_ideogram");
+        let height = $("#_ideogram").height();
+    
+        svg.attr("height", height + 50);
+        height = height - 10;
+        
+        // Create scale
+        const scale = d3.scaleLinear()
+                        .domain([0, maxLength]) //unit pb
+                        .range([20, width+20]);   //unit px //je laisse une petite marge de 5 pour que le zéro ne soit pas coupé
+        // Add scales to axis
+        const x_axis = d3.axisBottom()
+                        .scale(scale)
+                        .tickFormat(d => d / 1000000 + " Mb")
+                        .ticks(5);
+        //Append group and insert axis
+        //translate to align the chromosomes
+        svg.append("g").attr("transform", "translate(17, "+ height + ")")
+                        .call(x_axis);
+    });
 }
 
 ///////////////////////////////////////////////
@@ -468,7 +471,7 @@ async function load_ideogram_from_form_data(){
 		//console.log(config);
 		const ideogram = new Ideogram(config);
         drawLegend(ancestorsNameColor);
-        echelle(maxLength);
+        setTimeout(echelle, 100, maxLength);
         //Bed Annotations
     
 	}
@@ -1232,7 +1235,7 @@ function ideogramConfig(mosaique){
     console.log(configChrompaint);
 
     const ideogramChrompaint = new Ideogram(configChrompaint);
-    echelle(maxLength);
+    setTimeout(echelle, 100, maxLength);
     //apparition du bouton download
 	$('#download').fadeIn();
     $('#saveasurl').fadeIn();
