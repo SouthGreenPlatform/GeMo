@@ -906,7 +906,7 @@ function graphSetup(data){
         .attr("class","color")
         .attr("type","color")
         .attr("value",function(d){
-            console.log( ancestorsNameColor[d.key][1]);
+            //console.log( ancestorsNameColor[d.key][1]);
             return ancestorsNameColor[d.key][1];
         })
         .on("change",function(){
@@ -1075,7 +1075,7 @@ function mosaique(floorValue){
     1 0 1200001 1400000 #7DC7D2
      */
 
-    //console.log(stuffedData);
+    console.log(stuffedData);
 
     let block = [];
     let metaBlocks = [];
@@ -1103,23 +1103,30 @@ function mosaique(floorValue){
             }
             
         });
-
+        //console.log(listeHaplo);
         if(listeHaplo.length > haplotype){
             for(let k = 0; k > haplotype.length; k++){
                 listeHaplo.push("#808080");
             }
         }else if(listeHaplo.length < haplotype){
-            for(let k = haplotype - listeHaplo.length; k < haplotype; k++){
+            //console.log('ploup');
+            //haplo = 2 si diploid
+            // k = nombre d'aplo manquant
+            //console.log('haplotype : ' +haplotype+ 'listeHaplo length :' +listeHaplo.length +' haplotype - listeHaplo.length '+ (parseInt(haplotype) - parseInt(listeHaplo.length)));
+            for(let k = listeHaplo.length; k < haplotype; k++){
+                
                 listeHaplo.push("#808080");
             }
         }
-
+        //console.log(listeHaplo);
         let countHaplotype = 0;
+        
         listeHaplo.forEach(function(val){
             block.push([originalChrNumber, countHaplotype, parseInt(stuffedData[i]["start"]), parseInt(stuffedData[i]["end"]), val,'\n']);
             countHaplotype++;
         });
 
+        
         metaBlocks.push(block);
         block=[];
         //console.log("listehaplo "+listeHaplo);
