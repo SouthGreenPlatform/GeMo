@@ -424,10 +424,38 @@ input.form-control {
     padding: 10px;
     border-radius: 0 !important;
 }
-.jumbo-bg > p > img{
-    width: 275px;
 
+.lead > img{
+    width: 275px;
 }
+
+.helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.ghimg {
+  vertical-align: middle;
+  max-height: 50px;
+  text-align: center;
+}
+
+.icon-legend{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col-home{
+  max-width: 80%;
+}
+
+.col-icon{
+  max-width: 10%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 
 .jb_welcome {
   background-image: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.9) 100%), url(/gemo/public/img/chromosomes1.png);

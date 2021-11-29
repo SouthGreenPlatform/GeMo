@@ -62,9 +62,44 @@
 
 <!--JUMBOTRON-->
 <div class="jumbotron jumbo-bg">
-  <p class="lead">
-  <img src="./public/img/GeMo_full.png"></img>
-  Genetic mosaicism painting</p>
+<div class="row">
+	<div class="col col-home">
+	<p class="lead">
+		<img src="./public/img/GeMo_full.png"></img>
+		Genetic mosaicism painting
+	</p>
+	</div>
+
+	<div class="col col-icon" >
+		<div class="row">
+			<span class="helper"></span>
+			<p class="icon-legend">
+			<a  href="https://github.com/SouthGreenPlatform/GeMo" target="_blank">
+			<img class="ghimg" src="./public/img/GitHub-Mark-Light-120px-plus.png"></img>
+			</a>
+			</p>
+		</div>
+		<div class="row">
+			<p class="icon-legend" >Github</p>	
+		</div>
+	</div>
+
+	<div class="col col-icon" ">
+		<div class="row">
+			<span class="helper"></span>
+			<p class="icon-legend">
+			<a  href="https://gemo.readthedocs.io/en/latest/" target="_blank">
+			<img class="ghimg" src="./public/img/logo-light.svg"></img>
+			</a>
+			</p>
+		</div>
+		<div class="row">
+			<p class="icon-legend" >Read The Docs</p>
+		</div>
+	</div>
+</div>
+
+
 </div>
 
   <!-- END OF JUMBOTRON-->
