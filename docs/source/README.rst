@@ -235,9 +235,10 @@ Acknowledgements
 GeMo has been developed in the framework of the `Genome Harvest project <https://www.genomeharvest.fr>`__ supported by the Agropolis
 fondation.
 
-Troubleshooting and web browser compatibility
+Troubleshootings and web browser compatibility
 =============================================
 
+* Some issues were reported for color management when using the exported SVG with Inkscape.
 
 The web interfaces were tested with the following platforms and web browsers:
 
