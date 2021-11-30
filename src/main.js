@@ -7,7 +7,7 @@ import { drawBed, ideoViewbox } from "./draw.js";
 //chrompaint
 import {resetgraph} from "./chrompaint/import.js";
 import {checkColorFile,checkLenFile,checkDataFile} from "./chrompaint/checkFile.js";
-import {parsingData, parsingLen,dataStuffing} from "./chrompaint/parse.js";
+import {parsingData, parseChrName, parsingLen,dataStuffing} from "./chrompaint/parse.js";
 import {order, convertStrtoRangeSet, groupByColor, ancestorsGenerator, ploidyDescGenerator} from "./chrompaint/mosaique.js";
 import {getKeyByValue, refreshFloor, curveOpacitySetup, refreshCurveOpacity, arraySetup, floorPositionsSetup, refreshfloorPositions, tracerCourbe} from "./chrompaint/graph.js";
 import {addTooltip, addHelpTooltips} from "./tooltip.js";
@@ -24,6 +24,7 @@ let annotTable=[]; // annot file splited by line
 let ancestorsNameColor; //Match les abréviation d'origine avec leurs noms complet ainsi qu'une couleur.
 let vizType; //bloc or curve
 var paletteTab; //palette de couleur prédefinie
+let chrDict={}; // chr01 = 1 // chro02 = 2 ...
 
 
 ///////////////////////
@@ -444,7 +445,8 @@ async function load_ideogram_from_form_data(){
 	//console.log(config);
 	const chrdata = $("#editorChr").val();
     chrConfig = d3.tsvParse(chrdata);
-    configPath = await parsingLen(chrConfig);
+    chrDict = parseChrName(chrConfig);
+    configPath = await parsingLen(chrConfig, chrDict);
 	//values in data form
 	const annotdata = $("#editorAnnot").val();
 
@@ -590,7 +592,9 @@ document.getElementById("submit").addEventListener("click", async function(){
             throw "pas de données envoyé."
         }
         chrConfig = d3.tsvParse($("#editorChr").val());
-        configPath = await parsingLen(chrConfig);
+        chrDict = parseChrName(chrConfig);
+        configPath = await parsingLen(chrConfig, chrDict);
+        //configPath = await parsingLen(chrConfig);
         //console.log("config paaaaath "+ configPath);
         if(chrConfig === undefined){
             alert("Fichier de configuration des chromosomes manquant.");
@@ -681,7 +685,9 @@ function handleFiles(files,fileType) {
 			case'len':
                 if(checkLenFile(d3.tsvParse(e.target.result))) {
 					chrConfig = d3.tsvParse(e.target.result);
-					configPath = await parsingLen(chrConfig);
+                    chrDict = parseChrName(chrConfig);
+                    configPath = await parsingLen(chrConfig, chrDict);
+					//configPath = await parsingLen(chrConfig);
 					$("#editorChr").val(e.target.result);
 				}
 				break;
