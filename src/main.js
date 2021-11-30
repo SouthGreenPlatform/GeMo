@@ -513,7 +513,7 @@ async function load_ideogram_from_form_data(){
     //Si lien vers genome browser on calcul les tooltips
     let gblink = $("#editorGB").val();
     if(gblink){
-        setTimeout(addTooltip, 100, annotTable, gblink);
+        setTimeout(addTooltip, 100, annotTable, gblink, chrDict);
     }
 
     let bedData = $("#editorBed").val();
@@ -1285,7 +1285,7 @@ function ideogramConfig(mosaique){
     let gblink = $("#editorGB").val();
     let annotTable = mosaique.split("\n");
     if(gblink){
-        setTimeout(addTooltip, 100, annotTable, gblink);
+        setTimeout(addTooltip, 100, annotTable, gblink, chrDict);
     }
     
     loadingoff();
