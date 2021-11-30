@@ -309,7 +309,7 @@ $('#organism').change(function () {
     });
     // Remove duplicates
     studyTab = Array.from(new Set (studyTab));
-    console.log("study "+studyTab);
+    //console.log("study "+studyTab);
 
     $('#sample')
         .empty()
@@ -323,7 +323,7 @@ $('#organism').change(function () {
         let filterData = arrData.filter(function(value) {
             return value.Study === study;
         });
-        console.log(filterData);
+        //console.log(filterData);
         //demarre la section optgroup
         //$('#sample').append('<optgroup label="'+study+'">');
         var optgroup = document.createElement("optgroup");
@@ -351,7 +351,7 @@ $('#sample').change( function(){
         return value.ID === $("#sample option:selected")[0].value;
     });
     
-    console.log(sampleJson);
+    //console.log(sampleJson);
 	$('#chrompaint').hide();
 	$('#page-content-wrapper').show();
     $('#home').hide();
@@ -426,7 +426,7 @@ $.getJSON('./config/pre-loaded-gb.json', function (data) {
 
 //fonction select gb => load url in text area
 $('#gb').change( function(){
-    console.log($("#gb option:selected")[0].value);
+    //console.log($("#gb option:selected")[0].value);
     $("#editorGB").val($("#gb option:selected")[0].value);
 });
 
@@ -455,14 +455,14 @@ async function load_ideogram_from_form_data(){
     const colordata = $("#editorColor").val();
     
     if($('.collapse input:radio:checked').val()){
-        console.log("checked");
+        //console.log("checked");
         ancestorsNameColor = randomColorGenerator_block(annotdata);
     }
     else if (colordata === "" ) {
-        console.log("no data = default");
+        //console.log("no data = default");
         ancestorsNameColor = randomColorGenerator_block(annotdata);
     }else{
-        console.log("entered color");
+        //console.log("entered color");
         ancestorsNameColor = parsingColor(d3.tsvParse(colordata));
     }
     
@@ -614,14 +614,14 @@ document.getElementById("submit").addEventListener("click", async function(){
         } */
 
     if($('.collapse input:radio:checked').val()){
-        console.log("checked");
+        //console.log("checked");
         ancestorsNameColor = randomColorGenerator(data);
     }
     else if ($("#editorColor").val() === "" ) {
-        console.log("no data = default");
+        //console.log("no data = default");
         ancestorsNameColor = randomColorGenerator(data);
     }else{
-        console.log("entered color");
+        //console.log("entered color");
         ancestorsNameColor = parsingColor(d3.tsvParse($("#editorColor").val()));
     }
 
@@ -1081,7 +1081,7 @@ function mosaique(floorValue){
     1 0 1200001 1400000 #7DC7D2
      */
 
-    console.log(stuffedData);
+    //console.log(stuffedData);
 
     let block = [];
     let metaBlocks = [];
@@ -1096,7 +1096,12 @@ function mosaique(floorValue){
 
         let listeHaplo = [];
 
-        originalChrNumber = stuffedData[i]["chr"].replace(/chr/g,"");
+        //originalChrNumber = stuffedData[i]["chr"].replace(/chr/g,"");
+        //console.log(chrDict[stuffedData[i]["chr"]]);
+        originalChrNumber = chrDict[stuffedData[i]["chr"]];
+        if(!originalChrNumber){
+            originalChrNumber= stuffedData[i]["chr"];
+        }
         
         Object.keys(floorValue).forEach(function(origineKey) {
 
@@ -1268,7 +1273,7 @@ function ideogramConfig(mosaique){
     configChrompaint.ploidyDesc = ploidyDesc;
     configChrompaint.dataDir = '/gemo/tmp/gemo_run/gemo_'+configPath+"/";
 
-    console.log(configChrompaint);
+    //console.log(configChrompaint);
 
     const ideogramChrompaint = new Ideogram(configChrompaint);
     setTimeout(echelle, 100, maxLength);
@@ -1298,7 +1303,7 @@ window.onload = async function(){
         let filterData = arrData.filter(function(value) {
             return value.Sample === acc;
         });
-        console.log(filterData);
+        //console.log(filterData);
 
         //Known accession
         if(!filterData.length==0){
