@@ -31,13 +31,7 @@ GeMo is a WebApp to represent Genome Mosaics with current focus on plants. Howev
 
 .. toctree::
    :caption: Chromosome painting
-   :maxdepth: 3
+   :maxdepth: 2
    VCFHunter
    TraceAncestor
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
