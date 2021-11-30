@@ -483,7 +483,7 @@ on an interactive graph to help the mosaïc construction:
 <div class="tooltip_templates" >
 	<span class="help_content" id="tooltip_preloaded">
 		<pre>
-Preloaded data generated with VCFHunter and TraceAncestor
+Preloaded data from published studies or generated with VCFHunter or TraceAncestor.
 		<pre>
 	</span>
 </div>
