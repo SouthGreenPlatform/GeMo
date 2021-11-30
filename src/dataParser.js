@@ -65,7 +65,7 @@ export function ploidyDesc(data){
 ////////////////////////////////////////////////////////////////
 //parsing du formulaire data avec les annotations
 ////////////////////////////////////////////////////////////////
-export function annotationParser(data, configPloidy, ancestorsNameColor){
+export function annotationParser(data, configPloidy, ancestorsNameColor, chrDict){
 	console.log("parse annot");
 	let annotTable = data.split("\n");
 	//console.log(annotTable);
@@ -82,7 +82,10 @@ export function annotationParser(data, configPloidy, ancestorsNameColor){
 		ploidy = [];
 
 		//skip les lignes vides ou l'en- tête
-		if (annotTable[i] == "" || annotTable[i].startsWith('chr')){
+		//if (annotTable[i] == "" || annotTable[i].startsWith('chr')){
+		const regex = /haplotype/g;
+		if (annotTable[i] == "" || annotTable[i].match(regex)){
+			console.log("skip en tête");
 			continue;
 		}
 
@@ -102,8 +105,15 @@ export function annotationParser(data, configPloidy, ancestorsNameColor){
 			}	
 		}
 		
+		let chrid = chrDict[colonne[0]];
+		if(!chrid){
+			chrid = colonne[0];
+		}
+
+		console.log(chrid);
+
 		let chromosome = {
-			chr: colonne[0],
+			chr: chrid,
 			ploidy: ploidy,
 			start: colonne[2],
 			stop: colonne[3],
@@ -191,7 +201,7 @@ function chromosomeTsvParser(data, conf){
 	//console.log(chrBands);
 }
 
-export function bedParser(bed){
+export function bedParser(bed, chrDict){
 	//from:
 	//chr01	5287838	5289224	gene	0	-
 	//to:
@@ -210,10 +220,16 @@ export function bedParser(bed){
 	for (let i = 0; i < split.length; i++) {
         let line = split[i].split("\t");
 		let currentAnnot;
+
+		let chrid = chrDict[line[0]];
+		if(!chrid){
+			chrid = parseInt(line[0]);
+		}
 		if(line != ''){	
 			currentAnnot = {
 				name: String(line[3]),
-				chr: String(line[0].replace("chr0","").replace("chr","")),
+				//chr: String(line[0].replace("chr0","").replace("chr","")),
+				chr: chrid,
 				start: parseInt(line[1]),
 				stop: parseInt(line[2]),
 				trackIndex: 2

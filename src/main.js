@@ -487,7 +487,7 @@ async function load_ideogram_from_form_data(){
     let maxLength = ploidyParsed[2];
 	
 	//parse les données blocs
-	let annotDataParsed = annotationParser(annotdata, config.ploidy, ancestorsNameColor);
+	let annotDataParsed = annotationParser(annotdata, config.ploidy, ancestorsNameColor, chrDict);
 	config.rangeSet = annotDataParsed[0];
 	annotTable = annotDataParsed[1];
 	
@@ -517,7 +517,7 @@ async function load_ideogram_from_form_data(){
     }
 
     let bedData = $("#editorBed").val();
-    bedAnnot = bedParser(bedData);
+    bedAnnot = bedParser(bedData, chrDict);
     
     if(bedAnnot){
         /* config.annotations = bedAnnot;
@@ -693,7 +693,7 @@ function handleFiles(files,fileType) {
 				break;
             case'bed':
 				$("#editorBed").val(e.target.result);
-                bedAnnot = bedParser(e.target.result);
+                //bedAnnot = bedParser(e.target.result, chrDict);
 				break;
 		}
     };
@@ -1058,7 +1058,7 @@ function globalUpdate(floorValues,selectedChromosome,floorPositions,data,maxLeng
     mosaique(floorValues,data);
 
     let bedData = $("#editorBed").val();
-    bedAnnot = bedParser(bedData);
+    bedAnnot = bedParser(bedData, chrDict);
     if(bedAnnot){
         /* config.annotations = bedAnnot;
         config.annotationsLayout= 'tracks'; */
