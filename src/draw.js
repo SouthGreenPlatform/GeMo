@@ -38,7 +38,7 @@ export function drawBed(bedAnnot, maxLength){
 			.attr('x', parseInt(start)-7)
 			.attr('y', -15)
 			.attr('height', 15)
-			.attr("xlink:href", "public/img/location-sign.png");
+			.attr("xlink:href", "https://banana-tools-genome-hub.southgreen.fr/gemo/public/img/location-sign.png");
 
 
 
