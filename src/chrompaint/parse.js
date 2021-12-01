@@ -1,4 +1,16 @@
+export function parseChrName(lenFile){
+    //create chr hash like
+    // 1 = chr01
+    // 2 = chr02..
+    let chrDict={};
+    let index = 0;
+    lenFile.map(function(cur){
+        index++;
+        chrDict[cur['chr']] = index;
+    });
 
+    return chrDict;
+}
 
 
 /**
@@ -9,7 +21,7 @@
  * @param lenFile données parsé (par d3.tsvParse()) issue du fichier reçu.
  */
 
-export async function parsingLen(lenFile){
+export async function parsingLen(lenFile, chrDict){
     const chromatide = 2;
 
     /*
@@ -30,6 +42,7 @@ export async function parsingLen(lenFile){
 
     */
 
+
     let field = ["#chromosome","arm","bp_start","bp_stop"];
 
     let block = [];
@@ -44,7 +57,8 @@ export async function parsingLen(lenFile){
             let ctrSup = cur["centromereSup"];
             let ctrInf = cur["centromereInf"];
 
-            line.push(parseInt(cur["chr"].replace("chr",""))); //chr
+            //line.push(parseInt(cur["chr"].replace("chr",""))); //chr
+            line.push(parseInt(chrDict[cur["chr"]])); //chr
             //arm
             if(!ctrSup && !ctrInf && i === (chromatide-2)){
                 line.push("p");

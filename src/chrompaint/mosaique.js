@@ -91,7 +91,9 @@ export function order(block,haplotype){
             lineCount = -1;
         }
 
-        currentChr = (parseInt(currentChr, 10) + 101).toString().substr(1)
+        //currentChr = (parseInt(currentChr, 10) + 101).toString().substr(1)
+        currentChr++;
+        //console.log(currentChr);
 
     }
 

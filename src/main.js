@@ -7,7 +7,7 @@ import { drawBed, ideoViewbox } from "./draw.js";
 //chrompaint
 import {resetgraph} from "./chrompaint/import.js";
 import {checkColorFile,checkLenFile,checkDataFile} from "./chrompaint/checkFile.js";
-import {parsingData, parsingLen,dataStuffing} from "./chrompaint/parse.js";
+import {parsingData, parseChrName, parsingLen,dataStuffing} from "./chrompaint/parse.js";
 import {order, convertStrtoRangeSet, groupByColor, ancestorsGenerator, ploidyDescGenerator} from "./chrompaint/mosaique.js";
 import {getKeyByValue, refreshFloor, curveOpacitySetup, refreshCurveOpacity, arraySetup, floorPositionsSetup, refreshfloorPositions, tracerCourbe} from "./chrompaint/graph.js";
 import {addTooltip, addHelpTooltips} from "./tooltip.js";
@@ -24,6 +24,7 @@ let annotTable=[]; // annot file splited by line
 let ancestorsNameColor; //Match les abréviation d'origine avec leurs noms complet ainsi qu'une couleur.
 let vizType; //bloc or curve
 var paletteTab; //palette de couleur prédefinie
+let chrDict={}; // chr01 = 1 // chro02 = 2 ...
 
 
 ///////////////////////
@@ -308,7 +309,7 @@ $('#organism').change(function () {
     });
     // Remove duplicates
     studyTab = Array.from(new Set (studyTab));
-    console.log("study "+studyTab);
+    //console.log("study "+studyTab);
 
     $('#sample')
         .empty()
@@ -322,7 +323,7 @@ $('#organism').change(function () {
         let filterData = arrData.filter(function(value) {
             return value.Study === study;
         });
-        console.log(filterData);
+        //console.log(filterData);
         //demarre la section optgroup
         //$('#sample').append('<optgroup label="'+study+'">');
         var optgroup = document.createElement("optgroup");
@@ -350,7 +351,7 @@ $('#sample').change( function(){
         return value.ID === $("#sample option:selected")[0].value;
     });
     
-    console.log(sampleJson);
+    //console.log(sampleJson);
 	$('#chrompaint').hide();
 	$('#page-content-wrapper').show();
     $('#home').hide();
@@ -425,7 +426,7 @@ $.getJSON('./config/pre-loaded-gb.json', function (data) {
 
 //fonction select gb => load url in text area
 $('#gb').change( function(){
-    console.log($("#gb option:selected")[0].value);
+    //console.log($("#gb option:selected")[0].value);
     $("#editorGB").val($("#gb option:selected")[0].value);
 });
 
@@ -444,7 +445,8 @@ async function load_ideogram_from_form_data(){
 	//console.log(config);
 	const chrdata = $("#editorChr").val();
     chrConfig = d3.tsvParse(chrdata);
-    configPath = await parsingLen(chrConfig);
+    chrDict = parseChrName(chrConfig);
+    configPath = await parsingLen(chrConfig, chrDict);
 	//values in data form
 	const annotdata = $("#editorAnnot").val();
 
@@ -453,14 +455,14 @@ async function load_ideogram_from_form_data(){
     const colordata = $("#editorColor").val();
     
     if($('.collapse input:radio:checked').val()){
-        console.log("checked");
+        //console.log("checked");
         ancestorsNameColor = randomColorGenerator_block(annotdata);
     }
     else if (colordata === "" ) {
-        console.log("no data = default");
+        //console.log("no data = default");
         ancestorsNameColor = randomColorGenerator_block(annotdata);
     }else{
-        console.log("entered color");
+        //console.log("entered color");
         ancestorsNameColor = parsingColor(d3.tsvParse(colordata));
     }
     
@@ -485,7 +487,7 @@ async function load_ideogram_from_form_data(){
     let maxLength = ploidyParsed[2];
 	
 	//parse les données blocs
-	let annotDataParsed = annotationParser(annotdata, config.ploidy, ancestorsNameColor);
+	let annotDataParsed = annotationParser(annotdata, config.ploidy, ancestorsNameColor, chrDict);
 	config.rangeSet = annotDataParsed[0];
 	annotTable = annotDataParsed[1];
 	
@@ -511,11 +513,11 @@ async function load_ideogram_from_form_data(){
     //Si lien vers genome browser on calcul les tooltips
     let gblink = $("#editorGB").val();
     if(gblink){
-        setTimeout(addTooltip, 100, annotTable, gblink);
+        setTimeout(addTooltip, 100, annotTable, gblink, chrDict);
     }
 
     let bedData = $("#editorBed").val();
-    bedAnnot = bedParser(bedData);
+    bedAnnot = bedParser(bedData, chrDict);
     
     if(bedAnnot){
         /* config.annotations = bedAnnot;
@@ -590,7 +592,9 @@ document.getElementById("submit").addEventListener("click", async function(){
             throw "pas de données envoyé."
         }
         chrConfig = d3.tsvParse($("#editorChr").val());
-        configPath = await parsingLen(chrConfig);
+        chrDict = parseChrName(chrConfig);
+        configPath = await parsingLen(chrConfig, chrDict);
+        //configPath = await parsingLen(chrConfig);
         //console.log("config paaaaath "+ configPath);
         if(chrConfig === undefined){
             alert("Fichier de configuration des chromosomes manquant.");
@@ -610,14 +614,14 @@ document.getElementById("submit").addEventListener("click", async function(){
         } */
 
     if($('.collapse input:radio:checked').val()){
-        console.log("checked");
+        //console.log("checked");
         ancestorsNameColor = randomColorGenerator(data);
     }
     else if ($("#editorColor").val() === "" ) {
-        console.log("no data = default");
+        //console.log("no data = default");
         ancestorsNameColor = randomColorGenerator(data);
     }else{
-        console.log("entered color");
+        //console.log("entered color");
         ancestorsNameColor = parsingColor(d3.tsvParse($("#editorColor").val()));
     }
 
@@ -681,13 +685,15 @@ function handleFiles(files,fileType) {
 			case'len':
                 if(checkLenFile(d3.tsvParse(e.target.result))) {
 					chrConfig = d3.tsvParse(e.target.result);
-					configPath = await parsingLen(chrConfig);
+                    chrDict = parseChrName(chrConfig);
+                    configPath = await parsingLen(chrConfig, chrDict);
+					//configPath = await parsingLen(chrConfig);
 					$("#editorChr").val(e.target.result);
 				}
 				break;
             case'bed':
 				$("#editorBed").val(e.target.result);
-                bedAnnot = bedParser(e.target.result);
+                //bedAnnot = bedParser(e.target.result, chrDict);
 				break;
 		}
     };
@@ -1052,7 +1058,7 @@ function globalUpdate(floorValues,selectedChromosome,floorPositions,data,maxLeng
     mosaique(floorValues,data);
 
     let bedData = $("#editorBed").val();
-    bedAnnot = bedParser(bedData);
+    bedAnnot = bedParser(bedData, chrDict);
     if(bedAnnot){
         /* config.annotations = bedAnnot;
         config.annotationsLayout= 'tracks'; */
@@ -1075,7 +1081,7 @@ function mosaique(floorValue){
     1 0 1200001 1400000 #7DC7D2
      */
 
-    console.log(stuffedData);
+    //console.log(stuffedData);
 
     let block = [];
     let metaBlocks = [];
@@ -1090,7 +1096,12 @@ function mosaique(floorValue){
 
         let listeHaplo = [];
 
-        originalChrNumber = stuffedData[i]["chr"].replace(/chr/g,"");
+        //originalChrNumber = stuffedData[i]["chr"].replace(/chr/g,"");
+        //console.log(chrDict[stuffedData[i]["chr"]]);
+        originalChrNumber = chrDict[stuffedData[i]["chr"]];
+        if(!originalChrNumber){
+            originalChrNumber= stuffedData[i]["chr"];
+        }
         
         Object.keys(floorValue).forEach(function(origineKey) {
 
@@ -1262,7 +1273,7 @@ function ideogramConfig(mosaique){
     configChrompaint.ploidyDesc = ploidyDesc;
     configChrompaint.dataDir = '/gemo/tmp/gemo_run/gemo_'+configPath+"/";
 
-    console.log(configChrompaint);
+    //console.log(configChrompaint);
 
     const ideogramChrompaint = new Ideogram(configChrompaint);
     setTimeout(echelle, 100, maxLength);
@@ -1274,7 +1285,7 @@ function ideogramConfig(mosaique){
     let gblink = $("#editorGB").val();
     let annotTable = mosaique.split("\n");
     if(gblink){
-        setTimeout(addTooltip, 100, annotTable, gblink);
+        setTimeout(addTooltip, 100, annotTable, gblink, chrDict);
     }
     
     loadingoff();
@@ -1292,7 +1303,7 @@ window.onload = async function(){
         let filterData = arrData.filter(function(value) {
             return value.Sample === acc;
         });
-        console.log(filterData);
+        //console.log(filterData);
 
         //Known accession
         if(!filterData.length==0){

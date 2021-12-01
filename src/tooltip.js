@@ -1,12 +1,12 @@
 //Ajoute les tooltips, lien vers genome browser
-export function addTooltip(annotTable, gblink){
+export function addTooltip(annotTable, gblink, chrDict){
 
-	//console.log(annotTable);
+	console.log(annotTable);
 
-	//console.log("add tooltip "+gblink);
+	console.log("add tooltip "+gblink);
 
 	let ploidy = $("#selectorploidy").val();
-	console.log(ploidy);
+	//console.log(ploidy);
 
 	//Appel au serveur
     // genère un gff à envoyer au genome browser
@@ -41,7 +41,11 @@ export function addTooltip(annotTable, gblink){
 					//console.log(annotBloc);
 					const annotElements = annotBloc.split(/[ \t]+/);
 					
-					let chr = annotElements[0];
+					//retrouve le nom de chr original
+					let chrid = Object.keys(chrDict).find(key => chrDict[key] === parseInt(annotElements[0]));
+					if(!chrid){
+						chrid = annotElements[0];
+					}
 					let start = annotElements[2];
 					let stop = annotElements[3];
 					// console.log(chr + ' ' + start+ ' '+stop);
@@ -54,10 +58,10 @@ export function addTooltip(annotTable, gblink){
 					//const regexp = /(chr\d+)/.exec(clippath);
 
 					//set the url to the retrieved chromosome
-					let url = 'Go to genome browser\<br/\>\<a target=\"_blank\" href=\"'+gblink+'?loc=chr'+chr+':'+start+'..'+stop+'&'+addTrack+'\"\>Chr'+chr+' '+start+'..'+stop+'\<\/a\>';
+					let url = 'Go to genome browser\<br/\>\<a target=\"_blank\" href=\"'+gblink+'?loc='+chrid+':'+start+'..'+stop+'&'+addTrack+'\"\>'+chrid+' '+start+'..'+stop+'\<\/a\>';
 
 					
-					let g = document.createElementNS('https://www.w3.org/2000/svg', 'g');
+					let g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 					g.setAttributeNS(null, 'class', 'bloc-annot');
 
 					//set the tooltip content, link to genome browser
