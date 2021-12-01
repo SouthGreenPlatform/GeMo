@@ -517,9 +517,10 @@ async function load_ideogram_from_form_data(){
     }
 
     let bedData = $("#editorBed").val();
-    bedAnnot = bedParser(bedData, chrDict);
     
-    if(bedAnnot){
+    
+    if(bedData){
+        bedAnnot = bedParser(bedData, chrDict);
         /* config.annotations = bedAnnot;
         config.annotationsLayout= 'tracks'; */
         setTimeout(ideoViewbox, 100);
@@ -1058,8 +1059,9 @@ function globalUpdate(floorValues,selectedChromosome,floorPositions,data,maxLeng
     mosaique(floorValues,data);
 
     let bedData = $("#editorBed").val();
-    bedAnnot = bedParser(bedData, chrDict);
-    if(bedAnnot){
+    
+    if(bedData){
+        bedAnnot = bedParser(bedData, chrDict);
         /* config.annotations = bedAnnot;
         config.annotationsLayout= 'tracks'; */
         setTimeout(ideoViewbox, 100);
