@@ -262,6 +262,13 @@ export function drawPalette(){
 			svg.appendChild(newRect); 
 			x =x +10;
 		}
+		var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+		text.setAttribute('x', x +10);
+		text.setAttribute('y', y +10);
+		text.setAttribute('fill', '#000');
+		text.textContent = palette;
+		svg.appendChild(text); 
+
 	document.getElementById("palette").appendChild(svg);
 	}
 }
