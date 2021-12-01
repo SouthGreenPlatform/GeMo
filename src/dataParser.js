@@ -110,7 +110,7 @@ export function annotationParser(data, configPloidy, ancestorsNameColor, chrDict
 			chrid = colonne[0];
 		}
 
-		console.log(chrid);
+		//console.log(chrid);
 
 		let chromosome = {
 			chr: chrid,
