@@ -69,7 +69,7 @@ export function addTooltip(annotTable, gblink, chrDict){
 					chromosome.append(g);
 
 					let annot = $(this)[0].cloneNode(true);
-					annot.setAttribute('style', 'fill: transparent');
+					annot.setAttribute('style', 'fill-opacity: 0');
 					g.append(annot);
 					blocCount++;
 					//console.log(blocCount);
