@@ -239,6 +239,6 @@ export function bedParser(bed, chrDict){
 		
 	}
 
-	console.log(bedArray);
+	//console.log(bedArray);
 	return bedArray;
 }

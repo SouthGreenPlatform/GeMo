@@ -214,7 +214,7 @@ function updateIdeo() {
 function echelle(maxLength){
     
     $(function() {
-        //console.log( "ready!" );
+        console.log( "draw scale" );
         const width = 600; //max length in px of chromosomes
         // Append SVG 
         d3.select("body").selectAll("#scale").remove();

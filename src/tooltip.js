@@ -1,7 +1,7 @@
 //Ajoute les tooltips, lien vers genome browser
 export function addTooltip(annotTable, gblink, chrDict){
 
-	console.log(annotTable);
+	//console.log(annotTable);
 
 	console.log("add tooltip "+gblink);
 
