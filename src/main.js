@@ -193,6 +193,10 @@ addHelpTooltips();
 document.getElementById("reload").addEventListener("click", updateIdeo, null);
 function updateIdeo() {
 
+    //prevent multiple clicks
+    $('#reload').attr('disabled','disabled');
+    setTimeout('$("#reload").removeAttr("disabled")', 1500);
+
     //var radio_form = $('#radio_form input:radio:checked').val();
     if(vizType === "curve"){
         console.log("update curve");
@@ -572,6 +576,9 @@ haplotype = document.getElementById("selectorploidy").value;
 ///////////////////////////////////////////////////////////
 document.getElementById("submit").addEventListener("click", async function(){
 
+    //prevent multiple clicks
+    $('#submit').attr('disabled','disabled');
+    setTimeout('$("#submit").removeAttr("disabled")', 1500);
     //Si on est en mode "curve"
     //var radio_form = $('#radio_form input:radio:checked').val()
     if(vizType === "curve"){
