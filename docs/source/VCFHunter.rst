@@ -287,22 +287,19 @@ following command line:
    mkdir step5
    <path_vcfhunter>/convertForIdeo.py --name Kunnan --dir step4 --col color.conf --size chromosome.tab --prefix step5/Kunnan --plo 2
 
-This command generate several files. A file named
+This command generate several files with the following names:
 
--  **Kunnan_ideo.tab** that contained block that could be drawn with
-   GeMo (data section), a file named
--  **Kunnan_curve.tab** that contained block that could be drawn with
-   GeMo (data section), a file named
--  **Kunnan_ideoProb.tab** that contained block that could be drawn with
-   GeMo (data section), a file named
--  **Kunnan_chrom.tab** that contained information required to draw
+-  **<accession_id>_ideo.tab** that contained block that could be drawn with
+   GeMo (data section), 
+-  **<accession_id>_curve.tab** that contained block that could be drawn with
+   GeMo (data section), 
+-  **<accession_id>_ideoProb.tab** that contained block that could be drawn with
+   GeMo (data section), 
+-  **<accession_id>_chrom.tab** that contained information required to draw
    chromosomes.
--  **Kunnan_color.tab** contained color information that could be used
+-  **<accession_id>_color.tab** contained color information that could be used
    to draw blocks with custom color.
 
-
-Visualization and block refinement with GeMo
-============================================
 
 References
 ==========

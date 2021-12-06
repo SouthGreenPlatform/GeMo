@@ -221,7 +221,7 @@ Gemo offers the possibility to download the latest version of the data sets and 
 Live demo
 =========
 
-GeMo is currently running at the `Banana Genome Hub <https://banana-tools-genome-hub.southgreen.fr/gemo/>`__ where
+GeMo is available for free to use at `<https://gemo.southgreen.fr/>`__ where
 anyone can upload its own data or test with pre-loaded mosaics/datasets.
 
 Citation
@@ -239,7 +239,7 @@ Troubleshootings and web browser compatibility
 =============================================
 
 * Some issues were reported for color management when using the exported SVG with Inkscape.
-
+* It is optimized for Chrome and works in Firefox and Edge but some design issues may occur with Safari.
 The web interfaces were tested with the following platforms and web browsers:
 
 .. list-table::
@@ -264,10 +264,10 @@ The web interfaces were tested with the following platforms and web browsers:
      -
      -
    * - Mac OS
-     - 
-     - 
-     -
-     -
-     -
+     - 11.2
+     - 97.0.4692.36
+     - 94.0.2
+     - n/a
+     - 14.0.3
 
 
