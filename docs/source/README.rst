@@ -264,10 +264,10 @@ The web interfaces were tested with the following platforms and web browsers:
      -
      -
    * - Mac OS
-     - 
-     - 
-     -
-     -
-     -
+     - 11.2
+     - 97.0.4692.36
+     - 94.0.2
+     - n/a
+     - 14.0.3
 
 
