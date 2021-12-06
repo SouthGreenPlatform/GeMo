@@ -68,6 +68,18 @@ export function ideoViewbox(){
 		let svg = document.getElementById('_ideogram');
 		let width = parseInt($('#_ideogram').width());
 		let height = parseInt($('#_ideogram').height());
-		svg.setAttribute("viewBox", "0 -20 "+width+" "+height);
+		width = parseInt(width+20);
+		svg.setAttribute("viewBox", "-20 -20 "+width+" "+height);
+	});
+}
+
+export function replaceChromName(chrDict){
+	$( document ).ready(function() {
+		console.log("replace chromosome names");
+		$("#_ideogram tspan").each(function(){
+			//retrouve le nom de chr original
+			let chrID = Object.keys(chrDict).find(key => chrDict[key] === parseInt($(this).html()));
+			$(this).html(chrID);
+		});
 	});
 }

@@ -3,7 +3,7 @@ import { drawLegend, parsingColor, randomColorGenerator, randomColorGenerator_bl
 import { chromosomeParser, annotationParser, ploidyDesc, bedParser } from "./dataParser.js";
 import { loadingon, loadingoff, displaytext, clear, homeClick } from "./display.js";
 import { downloadArchive, saveAsURL} from "./download.js";
-import { drawBed, ideoViewbox } from "./draw.js";
+import { drawBed, ideoViewbox, replaceChromName } from "./draw.js";
 //chrompaint
 import {resetgraph} from "./chrompaint/import.js";
 import {checkColorFile,checkLenFile,checkDataFile} from "./chrompaint/checkFile.js";
@@ -501,7 +501,10 @@ async function load_ideogram_from_form_data(){
 		const ideogram = new Ideogram(config);
         drawLegend(ancestorsNameColor);
         setTimeout(echelle, 100, maxLength);
-        //Bed Annotations
+
+        //repositionne
+        setTimeout(ideoViewbox, 100);
+        setTimeout(replaceChromName, 100, chrDict);
     
 	}
     $('#floating_legend').show();
@@ -527,7 +530,7 @@ async function load_ideogram_from_form_data(){
         bedAnnot = bedParser(bedData, chrDict);
         /* config.annotations = bedAnnot;
         config.annotationsLayout= 'tracks'; */
-        setTimeout(ideoViewbox, 100);
+        
         setTimeout(drawBed, 100, bedAnnot, maxLength);
         //drawBed(bedAnnot);
     }
@@ -1065,13 +1068,16 @@ function globalUpdate(floorValues,selectedChromosome,floorPositions,data,maxLeng
     refreshfloorPositions(floorPositions,selectedChromosome);
     mosaique(floorValues,data);
 
+    //repositionne
+    setTimeout(ideoViewbox, 100);
+    setTimeout(replaceChromName, 100, chrDict);
+
     let bedData = $("#editorBed").val();
     
     if(bedData){
         bedAnnot = bedParser(bedData, chrDict);
         /* config.annotations = bedAnnot;
         config.annotationsLayout= 'tracks'; */
-        setTimeout(ideoViewbox, 100);
         setTimeout(drawBed, 100, bedAnnot, maxLength);
         //drawBed(bedAnnot);
     }
