@@ -221,7 +221,7 @@ Gemo offers the possibility to download the latest version of the data sets and 
 Live demo
 =========
 
-GeMo is currently running at the `Banana Genome Hub <https://banana-tools-genome-hub.southgreen.fr/gemo/>`__ where
+GeMo is available for free to use at `<https://gemo.southgreen.fr/>`__ where
 anyone can upload its own data or test with pre-loaded mosaics/datasets.
 
 Citation
