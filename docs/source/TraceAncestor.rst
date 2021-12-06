@@ -199,7 +199,7 @@ Outputs
 Visualization and block refinement with GeMo
 ============================================
 
-Go to `GeMo <https://banana-tools-genome-hub.southgreen.fr/gemo/>`__ WebApp
+Go to `GeMo <https://gemo.southgreen.fr/>`__ WebApp
 
 -  Load data has follow
 
