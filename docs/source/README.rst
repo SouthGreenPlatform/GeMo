@@ -239,7 +239,7 @@ Troubleshootings and web browser compatibility
 =============================================
 
 * Some issues were reported for color management when using the exported SVG with Inkscape.
-
+* It is optimized for Chrome and works in Firefox and Edge but some design issues may occur with Safari.
 The web interfaces were tested with the following platforms and web browsers:
 
 .. list-table::
