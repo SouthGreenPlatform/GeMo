@@ -44,7 +44,7 @@ close COLOR;
 my %handles;
 #create gff output file
 for(my $i = 0; $i<$ploidy; $i++) {
-    open my $fh, ">$i.gff" or die "cannot create $i.gff !\n";
+    open my $fh, ">$gff/$i.gff" or die "cannot create $i.gff !\n";
     $handles{$i} =  $fh;
 }
 

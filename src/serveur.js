@@ -84,23 +84,39 @@ io.on('connection', socket => {
     socket.on ( "gff" , (annot, color, ploidy, callback) => {
         console.log("gff");
 
+        //genère un ID
+        var date = new Date();
+        var components = [
+            date.getYear(),
+            date.getMonth(),
+            date.getDate(),
+            date.getHours(),
+            date.getMinutes(),
+            date.getSeconds(),
+            date.getMilliseconds()
+        ];
+        var id = components.join("");
+
+        //cree un repertoire uniq pour les gff
+        fs.mkdirSync(id);
+
         //enregistre les fichiers necessaires au script
-        fs.writeFile(analysisDir+'annot.txt', annot.join("\n"), {encoding:'utf8', flag : 'w+' }, function (err) {
+        fs.writeFile(analysisDir+id+'/annot.txt', annot.join("\n"), {encoding:'utf8', flag : 'w+' }, function (err) {
             //err
             if (err) return console.log("error write file "+err);
-            console.log(analysisDir+'annot.txt saved');
+            console.log(analysisDir+id+'/annot.txt saved');
         });
 
         //enregistre les fichiers necessaires au script
-        fs.writeFile(analysisDir+'color.txt', color, {encoding:'utf8', flag : 'w+' }, function (err) {
+        fs.writeFile(analysisDir+id+'/color.txt', color, {encoding:'utf8', flag : 'w+' }, function (err) {
             //err
             if (err) return console.log("error write file "+err);
-            console.log(analysisDir+'color.txt saved');
+            console.log(analysisDir+id+'/color.txt saved');
         });
 
         //remove old GFF
         //pour chaque gff generé
-        fs.readdir(analysisDir, (err, files) => {
+        /* fs.readdir(analysisDir, (err, files) => {
             if (err)
                 console.log(err);
             else {
@@ -115,12 +131,12 @@ io.on('connection', socket => {
                     }
                 });
             }
-        });
+        }); */
         
         //cree les gff
         const { exec } = require("child_process");
-        exec(`perl ${progPath}gemo2gff.pl ${ploidy} ./annot.txt ./color.txt ./`, (error, stdout, stderr) => {
-            console.log(`${progPath}gemo2gff.pl ./annot.txt ./color.txt ./`);
+        exec(`perl ${progPath}gemo2gff.pl ${ploidy} ${id}/annot.txt ${id}/color.txt ${id}/`, (error, stdout, stderr) => {
+            console.log(`${progPath}gemo2gff.pl ${id}/annot.txt ${id}/color.txt ${id}/`);
             if (error) {
                 console.error(`exec error: ${error}`);
             }
@@ -132,7 +148,7 @@ io.on('connection', socket => {
             let index =0;
             let first = true;
             //pour chaque gff generé
-            fs.readdir(analysisDir, (err, files) => {
+            fs.readdir(id, (err, files) => {
                 if (err)
                     console.log(err);
                 else {
@@ -144,7 +160,7 @@ io.on('connection', socket => {
                                 addStores += ",";
                                 addTracks += ",";
                             }
-                            addStores += "\"url"+index+"\":{\"type\":\"JBrowse/Store/SeqFeature/GFF3\",\"urlTemplate\":\"https://banana-tools-genome-hub.southgreen.fr/gemo/tmp/gemo_run/gemo_"+socket.id+"/"+file+"\"}";
+                            addStores += "\"url"+index+"\":{\"type\":\"JBrowse/Store/SeqFeature/GFF3\",\"urlTemplate\":\"https://banana-tools-genome-hub.southgreen.fr/gemo/tmp/gemo_run/gemo_"+socket.id+"/"+id+"/"+file+"\"}";
                             addTracks += "{\"label\":\"gemo"+index+"\",\"type\":\"JBrowse/View/Track/CanvasFeatures\",\"store\":\"url"+index+"\",\"style\":{\"color\":\"function(feature){return feature.get('color')}\"}}";
                             index ++;
                             first = false;
