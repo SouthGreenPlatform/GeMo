@@ -240,6 +240,7 @@ Troubleshooting and web browser compatibility
 
 
 The web interfaces were tested with the following platforms and web browsers:
+It is optimized for Chrome and works in Firefox and Edge but some design issues may occur with Safari.
 
 .. list-table::
    :header-rows: 1
