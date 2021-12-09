@@ -1,3 +1,6 @@
+Chromosome painting using non admixed ancestral accessions
+==========================================================
+
 **This tutorial point to tools that are not yet available but that will
 come soon**
 
@@ -5,13 +8,13 @@ This tutorial aimed at showing how data should be processed to be then
 visualized with the GeMo
 
 Installation
-============
+~~~~~~~~~~~~
 
 Install `VCFHunter <https://github.com/SouthGreenPlatform/VcfHunter>`__
 following the documentation
 
-Download datasets
-=================
+Datasets
+~~~~~~~~
 
 Two ways :
 
@@ -68,16 +71,19 @@ VCF content
    grep "^#CHROM" Population_A-B__148329variants__21individuals.vcf
    #CHROM  POS ID  REF ALT QUAL    FILTER  INFO    FORMAT  ACC48-FPG   ACC48-FPN   ACC48-P_Ceylan  ACC48-Red_Yade  DYN163-Kunnan   DYN275-Pelipita DYN359-Safet_Velchi GP1 GP2 P1  P2  T01 T02 T03 T04 T05 T06 T07 T08 T10 T11
 
-Principle
-=========
+Workflow
+~~~~~~~~
 
 The principle of this analysis is to :
 
-1. Identify specific allele of distinct genetic pools,
-2. Calculate the expected allelic ratio of these alleles in these
+-  Identify specific allele of distinct genetic pools,
+
+-  Calculate the expected allelic ratio of these alleles in these
    genetic pools,
-3. Calculate the observed allelic ratio a/several given accessions
-4. Normalize these observed ratios using expected ratio to infer the
+
+-  Calculate the observed allelic ratio a/several given accessions
+
+-  Normalize these observed ratios using expected ratio to infer the
    number of haplotypes of each genetic pools that are present on a
    given windows of the studied accession.
 
@@ -85,8 +91,7 @@ Files obtained at the end of the process can be given to GeMo tools to
 visualize data and optimize parameters.
 
 
-Input
-=====
+**Input**
 
 -  Origin.tab
 -  Vcf.conf is a file which contained path to vcf files which will be
@@ -101,16 +106,12 @@ AA    acuminata  0   255 0
 BB    balbisiana 255 0   0
 ===== ========== === === =
 
-------------------------------------------------------------------------
 
-
-Chromosome painting using non admixed ancestral accessions
-==========================================================
 
 .. _step1:
 
-1 - Identification of private alleles and formating output for more analysis
-----------------------------------------------------------------------------
+Identification of private alleles and formatting output for more analysis
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -163,8 +164,8 @@ created.
        ├── T11_ratio.tab.gz
        └── tmp_1_T11_stats.tab
 
-2 - Determination of expected read ratio for each ancestral position based on ancestral accessions merged together
-------------------------------------------------------------------------------------------------------------------
+Determination of expected read ratio for each ancestral position based on ancestral accessions merged together
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ::
 
    <path_vcfhunter>/allele_ratio_group.py -g Origin.tab -p _ratio.tab.gz -o step2 -i step1
@@ -203,8 +204,8 @@ format:
 |           |           |           |           | 518611573 |           |
 +-----------+-----------+-----------+-----------+-----------+-----------+
 
-3 - Calculation of observed ratio in other accessions
------------------------------------------------------
+Calculation of observed ratio in other accessions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The third step is to calculate, for each position in which an allele
 specific of a genetic pool was identified, the observed allelic ratio in
@@ -239,8 +240,8 @@ chr01 89923 T      0.3157894736842105  1.0                 BB
 chr01 89958 T      0.6842105263157895  1.0                 AA
 ===== ===== ====== =================== =================== ===
 
-4 - Calculation on sliding of the normalized observed ratio and ancestral blocs
--------------------------------------------------------------------------------
+Calculation on sliding of the normalized observed ratio and ancestral blocs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this step, in a given sliding windows, the observed average allelic
 ratio is calculated for each genetic pool and normalized by the expected
@@ -248,31 +249,19 @@ allelic ratio. The resulting value is used to infer the number of
 haplotypes from the studied genetic pool present in the studied
 accession.
 
-Outpout are of two types: - *tab.gz* file containing normalized values
-for each genetic pools in the given windows. This file contained 4 + X
-columns, X being the number of genetic pools tested. The column 1
-contained the chromosome name, column 2 contained the position of the
-central allele in the windows, column 3 contained the start position of
-the windows and column 4 contained the end position of the windows.
-Columns 5 to end contained the normalized ratio calculated for the
-accessions. A columns per genetic pool.
+Output are of two types:
 
-The second type of files generated are named
-**Accession_chromosome_haplotype.tab** and contained the hypothesized
-haplotypes from this accession given results from *tab.gz* file.
-Haplotype are hypothetic ones that tries to minimize recombinations
-events between distinct genetic pools. These files are formatted as
-follows: column 1 contained accession name, column 2 contained
-chromosome ID, column 3, 4 and 5 contained start, end, and origin of a
-region.
+- **<accession>_win_ratio.tab.gz** file containing normalized values for each genetic pools in the given windows. This file contained 4 + X columns, X being the number of genetic pools tested. The column 1 contained the chromosome name, column 2 contained the position of the central allele in the windows, column 3 contained the start position of the windows and column 4 contained the end position of the windows. Columns 5 to end contained the normalized ratio calculated for the accessions. A columns per genetic pool.
+
+- **<accession>_<chromosome>_<haplotype>.tab** contained the hypothesized haplotypes from this accession given results from *tab.gz* file. Haplotype are hypothetic ones that tries to minimize recombinations events between distinct genetic pools. These files are formatted as follows: column 1 contained accession name, column 2 contained chromosome ID, column 3, 4 and 5 contained start, end, and origin of a region.
 
 .. code-block:: bash
 
    mkdir step4
    <path_vcfhunter>/PaintArp.py -a Kunnan -r step3/Kunnan_ratio.tab.gz -c color.conf -o step4/Kunnan -w 12 -O 0 -s chromosome.tab
 
-5 - File formating for GeMo visualization
------------------------------------------
+File formatting for GeMo visualization
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This steps aims at reformatting the files so that they are compatible
 with GeMo tool. GeMo tool performs two tasks, the first one consists in
@@ -302,7 +291,7 @@ This command generate several files with the following names:
 
 
 References
-==========
+~~~~~~~~~~
 
 -  `Baurens,F.-C. et al.(2019) Recombination and Large Structural
    Variations Shape Interspecific Edible Bananas Genomes. Mol Biol Evol,

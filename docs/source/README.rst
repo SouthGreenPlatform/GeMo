@@ -1,20 +1,23 @@
+Introduction
+============
+
 GeMo is a WebApp to represent Genome Mosaics with current focus on plants. However, GeMo is developed in a generic way it can be also applied to other organisms.
 
 
 Main features
-=============
+~~~~~~~~~~~~~
 
-1. Dynamic chromosome painting visualisation
+-  Dynamic chromosome painting visualisation
 
-2. Online Data curation of mosaic prediction
+-  Online Data curation of mosaic prediction
 
-3. Markers or Genes Plots on mosaic karyotypes
+-  Markers or Genes Plots on mosaic karyotypes
 
-4. Data and high quality image export
+-  Data and high quality image export
 
 
-Data inputs
-===========
+Input formats
+~~~~~~~~~~~~~
 
 GeMo requires two types of datasets to generate the ideogram visualization
 
@@ -23,11 +26,10 @@ GeMo requires two types of datasets to generate the ideogram visualization
    :width: 250
    :alt: Menu
 
-1. Input files
 
 The position of the mosaic blocks along the chromosomes. It accepts two types of files:
 
-**Genomic blocks**
+-  **Genomic blocks**
 
 .. list-table::
    :header-rows: 1
@@ -59,7 +61,7 @@ The position of the mosaic blocks along the chromosomes. It accepts two types of
      - g4
 
 
-**Normalized curves**
+-  **Normalized curves**
 
 .. list-table::
    :header-rows: 1
@@ -95,7 +97,7 @@ The position of the mosaic blocks along the chromosomes. It accepts two types of
      - 0.010470727
      - 0.003896031
 
-2. Chromosomes sizes and labels
+-  **Chromosomes sizes and labels**
 
 Chromosome data format, each column tab separated
 chr, len, centromereInf (optional), centromereSup (optional), label (optional)
@@ -133,7 +135,7 @@ chr, len, centromereInf (optional), centromereSup (optional), label (optional)
      - 38870123
      - AB
 
-Optional files
+-  **Optional files**
 
 Users can provide their own color codes or use the online features (custom or color blind friendly palettes) 
 
@@ -184,11 +186,11 @@ A list of genomic coordinates (e.g. genes of interest, QTLs) can be provided in 
      - +
      
 Data outputs
-============
+~~~~~~~~~~~~
 
 Once data is provided the chromosome diagram is generated on the fly. Chromosomes display colored blocks usually corresponding to their ancestral/parental origin. An interactive legend is present to label each group with a corresponding color. The user can modify the color of a group directly in the legend.
 
-1. Blocks 
+-  **Blocks**
 
 In the example below, the 11 chromosomes of an doploid organism is visualized. Three main colors (green, blue and red) are visible and corresponds to 3 distinct genepools that contributed to the genetic make up of this genotype. The segements in grey corresponds to unknown.
 
@@ -197,7 +199,7 @@ In the example below, the 11 chromosomes of an doploid organism is visualized. T
    :width: 500
    :alt: blocks
    
-2. Curves
+-  **Curves**
 
 In this mode, the graph represents the proportion of haplotypes of each ancestral origin along chromosomes. They are the results of a normalisation of the number of reads supporting each origin on a given window.
 
@@ -209,7 +211,7 @@ In this mode, the graph represents the proportion of haplotypes of each ancestra
 In this example, allelic ratio for a range of founding genepools are respresented by different colors for chromosome 1. Two genepools in green is the main contributor with smaller contribtuons from the blue and red gene pools.
 
 Data curation and export
-=======================
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Uploaded datasets are automatically loaded in the text box of the GeMo menu, allowing users to update the content and reflect it on the image by clicking on the "update image" button.
 
@@ -219,27 +221,29 @@ Gemo offers the possibility to download the latest version of the data sets and 
 
 
 Live demo
-=========
+~~~~~~~~~
 
 GeMo is available for free to use at `<https://gemo.southgreen.fr/>`__ where
 anyone can upload its own data or test with pre-loaded mosaics/datasets.
 
 Citation
-========
+~~~~~~~~
 
 Summo M, Comte A, Martin G, Weitz E, Perelle P, Droc G and Rouard M. GeMo: A mosaic genome painting tool for plant genomes. (in prep)
 
 Acknowledgements
-================
+~~~~~~~~~~~~~~~~
 
 GeMo has been developed in the framework of the `Genome Harvest project <https://www.genomeharvest.fr>`__ supported by the Agropolis
 fondation.
 
 Troubleshootings and web browser compatibility
-=============================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Some issues were reported for color management when using the exported SVG with Inkscape.
-* It is optimized for Chrome and works in Firefox and Edge but some design issues may occur with Safari.
+-  Some issues were reported for color management when using the exported SVG with Inkscape.
+
+-  It is optimized for Chrome and works in Firefox and Edge but some design issues may occur with Safari.
+
 The web interfaces were tested with the following platforms and web browsers:
 
 .. list-table::
