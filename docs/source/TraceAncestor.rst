@@ -1,9 +1,12 @@
-TraceAncestor2.pl is a script that allows to estimate the allelic dosage
+Chromosome painting using TraceAncestor
+=======================================
+
+TraceAncestor is a suite of script that allows to estimate the allelic dosage
 of ancestral alleles in hybrid individuals and then to perform
 chromosome painting.
 
 Installation
-============
+~~~~~~~~~~~~
 
 `TraceAncestor_GeMo.tar.gz <https://banana-genome-hub.southgreen.fr/filebrowser/download/5740912>`__
 
@@ -23,12 +26,13 @@ Installation
        ├── citrus_color.txt
        └── data.vcf
 
+Workflow
+~~~~~~~~
 
 vcf2gst.pl
-==========
+^^^^^^^^^^
 
-Usage
------
+**Usage**
 
 This script is used to define GST values from individuals that are
 identified as pure breed for an ancestor.
@@ -48,8 +52,7 @@ of the individual, the part must be removed before analysis.
        --output    output file name (Default GSTmatrice)
        --help
 
-Input
------
+**Input**
 
  --ancestor Ancestor file (Required)
 
@@ -70,8 +73,7 @@ Now, you can run the following command
 
    perl bin/vcf2gst.pl --ancestor data/ancestor.txt --vcf data/data.vcf --output GSTMatrix.txt
 
-Output
-------
+**Output**
 
 *The output is a CSV file containing GST (inter-population
 differentiation parameter) information:*
@@ -93,12 +95,11 @@ differentiation parameter) information:*
    ancestors names)
 
 prefilter.pl
-============
+^^^^^^^^^^^^
 
 .. _usage-prefilter:
 
-Usage
------
+**Usage**
 
 This script is used to define a matrix of ancestry informative markers
 from the matrix gotten at the step 1.
@@ -122,8 +123,7 @@ Now, you can run the following command
 
 .. _output-prefilter:
 
-Output
-------
+**Output**
 
 A matrix containing all the ancestry informative markers for every
 ancestors.
@@ -140,12 +140,11 @@ ancestors.
 -  allele = Base of the ancestral allele
 
 TraceAncestor.pl
-================
+^^^^^^^^^^^^^^^^
 
 .. _usage-traceancestor:
 
-Usage
------
+**Usage**
 
 .. code-block:: bash
 
@@ -174,8 +173,7 @@ Now, you can run the following command
 
 .. _ouputs-traceancestor:
 
-Outputs
--------
+**Output**
 
 -  Giant_key_ideo.txt : the painting data. An Ideogram output compatible with GeMo
 
@@ -197,7 +195,7 @@ Outputs
     :lines: 1-5
 
 Visualization and block refinement with GeMo
-============================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Go to `GeMo <https://gemo.southgreen.fr/>`__ WebApp
 
@@ -210,8 +208,8 @@ Go to `GeMo <https://gemo.southgreen.fr/>`__ WebApp
 
 
 
-Reference
-=========
+References
+~~~~~~~~~~
 
 -  `Ahmed,D. et al. (2019) Genotyping by sequencing can reveal the
    complex mosaic genomes in gene pools resulting from reticulate
