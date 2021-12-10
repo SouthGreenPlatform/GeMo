@@ -1343,6 +1343,11 @@ window.onload = async function(){
             responseText = await response.text();
             await $("#editorColor").val(responseText);
 
+            response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/ploidy.txt');
+            responseText = await response.text();
+            await $("#selectorploidy").val(parseInt(responseText));
+            console.log(parseInt(responseText));
+
             //ouvre le menu data
             $("#collapseInput").show();
             //ouvre le menu chr
