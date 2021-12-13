@@ -132,6 +132,8 @@ export function convertStrtoRangeSet(strMosaique,haplotype){
 
 export function ploidyDescGenerator(haplotype,chrNumber){
 
+    console.log("No label in chromosome file");
+    console.log("Ploidy desc generator");
     /*
     ploidyDesc: [
         'ABC',

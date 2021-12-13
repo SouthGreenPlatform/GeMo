@@ -1,6 +1,6 @@
 import { initConfig } from "./config.js";
 import { drawLegend, parsingColor, randomColorGenerator, randomColorGenerator_block, drawPalette } from "./legend.js";
-import { chromosomeParser, annotationParser, ploidyDesc, bedParser } from "./dataParser.js";
+import { chromosomeParser, annotationParser, ploidyDesc, bedParser, ploidyDescFromData } from "./dataParser.js";
 import { loadingon, loadingoff, displaytext, clear, homeClick } from "./display.js";
 import { downloadArchive, saveAsURL} from "./download.js";
 import { drawBed, ideoViewbox, replaceChromName } from "./draw.js";
@@ -481,7 +481,8 @@ async function load_ideogram_from_form_data(){
     
     //Si pas de label on numérote les chromosomes
     if(!ploidyParsed[0][0]){
-        config.ploidyDesc = ploidyDescGenerator(config.ploidy,config.ploidysize);
+        //config.ploidyDesc = ploidyDescGenerator(config.ploidy,config.ploidysize);
+        config.ploidyDesc = ploidyDescFromData(annotdata);
     }
 
     //config.dataDir = "/gemo/config/";
@@ -495,6 +496,8 @@ async function load_ideogram_from_form_data(){
 	config.rangeSet = annotDataParsed[0];
 	annotTable = annotDataParsed[1];
 	
+    
+
 	//Crée le graph
 	if(chrdata != ""){
 		//console.log(config);
