@@ -88,8 +88,10 @@ async function load_accession(sampleJson, type){
     //SWITACHABLE
     if(fileName && fileCurve){
 		$("#switch").show();
+        $("#smooth").show();
 	}else{
         $("#switch").hide();
+        $("#smooth").hide();
     }
 
 	//affiche le loader
@@ -407,10 +409,24 @@ $('#switch').change(function() {
     });
     if (document.getElementById("Switch").checked){
 		load_accession(sampleJson, "curve");
+        $('#Switch').attr('disabled','disabled');
+        setTimeout('$("#Switch").removeAttr("disabled")', 1500);
+        $('#Smooth').removeAttr("disabled");
+        
 	}else{
 		load_accession(sampleJson, "block");
+        $('#Smooth').attr('disabled','disabled');
 	}
 });
+
+
+///////////////////////////////
+///// BOUTON SMOOTH CURVE /////
+///////////////////////////////
+$('#Smooth').change(function() {
+    console.log("smooth");
+});
+
 
 
 
@@ -1326,6 +1342,7 @@ function ideogramConfig(mosaique){
     }
     chrNumber = Object.keys(chr).length;
 
+    console.log(mosaique);
     let dataSet = convertStrtoRangeSet(mosaique,haplotype);
     let ploidyDesc = ploidyDescGenerator(haplotype,chrNumber);
     let ancestors = ancestorsGenerator(haplotype);
@@ -1383,6 +1400,7 @@ window.onload = async function(){
             let response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/annot.txt');
             let responseText = await response.text();
             await $("#editorAnnot").val(responseText);
+            vizType = checkDataFile(d3.tsvParse(responseText));
 
             response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/chrom.txt');
             responseText = await response.text();
