@@ -1,4 +1,4 @@
-GeMo is a WebApp to represent Genome Mosaics with current focus on plants. However, GeMo is developed in a generic way it can be also applied to other organisms.
+GEMO is a WebApp to represent Genome Mosaics with current focus on plants. However, GEMO is developed in a generic way it can be also applied to other organisms.
 
 
 Main features
@@ -16,7 +16,7 @@ Main features
 Data inputs
 ===========
 
-GeMo requires two types of datasets to generate the ideogram visualization
+GEMO requires two types of datasets to generate the ideogram visualization
 
 .. image:: ./docs/source/_images/menu.png
    :target: ./docs/source/_images/menu.png
@@ -215,13 +215,13 @@ Uploaded datasets are automatically loaded in the text box of the GeMo menu, all
 
 In curve mode, The user can visually set the threshold on the graph to recalculate the mosaic block contribution. This can be particularly useful when multiple putative parental gene pools with unclear signals can create noisy mosaics or to switch segments from one haplotype to another for better consistency. Once a threshold is changed, the karyotype diagram is automatically updated.
 
-Gemo offers the possibility to download the latest version of the data sets and export the output graphics as SVG for publication purposes. In addition, data can be also stored temporarily online with a unique URL allowing to share it with multiple users.
+GEMO offers the possibility to download the latest version of the data sets and export the output graphics as SVG for publication purposes. In addition, data can be also stored temporarily online with a unique URL allowing to share it with multiple users.
 
 
 Live demo
 =========
 
-GeMo is available for free to use at `<https://gemo.southgreen.fr/>`__ where
+GEMO is available for free to use at `<https://gemo.southgreen.fr/>`__ where
 anyone can upload its own data or test with pre-loaded mosaics/datasets.
 
 Citation
@@ -232,7 +232,7 @@ Summo M, Comte A, Martin G, Weitz E, Perelle P, Droc G and Rouard M. GeMo: A mos
 Acknowledgements
 ================
 
-GeMo has been developed in the framework of the `Genome Harvest project <https://www.genomeharvest.fr>`__ supported by the Agropolis
+GEMO has been developed in the framework of the `Genome Harvest project <https://www.genomeharvest.fr>`__ supported by the Agropolis
 fondation.
 
 Troubleshooting and web browser compatibility
