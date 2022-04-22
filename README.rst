@@ -1,4 +1,4 @@
-GEMO is a WebApp to represent Genome Mosaics with current focus on plants. However, GEMO is developed in a generic way it can be also applied to other organisms.
+GeMo is a WebApp to represent Genome Mosaics with current focus on plants. However, GeMo is developed in a generic way it can be also applied to other organisms.
 
 
 Main features
@@ -16,7 +16,7 @@ Main features
 Data inputs
 ===========
 
-GEMO requires two types of datasets to generate the ideogram visualization
+GeMo requires two types of datasets to generate the ideogram visualization
 
 .. image:: ./docs/source/_images/menu.png
    :target: ./docs/source/_images/menu.png
@@ -221,7 +221,7 @@ GEMO offers the possibility to download the latest version of the data sets and 
 Live demo
 =========
 
-GEMO is available for free to use at `<https://gemo.southgreen.fr/>`__ where
+GeMo is available for free to use at `<https://gemo.southgreen.fr/>`__ where
 anyone can upload its own data or test with pre-loaded mosaics/datasets.
 
 Citation
@@ -232,7 +232,7 @@ Summo M, Comte A, Martin G, Weitz E, Perelle P, Droc G and Rouard M. GeMo: A mos
 Acknowledgements
 ================
 
-GEMO has been developed in the framework of the `Genome Harvest project <https://www.genomeharvest.fr>`__ supported by the Agropolis
+GeMo has been developed in the framework of the `Genome Harvest project <https://www.genomeharvest.fr>`__ supported by the Agropolis
 fondation.
 
 Troubleshooting and web browser compatibility
