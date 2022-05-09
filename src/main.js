@@ -1619,6 +1619,17 @@ window.onload = async function(){
         const urlParams = new URLSearchParams(queryString);
 
         ///////////////////
+        // parse banner
+        ////////////////////
+
+        if (urlParams.has('banner')){
+            //console.log(urlParams.get('organism'));
+            if(urlParams.get('banner') == "hidden"){
+                $('#banner').hide();
+            }
+        }
+
+        ///////////////////
         // parse organism
         ////////////////////
 

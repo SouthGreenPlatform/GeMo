@@ -61,7 +61,7 @@
 
 
 <!--JUMBOTRON-->
-<div class="jumbotron jumbo-bg">
+<div id="banner" class="jumbotron jumbo-bg">
 <div class="row">
 	<div class="col col-home">
 	<p class="lead">
