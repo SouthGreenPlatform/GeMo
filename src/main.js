@@ -46,7 +46,7 @@ $('#saveasurl').click(saveAsURL);
 //////////////////////////////
 ///// READ THE DOCS EMBED ////
 //////////////////////////////
-$( document ).ready(function() {
+/* $( document ).ready(function() {
 
     var params = {'url': 'https://gemo.readthedocs.io/en/latest/README.html',
     // 'doctool': 'sphinx',
@@ -62,7 +62,7 @@ $( document ).ready(function() {
         
         $('#help-container').html(content);
     });
-});
+}); */
 
 
 
@@ -88,10 +88,8 @@ async function load_accession(sampleJson, type){
     //SWITACHABLE
     if(fileName && fileCurve){
 		$("#switch").show();
-        $("#smooth").show();
 	}else{
         $("#switch").hide();
-        $("#smooth").hide();
     }
 
 	//affiche le loader
@@ -425,6 +423,7 @@ $('#switch').change(function() {
 ///////////////////////////////
 $('#Smooth').change(function() {
     console.log("smooth");
+    $("#submit").click();
 });
 
 
@@ -1235,11 +1234,217 @@ function mosaique(floorValue){
 
     let strMosaique = metaBlocks.join(" ").replace(/,/g,' ');
     strMosaique = strMosaique.replace(/^ +/gm,""); //variable à récuperer pour gemo.(sous forme de string) encodeURIComponent....
-    //console.log(strMosaique);
+    
+/*     if (document.getElementById("Smooth").checked){
+        let smoothMosaic = smoothData(strMosaique);
+        let connectedMosaic = connectBlock(smoothMosaic);
+        ideogramConfig(strMosaique);
+        //ideogramConfig(connectedMosaic);
+    }else{
+        ideogramConfig(strMosaique);
+    } */
     ideogramConfig(strMosaique);
 }
 
+function smoothData(strMosaique){
 
+    let newStrMosaique = "";
+
+    let lines = strMosaique.split("\n");
+	//console.log(lines);
+	let colonne  = "";
+    let prevChr = "";
+    let prevColor = "";
+    let prevHap = "";
+    let savChr = "";
+    let savHap = "";
+    let savStart = "";
+    let savStop = "";
+    let savColor = "";
+    let first = true;
+	
+	for (let i = 0; i < lines.length; i++) {
+		
+		if (lines[i] == ""){
+			//console.log("skip en tête");
+			continue;
+		}
+		//split les espaces ou les tabulations
+		colonne = lines[i].split(/[ \t]+/);
+
+        if(first){
+            //nouveux bloc = current line
+            savChr = colonne[0];
+            savHap = colonne[1];
+            savStart = colonne[2];
+            savStop = colonne[3];
+            savColor = colonne[4];
+            prevChr = colonne[0];
+            prevColor = colonne[4];
+            prevHap = colonne[1];
+            first = false;
+            continue;
+        }
+        
+        //console.log("prev " + prevChr+ " " + prevHap+" "+prevColor);
+        //console.log("cur "+ colonne[0] + " "+ colonne[1]+" "+ colonne[4]);
+
+        //si on est sur le même brin 
+        if(parseInt(colonne[0]) == parseInt(prevChr) && parseInt(colonne[1]) == parseInt(prevHap)){
+            //si la couleur est la même
+            if(String(colonne[4]) == String(prevColor)){
+                //console.log("même couleur nouveau stop "+ colonne[3]);
+                //nouvelle coordonnée de block
+                savStop = colonne[3];
+            
+            //on change de couleur
+            }else{
+                //console.log("****************************new couleur ");
+                //console.log("j'écris  "+ savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n");
+                //ecrit l'ancien bloc
+                newStrMosaique += savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n";
+                //nouveux bloc = current line
+                savChr = colonne[0];
+                savHap = colonne[1];
+                savStart = colonne[2];
+                savStop = colonne[3];
+                savColor = colonne[4];
+                prevChr = colonne[0];
+                prevColor = colonne[4];
+                prevHap = colonne[1];
+            }
+        //si on change de brin
+        }else{
+            prevChr = colonne[0];
+            prevColor = colonne[4];
+            prevHap = colonne[1];
+            //console.log("new brin "+ lines[i]);
+            //console.log("j'écris  "+ savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n");
+            //save ancien bloc
+            newStrMosaique += savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n";
+            //nouveux bloc
+            savChr = colonne[0];
+            savHap = colonne[1];
+            savStart = colonne[2];
+            savStop = colonne[3];
+            savColor = colonne[4];
+            prevChr = colonne[0];
+            prevColor = colonne[4];
+            prevHap = colonne[1];
+        }
+        
+    }
+    //last
+    newStrMosaique += savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n";
+    //console.log(newStrMosaique);
+    return newStrMosaique;
+
+}
+
+function connectBlock(smoothMosaic){
+
+    let newStrMosaique = "";
+
+    let lines = smoothMosaic.split("\n");
+	//console.log(lines);
+	let colonne  = "";
+    let prevChr = "";
+    let prevColor = "";
+    let prevHap = "";
+    let savChr = "";
+    let savHap = "";
+    let savStart = "";
+    let savStop = "";
+    let savColor = "";
+    let first = true;
+	
+	for (let i = 0; i < lines.length; i++) {
+		
+		if (lines[i] == ""){
+			//console.log("skip en tête");
+			continue;
+		}
+		//split les espaces ou les tabulations
+		colonne = lines[i].split(/[ \t]+/);
+
+        if(first){
+            //nouveux bloc = current line
+            savChr = colonne[0];
+            savHap = colonne[1];
+            savStart = colonne[2];
+            savStop = colonne[3];
+            savColor = colonne[4];
+            prevChr = colonne[0];
+            prevColor = colonne[4];
+            prevHap = colonne[1];
+            first = false;
+            continue;
+        }
+        
+        //console.log("prev " + prevChr+ " " + prevHap+" "+prevColor);
+        //console.log("cur "+ colonne[0] + " "+ colonne[1]+" "+ colonne[4]);
+
+        //si on est sur le même brin 
+        if(parseInt(colonne[0]) == parseInt(prevChr) && parseInt(colonne[1]) == parseInt(prevHap)){
+            //si la couleur est la même
+            if(String(colonne[4]) == String(savColor)){
+                //console.log("même couleur nouveau stop "+ colonne[3]);
+                //nouvelle coordonnée de block
+                savStop = colonne[3];
+                //on ecrit
+                newStrMosaique += savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n";
+            
+            //on change de couleur
+            }else{
+                if(colonne[3] == "#808080"){
+                    //console.log("****************************new couleur ");
+                    //console.log("j'écris  "+ savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n");
+                    
+                    //sauve la coordonnées de fin
+                    prevStop = colonne[3];
+                
+                //autre couleur, on ecrit et on change de block
+                }else{
+                    //on ecrit
+                    newStrMosaique += savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n";
+                    //nouveux bloc = current line
+                    savChr = colonne[0];
+                    savHap = colonne[1];
+                    savStart = colonne[2];
+                    savStop = colonne[3];
+                    savColor = colonne[4];
+                    prevChr = colonne[0];
+                    prevColor = colonne[4];
+                    prevHap = colonne[1];
+                }
+                
+            }
+        //si on change de brin
+        }else{
+            prevChr = colonne[0];
+            prevColor = colonne[4];
+            prevHap = colonne[1];
+            //console.log("new brin "+ lines[i]);
+            //console.log("j'écris  "+ savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n");
+            //save ancien bloc
+            newStrMosaique += savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n";
+            //nouveux bloc
+            savChr = colonne[0];
+            savHap = colonne[1];
+            savStart = colonne[2];
+            savStop = colonne[3];
+            savColor = colonne[4];
+            prevChr = colonne[0];
+            prevColor = colonne[4];
+            prevHap = colonne[1];
+        }
+        
+    }
+    //last
+    newStrMosaique += savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n";
+    console.log(newStrMosaique);
+    return newStrMosaique;
+}
 
 // function mosaique(floorValue){
 //     /*
@@ -1373,56 +1578,124 @@ function ideogramConfig(mosaique){
 }
 
 ////////////////////////////////////////////////////////////////
-//PRE-LOADED DATA VIA URL
+//ON LOAD FUNCTIONS
 ////////////////////////////////////////////////////////////////
+
 window.onload = async function(){
-    var urlAccession = window.location.hash;
-    if(urlAccession){
-        let acc = urlAccession.replace(/#/g, '');
+
+    //////////////////////////////
+    // embed github documentation
+    //////////////////////////////
+
+    console.log("embed");
+    var params = {'url': 'https://gemo.readthedocs.io/en/latest/README.html',
+    // 'doctool': 'sphinx',
+    // 'doctoolversion': '4.2.0',
+    };
+    var url = 'https://readthedocs.org/api/v3/embed/?' + $.param(params);
+    $.get(url, function(data) {
+        let content = data['content'];
+        //fix img url
+        content = content.replaceAll("_images", "docs/source/_images");
+        //fix link symbol
+        content = content.replaceAll("headline\"></a>", "headline\">&#x1F517; </a>");
         
-        //retreive all entries for this sample
-        let filterData = arrData.filter(function(value) {
-            return value.Sample === acc;
-        });
-        //console.log(filterData);
+        $('#help-container').html(content);
+    });
 
-        //Known accession
-        if(!filterData.length==0){
-            $('#chrompaint').hide();
-            $('#page-content-wrapper').show();
-            $('#home').hide();
-            $('#welcome').hide();
-            load_accession(filterData, 'none');
-        }else{
-            //saved as url
-            //alert("data not found");
-            //cherche le repertoire 
-            let response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/annot.txt');
-            let responseText = await response.text();
-            await $("#editorAnnot").val(responseText);
-            vizType = checkDataFile(d3.tsvParse(responseText));
+    ///////////////////
+    // parse URL
+    ////////////////////
 
-            response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/chrom.txt');
-            responseText = await response.text();
-            await $("#editorChr").val(responseText);
+    //document ready
+    //sinon firefox bug
+    $(async function () {
+        //var urlAccession = window.location.hash;
+        //if(urlAccession){
+        console.log('parse url');
 
-            response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/color.txt');
-            responseText = await response.text();
-            await $("#editorColor").val(responseText);
+        //retreive param
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
 
-            response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/ploidy.txt');
-            responseText = await response.text();
-            await $("#selectorploidy").val(parseInt(responseText));
-            console.log(parseInt(responseText));
+        ///////////////////
+        // parse organism
+        ////////////////////
 
-            //ouvre le menu data
-            $("#collapseInput").show();
-            //ouvre le menu chr
-            $("#collapseChr").show();
-            //ouvre le menu color
-            $("#collapseColor").show();
-            $("#submit").click();
-        } 
-    }
+        if (urlParams.has('organism')){
+            //console.log(urlParams.get('organism'));
+            let found = false;
+            var values = $("#organism option").map(function() {
+                
+                //match entre l'url et les option d'organism ?
+                if(this.value.match(new RegExp(urlParams.get('organism'), "i"))){
+                    console.log("match "+this.value);
+                    //change la valeur du select
+                    $("#organism").val(this.value).change();
+                    $("#organism").prop('disabled', 'disabled');
+                    found = true;
+                }
+            });
+            if(!found){
+                    alert("No organism \""+urlParams.get('organism')+"\" found");
+            }
+        }
+
+        ///////////////////
+        // parse accession
+        ////////////////////
+
+        if (urlParams.has('acc')){
+            console.log(urlParams.get('acc'));
+            let acc = urlParams.get('acc').replace(/#/g, '');
+            
+            //retreive all entries for this sample
+            let filterData = arrData.filter(function(value) {
+                return value.Sample === acc;
+            });
+            //console.log(filterData);
+
+            //Known accession
+            if(!filterData.length==0){
+                $('#chrompaint').hide();
+                $('#page-content-wrapper').show();
+                $('#home').hide();
+                $('#welcome').hide();
+                load_accession(filterData, 'none');
+            }else{
+                //saved as url
+                //alert("data not found");
+                //cherche le repertoire 
+                let response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/annot.txt');
+                let responseText = await response.text();
+                await $("#editorAnnot").val(responseText);
+                vizType = checkDataFile(d3.tsvParse(responseText));
+
+                response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/chrom.txt');
+                responseText = await response.text();
+                await $("#editorChr").val(responseText);
+
+                response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/color.txt');
+                responseText = await response.text();
+                await $("#editorColor").val(responseText);
+
+                response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/ploidy.txt');
+                responseText = await response.text();
+                await $("#selectorploidy").val(parseInt(responseText));
+                console.log(parseInt(responseText));
+
+                //ouvre le menu data
+                $("#collapseInput").show();
+                //ouvre le menu chr
+                $("#collapseChr").show();
+                //ouvre le menu color
+                $("#collapseColor").show();
+                $("#submit").click();
+            } 
+        }
+    }); 
+    
+
+    
     //window.location = nouvelleAdresse;
 }
