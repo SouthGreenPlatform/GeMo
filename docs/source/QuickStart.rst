@@ -80,18 +80,18 @@ Input
 =========== ======
 individuals origin
 =========== ======
-P2      AA
-T01     BB
-T02     BB
-T03     AA
-T04     AA
-T05     AA
-T06     AA
-T07     AA
-T08     BB
+P2 AA
+T01 BB
+T02 BB
+T03 AA
+T04 AA
+T05 AA
+T06 AA
+T07 AA
+T08 BB
 =========== ======
 
-- Baurens_et_al_2019_individuals.txt : List of individuals to scan origin from vcf, as defined in the VCF headerline
+- Baurens_et_al_2019_individuals.txt : A two column file with individuals to scan for origin (same as defined in the VCF headerline) in the first column and the ploidy in the second column. 
 - Baurens_et_al_2019_color.txt : A color file with 4 columns: col1=group and the three last column corresponded to RGB code.
 ===== ========== === === =
 group name       r   g   b
