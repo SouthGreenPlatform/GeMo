@@ -4,16 +4,12 @@ Quick Start
 Installation requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-::
-
-   git clone https://github.com/gdroc/GeMo_tutorials.git
-
 This tutorial is developed to run on Linux or Apple (MAC OS X) operating systems. There are no versions planned for Windows.
 
 Software requirements:
 
--  Perl 5 (default on most Linux distributions)
--  Python 3
+-  Perl 5 for TraceAncestor
+-  Python 3 for VCFHunter
 
 
 Testing your Perl installation
@@ -33,14 +29,44 @@ To test that Python 3 is installed, enter on the command line
 ::
 
     python3 --version
-   
-Download dataset
+
+Now, you can clone the repository, create a virtualenv and install several additionnal package using pip.
+
+::
+
+   git clone https://github.com/gdroc/GeMo_tutorials.git
+   python3 -m venv $PWD/venv
+   source venv/bin/activate
+   pip install numpy
+   pip install matplotlib
+   pip install scipy
+
+
+Download Dataset
 ~~~~~~~~~~~~~~~~
 
+For this tutorial, Dataset that will be used by TraceAncestor or by VCFHunter are accessible on Zenodo https://doi.org/10.5281/zenodo.6539270
+
+To download this, you only need to launch the script download_dataset.pl without any parameter
 
 ::
 
    perl download_dataset.pl
+
+This script create a new directory data
+
+::
+
+   data/
+   ├── Ahmed_et_al_2019_color.txt
+   ├── Ahmed_et_al_2019_individuals.txt
+   ├── Ahmed_et_al_2019_origin.txt
+   ├── Ahmed_et_al_2019.vcf
+   ├── Baurens_et_al_2019_color.txt
+   ├── Baurens_et_al_2019_individuals.txt
+   ├── Baurens_et_al_2019_origin.txt
+   ├── Baurens_et_al_2019_chromosome.txt
+   └── Baurens_et_al_2019.vcf
 
 
 References
