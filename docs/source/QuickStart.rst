@@ -1,16 +1,46 @@
 Quick Start
 ===========
 
-Installation
-~~~~~~~~~~~~
+Installation requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
-   https://github.com/gdroc/GeMo_tutorials.git
+   git clone https://github.com/gdroc/GeMo_tutorials.git
 
+This tutorial is developed to run on Linux or Apple (MAC OS X) operating systems. There are no versions planned for Windows.
+
+Software requirements:
+
+-  Perl 5 (default on most Linux distributions)
+-  Python 3
+
+
+Testing your Perl installation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To test that Perl 5 is installed, enter on the command line
+
+::
+
+    perl -version
+
+Testing your Python installation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To test that Python 3 is installed, enter on the command line
+
+::
+
+    python3 --version
    
 Download dataset
 ~~~~~~~~~~~~~~~~
+
+
+::
+
+   perl download_dataset.pl
 
 
 References
