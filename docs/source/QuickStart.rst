@@ -68,6 +68,37 @@ This script create a new directory data
    ├── Baurens_et_al_2019_chromosome.txt
    └── Baurens_et_al_2019.vcf
 
+These files are require for this tutorial to run VCFHunter or TraceAncestor
+
+
+Input
+~~~~~
+
+- Baurens_et_al_2019.vcf : A vcf file
+- Baurens_et_al_2019_origin.txt : A two column file with individuals in the first column and group tag (i.e. origin) in the second column
+
+=========== ======
+individuals origin
+=========== ======
+P2      AA
+T01     BB
+T02     BB
+T03     AA
+T04     AA
+T05     AA
+T06     AA
+T07     AA
+T08     BB
+=========== ======
+
+- Baurens_et_al_2019_individuals.txt : List of individuals to scan origin from vcf, as defined in the VCF headerline
+- Baurens_et_al_2019_color.txt : A color file with 4 columns: col1=group and the three last column corresponded to RGB code.
+===== ========== === === =
+group name       r   g   b
+===== ========== === === =
+AA    acuminata  0   255 0
+BB    balbisiana 255 0   0
+===== ========== === === =
 
 References
 ~~~~~~~~~~
