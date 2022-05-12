@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html>
 <head> 
-<title>GEMO</title>
+<title>GeMo</title>
 <meta charset="utf-8">
 
 <!--Bootstrap 4.4-->
