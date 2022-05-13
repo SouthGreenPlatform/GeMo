@@ -12,19 +12,24 @@ Installation
 
 ::
 
-   wget https://banana-genome-hub.southgreen.fr/filebrowser/download/5740912
-   tar -xzvf 5740912
-   cd TraceAncestor
-   tree
-   .
-   ├── bin
-   │   ├── prefilter.pl
-   │   ├── TraceAncestor.pl
-   │   └── vcf2gst.pl
-   └── data
-       ├── ancestor.txt
-       ├── citrus_color.txt
-       └── data.vcf
+   git clone https://github.com/gdroc/GeMo_tutorials.git
+   cd GeMo_tutorials
+   
+Download dataset, you only need to launch the script download_dataset.pl without any parameter
+
+::
+
+   perl download_dataset.pl
+
+This script create a new directory data
+
+::
+
+   data/
+   ├── Ahmed_et_al_2019_color.txt
+   ├── Ahmed_et_al_2019_individuals.txt
+   ├── Ahmed_et_al_2019_origin.txt
+   ├── Ahmed_et_al_2019.vcf
 
 Workflow
 ~~~~~~~~
@@ -43,26 +48,36 @@ of the individual, the part must be removed before analysis.
 
 .. code-block:: bash
 
-   vcf2gst.pl --help
+   bin/vcf2gst.pl --help
 
    Parameters :
-       --vcf       vcf containing the ancestors [Required]
-       --ancestor  ancestor file [Required]
-       --depth     minimal depth for a snp to be used in the analysis (Default 5)
-       --output    output file name (Default GSTmatrice)
-       --help
+      --vcf       vcf containing the ancestors and other individuals to scan [Required]
+      --ancestor  A two column file with individuals in the first column and group tag (i.e. origin) in the second column [Required]
+      --depth     minimal depth for a snp to be used in the analysis (Default 5)
+      --output    output file name (Default GSTmatrix.txt) 
+      --help
 
 **Input**
 
  --ancestor Ancestor file (Required)
 
-For example :
+A two column file with individuals in the first column and group tag (i.e. origin) in the second column
 
-.. literalinclude:: ancestor.txt
-    :language: text
 
-The first column correspond to the ancestor (ie : M, P, C, Mic)
-The other columns are the names of pure breed individuals in the vcf files (ie : Chandler, KaoPan, Pink...)
+=========== ======
+individuals origin
+=========== ======
+De_Chios    Mandarin
+Shekwasha   Mandarin
+Sunki       Mandarin
+Cleopatra   Mandarin
+Pink        Pummello
+Timor       Pummello
+Tahitian    Pummello
+Deep_red    Pummello
+Corsican    Citron
+Buddha_Hand Citron
+=========== ======
 
  --vcf VCF file (Required)
 
@@ -71,16 +86,12 @@ Now, you can run the following command
 
 .. code-block:: bash
 
-   perl bin/vcf2gst.pl --ancestor data/ancestor.txt --vcf data/data.vcf --output GSTMatrix.txt
+   perl bin/vcf2gst.pl --ancestor data/Ahmed_et_al_2019_origin.txt --vcf data/Ahmed_et_al_2019.vcf --output GSTMatrix.txt
 
 **Output**
 
 *The output is a CSV file containing GST (inter-population
 differentiation parameter) information:*
-
-.. literalinclude:: GSTMatrix.txt
-    :language: text
-    :lines: 1-5
 
 *with :*
 
@@ -107,19 +118,19 @@ from the matrix gotten at the step 1.
 
 .. code-block:: bash
 
-   prefilter.pl --help
+   bin/prefilter.pl --help
    Parameters :
-       --input     reference matrice [Required]
+       --matrix    GST matrix [Required]
        --gst       threshold for gst (Default : 0.9)
        --missing   threshold for missing data (Default 0.3)
-       --output    output file name (Default Diagnosis_matrix)
+       --output    output file name (Default Diagnosis_matrix) 
        --help      display this help
 
 Now, you can run the following command
 
 .. code-block:: bash
 
-   perl bin/prefilter.pl --input GSTMatrix.txt --output Diagnosis_matrix.txt
+   perl bin/prefilter.pl --matrix GSTMatrix.txt --output Diagnosis_matrix.txt
 
 .. _output-prefilter:
 
@@ -127,10 +138,6 @@ Now, you can run the following command
 
 A matrix containing all the ancestry informative markers for every
 ancestors.
-
-.. literalinclude:: Diagnosis_matrix.txt
-    :language: text
-    :lines: 1-5
 
 *with:*
 
@@ -148,27 +155,29 @@ TraceAncestor.pl
 
 .. code-block:: bash
 
-   TraceAncestor.pl --help
+   bin/TraceAncestor.pl --help
 
-   usage: TraceAncestor.pl [-t matrix file] [-v vcf file] [-p ploidy] [-w number of markers by window] [-s threshold for LOD] [-k window size in K-bases] [-i hybrid name to focus on]
+   Parameters :
+       --matrix     Diagnosis matrix [Required]
+       --vcf       vcf of the hybrid population 
+       --individuals    A two column file with individuals to scan for origin (same as defined in the VCF headerline) in the first column and the ploidy in the second column [Required]
+       --window    number of markers by window (Default 10)
+       --lod       LOD value to conclude for one hypothesis (Default 3)
+       --freq      theoretical frequency used to calcul the LOD (Default 0.99)
+       --cut       number of K bases in one window (Default 100) 
+       --dirout    Directory output (Default result)
+       --help      display this help
 
-    --input     reference matrice [Required]
-    --vcf       vcf of the hybrid population
-    --ploidy    ploidy of the hybrid population (Default 2)
-    --window    number of markers by window (Default 10)
-    --lod       LOD value to conclude for one hypothesis (Default 3)
-    --freq      theoretical frequency used to calcul the LOD (Default 0.99)
-    --cut       number of K bases in one window (Default 100)
-    --hybrid    particular hybrid you want to focus on
-    --outdir    Directory output (Default result)
-    --help      display this help
 
+**Input**
+
+--individuals A two column file with individuals to scan for origin (same as defined in the VCF headerline) in the first column and the ploidy in the second column. 
 
 Now, you can run the following command
 
 .. code-block:: bash
 
-   perl bin/TraceAncestor.pl --input Diagnosis_matrix.txt --vcf data.vcf --hybrid Giant_key --ploidy 4
+   perl bin/TraceAncestor.pl --matrix Diagnosis_matrix.txt --vcf data/Ahmed_et_al_2019.vcf --individuals Ahmed_et_al_2019_individuals.txt
 
 
 .. _ouputs-traceancestor:
@@ -177,22 +186,10 @@ Now, you can run the following command
 
 -  Giant_key_ideo.txt : the painting data. An Ideogram output compatible with GeMo
 
-.. literalinclude:: Giant_key_ideo.txt
-    :language: text
-    :lines: 1-5
-
 -  Giant_key_chrom.txt : the chromosomes data.
 -  Giant_key_ancestor.txt : frequency of ancestors alleles along chromosome for the particular hybrid focused.
 
-.. literalinclude:: Giant_key_ancestor.txt
-    :language: text
-    :lines: 1-5
-
 -  Giant_key_curve.txt : frequency of ancestors alleles along chromosome for the GeMo visualization tool.
-
-.. literalinclude:: Giant_key_curve.txt
-    :language: text
-    :lines: 1-5
 
 Visualization and block refinement with GeMo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -39,6 +39,7 @@ Now, you can clone the repository, create a virtualenv and install several addit
 ::
 
    git clone https://github.com/gdroc/GeMo_tutorials.git
+   cd GeMo_tutorials
    python3 -m venv $PWD/venv
    source venv/bin/activate
    pip install numpy
