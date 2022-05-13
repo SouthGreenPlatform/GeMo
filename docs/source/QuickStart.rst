@@ -153,11 +153,11 @@ A directory was create depending on parameter dirout (default method name)
 
 For example, for VCFHunter, for each individual present in the file data/Baurens_et_al_2019_individuals.txt, 4 outputs are produced in this directory,  prefixed with the name of indivual :
 
--  DYN163-Kunnan_ideo.txt :  A text file of the position of genomic blocks the ancestry mosaic with a succession of genomic blocks along the chromosome
+- **DYN163-Kunnan_ideo.txt** :  A text file of the position of genomic blocks the ancestry mosaic with a succession of genomic blocks along the chromosome
 
-===   ========= ========  ======== ===============
+===== ========= ========  ======== ===============
 chr   haplotype start     end      ancestral_group
-===   ========= ========  ======== ===============
+===== ========= ========  ======== ===============
 chr01 0         0         20888    AA
 chr01 0         20888     451633   AA
 chr01 0         451633    848109   AA
@@ -166,9 +166,9 @@ chr01 0         1198648   1555128  un
 chr01 0         1555128   1899887  AA
 chr01 0         1899887   2296417  un
 chr01 0         2296417   2759817  un
-===   ========= ========  ======== ===============
+===== ========= ========  ======== ===============
 
--  DYN163-Kunnan_chrom.txt : A tab file with name, length and karyotype based on ploidy (optionaly the location of centromere).
+- **DYN163-Kunnan_chrom.txt** : A tab file with name, length and karyotype based on ploidy (optionaly the location of centromere).
 
 ===== ======== ============= ============= =====
 chr   len      centromereInf centromereSup label
@@ -186,7 +186,7 @@ chr10 37674811 18837405      18837407      AB
 chr11 27954350 13977175      13977177      AB
 ===== ======== ============= ============= =====
 
--  BDYN163-Kunnan_color.txt : Frequency of ancestors alleles along chromosome for the particular hybrid focused.
+- **BDYN163-Kunnan_color.txt** : Frequency of ancestors alleles along chromosome for the particular hybrid focused.
 
 ===== ========== =======
 group name       hex
@@ -196,7 +196,7 @@ BB    balbisiana #ff0000
 un      un       #bdbdbd
 ===== ========== =======
 
--  DYN163-Kunnan_curve.txt : Frequency of ancestors alleles along chromosome for the GeMo visualization tool.
+- **DYN163-Kunnan_curve.txt** : Frequency of ancestors alleles along chromosome for the GeMo visualization tool.
 
 ===== ======= ======= ==================  ===================
 chr   start   end     AA                  BB
@@ -210,7 +210,6 @@ chr01 2638987 3190388 0.6752108036341729  0.3208947817296506
 chr01 3190388 3905155 0.6951554613138214  0.3155181655339866
 chr01 3905155 4800522 0.6813746934348566  0.32271710110143237
 ===== ======= ======= ==================  ===================
-
 
 Visualization and block refinement with GeMo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
