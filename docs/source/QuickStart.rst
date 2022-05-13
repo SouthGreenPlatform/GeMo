@@ -221,6 +221,16 @@ Go to `GeMo <https://gemo.southgreen.fr/>`__ WebApp
    :alt: GeMo_Vizualise
 
 
+Curve mode
+
+.. image:: _images/VCFHunter_Kunnan_curve.png
+   :target: _images/VCFHunter_Kunnan_curve.png
+   :align: center
+   :alt: GeMo_Vizualise
+
+
+
+
 
 
 
