@@ -129,13 +129,29 @@ Run workflow using create_gemo_input.pl
        -t, --threads     Number of threads
        -d, --dirout      Path to the output directory (Default method option name)
        -h, --help        display this help
-    
-For VCFHunter, you must use the dataset prefixed with Baurens_et_al.
+
+**1. With VCFHunter method**
+
+You must use the dataset prefixed with Baurens_et_al.
 ::
 
     perl create_gemo_input.pl --vcf data/Baurens_et_al_2019.vcf --origin data/Baurens_et_al_2019_origin.txt --individuals data/Baurens_et_al_2019_individuals.txt --method vcfhunter --color data/Baurens_et_al_2019_color.txt --threads 4
 
-If you don't provide a parameter for dirout, a directory vcfhunter was create. For each individual present in the file data/Baurens_et_al_2019_individuals.txt, 4 outputs are produced,  prefixed with the name of indivual :
+
+**2. With TraceAncestor method**
+
+You must use the dataset prefixed with with Ahmed_et_al.
+::
+
+    perl create_gemo_input.pl --vcf data/Ahmed_et_al_2019.vcf --origin data/Ahmed_et_al_2019_origin.txt --individuals data/Ahmed_et_al_2019_individuals.txt --method traceancestor --color data/Ahmed_et_al_2019_color.tx
+
+
+Visualization and block refinement with GeMo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A directory was create depending on parameter dirout (default method name)
+
+For example, for VCFHunter, for each individual present in the file data/Baurens_et_al_2019_individuals.txt, 4 outputs are produced in this directory,  prefixed with the name of indivual :
 
 -  DYN163-Kunnan_ideo.txt :  A text file of the position of genomic blocks the ancestry mosaic with a succession of genomic blocks along the chromosome
 
@@ -171,6 +187,7 @@ chr11 27954350 13977175      13977177      AB
 ===== ======== ============= ============= =====
 
 -  BDYN163-Kunnan_color.txt : Frequency of ancestors alleles along chromosome for the particular hybrid focused.
+
 ===== ========== =======
 group name       hex
 ===== ========== =======
@@ -181,10 +198,29 @@ un      un       #bdbdbd
 
 -  DYN163-Kunnan_curve.txt : Frequency of ancestors alleles along chromosome for the GeMo visualization tool.
 
-For TraceAncestor, you must use the dataset prefixed with with Ahmed_et_al.
-::
+===== ======= ======= ==================  ===================
+chr   start   end     AA                  BB
+===== ======= ======= ==================  ===================
+chr01 20888   525207  0.660757486645395   0.30378982223766354
+chr01 525207  1086954 0.6425583592191819  0.3508607451997505
+chr01 1086954 1563263 0.7355412887547506  0.2661255866893344
+chr01 1563263 2058335 0.6136974042002844  0.3851682528896984
+chr01 2058335 2638987 0.5543371247412866  0.39469329280411
+chr01 2638987 3190388 0.6752108036341729  0.3208947817296506
+chr01 3190388 3905155 0.6951554613138214  0.3155181655339866
+chr01 3905155 4800522 0.6813746934348566  0.32271710110143237
+===== ======= ======= ==================  ===================
 
-    perl create_gemo_input.pl --vcf data/Ahmed_et_al_2019.vcf --origin data/Ahmed_et_al_2019_origin.txt --individuals data/Ahmed_et_al_2019_individuals.txt --method traceancestor --color data/Ahmed_et_al_2019_color.tx
+
+Go to `GeMo <https://gemo.southgreen.fr/>`__ WebApp
+  Load data has follow
+
+.. image:: _images/VCFHunter_Kunnan_ideo.png
+   :target: _images/VCFHunter_Kunnan_ideo.png
+   :align: center
+   :alt: GeMo_Vizualise
+
+
 
 
 

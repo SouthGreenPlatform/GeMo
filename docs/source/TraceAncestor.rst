@@ -182,9 +182,9 @@ Now, you can run the following command
 
 **Output**
 
-For each individual present in the file data/Ahmed_et_al_2019_individuals.txt, 4 4 outputs are produced,  prefixed with the name of indivual :
+For each individual present in the file data/Ahmed_et_al_2019_individuals.txt, 4 outputs are produced,  prefixed with the name of indivual :
 
--  Bergamot_ideo.txt :  Define the ancestry mosaic with a succession of genomic blocks along the chromosome
+-  Bergamot_ideo.txt :  A text file of the position of genomic blocks the ancestry mosaic with a succession of genomic blocks along the chromosome
 === ========= ========  ======== ===============
 chr haplotype start     end      ancestral_group
 === ========= ========  ======== ===============
