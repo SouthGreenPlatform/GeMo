@@ -184,10 +184,21 @@ Now, you can run the following command
 
 For each individual present in the file data/Ahmed_et_al_2019_individuals.txt, 4 4 outputs are produced,  prefixed with the name of indivual :
 
--  Bergamot_ideo.txt : the painting data. An Ideogram output compatible with GeMo
--  Bergamot_chrom.txt : the chromosomes data.
--  Bergamot_ancestor.txt : frequency of ancestors alleles along chromosome for the particular hybrid focused.
--  Bergamot_curve.txt : frequency of ancestors alleles along chromosome for the GeMo visualization tool.
+-  Bergamot_ideo.txt :  Define the ancestry mosaic with a succession of genomic blocks along the chromosome
+=== ========= ========  ======== ===============
+chr haplotype start     end      ancestral_group
+=== ========= ========  ======== ===============
+1   0         1         28700000 Citron
+1   1         1         28700000 Pummello
+2   0         1         600000   Citron
+2   0         3000001   4200000  Mandarin
+2   0         4200001   10400000 Citron
+2   0         10800001  35200000 Citron
+=== ========= ========  ======== ===============
+
+-  Bergamot_chrom.txt : A tab file with name, length and karyotype based on ploidy.
+-  Bergamot_ancestor.txt : Frequency of ancestors alleles along chromosome for the particular hybrid focused.
+-  Bergamot_curve.txt : Frequency of ancestors alleles along chromosome for the GeMo visualization tool.
 
 
 Visualization and block refinement with GeMo
