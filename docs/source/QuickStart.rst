@@ -1,6 +1,10 @@
 Quick Start
 ===========
 
+The objective of this tutorial is to reproduce part of the results presented in Baurens et al (2019) and Ahmed et al (2019), using respectively VCFHunter and TraceAncestor.
+
+The outputs of these programs can then be used in the GeMo webapps.
+
 Installation requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -74,13 +78,6 @@ These files are require for this tutorial to run VCFHunter or TraceAncestor
 Input
 ~~~~~
 
-- Baurens_et_al_2019.vcf : A vcf file
-
-::
-
-   grep #CHROM data/Baurens_et_al_2019.vcf 
-   #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	ACC48-FPG	ACC48-FPN	ACC48-P_Ceylan	ACC48-Red_Yade	DYN163-Kunnan	DYN275-Pelipita	DYN359-Safet_Velchi	GP1	GP2	P1	P2	T01	T02	T03	T04	T05	T06	T07	T08	T10	T11
-
 - Baurens_et_al_2019_origin.txt : A two column file with individuals in the first column and group tag (i.e. origin) in the second column
 
 =========== ======
@@ -97,6 +94,13 @@ T07         AA
 T08         BB
 =========== ======
 
+- Baurens_et_al_2019.vcf : A vcf file with ancestral and admixed individuals
+
+::
+
+   grep #CHROM data/Baurens_et_al_2019.vcf
+   #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	ACC48-FPG	ACC48-FPN	ACC48-P_Ceylan	ACC48-Red_Yade	DYN163-Kunnan	DYN275-Pelipita	DYN359-Safet_Velchi	GP1	GP2	P1	P2	T01	T02	T03	T04	T05	T06	T07	T08	T10	T11
+
 - Baurens_et_al_2019_individuals.txt : A two column file with individuals to scan for origin (same as defined in the VCF headerline) in the first column and the ploidy in the second column. 
 - Baurens_et_al_2019_color.txt : A color file with 4 columns: col1=group and the three last column corresponded to RGB code.
 ===== ========== === === =
@@ -106,8 +110,9 @@ AA    acuminata  0   255 0
 BB    balbisiana 255 0   0
 ===== ========== === === =
 
-Run workflow
-~~~~~~~~~~~~
+
+Run workflow using create_gemo_input.pl
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -122,8 +127,15 @@ Run workflow
        -d, --dirout      Path to the output directory (Default method option name)
        -h, --help        display this help
     
+For VCFHunter, you must use the dataset prefixed with Baurens_et_al.
+::
 
-    perl create_gemo_input.pl --vcf data/Baurens_et_al_2019.vcf --origin data/Baurens_et_al_2019_origin.txt --individuals data/Baurens_et_al_2019_individuals.txt --method vcfhunter --color data/Baurens_et_al_2019_color.tx
+    perl create_gemo_input.pl --vcf data/Baurens_et_al_2019.vcf --origin data/Baurens_et_al_2019_origin.txt --individuals data/Baurens_et_al_2019_individuals.txt --method vcfhunter --color data/Baurens_et_al_2019_color.txt --threads 4
+
+For TraceAncestor, you must use the dataset prefixed with with Ahmed_et_al.
+::
+
+    perl create_gemo_input.pl --vcf data/Ahmed_et_al_2019.vcf --origin data/Ahmed_et_al_2019_origin.txt --individuals data/Ahmed_et_al_2019_individuals.txt --method traceancestor --color data/Ahmed_et_al_2019_color.tx
 
 
 
