@@ -146,8 +146,8 @@ You must use the dataset prefixed with with Ahmed_et_al.
     perl create_gemo_input.pl --vcf data/Ahmed_et_al_2019.vcf --origin data/Ahmed_et_al_2019_origin.txt --individuals data/Ahmed_et_al_2019_individuals.txt --method traceancestor --color data/Ahmed_et_al_2019_color.tx
 
 
-Visualization and block refinement with GeMo
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Explanation of outputs
+~~~~~~~~~~~~~~~~~~~~~~
 
 A directory was create depending on parameter dirout (default method name)
 
@@ -212,8 +212,13 @@ chr01 3905155 4800522 0.6813746934348566  0.32271710110143237
 ===== ======= ======= ==================  ===================
 
 
+Visualization and block refinement with GeMo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Go to `GeMo <https://gemo.southgreen.fr/>`__ WebApp
-  Load data has follow
+  
+
+- **Ideogram Mode**
 
 .. image:: _images/VCFHunter_Kunnan_ideo.png
    :target: _images/VCFHunter_Kunnan_ideo.png
@@ -221,7 +226,7 @@ Go to `GeMo <https://gemo.southgreen.fr/>`__ WebApp
    :alt: GeMo_Vizualise
 
 
-Curve mode
+- **Curve mode**
 
 .. image:: _images/VCFHunter_Kunnan_curve.png
    :target: _images/VCFHunter_Kunnan_curve.png
