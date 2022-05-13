@@ -8,8 +8,6 @@ chromosome painting.
 Installation
 ~~~~~~~~~~~~
 
-`TraceAncestor_GeMo.tar.gz <https://banana-genome-hub.southgreen.fr/filebrowser/download/5740912>`__
-
 ::
 
    git clone https://github.com/gdroc/GeMo_tutorials.git
@@ -177,19 +175,20 @@ Now, you can run the following command
 
 .. code-block:: bash
 
-   perl bin/TraceAncestor.pl --matrix Diagnosis_matrix.txt --vcf data/Ahmed_et_al_2019.vcf --individuals Ahmed_et_al_2019_individuals.txt
+   perl bin/TraceAncestor.pl --matrix Diagnosis_matrix.txt --vcf data/Ahmed_et_al_2019.vcf --individuals data/Ahmed_et_al_2019_individuals.txt
 
 
 .. _ouputs-traceancestor:
 
 **Output**
 
--  Giant_key_ideo.txt : the painting data. An Ideogram output compatible with GeMo
+For each individual present in the file data/Ahmed_et_al_2019_individuals.txt, 4 4 outputs are produced,  prefixed with the name of indivual :
 
--  Giant_key_chrom.txt : the chromosomes data.
--  Giant_key_ancestor.txt : frequency of ancestors alleles along chromosome for the particular hybrid focused.
+-  Bergamot_ideo.txt : the painting data. An Ideogram output compatible with GeMo
+-  Bergamot_chrom.txt : the chromosomes data.
+-  Bergamot_ancestor.txt : frequency of ancestors alleles along chromosome for the particular hybrid focused.
+-  Bergamot_curve.txt : frequency of ancestors alleles along chromosome for the GeMo visualization tool.
 
--  Giant_key_curve.txt : frequency of ancestors alleles along chromosome for the GeMo visualization tool.
 
 Visualization and block refinement with GeMo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
