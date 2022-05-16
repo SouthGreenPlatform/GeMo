@@ -1,6 +1,7 @@
 # ReadTheDocs build
 docs/build/
 
+.idea
 # build
 public/build/
 
