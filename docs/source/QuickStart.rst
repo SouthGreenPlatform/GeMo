@@ -79,11 +79,7 @@ These files are require for this tutorial to run VCFHunter or TraceAncestor
 Input
 ~~~~~
 
-<<<<<<< HEAD
-- Baurens_et_al_2019_origin.txt : A two column file with individuals in the first column and group tag (i.e. origin) in the second column
-=======
 - **Baurens_et_al_2019_origin.txt** : A two column file with individuals in the first column and group tag (i.e. origin) in the second column
->>>>>>> 97bc9b57f5c02f3a935795eaba0dc87d1535f6e2
 
 =========== ======
 individuals origin
@@ -99,26 +95,18 @@ T07         AA
 T08         BB
 =========== ======
 
-<<<<<<< HEAD
-- Baurens_et_al_2019.vcf : A vcf file with ancestral and admixed individuals
-=======
+
 - **Baurens_et_al_2019.vcf** : A vcf file with ancestral and admixed individuals
->>>>>>> 97bc9b57f5c02f3a935795eaba0dc87d1535f6e2
 
 ::
 
    grep #CHROM data/Baurens_et_al_2019.vcf
    #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	ACC48-FPG	ACC48-FPN	ACC48-P_Ceylan	ACC48-Red_Yade	DYN163-Kunnan	DYN275-Pelipita	DYN359-Safet_Velchi	GP1	GP2	P1	P2	T01	T02	T03	T04	T05	T06	T07	T08	T10	T11
 
-<<<<<<< HEAD
-- Baurens_et_al_2019_individuals.txt : A two column file with individuals to scan for origin (same as defined in the VCF headerline) in the first column and the ploidy in the second column.
-- Baurens_et_al_2019_color.txt : A color file with 4 columns: col1=group and the three last column corresponded to RGB code.
-=======
 - **Baurens_et_al_2019_individuals.txt** : A two column file with individuals to scan for origin (same as defined in the VCF headerline) in the first column and the ploidy in the second column.
 
 - **Baurens_et_al_2019_color.txt** : A color file with 4 columns: col1=group and the three last column corresponded to RGB code.
 
->>>>>>> 97bc9b57f5c02f3a935795eaba0dc87d1535f6e2
 ===== ========== === === =
 group name       r   g   b
 ===== ========== === === =
@@ -135,13 +123,8 @@ Run workflow using create_gemo_input.pl
    perl create_gemo_input.pl --help
    Parameters :
        -v, --vcf         A vcf file [required]
-<<<<<<< HEAD
-       -o, --origin       A two column file with individuals in the first column and group tag (i.e. origin) in the second column [Required]
-       -i, --individuals  List of individuals to scan from vcf, as defined in the VCF headerline [Required]
-=======
        -o, --origin      A two column file with individuals in the first column and group tag (i.e. origin) in the second column [Required]
        -i, --individuals List of individuals to scan from vcf, as defined in the VCF headerline [Required]
->>>>>>> 97bc9b57f5c02f3a935795eaba0dc87d1535f6e2
        -m, --method      Permissible values: vcfhunter traceancestor (String). Default vcfhunter
        -c, --color       A color file with 4 columns: col1=group and the three last column corresponded to RGB code.
        -t, --threads     Number of threads
@@ -150,29 +133,16 @@ Run workflow using create_gemo_input.pl
 
 **1. With VCFHunter method**
 
-<<<<<<< HEAD
-
-You must use the dataset prefixed with Baurens_et_al.
-
-=======
-You must use the dataset prefixed with Baurens_et_al.
->>>>>>> 97bc9b57f5c02f3a935795eaba0dc87d1535f6e2
+You must use the dataset prefixed with Baurens_et_al. 
 ::
 
     perl create_gemo_input.pl --vcf data/Baurens_et_al_2019.vcf --origin data/Baurens_et_al_2019_origin.txt --individuals data/Baurens_et_al_2019_individuals.txt --method vcfhunter --color data/Baurens_et_al_2019_color.txt --threads 4
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 97bc9b57f5c02f3a935795eaba0dc87d1535f6e2
 **2. With TraceAncestor method**
 
 You must use the dataset prefixed with with Ahmed_et_al.
 ::
 
-<<<<<<< HEAD
-    perl create_gemo_input.pl --vcf data/Ahmed_et_al_2019.vcf --origin data/Ahmed_et_al_2019_origin.txt --individuals data/Ahmed_et_al_2019_individuals.txt --method traceancestor --color data/Ahmed_et_al_2019_color.txt
-=======
     perl create_gemo_input.pl --vcf data/Ahmed_et_al_2019.vcf --origin data/Ahmed_et_al_2019_origin.txt --individuals data/Ahmed_et_al_2019_individuals.txt --method traceancestor --color data/Ahmed_et_al_2019_color.tx
 
 
@@ -264,20 +234,10 @@ Go to `GeMo <https://gemo.southgreen.fr/>`__ WebApp
    :alt: GeMo_Vizualise
 
 
-
-
->>>>>>> 97bc9b57f5c02f3a935795eaba0dc87d1535f6e2
-
-
-
 References
 ~~~~~~~~~~
 
-<<<<<<< HEAD
 -  `Summo, Marilyne. (2022). GeMo : a web-based platform for the visualization and curation of mosaic genomes [Data set]. Zenodo. <https://doi.org/10.5281/zenodo.6539270#.YoIC65NBxgc>`__
-=======
--  `Summo, Marilyne. (2022). GeMo : a web-based platform for the visualization and curation of mosaic genomes [Data set]. Zenodo. <https://doi.org/10.5281/zenodo.6539270>`__
->>>>>>> 97bc9b57f5c02f3a935795eaba0dc87d1535f6e2
 -  `Baurens,F.-C. et al.(2019) Recombination and Large Structural
    Variations Shape Interspecific Edible Bananas Genomes. Mol Biol Evol,
    36, 97–111. <https://doi.org/10.1093/molbev/msy199>`__
