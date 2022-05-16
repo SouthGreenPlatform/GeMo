@@ -44,9 +44,10 @@ export function saveAsURL(){
     let annot = $("#editorAnnot").val();
     let chrom = $("#editorChr").val();
     let color = $("#editorColor").val();
+    let ploidy = $("#selectorploidy").val();
 
     //Appel au serveur
-    socket.emit('saveAsURL', annot, chrom, color, function(err, path){
+    socket.emit('saveAsURL', annot, chrom, color, ploidy, function(err, path){
         if(err){
             console.log(err);
         }else{

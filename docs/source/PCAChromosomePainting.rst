@@ -147,4 +147,8 @@ During the process, several informations are returned to standard output, but at
    Group g0 contained 163788 dots
    Group g1 contained 54919 dots
    Group g2 contained 43346 dots
+<<<<<<< HEAD
    Group g3 contained 37535 dots
+=======
+   Group g3 contained 37535 dots
+>>>>>>> 97bc9b57f5c02f3a935795eaba0dc87d1535f6e2

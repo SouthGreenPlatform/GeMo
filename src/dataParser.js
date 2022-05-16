@@ -34,6 +34,9 @@ export function chromosomeParser(data){
 //parsing de la ploidy 
 // data = fichier chr nouveau format
 // chr	len	centromereInf	centromereSup	label
+// return ploidydesc = [AB, AB, etc...]
+// return ploidydesc.length = nb de chromosomes
+// return maxLength = taille du chr le plus long
 ////////////////////////////////////////////////////////////////
 export function ploidyDesc(data){
 	console.log("parse ploidy");
@@ -63,6 +66,91 @@ export function ploidyDesc(data){
 }
 
 ////////////////////////////////////////////////////////////////
+//Compte le max de la ploidy sur tout les chromosomes
+////////////////////////////////////////////////////////////////
+export function ploidyCount(data){
+	console.log("cloidy count");
+	let annotTable = data.split("\n");
+	let maxPloidy =0;
+	//Calcul la ploidy max
+	for (let i = 0; i < annotTable.length; i++) {
+	
+		//skip les lignes vides ou l'en- tête
+		//if (annotTable[i] == "" || annotTable[i].startsWith('chr')){
+		const regex = /haplotype/g;
+		if (annotTable[i] == "" || annotTable[i].match(regex)){
+			console.log("skip en tête");
+			continue;
+		}	
+		//split les espaces ou les tabulations
+		let colonne = annotTable[i].split(/[ \t]+/);
+		if(colonne[1]>maxPloidy){
+			maxPloidy = colonne[1];
+		}
+	}
+	console.log("max : "+maxPloidy);
+	return maxPloidy;
+}
+
+////////////////////////////////////////////////////////////////
+//Compte le max de la ploidy sur tout les chromosomes
+////////////////////////////////////////////////////////////////
+export function ploidyDescFromData(data){
+	console.log("ploidy desc from data");
+
+	let ploidyDesc = [];
+    let chrStr = [];
+	let currentChr;
+	let annotTable = data.split("\n");
+	let maxPloidy =0;
+	let first = true;
+
+	//parcours toutes les lignes
+	for (let i = 0; i < annotTable.length; i++) {
+		//skip les lignes vides ou l'en- tête
+		//if (annotTable[i] == "" || annotTable[i].startsWith('chr')){
+		const regex = /haplotype/g;
+		if (annotTable[i] == "" || annotTable[i].match(regex)){
+			console.log("skip en tête");
+			continue;
+		}
+
+		//split les espaces ou les tabulations
+		let colonne = annotTable[i].split(/[ \t]+/);
+		if(first){ 
+			currentChr = colonne[0];
+			first = false;
+		}
+		let chr = colonne[0];
+		let ploidy = colonne[1];
+		
+		if(chr == currentChr){
+			if(ploidy > maxPloidy){
+				maxPloidy = ploidy;
+			}
+		}else{
+			//une fois qu'on a le max ploidy pour le chromosome courrant
+			for (let i = 0; i < parseInt(maxPloidy) + 1; i++) {
+				chrStr.push(i+1);
+			}	
+			ploidyDesc.push(chrStr.join(""));
+			//on change de chromosomes
+			currentChr = chr;
+			chrStr = [];
+			maxPloidy = 0;
+		}
+	}
+	//une fois qu'on a le max ploidy pour le chromosome courrant
+	for (let i = 0; i < parseInt(maxPloidy) + 1; i++) {
+		chrStr.push(i+1);
+	}	
+	ploidyDesc.push(chrStr.join(""));
+
+	//console.log(ploidyDesc)
+    return ploidyDesc;
+}
+
+////////////////////////////////////////////////////////////////
 //parsing du formulaire data avec les annotations
 ////////////////////////////////////////////////////////////////
 export function annotationParser(data, configPloidy, ancestorsNameColor, chrDict){
@@ -76,6 +164,8 @@ export function annotationParser(data, configPloidy, ancestorsNameColor, chrDict
 	let count =0;
 
 	let rangeSet = [];
+
+	let maxPloidy = ploidyCount(data);
 	
 	//pour chaque ligne d'annot
 	for (let i = 0; i < annotTable.length; i++) {
@@ -89,22 +179,23 @@ export function annotationParser(data, configPloidy, ancestorsNameColor, chrDict
 			continue;
 		}
 
+
 		//split les espaces ou les tabulations
 		colonne = annotTable[i].split(/[ \t]+/);
 		count++;
-		
+
 		//Boucle qui sert a définir la position de l'annotation
-		for(let n = 0; n< configPloidy; n++){
-			//console.log(n + " " + parseInt(colonne[1]));
+		//exemple : [0,1] = en deuxieme haplotype
+ 		//for(let n = 0; n< configPloidy; n++){
+		for(let n = 0; n< parseInt(maxPloidy)+1; n++){
+		    //console.log(n + " " + parseInt(colonne[1]));
 			if(n == parseInt(colonne[1])){
-				//console.log("egal");
 				ploidy.push(1);
 			}else {
 				ploidy.push(0);
-				//console.log("pas egal");
 			}	
-		}
-		
+		}  
+		//console.log(ploidy);
 		let chrid = chrDict[colonne[0]];
 		if(!chrid){
 			chrid = colonne[0];

@@ -67,6 +67,7 @@ header{
     display:flex;
     align-items: center;
     justify-content: center;
+    border:1px dotted black;
 }
 #box4{
     width:100%;
@@ -99,7 +100,7 @@ p {
     margin-right: 10px;
     vertical-align: middle;
 }
-.button {
+/* .button {
     display: inline-block;
     padding: 10px;
     background: #ccc;
@@ -109,7 +110,7 @@ p {
 }
 .button:hover {
     background: #ddd;
-}
+} */
 #dataFile {
     display: none;
 }
@@ -127,10 +128,10 @@ p {
 #graph{
     width:100%;
     height: 100%;
-    display:flex;
+    /* display:flex; */
     align-items: center;
     justify-content: center;
-    margin: 3% 0 3% 3%;
+    margin: 3% 0 3% 27px; 
 }
 
 #selector{
@@ -157,10 +158,13 @@ p {
 #floorContainer{
     width: 100%;
     height: 100%;
+    font-size: small;
     display:flex;
     flex-direction: column;
     align-items: center;
     vertical-align: center;
+    background-color: white;
+    border:1px dotted black;
 }
 
 #legend {
@@ -171,6 +175,7 @@ p {
     width:100%;
     height:100%;
     justify-content: space-evenly;
+    border-top:1px dotted black;
 }
 
 #input{
@@ -189,24 +194,25 @@ p {
     display: flex;
     flex-direction:row;
     padding: 10px;
-    background: #ccc;
+    /* background: #ccc; */
     cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+/*     border-radius: 5px;
+    border: 1px solid #ccc; */
     align-items: center;
     text-align: center;
     justify-content: space-evenly;
 
 }
 .clicked{
-    color:white;
+    color: black;
 }
 .selectedMenu{
     background-color: #f1faee;
 }
 
 .color{
-    width: 25px;
+    max-width: 25px;
+    min-width: 25px;
     padding:0;
 }
 .floor{
@@ -249,7 +255,7 @@ p {
     width:50vw;
 }
 
-#sub1:hover{
+/* #sub1:hover{
     background-color: #ddd;
 }
 #sub2:hover{
@@ -262,7 +268,7 @@ p {
 
 #sub2{
     background-color: #ccc;
-}
+} */
 .dropdown {
     position: relative;
     display: inline-block;

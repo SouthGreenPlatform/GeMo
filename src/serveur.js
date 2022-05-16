@@ -177,7 +177,7 @@ io.on('connection', socket => {
     });
     
     
-    socket.on('saveAsURL', (annot, chrom, color, callback) => {
+    socket.on('saveAsURL', (annot, chrom, color, ploidy, callback) => {
 		console.log("save as url");
         //genère un ID
         var date = new Date();
@@ -231,6 +231,11 @@ io.on('connection', socket => {
             //err
             if (err) return console.log("error write file "+err);
             console.log(savedDir+'color.txt saved');
+        });
+        fs.writeFile(savedDir+'ploidy.txt', ploidy, {encoding:'utf8', flag : 'w+' }, function (err) {
+            //err
+            if (err) return console.log("error write file "+err);
+            console.log(savedDir+'ploidy.txt saved');
         });
         callback(null, id);
 	});

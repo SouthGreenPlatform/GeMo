@@ -1,6 +1,6 @@
 import { initConfig } from "./config.js";
 import { drawLegend, parsingColor, randomColorGenerator, randomColorGenerator_block, drawPalette } from "./legend.js";
-import { chromosomeParser, annotationParser, ploidyDesc, bedParser } from "./dataParser.js";
+import { chromosomeParser, annotationParser, ploidyDesc, bedParser, ploidyDescFromData } from "./dataParser.js";
 import { loadingon, loadingoff, displaytext, clear, homeClick } from "./display.js";
 import { downloadArchive, saveAsURL} from "./download.js";
 import { drawBed, ideoViewbox, replaceChromName } from "./draw.js";
@@ -481,7 +481,8 @@ async function load_ideogram_from_form_data(){
     
     //Si pas de label on numérote les chromosomes
     if(!ploidyParsed[0][0]){
-        config.ploidyDesc = ploidyDescGenerator(config.ploidy,config.ploidysize);
+        //config.ploidyDesc = ploidyDescGenerator(config.ploidy,config.ploidysize);
+        config.ploidyDesc = ploidyDescFromData(annotdata);
     }
 
     //config.dataDir = "/gemo/config/";
@@ -495,6 +496,8 @@ async function load_ideogram_from_form_data(){
 	config.rangeSet = annotDataParsed[0];
 	annotTable = annotDataParsed[1];
 	
+    
+
 	//Crée le graph
 	if(chrdata != ""){
 		//console.log(config);
@@ -750,7 +753,8 @@ function graphSetup(data){
     let marginTop = parseInt(style.marginTop);
     let marginBottom = parseInt(style.marginBottom);
 
-    WIDTH = visu.clientWidth - marginLeft - marginRight;
+    //WIDTH = visu.clientWidth - marginLeft - marginRight;
+    WIDTH = 600;
     HEIGHT = visu.clientHeight - marginTop - marginBottom;
 
     //création de notre svg qui sera notre container pour notre graphique
@@ -759,6 +763,8 @@ function graphSetup(data){
         .attr("height", HEIGHT + marginTop + marginBottom)
         .append("g")
         .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
+        //.attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
+        
 
     //création d'un clip path, tous tracés hors de cet élement ne sera pas affichée (résout le problème des courbes dépassant les axes lors du zoom)
     svg.append("defs").append("svg:clipPath")
@@ -846,6 +852,10 @@ function graphSetup(data){
     //Création du selecteur de chromosome (dropdown) et du resetColor
     let container = d3.select("#floorContainer").append("div")
         .attr("id","top_part");
+    
+    //Création du background color
+    let container2 = d3.select("#floorContainer").append("div")
+    .attr("id","top_part_2");
 
     //Chromosome selector
     container.append("select")
@@ -855,9 +865,34 @@ function graphSetup(data){
             tracerCourbe(selectedChromosome,data,lineGen,svg,ancestorsNameColor,ancestorsNameColor);
         });
 
+    //background color
+    container2.append('text')
+        .text("Background ");
+    container2.append('input')
+        .attr("class","color")
+        .attr("type","color")
+        .style("margin-right","5px")
+        .attr("value","#000000")
+        .on("input",function(){
+            $("#box3").css("background-color",this.value);
+        });
+
+    //axis color
+    container2.append('text')
+        .text("Axis ");
+    container2.append('input')
+        .attr("class","color")
+        .attr("type","color")
+        .style("margin-right","5px")
+        .attr("value","#FFFFFF")
+        .on("input",function(){
+            $("#xaxis").css("color", this.value);
+            $("#yaxis").css("color", this.value);
+        });
     //ResetColor button
-    container.append("input")
+    /* container.append("input")
         .attr("type","button")
+        .attr("class","btn btn-sm btn-outline-dark")
         .attr("value","reset colors")
         .style("padding","5px")
         .style("background","#ccc")
@@ -889,7 +924,7 @@ function graphSetup(data){
             //refresh graph and ideogram
             mosaique(floorValues,data);
             tracerCourbe(selectedChromosome,data,lineGen,svg,ancestorsNameColor,ancestorsNameColor);
-        });
+        }); */
 
     data.forEach(function(current_data,i){ //impossible d'utiliser .data() .enter() ici pour des raisons obscure.
 
@@ -907,21 +942,37 @@ function graphSetup(data){
         .attr('class', 'legend')
         .style("padding-left","0px")
         .style("padding-right","0px")
+        .style("width","90%")
+        .style("height","25px")
         .style("margin-bottom",""+((HEIGHT/ancestorsNameColor.length)/2)+"px");
 
+    //checkbox
     legend.append('input')
         .attr("class","displayedCurve")
         .attr("type","checkbox")
         .attr("checked","")
+        .style("margin-right","5px")
+        .style("margin-left","10px")
         .attr("name",function(d){
             return d.key;
         });
 
     curveOpacitySetup();
-
+    // name of group
+    legend.append('text')
+        .style("max-width","80px")
+        .style("min-width","80px")
+        .style("margin-right","5px")
+        .style("text-align","left")
+        .text(function(d) {
+            return ancestorsNameColor[d.key][0];
+        });
+    
+    //color select
     legend.append('input')
         .attr("class","color")
         .attr("type","color")
+        .style("margin-right","5px")
         .attr("value",function(d){
             //console.log( ancestorsNameColor[d.key][1]);
             return ancestorsNameColor[d.key][1];
@@ -933,14 +984,12 @@ function graphSetup(data){
             tracerCourbe(selectedChromosome,data,lineGen,svg,ancestorsNameColor);
         });
 
-    legend.append('text')
-        .style("width","30%")
-        .text(function(d) {
-            return ancestorsNameColor[d.key][0];
-        });
+    
 
     legend.append('input')
-        .style("width","80px")
+        .style("min-width","60px")
+        .style("max-width","60px")
+        .style("margin-right","10px")
         .attr("class","floor")
         .attr("type","number")
         .attr("step","0.001")
@@ -1057,7 +1106,7 @@ function legendSetup(){
             legend.children[i].style.backgroundColor = "#dbdbdb"
         });
         legend.children[i].addEventListener("mouseout", function () {
-            legend.children[i].style.backgroundColor = "#ccc"
+            legend.children[i].style.backgroundColor = "white"
         });
     }
 }
@@ -1342,6 +1391,11 @@ window.onload = async function(){
             response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/color.txt');
             responseText = await response.text();
             await $("#editorColor").val(responseText);
+
+            response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/ploidy.txt');
+            responseText = await response.text();
+            await $("#selectorploidy").val(parseInt(responseText));
+            console.log(parseInt(responseText));
 
             //ouvre le menu data
             $("#collapseInput").show();
