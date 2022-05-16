@@ -1,6 +1,27 @@
 PCA analysis
 ============
 
+Installation
+~~~~~~~~~~~~
+
+::
+
+   pip install Bio
+   pip install sklearn
+
+Dependencies
+~~~~~~~~~~~~
+
+`plink <https://www.cog-genomics.org/plink/>`__
+
+R
+`Package ade4 <http://pbil.univ-lyon1.fr/ade4/home.php?lang=eng>`__
+
+::
+
+   R
+   install.packages("ade4")
+
 
 Datasets
 ~~~~~~~~
@@ -9,6 +30,7 @@ Datasets
 
 ::
 
+   cd data
    wget https://s3.amazonaws.com/3kricegenome/snpseek-dl/3krg-base-filt-core-v0.7/core_v0.7.bed.gz
    wget https://s3.amazonaws.com/3kricegenome/snpseek-dl/3krg-base-filt-core-v0.7/core_v0.7.bim.gz
    wget https://s3.amazonaws.com/3kricegenome/snpseek-dl/3krg-base-filt-core-v0.7/core_v0.7.fam.gz
@@ -44,12 +66,13 @@ Workflow
    sed -i 's=\.\/\.=\.\/\.:\.,\.:\.=g' core_v0.7.vcf
 
 The first step of the Chromosome painting is to perform a PCA analysis on the vcf file to cluster the alleles and the accession.
+
 Create a folder in which the analysis will be performed and run the following command line:
 
 ::
 
    mkdir PCA
-   vcf2struct.1.0.py --vcf core_v0.7.vcf --names sample.txt --type FACTORIAL --prefix PCA/Analysis --nAxes 6 --mulType coa
+   bin/vcf2struct.1.0.py --vcf data/core_v0.7.vcf --names data/sample.txt --type FACTORIAL --prefix PCA/Analysis --nAxes 6 --mulType coa
 
 The last command line run the factorial analysis (–type FACTORIAL option).
 During this analysis the vcf file is recoded as followed :
@@ -96,11 +119,11 @@ along synthetic axis is generated.
 
 ::
 
-   sort -k 2n,2 PCA/Analysis_individuals_coordinates.tab | cut -f 1 -d " " | tail -10 > origin.txt
-   sort -k 3n,3 PCA/Analysis_individuals_coordinates.tab | cut -f 1 -d " " | tail -10 >> origin.txt
-   sort -k 3nr,3  PCA/Analysis_individuals_coordinates.tab | cut -f 1 -d " " | tail -10 >> origin.txt
-   sed -i 's:\"::g' origin.txt
-   sed -i 's=\.=-=' origin.txt
+   sort -k 2n,2 PCA/Analysis_individuals_coordinates.tab | cut -f 1 -d " " | tail -10 > data/origin.txt
+   sort -k 3n,3 PCA/Analysis_individuals_coordinates.tab | cut -f 1 -d " " | tail -10 >> data/origin.txt
+   sort -k 3nr,3  PCA/Analysis_individuals_coordinates.tab | cut -f 1 -d " " | tail -10 >> data/origin.txt
+   sed -i 's:\"::g' data/origin.txt
+   sed -i 's=\.=-=' data/origin.txt
 
 
 
@@ -113,11 +136,11 @@ We assume that in some case you have additional informations on your dataset suc
 ::
 
    mkdir -p PCA_group
-   vcf2struct.1.0.py --vcf core_v0.7.vcf --names origin.txt --type FACTORIAL --prefix PCA_group/Analysis --nAxes 6 --mulType coa
+   bin/vcf2struct.1.0.py --vcf data/core_v0.7.vcf --names data/origin.txt --type FACTORIAL --prefix PCA_group/Analysis --nAxes 6 --mulType coa
 
 ::
 
-   vcf2struct.1.0.py --type VISUALIZE_VAR_2D --VarCoord PCA_group/Analysis_variables_coordinates.tab --dAxes 1:2 --mat PCA_group/Analysis_kMean_allele.tab --group PCA_group/Analysis_group_color.tab --prefix PCA_group/AlleleGrouping
+   bin/vcf2struct.1.0.py --type VISUALIZE_VAR_2D --VarCoord PCA_group/Analysis_variables_coordinates.tab --dAxes 1:2 --mat PCA_group/Analysis_kMean_allele.tab --group PCA_group/Analysis_group_color.tab --prefix PCA_group/AlleleGrouping
 
 .. image:: _images/AlleleGrouping_axis1_vs_axis2.png
 
@@ -126,7 +149,7 @@ Now that allele have been projected along synthetic axes, it is time to cluster 
 
 ::
 
-   vcf2struct.1.0.py --type SNP_CLUST-MeanShift --VarCoord PCA_group/Analysis_variables_coordinates.tab --dAxes 1:2 --mat PCA_group/Analysis_matrix_4_PCA.tab --thread 8 --prefix PCA_group/Analysis --quantile 0.15
+   bin/vcf2struct.1.0.py --type SNP_CLUST-MeanShift --VarCoord PCA_group/Analysis_variables_coordinates.tab --dAxes 1:2 --mat PCA_group/Analysis_matrix_4_PCA.tab --thread 8 --prefix PCA_group/Analysis --quantile 0.15
 
 The Mean Shift clustering is performed with only the 2 first axes of the COA (--dAxes 1:2) because the analysis showed that most of the inertia is on these axes. With a mean shift approach, the number of group is automatically detected.
 
