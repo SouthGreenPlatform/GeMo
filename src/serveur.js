@@ -43,8 +43,9 @@ const io = require('socket.io')(server, {
 io.on('connection', socket => {
 	console.log( `Nouveau visiteur : ${socket.id}` );
 
-    const progPath = '/opt/projects/VisuSNP/htdocs/gemo/python/';
-	const workingPath = '/opt/projects/VisuSNP/htdocs/gemo/tmp/gemo_run/';
+    const current_dir = process.cwd();
+    const progPath = current_dir +'/python/';
+	const workingPath = current_dir +'/tmp/gemo_run/';
 	const analysisDir = workingPath + 'gemo_' + socket.id +'/';
     fs.mkdirSync(analysisDir);
     //run chrom config
@@ -192,7 +193,7 @@ io.on('connection', socket => {
         ];
         var id = components.join("");
 
-        const savedDir = '/opt/projects/VisuSNP/htdocs/gemo/tmp/gemo_saved/gemo_' + id +'/';
+        const savedDir = current_dir +'/tmp/gemo_saved/gemo_' + id +'/';
 
         //copy directory to saved location
         /**
