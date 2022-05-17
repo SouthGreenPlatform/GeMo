@@ -15,6 +15,8 @@ import {addTooltip, addHelpTooltips} from "./tooltip.js";
 let ploidyA ="";
 //////////
 
+var path = document.location.pathname;
+const current_dir = path.substring(path.indexOf('/'), path.lastIndexOf('/'));
 
 
 let lgtChro =[]; //longueur des chromosomes
@@ -122,7 +124,7 @@ async function load_accession(sampleJson, type){
     }
 
 	//load le fichier mosaique dans le formulaire
-	let response = await fetch('/gemo/data/accessions/'+fileToLoad);
+	let response = await fetch(current_dir+'/data/accessions/'+fileToLoad);
 	let responseText = await response.text();
 	await $("#editorAnnot").val(responseText);
     vizType = checkDataFile(d3.tsvParse(responseText));
@@ -133,16 +135,16 @@ async function load_accession(sampleJson, type){
 	$('#selectorploidy').val(ploidy);
 
 	//config.dataDir = '/gemo/data/visuchromp/';
-	response = await fetch('/gemo/data/chromosomes/'+ChromFile);
+	response = await fetch(current_dir+'/data/chromosomes/'+ChromFile);
 	responseText = await response.text();
 	$("#editorChr").val(responseText);
     //chrConfig = d3.tsvParse(responseText);
 
     //config.dataDir = '/gemo/config/';
-    config.dataDir = '/gemo/tmp/gemo_run/gemo_'+configPath+"/";
+    config.dataDir = current_dir+'/tmp/gemo_run/gemo_'+configPath+"/";
     
     //color file
-    response = await fetch('/gemo/data/accessions/'+ColorFile);
+    response = await fetch(current_dir+'/data/accessions/'+ColorFile);
 	responseText = await response.text();
 	await $("#editorColor").val(responseText);
 
@@ -389,7 +391,7 @@ $.getJSON('./config/pre-loaded-chrom.json', function (data) {
 
 //fonction select chromosome => load chromosome in text area
 $('#chromosomes').change( function(){
-    fetch('/gemo/data/chromosomes/'+$("#chromosomes option:selected")[0].value)
+    fetch(current_dir+'/data/chromosomes/'+$("#chromosomes option:selected")[0].value)
 	.then(function(response) {
         return response.text();
     })
@@ -501,7 +503,7 @@ async function load_ideogram_from_form_data(){
     }
 
     //config.dataDir = "/gemo/config/";
-	config.dataDir = '/gemo/tmp/gemo_run/gemo_'+configPath+"/";
+	config.dataDir = current_dir+'/tmp/gemo_run/gemo_'+configPath+"/";
     //chrBands = chrDataParsed[2];
 
     let maxLength = ploidyParsed[2];
@@ -1557,7 +1559,7 @@ function ideogramConfig(mosaique){
     configChrompaint.rangeSet = dataSet;
     configChrompaint.ancestors = ancestors;
     configChrompaint.ploidyDesc = ploidyDesc;
-    configChrompaint.dataDir = '/gemo/tmp/gemo_run/gemo_'+configPath+"/";
+    configChrompaint.dataDir = current_dir+'/tmp/gemo_run/gemo_'+configPath+"/";
 
     //console.log(configChrompaint);
 
@@ -1677,20 +1679,20 @@ window.onload = async function(){
                 //saved as url
                 //alert("data not found");
                 //cherche le repertoire 
-                let response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/annot.txt');
+                let response = await fetch(current_dir+'/tmp/gemo_saved/gemo_'+acc+'/annot.txt');
                 let responseText = await response.text();
                 await $("#editorAnnot").val(responseText);
                 vizType = checkDataFile(d3.tsvParse(responseText));
 
-                response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/chrom.txt');
+                response = await fetch(current_dir+'/tmp/gemo_saved/gemo_'+acc+'/chrom.txt');
                 responseText = await response.text();
                 await $("#editorChr").val(responseText);
 
-                response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/color.txt');
+                response = await fetch(current_dir+'/tmp/gemo_saved/gemo_'+acc+'/color.txt');
                 responseText = await response.text();
                 await $("#editorColor").val(responseText);
 
-                response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/ploidy.txt');
+                response = await fetch(current_dir+'/tmp/gemo_saved/gemo_'+acc+'/ploidy.txt');
                 responseText = await response.text();
                 await $("#selectorploidy").val(parseInt(responseText));
                 console.log(parseInt(responseText));
