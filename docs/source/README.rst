@@ -171,19 +171,24 @@ A list of genomic coordinates (e.g. genes of interest, QTLs) can be provided in 
      - 5289224
      - gene
      - 0
-     - -
+     - \-
    * - chr01
      - 15485703
      - 15486813
      - gene
      - 0
-     - +
+     - \+
    * - chr02
      - 2276353
      - 2277821
      - gene
      - 0
-     - +
+     - \+
+
+.. image:: _images/bed_annot.png
+   :target: _images/bed_annot.png
+   :width: 500
+   :alt: bed_annot
      
 Data outputs
 ~~~~~~~~~~~~
