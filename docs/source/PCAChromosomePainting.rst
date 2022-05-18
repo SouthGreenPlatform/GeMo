@@ -100,6 +100,9 @@ axis in the following picture.
 
 .. image:: _images/PCA1.png
 
+Correspond to the file : **PCA/Analysis_axis_1_vs_2.pdf**
+
+
 In this example the left graph represent accessions projected along
 axis 1 and 2 and the right represent the allele projected along
 synthetic axis. A graphical representation is performed for each axis
@@ -119,12 +122,16 @@ along synthetic axis is generated.
 
 ::
 
-   sort -k 2n,2 PCA/Analysis_individuals_coordinates.tab | cut -f 1 -d " " | tail -10 > data/origin.txt
-   sort -k 3n,3 PCA/Analysis_individuals_coordinates.tab | cut -f 1 -d " " | tail -10 >> data/origin.txt
-   sort -k 3nr,3  PCA/Analysis_individuals_coordinates.tab | cut -f 1 -d " " | tail -10 >> data/origin.txt
-   sed -i 's:\"::g' data/origin.txt
-   sed -i 's=\.=-=' data/origin.txt
-
+   sort -k 2n,2 PCA/Analysis_individuals_coordinates.tab | cut -f 1 -d " " | tail -10 | sed 's:\"::g' | sed  's=\.=-=' | sed "s:$:\tg1:" > group1.txt
+   sort -k 3n,3 PCA/Analysis_individuals_coordinates.tab | cut -f 1 -d " " | tail -10 | sed 's:\"::g' | sed  's=\.=-=' | sed "s:$:\tg2:" > group2.txt
+   sort -k 3nr,3 PCA/Analysis_individuals_coordinates.tab | cut -f 1 -d " " | tail -10 | sed 's:\"::g' | sed  's=\.=-=' | sed "s:$:\tg3:" > group3.txt
+   
+   echo '["group"]' > data/origin.txt
+   cat group1.txt group2.txt group3.txt >> data/origin.txt
+   echo '["color"]' >> data/origin.txt
+   echo -e "g1\tred=0:green=1:blue=0:alpha=0.7" >> data/origin.txt
+   echo -e "g2\tred=0:green=0:blue=1:alpha=0.7" >> data/origin.txt
+   echo -e "g3\tred=1:green=0:blue=0:alpha=0.7" >> data/origin.txt
 
 
 The --group option
@@ -136,13 +143,11 @@ We assume that in some case you have additional informations on your dataset suc
 ::
 
    mkdir -p PCA_group
-   bin/vcf2struct.1.0.py --vcf data/core_v0.7.vcf --names data/origin.txt --type FACTORIAL --prefix PCA_group/Analysis --nAxes 6 --mulType coa
+   bin/vcf2struct.1.0.py --vcf data/core_v0.7.vcf --names data/sample.txt --type FACTORIAL --prefix PCA_group/Analysis --nAxes 6 --mulType coa --group data/origin.txt
 
-::
 
-   bin/vcf2struct.1.0.py --type VISUALIZE_VAR_2D --VarCoord PCA_group/Analysis_variables_coordinates.tab --dAxes 1:2 --mat PCA_group/Analysis_kMean_allele.tab --group PCA_group/Analysis_group_color.tab --prefix PCA_group/AlleleGrouping
+.. image:: _images/PCA2.png
 
-.. image:: _images/AlleleGrouping_axis1_vs_axis2.png
 
 **Mean Shift clustering**
 Now that allele have been projected along synthetic axes, it is time to cluster these alleles. The idea is that the structure reflected by the synthetic axis represent the ancestral structure. In this context, the alleles at the extremities of the cloud of points will be the ancestral ones. These alleles can be clustered using several approaches. In this tutorial we will use a Mean Shift clustering approach.
@@ -161,13 +166,56 @@ During the process, several informations are returned to standard output, but at
 
 ::
 
+   Performing MeanShift
+   Bandwidth estimation: 0.5199882678747445
    number of estimated clusters : 4
 
 - the number of allele grouped within each group is returned and should look like as followed:
 
 ::
 
-   Group g0 contained 163788 dots
-   Group g1 contained 54919 dots
-   Group g2 contained 43346 dots
-   Group g3 contained 37535 dots
+   Group g0 contained 28363 dots
+   Group g1 contained 8704 dots
+   Group g2 contained 3444 dots
+   Group g3 contained 3300 dots
+
+Five file are generated and can be found in the PCA_group folder:
+
+- **PCA_group/Analysis_kMean_allele.tab** file which correspond to the PCA_group/Analysis_matrix_4_PCA.tab in which the allele grouping has been recorded.
+
+- **PCA_group/Analysis_centroid_coordinates.tab** file which regroup the centroids coordinates.
+
+- **PCA_group/Analysis_centroid_iteration_grouping.tab** file which records for each centroid its grouping.
+
+- **PCA_group/Analysis_group_color.tab** file that attribute a color to the groups.
+
+- **PCA_group/Analysis_kMean_gp_prop.tab** file that report for each allele the probability to be in each groups. This is not a "real" probability, the idea was to have a statistics in case you want to filter alleles. This value was calculated as the inverse of the euclidian distance of one point and each centroids and these values were normalized so that the sum is equal to 1.
+
+
+Visualization of the allele grouping can be done as followed:
+
+::
+
+    ./bin/vcf2struct.1.0.py --type VISUALIZE_VAR_2D --VarCoord PCA_group/Analysis_variables_coordinates.tab --dAxes 1:2 --mat PCA_group/Analysis_kMean_allele.tab --group PCA_group/Analysis_group_color.tab --prefix PCA_group/AlleleGrouping
+
+
+And corresponding representation :
+
+.. image:: _images/AlleleGrouping_axis1_vs_axis2.png
+
+**PCA_group/AlleleGrouping_axis1_vs_axis2.png**
+
+It is not necessary to have a 3d visualization but we can try the command anyway:
+
+::
+
+    ./bin/vcf2struct.1.0.py --type VISUALIZE_VAR_3D --VarCoord PCA_group/Analysis_variables_coordinates.tab --dAxes 1:2:3 --mat PCA_group/Analysis_kMean_allele.tab --group PCA_group/Analysis_group_color.tab
+
+A window which should look like this should open:
+
+
+.. image:: _images/PCA3.png
+
+
+This 3d visualization can be rotated with the mouse.
+
