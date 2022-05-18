@@ -1,7 +1,14 @@
 Local Install
 =============
 
+Prerequisites
+^^^^^^^^^^^^^
+
+To install GeMo on your computer you need a local server environment like `MAMP <https://www.mamp.info/en/downloads/>`_.
+You will also need to install Python 3 and Node.
+
 Clone the GeMo repository
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -25,37 +32,30 @@ Create required directories
     mkdir tmp/gemo_run
     mkdir tmp/gemo_saved
 
-
-Change path in the server script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-::
-
-    //const progPath = '/opt/projects/VisuSNP/htdocs/gemo/python/';
-    //const workingPath = '/opt/projects/VisuSNP/htdocs/gemo/tmp/gemo_run/';
-    const progPath = '/Applications/MAMP/htdocs/GeMo-master/python/';
-    const workingPath = '/Applications/MAMP/htdocs/GeMo-master/tmp/gemo_run/';
-
-    //const savedDir = '/opt/projects/VisuSNP/htdocs/gemo/tmp/gemo_saved/gemo_' + id +'/';
-    const savedDir = '/Applications/MAMP/htdocs/GeMo-master/tmp/gemo_saved/gemo_' + id +'/';
-
-
-dans le main : virer les gemo/ dans les path
-
-
 Launch node server
 ^^^^^^^^^^^^^^^^^^
+
+In GeMo directory :
 
 ::
 
     npm run server
     
-Create your json data file
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-example:
+Configure socket variable
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the GeMo directory, modify the index.php file to connect to your local node server :
 
 ::
 
+    var socket = io('http://localhost:9070');
     
+
+Configure MAMP 
+^^^^^^^^^^^^^^
+
+Start MAMP and click the “Start” button in the toolbar.
+In the Preferences the Document root is set to “/Applications/MAMP/htdocs”. You can change the path to point on the GeMo directorie.
+Your local GeMo is now accessible in your web browser : http://localhost:8888/
     
 

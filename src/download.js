@@ -40,7 +40,7 @@ export function saveAsURL(){
         return false;
     } );
     let url = document.location.href;
-    let cleanurl = url.replace(/#.*/g, '');
+    let cleanurl = url.replace(/\?.*/g, '');
     let annot = $("#editorAnnot").val();
     let chrom = $("#editorChr").val();
     let color = $("#editorColor").val();
@@ -52,7 +52,7 @@ export function saveAsURL(){
             console.log(err);
         }else{
             console.log(path);
-            $('#url').val(cleanurl+"#"+path);
+            $('#url').val(cleanurl+"?acc="+path);
         }
     });
     

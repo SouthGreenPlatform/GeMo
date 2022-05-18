@@ -171,19 +171,24 @@ A list of genomic coordinates (e.g. genes of interest, QTLs) can be provided in 
      - 5289224
      - gene
      - 0
-     - -
+     - \-
    * - chr01
      - 15485703
      - 15486813
      - gene
      - 0
-     - +
+     - \+
    * - chr02
      - 2276353
      - 2277821
      - gene
      - 0
-     - +
+     - \+
+
+.. image:: _images/bed_annot.png
+   :target: _images/bed_annot.png
+   :width: 500
+   :alt: bed_annot
      
 Data outputs
 ~~~~~~~~~~~~
@@ -216,6 +221,13 @@ Data curation and export
 Uploaded datasets are automatically loaded in the text box of the GeMo menu, allowing users to update the content and reflect it on the image by clicking on the "update image" button.
 
 In curve mode,  users can visually set the threshold on the graph to recalculate the origin and size of clored block forming the mosacis. This can be particularly useful when multiple putative parental gene pools with unclear signals can create noisy mosaics or to switch segments from one haplotype to another for better consistency. Once a threshold is changed, the karyotype diagram is automatically updated.
+
+
+.. image:: _images/curve_threshold.gif
+   :target: _images/curve_threshold.gif
+   :width: 700
+   :alt: treshold
+
 
 For pre-loaded data, the curve mode can be activated only when the normalized curves dataset exists. In this case, a toggle button labeled "Curve based mode" is present at the top of the user input form.
 
