@@ -5,7 +5,8 @@ Prerequisites
 ^^^^^^^^^^^^^
 
 To install GeMo on your computer you need a local server environment like `MAMP <https://www.mamp.info/en/downloads/>`_.
-You will also need to install Python 3 and Node.
+
+You will also need to install Python 3 and Node. We recommand to install `NVM <https://github.com/nvm-sh/nvm/>`_ to manage Node and NPM versions.
 
 Clone the GeMo repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -55,7 +56,9 @@ Configure MAMP
 ^^^^^^^^^^^^^^
 
 Start MAMP and click the “Start” button in the toolbar.
-In the Preferences the Document root is set to “/Applications/MAMP/htdocs”. You can change the path to point on the GeMo directorie.
+In ``MAMP > Preferences... > Web Server`` the Document root is set to ``/Applications/MAMP/htdocs``. 
+You can change the path to point on the GeMo directorie.
+
 Your local GeMo is now accessible in your web browser : http://localhost:8888/
     
 
