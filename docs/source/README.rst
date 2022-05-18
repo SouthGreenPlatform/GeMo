@@ -217,6 +217,13 @@ Uploaded datasets are automatically loaded in the text box of the GeMo menu, all
 
 In curve mode,  users can visually set the threshold on the graph to recalculate the origin and size of clored block forming the mosacis. This can be particularly useful when multiple putative parental gene pools with unclear signals can create noisy mosaics or to switch segments from one haplotype to another for better consistency. Once a threshold is changed, the karyotype diagram is automatically updated.
 
+
+.. image:: _images/curve_threshold.gif
+   :target: _images/curve_threshold.gif
+   :width: 700
+   :alt: treshold
+
+
 For pre-loaded data, the curve mode can be activated only when the normalized curves dataset exists. In this case, a toggle button labeled "Curve based mode" is present at the top of the user input form.
 
 GeMo offers the possibility to download the latest version of the data sets and export the output graphics as SVG for publication purposes. In addition, data can be also stored temporarily online with a unique URL allowing to share it with multiple users.
