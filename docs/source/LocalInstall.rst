@@ -41,6 +41,15 @@ In GeMo directory :
 
     npm run server
     
+Configure socket variable
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the GeMo directory, modify the index.php file to connect to your local node server :
+
+::
+
+    var socket = io('http://localhost:9070');
+    
 
 Configure MAMP 
 ^^^^^^^^^^^^^^
