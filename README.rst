@@ -227,7 +227,8 @@ anyone can upload its own data or test with pre-loaded mosaics/datasets.
 Citation
 ========
 
-Summo M, Comte A, Martin G, Weitz E, Perelle P, Droc G and Rouard M. GeMo: A mosaic genome painting tool for plant genomes. (in prep)
+Summo M, Comte A, Martin G, Weitz E, Perelle P, Droc G and Rouard M. GeMo: A mosaic genome painting tool for plant genomes.  Database, Volume 2022, 2022, baac057, `https://doi.org/10.1093/database/baac057`
+
 
 Acknowledgements
 ================
@@ -257,12 +258,6 @@ The web interfaces were tested with the following platforms and web browsers:
      - 94.0.1
      - 96.0.1054.29
      - n/a
-   * - Linux
-     - 
-     - 
-     -
-     -
-     -
    * - Mac OS
      - 11.2
      - 97.0.4692.36
