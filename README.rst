@@ -1,5 +1,8 @@
-GeMo is a WebApp to represent Genome Mosaics with current focus on plants. However, GeMo is developed in a generic way it can be also applied to other organisms.
 
+.. contents:: Table of Contents
+    :depth: 2
+
+GeMo is a WebApp to represent Genome Mosaics with current focus on plants. However, GeMo is developed in a generic way it can be also applied to other organisms.
 
 Main features
 =============
@@ -239,6 +242,12 @@ Acknowledgements
 
 GeMo has been developed in the framework of the `Genome Harvest project <https://www.genomeharvest.fr>`__ supported by the Agropolis
 fondation.
+
+
+License
+=======
+
+Licencied under `CeCill-C <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>`_ and GPLv3.
 
 Troubleshooting and web browser compatibility
 =============================================
