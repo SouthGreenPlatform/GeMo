@@ -229,6 +229,10 @@ Citation
 
 Summo M, Comte A, Martin G, Weitz E, Perelle P, Droc G and Rouard M. GeMo: A mosaic genome painting tool for plant genomes.  Database, Volume 2022, 2022, baac057, `https://doi.org/10.1093/database/baac057`
 
+Contact
+=======
+
+For bug tracking purpose you can use the GitHub Issues or you can contact the developers at marilyne.summo@cirad.fr
 
 Acknowledgements
 ================
