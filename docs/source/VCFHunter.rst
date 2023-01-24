@@ -1,30 +1,37 @@
-Chromosome painting using non admixed ancestral accessions
-==========================================================
+Chromosome painting using non admixed ancestral accessions (VCFHunter)
+======================================================================
 
-**This tutorial point to tools that are not yet available but that will
-come soon**
-
-This tutorial aimed at showing how data should be processed to be then
+The aims of this tutorial are to showing how data should be processed to be then
 visualized with the GeMo
 
 Installation
 ~~~~~~~~~~~~
 
-Install `VCFHunter <https://github.com/SouthGreenPlatform/VcfHunter>`__
-following the documentation
+Install `VCFHunter <https://gemo.readthedocs.io/en/latest/QuickStart.html#installation-requirements>`__
+following the documentation presented above::
 
-Datasets
-~~~~~~~~
+   git clone https://github.com/gdroc/GeMo_tutorials.git
+   cd GeMo_tutorials
+   python3 -m venv $PWD/venv
+   source venv/bin/activate
+   pip install numpy
+   pip install matplotlib
+   pip install scipy
+
+Download datasets
+~~~~~~~~~~~~~~~~~
 
 Two ways :
 
-- Download `VCFHunter_GeMo.tar.gz <https://banana-genome-hub.southgreen.fr/filebrowser/download/5736974>`__
+- Download `Baurens_et_al_2019.zip <https://zenodo.org/record/6542870/files/Baurens_et_al_2019.zip>`__ available on Zenodo
 
 ::
 
-   mkdir VCFHunter
-   wget https://banana-genome-hub.southgreen.fr/filebrowser/download/5736974
-   tar -xzvf 5736974
+   mkdir data
+   cd data
+   wget https://zenodo.org/record/6542870/files/Baurens_et_al_2019.zip
+   unzip Baurens_et_al_2019.zip
+   ls Baurens_et_al_2019.vcf > Vcf.conf
 
 Goto :ref:`step1`
 
@@ -55,13 +62,13 @@ Goto :ref:`step1`
 
 ::
 
-   mkdir VCFHunter
-   cd VCF
+   mkdir data
+   cd data
    wget --no-check-certificate https://www.crop-diversity.org/gigwa/genofilt/tmpOutput/anonymousUser/b429763f507dc1bb2b169d7da5cf1804/Population_A-B__project1__2021-10-12__148329variants__VCF.zip
    unzip Population_A-B__project1__2021-10-12__148329variants__VCF.zip
-   cut -f 1,6 Population_A-B__21individuals_metadata.tsv > Origin.tab
-   sed -i 's:balbisiana:BB:' Origin.tab
-   sed -i 's:acuminata:AA:' Origin.tab
+   cut -f 1,6 Population_A-B__21individuals_metadata.tsv > Baurens_et_al_2019_origin.txt
+   sed -i 's:balbisiana:BB:' Baurens_et_al_2019_origin.txt
+   sed -i 's:acuminata:AA:' Baurens_et_al_2019_origin.txt
    ls Population_A-B__148329variants__10individuals.vcf > Vcf.conf
 
 VCF content
@@ -93,11 +100,11 @@ visualize data and optimize parameters.
 
 **Input**
 
--  Origin.tab
+-  Baurens_et_al_2019_origin.txt
 -  Vcf.conf is a file which contained path to vcf files which will be
    used for e-chromosome painting.
--  chromosome.tab (tabulated file with the chromosome name and lenght)
--  color.conf
+-  Baurens_et_al_2019_chromosome.txt (tabulated file with the chromosome name and length)
+-  Baurens_et_al_2019_color.txt
 
 ===== ========== === === =
 group name       r   g   b
@@ -115,7 +122,7 @@ Identification of private alleles and formatting output for more analysis
 
 ::
 
-   <path_vcfhunter>/IdentPrivateAllele.py -c Vcf.conf -g Origin.tab -o step1 -a y  -m y  
+   bin/IdentPrivateAllele.py -c data/Vcf.conf -g Baurens_et_al_2019_origin.txt -o step1 -a y  -m y
 
 In this first step, the program use genotyping information provided in
 vcf files passed in *Vcf.conf* file and the file *Origin.tab* containing
@@ -168,7 +175,7 @@ Determination of expected read ratio for each ancestral position based on ancest
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ::
 
-   <path_vcfhunter>/allele_ratio_group.py -g Origin.tab -p _ratio.tab.gz -o step2 -i step1
+   bin/allele_ratio_group.py -g Baurens_et_al_2019_origin.txt -p _ratio.tab.gz -o step2 -i step1
 
 In this second step the program take the input of specific allele
 identified in each accessions used to define genetic pools (ratio.tab.gz
@@ -214,7 +221,7 @@ Kunnan accession.
 
 ::
 
-   <path_vcfhunter>/allele_ratio_per_acc.py -c Vcf.conf -g Origin.tab -i step2 -o step3 -a Kunnan
+   bin/allele_ratio_per_acc.py -c Vcf.conf -g Baurens_et_al_2019_origin.txt -i step2 -o step3 -a DYN163-Kunnan
 
 The output can be found in the *step3* folder passed in *-o* option.
 This tabulated file contained 6 columns: column 1 corresponded to the
@@ -224,7 +231,7 @@ accession, column 5 is the expected allele frequency calculated at step
 2 and column 6 is the genetic group to which the allele has been
 attributed.
 
-For example : zmore step3/Kunnan_ratio.tab.gz
+For example : zmore step3/DYN163-Kunnan_ratio.tab.gz
 
 ===== ===== ====== =================== =================== ===
 chr   pos   allele obs_ratio           exp_ratio           grp
@@ -258,7 +265,7 @@ Output are of two types:
 .. code-block:: bash
 
    mkdir step4
-   <path_vcfhunter>/PaintArp.py -a Kunnan -r step3/Kunnan_ratio.tab.gz -c color.conf -o step4/Kunnan -w 12 -O 0 -s chromosome.tab
+   bin/PaintArp.py -a DYN163-Kunnan -r step3/DYN163-Kunnan_ratio.tab.gz -c Baurens_et_al_2019_color.txt -o step4/DYN163-Kunnan -w 12 -O 0 -s Baurens_et_al_2019_chromosome.txt
 
 File formatting for GeMo visualization
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -274,19 +281,19 @@ following command line:
 .. code-block:: bash
 
    mkdir step5
-   <path_vcfhunter>/convertForIdeo.py --name Kunnan --dir step4 --col color.conf --size chromosome.tab --prefix step5/Kunnan --plo 2
+   bin/convertForIdeo.py --name DYN163-Kunnan --dir step4 --col Baurens_et_al_2019_color.txt --size Baurens_et_al_2019_chromosome.txt --prefix step5/DYN163-Kunnan --plo 2
 
 This command generate several files with the following names:
 
--  **<accession_id>_ideo.tab** that contained block that could be drawn with
+-  **<accession_id>_ideo.txt** that contained block that could be drawn with
    GeMo (data section), 
--  **<accession_id>_curve.tab** that contained block that could be drawn with
+-  **<accession_id>_curve.txt** that contained block that could be drawn with
    GeMo (data section), 
--  **<accession_id>_ideoProb.tab** that contained block that could be drawn with
+-  **<accession_id>_ideoProb.txt** that contained block that could be drawn with
    GeMo (data section), 
--  **<accession_id>_chrom.tab** that contained information required to draw
+-  **<accession_id>_chrom.txt** that contained information required to draw
    chromosomes.
--  **<accession_id>_color.tab** contained color information that could be used
+-  **<accession_id>_color.txt** contained color information that could be used
    to draw blocks with custom color.
 
 

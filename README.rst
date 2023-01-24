@@ -1,6 +1,5 @@
 GeMo is a WebApp to represent Genome Mosaics with current focus on plants. However, GeMo is developed in a generic way it can be also applied to other organisms.
 
-
 Main features
 =============
 
@@ -215,7 +214,7 @@ Uploaded datasets are automatically loaded in the text box of the GeMo menu, all
 
 In curve mode, The user can visually set the threshold on the graph to recalculate the mosaic block contribution. This can be particularly useful when multiple putative parental gene pools with unclear signals can create noisy mosaics or to switch segments from one haplotype to another for better consistency. Once a threshold is changed, the karyotype diagram is automatically updated.
 
-Gemo offers the possibility to download the latest version of the data sets and export the output graphics as SVG for publication purposes. In addition, data can be also stored temporarily online with a unique URL allowing to share it with multiple users.
+GeMo offers the possibility to download the latest version of the data sets and export the output graphics as SVG for publication purposes. In addition, data can be also stored temporarily online with a unique URL allowing to share it with multiple users.
 
 
 Live demo
@@ -227,13 +226,24 @@ anyone can upload its own data or test with pre-loaded mosaics/datasets.
 Citation
 ========
 
-Summo M, Comte A, Martin G, Weitz E, Perelle P, Droc G and Rouard M. GeMo: A mosaic genome painting tool for plant genomes. (in prep)
+Summo M, Comte A, Martin G, Weitz E, Perelle P, Droc G and Rouard M. GeMo: A mosaic genome painting tool for plant genomes.  Database, Volume 2022, 2022, baac057, `https://doi.org/10.1093/database/baac057`
+
+Contact
+=======
+
+For bug tracking purpose you can use the GitHub Issues or you can contact the developers at marilyne.summo@cirad.fr
 
 Acknowledgements
 ================
 
 GeMo has been developed in the framework of the `Genome Harvest project <https://www.genomeharvest.fr>`__ supported by the Agropolis
 fondation.
+
+
+License
+=======
+
+Licencied under `CeCill-C <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>`_ and GPLv3.
 
 Troubleshooting and web browser compatibility
 =============================================
@@ -257,12 +267,6 @@ The web interfaces were tested with the following platforms and web browsers:
      - 94.0.1
      - 96.0.1054.29
      - n/a
-   * - Linux
-     - 
-     - 
-     -
-     -
-     -
    * - Mac OS
      - 11.2
      - 97.0.4692.36

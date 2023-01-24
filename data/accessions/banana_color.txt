@@ -1,9 +1,10 @@
 group	name	hex
+un	group_undef	#b4b4b4
 g6	group6	#c00000
 g5	group5	#9a029a
 g3	group3	#1440cd
 g2	group2	#ffc000
-g1	group1	#b4b4b4
+g1	group1	#000000
 g4	group4	#00b009
 g7	group7	#b4b4b4
-g0	group0	#000000
+g0  group0  #000000

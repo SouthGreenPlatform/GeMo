@@ -15,6 +15,8 @@ import {addTooltip, addHelpTooltips} from "./tooltip.js";
 let ploidyA ="";
 //////////
 
+var path = document.location.pathname;
+const current_dir = path.substring(path.indexOf('/'), path.lastIndexOf('/'));
 
 
 let lgtChro =[]; //longueur des chromosomes
@@ -46,7 +48,7 @@ $('#saveasurl').click(saveAsURL);
 //////////////////////////////
 ///// READ THE DOCS EMBED ////
 //////////////////////////////
-$( document ).ready(function() {
+/* $( document ).ready(function() {
 
     var params = {'url': 'https://gemo.readthedocs.io/en/latest/README.html',
     // 'doctool': 'sphinx',
@@ -62,7 +64,7 @@ $( document ).ready(function() {
         
         $('#help-container').html(content);
     });
-});
+}); */
 
 
 
@@ -122,7 +124,7 @@ async function load_accession(sampleJson, type){
     }
 
 	//load le fichier mosaique dans le formulaire
-	let response = await fetch('/gemo/data/accessions/'+fileToLoad);
+	let response = await fetch(current_dir+'/data/accessions/'+fileToLoad);
 	let responseText = await response.text();
 	await $("#editorAnnot").val(responseText);
     vizType = checkDataFile(d3.tsvParse(responseText));
@@ -133,16 +135,16 @@ async function load_accession(sampleJson, type){
 	$('#selectorploidy').val(ploidy);
 
 	//config.dataDir = '/gemo/data/visuchromp/';
-	response = await fetch('/gemo/data/chromosomes/'+ChromFile);
+	response = await fetch(current_dir+'/data/chromosomes/'+ChromFile);
 	responseText = await response.text();
 	$("#editorChr").val(responseText);
     //chrConfig = d3.tsvParse(responseText);
 
     //config.dataDir = '/gemo/config/';
-    config.dataDir = '/gemo/tmp/gemo_run/gemo_'+configPath+"/";
+    config.dataDir = current_dir+'/tmp/gemo_run/gemo_'+configPath+"/";
     
     //color file
-    response = await fetch('/gemo/data/accessions/'+ColorFile);
+    response = await fetch(current_dir+'/data/accessions/'+ColorFile);
 	responseText = await response.text();
 	await $("#editorColor").val(responseText);
 
@@ -389,7 +391,7 @@ $.getJSON('./config/pre-loaded-chrom.json', function (data) {
 
 //fonction select chromosome => load chromosome in text area
 $('#chromosomes').change( function(){
-    fetch('/gemo/data/chromosomes/'+$("#chromosomes option:selected")[0].value)
+    fetch(current_dir+'/data/chromosomes/'+$("#chromosomes option:selected")[0].value)
 	.then(function(response) {
         return response.text();
     })
@@ -501,7 +503,7 @@ async function load_ideogram_from_form_data(){
     }
 
     //config.dataDir = "/gemo/config/";
-	config.dataDir = '/gemo/tmp/gemo_run/gemo_'+configPath+"/";
+	config.dataDir = current_dir+'/tmp/gemo_run/gemo_'+configPath+"/";
     //chrBands = chrDataParsed[2];
 
     let maxLength = ploidyParsed[2];
@@ -1557,7 +1559,7 @@ function ideogramConfig(mosaique){
     configChrompaint.rangeSet = dataSet;
     configChrompaint.ancestors = ancestors;
     configChrompaint.ploidyDesc = ploidyDesc;
-    configChrompaint.dataDir = '/gemo/tmp/gemo_run/gemo_'+configPath+"/";
+    configChrompaint.dataDir = current_dir+'/tmp/gemo_run/gemo_'+configPath+"/";
 
     //console.log(configChrompaint);
 
@@ -1578,56 +1580,135 @@ function ideogramConfig(mosaique){
 }
 
 ////////////////////////////////////////////////////////////////
-//PRE-LOADED DATA VIA URL
+//ON LOAD FUNCTIONS
 ////////////////////////////////////////////////////////////////
+
 window.onload = async function(){
-    var urlAccession = window.location.hash;
-    if(urlAccession){
-        let acc = urlAccession.replace(/#/g, '');
+
+    //////////////////////////////
+    // embed github documentation
+    //////////////////////////////
+
+    console.log("embed");
+    var params = {'url': 'https://gemo.readthedocs.io/en/latest/README.html',
+    // 'doctool': 'sphinx',
+    // 'doctoolversion': '4.2.0',
+    };
+    var url = 'https://readthedocs.org/api/v3/embed/?' + $.param(params);
+    $.get(url, function(data) {
+        let content = data['content'];
+        //fix img url
+        content = content.replaceAll("_images", "docs/source/_images");
+        //fix link symbol
+        content = content.replaceAll("headline\"></a>", "headline\">&#x1F517; </a>");
         
-        //retreive all entries for this sample
-        let filterData = arrData.filter(function(value) {
-            return value.Sample === acc;
-        });
-        //console.log(filterData);
+        $('#help-container').html(content);
+    });
 
-        //Known accession
-        if(!filterData.length==0){
-            $('#chrompaint').hide();
-            $('#page-content-wrapper').show();
-            $('#home').hide();
-            $('#welcome').hide();
-            load_accession(filterData, 'none');
-        }else{
-            //saved as url
-            //alert("data not found");
-            //cherche le repertoire 
-            let response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/annot.txt');
-            let responseText = await response.text();
-            await $("#editorAnnot").val(responseText);
-            vizType = checkDataFile(d3.tsvParse(responseText));
+    ///////////////////
+    // parse URL
+    ////////////////////
 
-            response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/chrom.txt');
-            responseText = await response.text();
-            await $("#editorChr").val(responseText);
+    //document ready
+    //sinon firefox bug
+    $(async function () {
+        //var urlAccession = window.location.hash;
+        //if(urlAccession){
+        console.log('parse url');
 
-            response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/color.txt');
-            responseText = await response.text();
-            await $("#editorColor").val(responseText);
+        //retreive param
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
 
-            response = await fetch('/gemo/tmp/gemo_saved/gemo_'+acc+'/ploidy.txt');
-            responseText = await response.text();
-            await $("#selectorploidy").val(parseInt(responseText));
-            console.log(parseInt(responseText));
+        ///////////////////
+        // parse banner
+        ////////////////////
 
-            //ouvre le menu data
-            $("#collapseInput").show();
-            //ouvre le menu chr
-            $("#collapseChr").show();
-            //ouvre le menu color
-            $("#collapseColor").show();
-            $("#submit").click();
-        } 
-    }
+        if (urlParams.has('banner')){
+            //console.log(urlParams.get('organism'));
+            if(urlParams.get('banner') == "hidden"){
+                $('#banner').hide();
+            }
+        }
+
+        ///////////////////
+        // parse organism
+        ////////////////////
+
+        if (urlParams.has('organism')){
+            //console.log(urlParams.get('organism'));
+            let found = false;
+            var values = $("#organism option").map(function() {
+                
+                //match entre l'url et les option d'organism ?
+                if(this.value.match(new RegExp(urlParams.get('organism'), "i"))){
+                    console.log("match "+this.value);
+                    //change la valeur du select
+                    $("#organism").val(this.value).change();
+                    $("#organism").prop('disabled', 'disabled');
+                    found = true;
+                }
+            });
+            if(!found){
+                    alert("No organism \""+urlParams.get('organism')+"\" found");
+            }
+        }
+
+        ///////////////////
+        // parse accession
+        ////////////////////
+
+        if (urlParams.has('acc')){
+            console.log(urlParams.get('acc'));
+            let acc = urlParams.get('acc').replace(/#/g, '');
+            
+            //retreive all entries for this sample
+            let filterData = arrData.filter(function(value) {
+                return value.Sample === acc;
+            });
+            //console.log(filterData);
+
+            //Known accession
+            if(!filterData.length==0){
+                $('#chrompaint').hide();
+                $('#page-content-wrapper').show();
+                $('#home').hide();
+                $('#welcome').hide();
+                load_accession(filterData, 'none');
+            }else{
+                //saved as url
+                //alert("data not found");
+                //cherche le repertoire 
+                let response = await fetch(current_dir+'/tmp/gemo_saved/gemo_'+acc+'/annot.txt');
+                let responseText = await response.text();
+                await $("#editorAnnot").val(responseText);
+                vizType = checkDataFile(d3.tsvParse(responseText));
+
+                response = await fetch(current_dir+'/tmp/gemo_saved/gemo_'+acc+'/chrom.txt');
+                responseText = await response.text();
+                await $("#editorChr").val(responseText);
+
+                response = await fetch(current_dir+'/tmp/gemo_saved/gemo_'+acc+'/color.txt');
+                responseText = await response.text();
+                await $("#editorColor").val(responseText);
+
+                response = await fetch(current_dir+'/tmp/gemo_saved/gemo_'+acc+'/ploidy.txt');
+                responseText = await response.text();
+                await $("#selectorploidy").val(parseInt(responseText));
+                console.log(parseInt(responseText));
+
+                //ouvre le menu data
+                $("#collapseInput").show();
+                //ouvre le menu chr
+                $("#collapseChr").show();
+                //ouvre le menu color
+                $("#collapseColor").show();
+                $("#submit").click();
+            } 
+        }
+    }); 
+    
+
+    
     //window.location = nouvelleAdresse;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html>
 <head> 
-<title>GEMO</title>
+<title>GeMo</title>
 <meta charset="utf-8">
 
 <!--Bootstrap 4.4-->
@@ -61,7 +61,7 @@
 
 
 <!--JUMBOTRON-->
-<div class="jumbotron jumbo-bg">
+<div id="banner" class="jumbotron jumbo-bg">
 <div class="row">
 	<div class="col col-home">
 	<p class="lead">
@@ -253,7 +253,7 @@ echo "<script> load_ideogram()</script>";
 					<div id="smooth" class="custom-control custom-switch">
 						<input type="checkbox" class="custom-control-input" id="Smooth">
 						<label class="custom-control-label" for="Smooth">Smooth mode</label>
-					</div>
+					</div> -->
 					<!-- data-->
 					<div class="collapse" id="collapseInput">
 						<form class="my-form">

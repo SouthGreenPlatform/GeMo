@@ -16,7 +16,9 @@ GeMo is a WebApp to represent Genome Mosaics with current focus on plants. Howev
    :caption: Contents:
 
    README
+   QuickStart
    VCFHunter
    TraceAncestor
    PCAChromosomePainting
+   LocalInstall
 
