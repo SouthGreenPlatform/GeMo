@@ -88,10 +88,8 @@ async function load_accession(sampleJson, type){
     //SWITACHABLE
     if(fileName && fileCurve){
 		$("#switch").show();
-        $("#smooth").show();
 	}else{
         $("#switch").hide();
-        $("#smooth").hide();
     }
 
 	//affiche le loader
@@ -425,6 +423,7 @@ $('#switch').change(function() {
 ///////////////////////////////
 $('#Smooth').change(function() {
     console.log("smooth");
+    $("#submit").click();
 });
 
 
@@ -1235,11 +1234,217 @@ function mosaique(floorValue){
 
     let strMosaique = metaBlocks.join(" ").replace(/,/g,' ');
     strMosaique = strMosaique.replace(/^ +/gm,""); //variable à récuperer pour gemo.(sous forme de string) encodeURIComponent....
-    //console.log(strMosaique);
-    ideogramConfig(strMosaique);
+    
+    if (document.getElementById("Smooth").checked){
+        let smoothMosaic = smoothData(strMosaique);
+        let connectedMosaic = connectBlock(smoothMosaic);
+        ideogramConfig(strMosaique);
+        //ideogramConfig(connectedMosaic);
+    }else{
+        ideogramConfig(strMosaique);
+    }
+    
 }
 
+function smoothData(strMosaique){
 
+    let newStrMosaique = "";
+
+    let lines = strMosaique.split("\n");
+	//console.log(lines);
+	let colonne  = "";
+    let prevChr = "";
+    let prevColor = "";
+    let prevHap = "";
+    let savChr = "";
+    let savHap = "";
+    let savStart = "";
+    let savStop = "";
+    let savColor = "";
+    let first = true;
+	
+	for (let i = 0; i < lines.length; i++) {
+		
+		if (lines[i] == ""){
+			//console.log("skip en tête");
+			continue;
+		}
+		//split les espaces ou les tabulations
+		colonne = lines[i].split(/[ \t]+/);
+
+        if(first){
+            //nouveux bloc = current line
+            savChr = colonne[0];
+            savHap = colonne[1];
+            savStart = colonne[2];
+            savStop = colonne[3];
+            savColor = colonne[4];
+            prevChr = colonne[0];
+            prevColor = colonne[4];
+            prevHap = colonne[1];
+            first = false;
+            continue;
+        }
+        
+        //console.log("prev " + prevChr+ " " + prevHap+" "+prevColor);
+        //console.log("cur "+ colonne[0] + " "+ colonne[1]+" "+ colonne[4]);
+
+        //si on est sur le même brin 
+        if(parseInt(colonne[0]) == parseInt(prevChr) && parseInt(colonne[1]) == parseInt(prevHap)){
+            //si la couleur est la même
+            if(String(colonne[4]) == String(prevColor)){
+                //console.log("même couleur nouveau stop "+ colonne[3]);
+                //nouvelle coordonnée de block
+                savStop = colonne[3];
+            
+            //on change de couleur
+            }else{
+                //console.log("****************************new couleur ");
+                //console.log("j'écris  "+ savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n");
+                //ecrit l'ancien bloc
+                newStrMosaique += savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n";
+                //nouveux bloc = current line
+                savChr = colonne[0];
+                savHap = colonne[1];
+                savStart = colonne[2];
+                savStop = colonne[3];
+                savColor = colonne[4];
+                prevChr = colonne[0];
+                prevColor = colonne[4];
+                prevHap = colonne[1];
+            }
+        //si on change de brin
+        }else{
+            prevChr = colonne[0];
+            prevColor = colonne[4];
+            prevHap = colonne[1];
+            //console.log("new brin "+ lines[i]);
+            //console.log("j'écris  "+ savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n");
+            //save ancien bloc
+            newStrMosaique += savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n";
+            //nouveux bloc
+            savChr = colonne[0];
+            savHap = colonne[1];
+            savStart = colonne[2];
+            savStop = colonne[3];
+            savColor = colonne[4];
+            prevChr = colonne[0];
+            prevColor = colonne[4];
+            prevHap = colonne[1];
+        }
+        
+    }
+    //last
+    newStrMosaique += savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n";
+    //console.log(newStrMosaique);
+    return newStrMosaique;
+
+}
+
+function connectBlock(smoothMosaic){
+
+    let newStrMosaique = "";
+
+    let lines = smoothMosaic.split("\n");
+	//console.log(lines);
+	let colonne  = "";
+    let prevChr = "";
+    let prevColor = "";
+    let prevHap = "";
+    let savChr = "";
+    let savHap = "";
+    let savStart = "";
+    let savStop = "";
+    let savColor = "";
+    let first = true;
+	
+	for (let i = 0; i < lines.length; i++) {
+		
+		if (lines[i] == ""){
+			//console.log("skip en tête");
+			continue;
+		}
+		//split les espaces ou les tabulations
+		colonne = lines[i].split(/[ \t]+/);
+
+        if(first){
+            //nouveux bloc = current line
+            savChr = colonne[0];
+            savHap = colonne[1];
+            savStart = colonne[2];
+            savStop = colonne[3];
+            savColor = colonne[4];
+            prevChr = colonne[0];
+            prevColor = colonne[4];
+            prevHap = colonne[1];
+            first = false;
+            continue;
+        }
+        
+        //console.log("prev " + prevChr+ " " + prevHap+" "+prevColor);
+        //console.log("cur "+ colonne[0] + " "+ colonne[1]+" "+ colonne[4]);
+
+        //si on est sur le même brin 
+        if(parseInt(colonne[0]) == parseInt(prevChr) && parseInt(colonne[1]) == parseInt(prevHap)){
+            //si la couleur est la même
+            if(String(colonne[4]) == String(savColor)){
+                //console.log("même couleur nouveau stop "+ colonne[3]);
+                //nouvelle coordonnée de block
+                savStop = colonne[3];
+                //on ecrit
+                newStrMosaique += savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n";
+            
+            //on change de couleur
+            }else{
+                if(colonne[3] == "#808080"){
+                    //console.log("****************************new couleur ");
+                    //console.log("j'écris  "+ savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n");
+                    
+                    //sauve la coordonnées de fin
+                    prevStop = colonne[3];
+                
+                //autre couleur, on ecrit et on change de block
+                }else{
+                    //on ecrit
+                    newStrMosaique += savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n";
+                    //nouveux bloc = current line
+                    savChr = colonne[0];
+                    savHap = colonne[1];
+                    savStart = colonne[2];
+                    savStop = colonne[3];
+                    savColor = colonne[4];
+                    prevChr = colonne[0];
+                    prevColor = colonne[4];
+                    prevHap = colonne[1];
+                }
+                
+            }
+        //si on change de brin
+        }else{
+            prevChr = colonne[0];
+            prevColor = colonne[4];
+            prevHap = colonne[1];
+            //console.log("new brin "+ lines[i]);
+            //console.log("j'écris  "+ savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n");
+            //save ancien bloc
+            newStrMosaique += savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n";
+            //nouveux bloc
+            savChr = colonne[0];
+            savHap = colonne[1];
+            savStart = colonne[2];
+            savStop = colonne[3];
+            savColor = colonne[4];
+            prevChr = colonne[0];
+            prevColor = colonne[4];
+            prevHap = colonne[1];
+        }
+        
+    }
+    //last
+    newStrMosaique += savChr+"\t"+savHap+"\t"+savStart+"\t"+savStop+"\t"+savColor+"\n";
+    console.log(newStrMosaique);
+    return newStrMosaique;
+}
 
 // function mosaique(floorValue){
 //     /*
