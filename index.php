@@ -52,7 +52,9 @@
 <!--SocketIO-->
 <script src="node_modules/socket.io/client-dist/socket.io.js"></script>
 <script>
-	var socket = io('http://195.221.173.169:9070');
+	// var socket = io('http://195.221.173.169:9070');
+	var socket = io('http://195.221.175.11:9070');
+	
 </script>
 
 </head>

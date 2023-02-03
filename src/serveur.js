@@ -69,8 +69,8 @@ io.on('connection', socket => {
             }
 
             const { exec } = require("child_process");
-            exec(`python ${progPath}convert_band_data_socket.py`, (error, stdout, stderr) => {
-                console.log(`python ${progPath}convert_band_data_socket.py`);
+            exec(`python3 ${progPath}convert_band_data_socket.py`, (error, stdout, stderr) => {
+                console.log(`python3 ${progPath}convert_band_data_socket.py`);
                 if (error) {
                     console.error(`exec error: ${error}`);
                 }
