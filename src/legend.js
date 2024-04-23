@@ -177,13 +177,18 @@ export function randomColorGenerator_block(data){
         }
     });
 
+
 	//palette la plus grande
 	let maxNum = Math.max(...Object.keys(colorbrewer[palette]));
+	//palette la plus petite
+	let minNum = Math.min(...Object.keys(colorbrewer[palette]));
 	//nombre de groupes à colorer
 	let nbGroup = Object.keys(colorMap).length;
 	//si trop de groupes on prend la palette la plus grande
 	if(nbGroup > maxNum){
 		paletteTab = colorbrewer[palette][maxNum];
+	}else if(nbGroup < minNum){
+		paletteTab = colorbrewer[palette][minNum];
 	}else{
 		paletteTab = colorbrewer[palette][nbGroup];
 	}
