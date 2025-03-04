@@ -102,6 +102,7 @@ export function ploidyDescFromData(data){
     let chrStr = [];
 	let currentChr;
 	let annotTable = data.split("\n");
+	let lastMaxPloidy =0;
 	let maxPloidy =0;
 	let first = true;
 
@@ -137,11 +138,12 @@ export function ploidyDescFromData(data){
 			//on change de chromosomes
 			currentChr = chr;
 			chrStr = [];
+			lastMaxPloidy = maxPloidy;
 			maxPloidy = 0;
 		}
 	}
-	//une fois qu'on a le max ploidy pour le chromosome courrant
-	for (let i = 0; i < parseInt(maxPloidy) + 1; i++) {
+	//process le dernier chromosome avec lastMaxPloidy
+	for (let i = 0; i < parseInt(lastMaxPloidy) + 1; i++) {
 		chrStr.push(i+1);
 	}	
 	ploidyDesc.push(chrStr.join(""));
