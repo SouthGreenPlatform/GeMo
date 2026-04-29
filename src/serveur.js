@@ -4,7 +4,18 @@ const app = express();
 const bodyParser = require("body-parser");
 
 const path = require('path');
+const { execFile } = require('child_process');
 
+// Fonctions de validation de sécurité
+function isValidPloidyValue(ploidy) {
+    // Accepte seulement des entiers de 1 à 9
+    return /^[1-9]$/.test(String(ploidy));
+}
+
+function isValidId(id) {
+    // Accepte seulement alphanumériques et underscores (protection contre path traversal)
+    return /^[a-zA-Z0-9_]+$/.test(String(id));
+}
 
 app.use(bodyParser.urlencoded({extended: true})); //je crois que ça me permet de lire le body de ma requête ajax dans parse.js sendFile()..
 app.use(bodyParser.json()); //donc je le laisse là.
@@ -68,11 +79,10 @@ io.on('connection', socket => {
                 console.error(`chdir: ${err}`);
             }
 
-            const { exec } = require("child_process");
-            exec(`python3 ${progPath}convert_band_data_socket.py`, (error, stdout, stderr) => {
+            execFile('python3', [progPath + 'convert_band_data_socket.py'], (error, stdout, stderr) => {
                 console.log(`python3 ${progPath}convert_band_data_socket.py`);
                 if (error) {
-                    console.error(`exec error: ${error}`);
+                    console.error(`execFile error: ${error}`);
                 }
                 console.log(`stdout: ${stdout}`);
                 callback(null, socket.id);
@@ -84,6 +94,12 @@ io.on('connection', socket => {
 
     socket.on ( "gff" , (annot, color, ploidy, callback) => {
         console.log("gff");
+
+        // Validation de la ploïdie pour éviter l'injection de commande
+        if (!isValidPloidyValue(ploidy)) {
+            console.error(`Invalid ploidy value: ${ploidy}`);
+            return callback("Invalid ploidy value. Must be a number between 1 and 9.");
+        }
 
         //genère un ID
         var date = new Date();
@@ -135,11 +151,10 @@ io.on('connection', socket => {
         }); */
         
         //cree les gff
-        const { exec } = require("child_process");
-        exec(`perl ${progPath}gemo2gff.pl ${ploidy} ${id}/annot.txt ${id}/color.txt ${id}/`, (error, stdout, stderr) => {
+        execFile('perl', [progPath + 'gemo2gff.pl', ploidy, id + '/annot.txt', id + '/color.txt', id + '/'], (error, stdout, stderr) => {
             console.log(`${progPath}gemo2gff.pl ${id}/annot.txt ${id}/color.txt ${id}/`);
             if (error) {
-                console.error(`exec error: ${error}`);
+                console.error(`execFile error: ${error}`);
             }
             console.log(`stdout: ${stdout}`);
             
