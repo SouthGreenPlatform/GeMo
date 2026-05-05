@@ -4,6 +4,7 @@ import { chromosomeParser, annotationParser, ploidyDesc, bedParser, ploidyDescFr
 import { loadingon, loadingoff, displaytext, clear, homeClick } from "./display.js";
 import { downloadArchive, saveAsURL} from "./download.js";
 import { drawBed, ideoViewbox, replaceChromName } from "./draw.js";
+import { sanitizeHTML, createSafeOption, isCleanData, validateNumber } from "./security.js";
 //chrompaint
 import {resetgraph} from "./chrompaint/import.js";
 import {checkColorFile,checkLenFile,checkDataFile} from "./chrompaint/checkFile.js";
@@ -83,9 +84,15 @@ async function load_accession(sampleJson, type){
 	let ChromFile = sampleJson[0].ChromFile;
     let ColorFile = sampleJson[0].ColorFile;
     let GenomeBrowser = sampleJson[0].GenomeBrowser;
+	
+	// Valider les données du serveur
+	if (!isCleanData(sampleJson[0])) {
+		console.error("Données suspectes du serveur");
+		alert("Erreur: données invalides reçues du serveur");
+		return;
+	}
 
 	clear();
-	//console.log(new Error().stack);
 
     //SWITACHABLE
     if(fileName && fileCurve){
@@ -337,10 +344,7 @@ $('#organism').change(function () {
 
         $.each(filterData, function (index, value) {
             // Now, fill the second dropdown list with samples
-            //$('#sample').append('<option value="' + value.ID + '">' + value.Sample + '</option>');
-            var option = document.createElement("option");
-            option.setAttribute("value",value.ID);
-            option.innerHTML= value.Sample;
+            var option = createSafeOption(value.ID, value.Sample);
             optgroup.append(option);
         });
         //ferme la section optgroup
@@ -411,11 +415,11 @@ $('#switch').change(function() {
 		load_accession(sampleJson, "curve");
         $('#Switch').attr('disabled','disabled');
         setTimeout('$("#Switch").removeAttr("disabled")', 1500);
-        $('#Smooth').removeAttr("disabled");
+        // $('#Smooth').removeAttr("disabled");
         
 	}else{
 		load_accession(sampleJson, "block");
-        $('#Smooth').attr('disabled','disabled');
+        // $('#Smooth').attr('disabled','disabled');
 	}
 });
 
@@ -423,10 +427,10 @@ $('#switch').change(function() {
 ///////////////////////////////
 ///// BOUTON SMOOTH CURVE /////
 ///////////////////////////////
-$('#Smooth').change(function() {
-    console.log("smooth");
-    $("#submit").click();
-});
+// $('#Smooth').change(function() {
+//     console.log("smooth");
+//     $("#submit").click();
+// });
 
 
 
@@ -602,6 +606,25 @@ document.getElementById("submit").addEventListener("click", async function(){
     //prevent multiple clicks
     $('#submit').attr('disabled','disabled');
     setTimeout('$("#submit").removeAttr("disabled")', 1500);
+    
+    //Validation des données du formulaire
+    const chrdata = $("#editorChr").val();
+    const annotdata = $("#editorAnnot").val();
+    const ploidy = $("#selectorploidy").val();
+    
+    if (!chrdata || chrdata.trim() === "") {
+        alert("Données chromosomes manquantes");
+        return;
+    }
+    if (!annotdata || annotdata.trim() === "") {
+        alert("Données d'annotation manquantes");
+        return;
+    }
+    if (!ploidy || isNaN(ploidy) || parseInt(ploidy) < 1 || parseInt(ploidy) > 100) {
+        alert("Ploidy invalide (1-100)");
+        return;
+    }
+    
     //Si on est en mode "curve"
     //var radio_form = $('#radio_form input:radio:checked').val()
     if(vizType === "curve"){
@@ -692,41 +715,135 @@ document.getElementById("submit").addEventListener("click", async function(){
  * @param fileType string. En pratique c'est l'ID de l'input appellant (e.id.target), celui-ci étant (color/len/data)File il nous permet de le traiter dans un switch. voir 1* et 2*
  */
 
+function isSafeFileName(filename) {
+    return typeof filename === 'string' && /^[a-zA-Z0-9._-]+$/.test(filename);
+}
+
+function getAllowedExtensions(fileType) {
+    const allowed = {
+        data: ['.txt', '.tsv', '.csv'],
+        color: ['.txt', '.tsv', '.csv'],
+        len: ['.txt', '.tsv', '.csv'],
+        bed: ['.bed', '.txt']
+    };
+    return allowed[fileType] || ['.txt', '.tsv'];
+}
+
+function getFileExtension(filename) {
+    if (typeof filename !== 'string') return '';
+    const idx = filename.lastIndexOf('.');
+    if (idx === -1) return '';
+    return filename.substring(idx).toLowerCase();
+}
+
+function isSuspiciousFileContent(text) {
+    if (typeof text !== 'string') return true;
+    const suspicious = /<script|<\/?script|javascript:|onerror\s*=|onload\s*=|<iframe|<object|<embed|eval\s*\(|exec\s*\(|<\?php|<\?/i;
+    const controlChars = /[\x00-\x08\x0B\x0C\x0E-\x1F]/;
+    return suspicious.test(text) || controlChars.test(text);
+}
+
+function validateBedContent(text) {
+    const lines = text.split(/\r?\n/).filter(line => line.trim() !== '');
+    if (lines.length === 0) return false;
+    for (const line of lines) {
+        if (line.startsWith('#')) continue;
+        const cols = line.trim().split(/[ \t]+/);
+        if (cols.length < 3) return false;
+        if (cols.some(col => isSuspiciousFileContent(col))) return false;
+        if (!/^[a-zA-Z0-9_.\-]+$/.test(cols[0])) return false;
+    }
+    return true;
+}
+
 function handleFiles(files,fileType) {
     let fileName = fileType.replace("File",""); //1* colorFile -> color.
     let reader = new FileReader();              //initalisation d'un reader pour lire le fichier, si si, un reader, pour lire.
     let file = files[0];
 	var radio_form = $('#radio_form input:radio:checked').val();
 
+    if (!file) {
+        alert("Aucun fichier sélectionné.");
+        return;
+    }
+    if (!isSafeFileName(file.name)) {
+        alert("Nom de fichier invalide. Utilisez uniquement lettres, chiffres, points, tirets et underscores.");
+        return;
+    }
+    const allowed = getAllowedExtensions(fileName);    
+    const ext = getFileExtension(file.name);
+    if (!allowed.includes(ext)) {
+        alert(`Extension non autorisée : ${ext || '(aucune)'}. Extensions autorisées : ${allowed.join(', ')}.`);
+        return;
+    }
+    const maxSize = 20 * 1024 * 1024; // 20 Mo
+    if (file.size > maxSize) {
+        alert(`Fichier trop volumineux : ${Math.round(file.size / 1024 / 1024)} Mo. Taille max : 20 Mo.`);
+        return;
+    }
+
     reader.readAsText(file, "UTF-8");
     reader.onload = async function (e) {
-	
-		switch(fileName){                       //2*
-			case'data':
-				rawData = e.target.result;
-                vizType = checkDataFile(d3.tsvParse(rawData));
-				$("#editorAnnot").val(rawData);
-				break;
-			case'color':
-				if(checkColorFile(d3.tsvParse(e.target.result))) {
-					ancestorsNameColor = parsingColor(d3.tsvParse(e.target.result));
-					$("#editorColor").val(e.target.result);
-				}
-				break;
-			case'len':
-                if(checkLenFile(d3.tsvParse(e.target.result))) {
-					chrConfig = d3.tsvParse(e.target.result);
-                    chrDict = parseChrName(chrConfig);
-                    configPath = await parsingLen(chrConfig, chrDict);
-					//configPath = await parsingLen(chrConfig);
-					$("#editorChr").val(e.target.result);
-				}
-				break;
-            case'bed':
-				$("#editorBed").val(e.target.result);
-                //bedAnnot = bedParser(e.target.result, chrDict);
-				break;
-		}
+        const content = e.target.result;
+        if (!content || content.trim() === '') {
+            alert('Fichier vide.');
+            return;
+        }
+        if (isSuspiciousFileContent(content)) {
+            alert('Contenu de fichier suspect détecté.');
+            return;
+        }
+        if (!/[\t, ]/.test(content)) {
+            alert('Fichier non tabulé, séparé par des espaces ou mal formé.');
+            return;
+        }
+
+        switch(fileName){                       //2*
+            case'data': {
+                const parsed = d3.tsvParse(content);
+                const type = checkDataFile(parsed);
+                if (!type) {
+                    alert('Format de fichier de données invalide.');
+                    return;
+                }
+                rawData = content;
+                vizType = type;
+                $("#editorAnnot").val(content);
+                break;
+            }
+            case'color': {
+                const parsed = d3.tsvParse(content);
+                if (!checkColorFile(parsed)) {
+                    alert('Format de fichier couleur invalide.');
+                    return;
+                }
+                ancestorsNameColor = parsingColor(parsed);
+                $("#editorColor").val(content);
+                break;
+            }
+            case'len': {
+                const parsed = d3.tsvParse(content);
+                if (!checkLenFile(parsed)) {
+                    alert('Format de fichier longueur invalide.');
+                    return;
+                }
+                chrConfig = parsed;
+                chrDict = parseChrName(chrConfig);
+                configPath = await parsingLen(chrConfig, chrDict);
+                $("#editorChr").val(content);
+                break;
+            }
+            case'bed': {
+                if (!validateBedContent(content)) {
+                    alert('Format BED invalide ou contenu suspect.');
+                    return;
+                }
+                $("#editorBed").val(content);
+                break;
+            }
+            default:
+                alert('Type de fichier inconnu.');
+        }
     };
     reader.onerror = function () {
         alert("Echec de chargement du fichier");
@@ -1237,14 +1354,14 @@ function mosaique(floorValue){
     let strMosaique = metaBlocks.join(" ").replace(/,/g,' ');
     strMosaique = strMosaique.replace(/^ +/gm,""); //variable à récuperer pour gemo.(sous forme de string) encodeURIComponent....
     
-    if (document.getElementById("Smooth").checked){
-        let smoothMosaic = smoothData(strMosaique);
-        let connectedMosaic = connectBlock(smoothMosaic);
+    // if (document.getElementById("Smooth").checked){
+    //     let smoothMosaic = smoothData(strMosaique);
+    //     let connectedMosaic = connectBlock(smoothMosaic);
+    //     ideogramConfig(strMosaique);
+    //     //ideogramConfig(connectedMosaic);
+    // }else{
         ideogramConfig(strMosaique);
-        //ideogramConfig(connectedMosaic);
-    }else{
-        ideogramConfig(strMosaique);
-    }
+    // }
     
 }
 

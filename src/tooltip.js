@@ -1,12 +1,14 @@
 //Ajoute les tooltips, lien vers genome browser
 export function addTooltip(annotTable, gblink, chrDict){
 
-	//console.log(annotTable);
-
 	console.log("add tooltip "+gblink);
 
 	let ploidy = $("#selectorploidy").val();
-	//console.log(ploidy);
+	// Validation du ploidy
+	if (!ploidy || isNaN(ploidy) || parseInt(ploidy) < 1 || parseInt(ploidy) > 100) {
+		console.error("Ploidy invalide:", ploidy);
+		return;
+	}
 
 	//Appel au serveur
     // genère un gff à envoyer au genome browser
