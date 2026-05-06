@@ -58,10 +58,9 @@ $('#saveasurl').click(saveAsURL);
     var url = 'https://readthedocs.org/api/v3/embed/?' + $.param(params);
     $.get(url, function(data) {
         let content = data['content'];
-        //fix img url
-        content = content.replaceAll("_images", "docs/source/_images");
+        // embedded content already includes absolute _images URLs, so preserve them
         //fix link symbol
-        content = content.replaceAll("headline\"></a>", "headline\">&#x1F517; </a>");
+        content = content.replaceAll("</a>", "🔗</a>");
         
         $('#help-container').html(content);
     });
@@ -1714,10 +1713,9 @@ window.onload = async function(){
     var url = 'https://readthedocs.org/api/v3/embed/?' + $.param(params);
     $.get(url, function(data) {
         let content = data['content'];
-        //fix img url
-        content = content.replaceAll("_images", "docs/source/_images");
+        // embedded content already includes absolute _images URLs, so preserve them
         //fix link symbol
-        content = content.replaceAll("headline\"></a>", "headline\">&#x1F517; </a>");
+        content = content.replaceAll("</a>", "🔗</a>");
         
         $('#help-container').html(content);
     });
