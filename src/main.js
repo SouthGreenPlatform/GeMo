@@ -543,6 +543,11 @@ async function load_ideogram_from_form_data(){
     //Si lien vers genome browser on calcul les tooltips
     let gblink = $("#editorGB").val();
     if(gblink){
+        // Valider l'URL pour éviter les injections
+        if (!isValidGenomeBrowserURL(gblink)) {
+            alert("URL du genome browser invalide ou suspecte. Veuillez entrer une URL HTTPS valide.");
+            return;
+        }
         setTimeout(addTooltip, 100, annotTable, gblink, chrDict);
     }
 
@@ -755,6 +760,31 @@ function validateBedContent(text) {
     return true;
 }
 
+function isValidGenomeBrowserURL(url) {
+    // Vérifier que c'est une URL HTTPS valide
+    const urlPattern = /^https:\/\/[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/.*)?$/;
+    if (!urlPattern.test(url)) {
+        return false;
+    }
+    // Vérifier qu'il n'y a pas de caractères suspects (injection potentielle)
+    const suspiciousPatterns = [
+        /<script/i,
+        /javascript:/i,
+        /on\w+\s*=/i,
+        /eval\(/i,
+        /alert\(/i,
+        /document\./i,
+        /window\./i,
+        /location\./i
+    ];
+    for (const pattern of suspiciousPatterns) {
+        if (pattern.test(url)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 function handleFiles(files,fileType) {
     let fileName = fileType.replace("File",""); //1* colorFile -> color.
     let reader = new FileReader();              //initalisation d'un reader pour lire le fichier, si si, un reader, pour lire.
@@ -766,18 +796,18 @@ function handleFiles(files,fileType) {
         return;
     }
     if (!isSafeFileName(file.name)) {
-        alert("Nom de fichier invalide. Utilisez uniquement lettres, chiffres, points, tirets et underscores.");
+        alert("Invalid filename. Use only letters, numbers, periods, hyphens and underscores.");
         return;
     }
     const allowed = getAllowedExtensions(fileName);    
     const ext = getFileExtension(file.name);
     if (!allowed.includes(ext)) {
-        alert(`Extension non autorisée : ${ext || '(aucune)'}. Extensions autorisées : ${allowed.join(', ')}.`);
+        alert(`Extension is not allowed: ${ext || '(none)'}. Allowed extensions: ${allowed.join(', ')}.`);
         return;
     }
     const maxSize = 20 * 1024 * 1024; // 20 Mo
     if (file.size > maxSize) {
-        alert(`Fichier trop volumineux : ${Math.round(file.size / 1024 / 1024)} Mo. Taille max : 20 Mo.`);
+        alert(`File too large: ${Math.round(file.size / 1024 / 1024)} MB. Maximum size: 20 MB.`);
         return;
     }
 
@@ -785,15 +815,15 @@ function handleFiles(files,fileType) {
     reader.onload = async function (e) {
         const content = e.target.result;
         if (!content || content.trim() === '') {
-            alert('Fichier vide.');
+            alert('Empty file.');
             return;
         }
         if (isSuspiciousFileContent(content)) {
-            alert('Contenu de fichier suspect détecté.');
+            alert('Suspicious file content detected.');
             return;
         }
         if (!/[\t, ]/.test(content)) {
-            alert('Fichier non tabulé, séparé par des espaces ou mal formé.');
+            alert('File is not tab-separated, comma-separated or malformed.');
             return;
         }
 
@@ -802,7 +832,7 @@ function handleFiles(files,fileType) {
                 const parsed = d3.tsvParse(content);
                 const type = checkDataFile(parsed);
                 if (!type) {
-                    alert('Format de fichier de données invalide.');
+                    alert('Invalid data file format.');
                     return;
                 }
                 rawData = content;
@@ -813,7 +843,7 @@ function handleFiles(files,fileType) {
             case'color': {
                 const parsed = d3.tsvParse(content);
                 if (!checkColorFile(parsed)) {
-                    alert('Format de fichier couleur invalide.');
+                    alert('Invalid color file format.');
                     return;
                 }
                 ancestorsNameColor = parsingColor(parsed);
@@ -823,7 +853,7 @@ function handleFiles(files,fileType) {
             case'len': {
                 const parsed = d3.tsvParse(content);
                 if (!checkLenFile(parsed)) {
-                    alert('Format de fichier longueur invalide.');
+                    alert('Invalid length file format.');
                     return;
                 }
                 chrConfig = parsed;
@@ -834,18 +864,18 @@ function handleFiles(files,fileType) {
             }
             case'bed': {
                 if (!validateBedContent(content)) {
-                    alert('Format BED invalide ou contenu suspect.');
+                    alert('Invalid BED format or suspicious content.');
                     return;
                 }
                 $("#editorBed").val(content);
                 break;
             }
             default:
-                alert('Type de fichier inconnu.');
+                alert('Unknown file type.');
         }
     };
     reader.onerror = function () {
-        alert("Echec de chargement du fichier");
+        alert("Failed to load the file");
         //dropArea.style.backgroundImage = "invalid 1s ease forwards";
     }
 }
@@ -1689,6 +1719,11 @@ function ideogramConfig(mosaique){
     let gblink = $("#editorGB").val();
     let annotTable = mosaique.split("\n");
     if(gblink){
+        // Valider l'URL pour éviter les injections
+        if (!isValidGenomeBrowserURL(gblink)) {
+            alert("Invalid URL for genome browser. Please enter a valid HTTPS URL.");
+            return;
+        }
         setTimeout(addTooltip, 100, annotTable, gblink, chrDict);
     }
     
